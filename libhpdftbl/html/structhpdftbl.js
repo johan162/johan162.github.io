@@ -1,0 +1,28 @@
+var structhpdftbl =
+[
+    [ "canvas_cb", "structhpdftbl.html#ac0b686f623c6a898f31ae37ee18b803d", null ],
+    [ "cells", "structhpdftbl.html#a8a29181dd86aa6ced42db9a31a65bc1a", null ],
+    [ "col_width_percent", "structhpdftbl.html#a67aeb56f4513f758fa6b8608b553cb68", null ],
+    [ "cols", "structhpdftbl.html#a8bc05371b3a4013263f68932ba1b6452", null ],
+    [ "content_cb", "structhpdftbl.html#a21eb8248d196c3b26ed363c34b41eee1", null ],
+    [ "content_style", "structhpdftbl.html#a1ff4eb0982ea874dd2c0873edde7629f", null ],
+    [ "content_style_cb", "structhpdftbl.html#a724e6e7b7029c0198bad1a9ca1cdda15", null ],
+    [ "header_style", "structhpdftbl.html#a905e87e1ac462550a7e2c9571f49c630", null ],
+    [ "height", "structhpdftbl.html#a64f3448e2733fa528f9de13b7c627d69", null ],
+    [ "inner_border", "structhpdftbl.html#afef2abd1bf24314a8e3346ba05c87c24", null ],
+    [ "label_cb", "structhpdftbl.html#afa7f611082a18bdef83176786d1e5114", null ],
+    [ "label_style", "structhpdftbl.html#adcd69a0681be0895f317768491c6fb3d", null ],
+    [ "outer_border", "structhpdftbl.html#a146db3baacb546af0fb4c1c4b4acc05b", null ],
+    [ "pdf_doc", "structhpdftbl.html#a953ebc32da69561907f48eecdda9c96d", null ],
+    [ "pdf_page", "structhpdftbl.html#add9714fb55f614fb001a0897a0697ec0", null ],
+    [ "posx", "structhpdftbl.html#ab85445d048189b0cf3b4b79d92fb6a18", null ],
+    [ "posy", "structhpdftbl.html#a38444bd596919c5d440ec56dac6f0560", null ],
+    [ "rows", "structhpdftbl.html#ad161320eba27a8b966baac47bee35c46", null ],
+    [ "tag", "structhpdftbl.html#a3fd9a258481b2a4c0610d35a95c516f6", null ],
+    [ "title_style", "structhpdftbl.html#a5bfda6a8c773a6ef2997ecc6f90b714c", null ],
+    [ "title_txt", "structhpdftbl.html#a9517b2a31eac537dc20e18f76b7e2862", null ],
+    [ "use_cell_labels", "structhpdftbl.html#ad1234372a32e134b7cbad554cee655c2", null ],
+    [ "use_header_row", "structhpdftbl.html#a3477b128e9bb084b06eb018a8897a17d", null ],
+    [ "use_label_grid_style", "structhpdftbl.html#a5e5a45626c52978e134fe29dccae8b15", null ],
+    [ "width", "structhpdftbl.html#a4f29c3b2841b17180ba269809503cc9a", null ]
+];
