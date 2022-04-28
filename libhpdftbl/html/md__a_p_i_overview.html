@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta2</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -99,7 +101,7 @@ Table creation related functions</h1>
 <li><a class="el" href="hpdftbl_8c.html#a975559350861291240dc08d76e103aca" title="Switch stroking anchor point.">hpdftbl_set_anchor_top_left()</a> <em>Switch the anchor point of a table betwen top left and bottom left corner.</em></li>
 <li><a class="el" href="hpdftbl_8c.html#a1bf5031e424de849da750a24ad4e8b15" title="Get stroking anchor point.">hpdftbl_get_anchor_top_left()</a> <em>Get the current achor point of table.</em></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
 Table error handling</h1>
 <ul>
 <li><a class="el" href="hpdftbl_8c.html#adab6f6dae9a3d74906eba7e4e92c0ea4" title="Specify errhandler for the table routines.">hpdftbl_set_errhandler()</a> <em>Set and error handler callback.</em></li>
@@ -107,7 +109,7 @@ Table error handling</h1>
 <li><a class="el" href="hpdftbl_8c.html#a6ff78fe6264c00147dd5f074629230d1" title="Return last error code.">hpdftbl_get_last_errcode()</a> <em>Get the error code from last error raised</em></li>
 <li><a class="el" href="hpdftbl_8c.html#a2ff1cca64859bc1acea1c323c5972f3d" title="A simple default table error handler callback that outputs the error to stderr in human readable form...">hpdftbl_default_table_error_handler()</a> <em>A default error handler callback that print error to stdout and quits the process.</em></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md15"></a>
+<h1><a class="anchor" id="autotoc_md13"></a>
 Theme handling methods</h1>
 <p >Themes is a technique to easier specify the look and feel to be re-used for multiple tables.</p>
 <ul>
@@ -115,7 +117,7 @@ Theme handling methods</h1>
 <li><a class="el" href="hpdftbl_8c.html#a2089087e554335e1b3f5f5940613b9aa" title="Return the default theme.">hpdftbl_get_default_theme()</a> <em>Get the default theme. A good way to start and then modify.</em></li>
 <li><a class="el" href="hpdftbl_8c.html#a734ca37ac3b1106b98f645a0c859812c" title="Destroy existing theme structure and free memory.">hpdftbl_destroy_theme()</a> <em>Free all memory structures used by a theme.</em></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md20"></a>
+<h1><a class="anchor" id="autotoc_md15"></a>
 Table layout adjusting functions</h1>
 <p >Adjusting the structure of the table (apart from number of rows and columns)</p>
 <ul>
@@ -123,7 +125,7 @@ Table layout adjusting functions</h1>
 <li><a class="el" href="hpdftbl_8c.html#a734be6eefc1e6f486f0ee1b6fc273a23" title="Set cell spanning.">hpdftbl_set_cellspan()</a> *Define a cell to span multiple rows and columns."</li>
 <li><a class="el" href="hpdftbl_8c.html#ac27365d9d1493f93be019950904e5567" title="Clear all cell spanning.">hpdftbl_clear_spanning()</a> <em>Remove all previous set cell spanning.</em></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md23"></a>
+<h1><a class="anchor" id="autotoc_md22"></a>
 Table style modifying functions</h1>
 <p >These function are all about look an feel of the table.</p>
 <ul>
@@ -143,7 +145,7 @@ Table style modifying functions</h1>
 <li><a class="el" href="hpdftbl_8c.html#aee5f23dc45a1898015a1d563ccc9e26d" title="Set the font style for content of specified cell.">hpdftbl_set_cell_content_style()</a> <em>Set the stle for specified cell. This overrides andy style on the table level.</em></li>
 <li>hpdftbl_set_title_style <em>Set the style for the table title.</em></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md25"></a>
+<h1><a class="anchor" id="autotoc_md24"></a>
 Content handling</h1>
 <p >Content in a table can be specified in three ways</p>
 <ol type="1">
@@ -177,7 +179,7 @@ Text encoding</h1>
 <li><a class="el" href="hpdftbl_8c.html#af386c4e06d51644ee55b2b4d510f9097" title="Determine text source encoding.">hpdftbl_set_text_encoding()</a> <em>Specify text encodation to use.</em></li>
 <li><a class="el" href="hpdftbl_8c.html#a2203f876a6b5ef63c1dc749011876a7b" title="Strke text with current encoding.">hpdftbl_encoding_text_out()</a> <em>Stroke a text with current encoding.</em></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md31"></a>
+<h1><a class="anchor" id="autotoc_md30"></a>
 Misc utility function</h1>
 <ul>
 <li><a class="el" href="hpdftbl_8c.html#a0458284e22611f14c7738f129242d6f9" title="Draw rectangle with rounded corner.">HPDF_RoundedCornerRectangle()</a> <em>Draw a rectanle with rounded corners.</em></li>
@@ -189,7 +191,7 @@ Misc utility function</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Apr 25 2022 06:41:42 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu Apr 28 2022 06:51:24 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

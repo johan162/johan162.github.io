@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libhpdftbl: tut_ex13_2.c</title>
+<title>libhpdftbl: tut_ex02_1.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,7 +66,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('tut_ex13_2_8c-example.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('tut_ex02_1_8c-example.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -85,10 +85,10 @@ $(document).ready(function(){initNavTree('tut_ex13_2_8c-example.html',''); initR
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">tut_ex13_2.c</div></div>
+  <div class="headertitle"><div class="title">tut_ex02_1.c</div></div>
 </div><!--header-->
 <div class="contents">
-<p >Defining a table with a data structure for table and cells.</p>
+<p >Basic table with content data specified as an array.</p>
 <div class="fragment"><div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
@@ -105,18 +105,19 @@ $(document).ready(function(){initNavTree('tut_ex13_2_8c-example.html',''); initR
 <div class="line"><span class="preprocessor">#include &lt;sys/utsname.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;syslog.h&gt;</span></div>
+<div class="line"> </div>
 <div class="line"><span class="comment">// This include should always be used</span></div>
 <div class="line"><span class="preprocessor">#include &quot;../src/hpdftbl.h&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// The output after running the program will be written to this file</span></div>
 <div class="line"><span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><span class="preprocessor">#define OUTPUT_FILE &quot;tut_ex13_2.pdf&quot;</span></div>
+<div class="line"><span class="preprocessor">#define OUTPUT_FILE &quot;tut_ex02_1.pdf&quot;</span></div>
 <div class="line"><span class="preprocessor">#else</span></div>
-<div class="line"><span class="preprocessor">#define OUTPUT_FILE &quot;/tmp/tut_ex13_2.pdf&quot;</span></div>
+<div class="line"><span class="preprocessor">#define OUTPUT_FILE &quot;/tmp/tut_ex02_1.pdf&quot;</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"><span class="preprocessor">#define TRUE 1</span></div>
 <div class="line"><span class="preprocessor">#define FALSE 0</span></div>
-<div class="line"> </div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// For simulated exception handling</span></div>
@@ -131,42 +132,10 @@ $(document).ready(function(){initNavTree('tut_ex13_2_8c-example.html',''); initR
 <div class="line"> </div>
 <div class="line"><span class="comment">// A standard hpdf error handler which also translates the hpdf error code to a</span></div>
 <div class="line"><span class="comment">// human readable string</span></div>
-<div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> error_handler(HPDF_STATUS error_no, HPDF_STATUS detail_no,</div>
-<div class="line">                          <span class="keywordtype">void</span> *user_data) {</div>
+<div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> error_handler(HPDF_STATUS error_no, HPDF_STATUS detail_no, <span class="keywordtype">void</span> *user_data) {</div>
 <div class="line">    fprintf(stderr, <span class="stringliteral">&quot;*** PDF ERROR: \&quot;%s\&quot;, [0x%04X : %d]\n&quot;</span>,</div>
 <div class="line">            <a id="a0" name="a0"></a><a class="code hl_function" href="hpdftbl_8h.html#a926e8b332d44d03402264d039f293cb7">hpdftbl_hpdf_get_errstr</a>(error_no), (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)error_no, (<span class="keywordtype">int</span>)detail_no);</div>
 <div class="line">    longjmp(env, 1);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//static char *</span></div>
-<div class="line"><span class="comment">//cb_date(void *tag, size_t r, size_t c) {</span></div>
-<div class="line"><span class="comment">//    static char buf[64];</span></div>
-<div class="line"><span class="comment">//    time_t t = time(NULL);</span></div>
-<div class="line"><span class="comment">//    ctime_r(&amp;t, buf);</span></div>
-<div class="line"><span class="comment">//    return buf;</span></div>
-<div class="line"><span class="comment">//}</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">static</span> <span class="keywordtype">char</span> *</div>
-<div class="line">cb_content(<span class="keywordtype">void</span> *tag, <span class="keywordtype">size_t</span> r, <span class="keywordtype">size_t</span> c) {</div>
-<div class="line">    <span class="keyword">static</span> <span class="keywordtype">char</span> *cell_content[] =</div>
-<div class="line">            {<span class="stringliteral">&quot;Mark Ericsen&quot;</span>,</div>
-<div class="line">             <span class="stringliteral">&quot;12 Sep 2021&quot;</span>,</div>
-<div class="line">             <span class="stringliteral">&quot;123 Downer Mews&quot;</span>,</div>
-<div class="line">             <span class="stringliteral">&quot;London&quot;</span>, </div>
-<div class="line">             <span class="stringliteral">&quot;NW2 HB3&quot;</span>,</div>
-<div class="line">             <span class="stringliteral">&quot;mark.p.ericsen@myfinemail.com&quot;</span>,</div>
-<div class="line">             <span class="stringliteral">&quot;+44734 354 184 56&quot;</span>,</div>
-<div class="line">             <span class="stringliteral">&quot;+44771 938 137 11&quot;</span>};</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span>( 0==r &amp;&amp; 0==c) <span class="keywordflow">return</span> cell_content[0];</div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (0==r &amp;&amp; 3==c) <span class="keywordflow">return</span> cell_content[1];</div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (1==r &amp;&amp; 0==c) <span class="keywordflow">return</span> cell_content[2];</div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (2==r &amp;&amp; 0==c) <span class="keywordflow">return</span> cell_content[3];</div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (2==r &amp;&amp; 3==c) <span class="keywordflow">return</span> cell_content[4];</div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (3==r &amp;&amp; 0==c) <span class="keywordflow">return</span> cell_content[5];</div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (4==r &amp;&amp; 0==c) <span class="keywordflow">return</span> cell_content[6];</div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (4==r &amp;&amp; 2==c) <span class="keywordflow">return</span> cell_content[7];</div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">return</span> NULL;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"> </div>
@@ -174,65 +143,42 @@ $(document).ready(function(){initNavTree('tut_ex13_2_8c-example.html',''); initR
 <div class="line"><span class="preprocessor">#pragma GCC diagnostic pop</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"> </div>
-<div class="line"> </div>
-<div class="line"><a id="_a1" name="_a1"></a><a class="code hl_struct" href="structhpdftbl__cell__spec.html">hpdftbl_cell_spec_t</a> cell_specs[] = {</div>
-<div class="line">        {.<a id="a2" name="a2"></a><a class="code hl_variable" href="structhpdftbl__cell__spec.html#a97ab3b8ef2f074e3774c66099d7ec59b">row</a>=0, .col=0, .rowspan=1, .colspan=3,</div>
-<div class="line">                .label=<span class="stringliteral">&quot;Name:&quot;</span>,</div>
-<div class="line">                .content_cb=NULL, .label_cb=NULL, .style_cb=NULL, .canvas_cb=NULL},</div>
-<div class="line">        {.row=0, .col=3, .rowspan=1, .colspan=1,</div>
-<div class="line">                .label=<span class="stringliteral">&quot;Date:&quot;</span>,</div>
-<div class="line">                .content_cb=NULL, .label_cb=NULL, .style_cb=NULL, .canvas_cb=NULL},</div>
-<div class="line">        {.row=1, .col=0, .rowspan=1, .colspan=4,</div>
-<div class="line">                .label=<span class="stringliteral">&quot;Address:&quot;</span>,</div>
-<div class="line">                .content_cb=NULL, .label_cb=NULL, .style_cb=NULL, .canvas_cb=NULL},</div>
-<div class="line">        {.row=2, .col=0, .rowspan=1, .colspan=3,</div>
-<div class="line">                .label=<span class="stringliteral">&quot;City:&quot;</span>,</div>
-<div class="line">                .content_cb=NULL, .label_cb=NULL, .style_cb=NULL, .canvas_cb=NULL},</div>
-<div class="line">        {.row=2, .col=3, .rowspan=1, .colspan=1,</div>
-<div class="line">                .label=<span class="stringliteral">&quot;Zip:&quot;</span>,</div>
-<div class="line">                .content_cb=NULL, .label_cb=NULL, .style_cb=NULL, .canvas_cb=NULL},</div>
-<div class="line">        {.row=3, .col=0, .rowspan=1, .colspan=4,</div>
-<div class="line">                .label=<span class="stringliteral">&quot;E-mail:&quot;</span>,</div>
-<div class="line">                .content_cb=NULL, .label_cb=NULL, .style_cb=NULL, .canvas_cb=NULL},</div>
-<div class="line">        {.row=4, .col=0, .rowspan=1, .colspan=2,</div>
-<div class="line">                .label=<span class="stringliteral">&quot;Workphone:&quot;</span>,</div>
-<div class="line">                .content_cb=NULL, .label_cb=NULL, .style_cb=NULL, .canvas_cb=NULL},</div>
-<div class="line">        {.row=4, .col=2, .rowspan=1, .colspan=2,</div>
-<div class="line">                .label=<span class="stringliteral">&quot;Mobile:&quot;</span>,</div>
-<div class="line">                .content_cb=NULL, .label_cb=NULL, .style_cb=NULL, .canvas_cb=NULL},</div>
-<div class="line">        <a id="a3" name="a3"></a><a class="code hl_define" href="hpdftbl_8h.html#ae062b47275855810a63dbd85085f86a3">HPDFTBL_END_CELLSPECS</a></div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><a id="_a4" name="_a4"></a><a class="code hl_struct" href="structhpdftbl__spec.html">hpdftbl_spec_t</a> tbl_spec = {</div>
-<div class="line">        <span class="comment">// Title and header flag</span></div>
-<div class="line">        .<a id="a5" name="a5"></a><a class="code hl_variable" href="structhpdftbl__spec.html#af06d911bb9e05f491ef3da520d03796c">title</a>=NULL, .use_header=FALSE,</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Label and labelgrid flags</span></div>
-<div class="line">        .use_labels=TRUE, .use_labelgrid=TRUE,</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Row and columns</span></div>
-<div class="line">        .rows=5, .cols=4,</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// xpos and ypos</span></div>
-<div class="line">        .xpos=<a id="a6" name="a6"></a><a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1), .ypos=<a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a id="a7" name="a7"></a><a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a>-2),</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// width and height</span></div>
-<div class="line">        .width=<a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(15), .height=0,</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Content and label callback</span></div>
-<div class="line">        .content_cb=cb_content, .label_cb=0,</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Style and table post creation callback</span></div>
-<div class="line">        .style_cb=NULL, .post_cb=NULL,</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Pointer to optional cell specifications</span></div>
-<div class="line">        .cell_spec=cell_specs</div>
-<div class="line">};</div>
-<div class="line"> </div>
+<div class="line"><span class="keyword">typedef</span> <span class="keywordtype">char</span> **content_t;</div>
+<div class="line"><span class="keywordtype">void</span> setup_dummy_data(content_t *content, <span class="keywordtype">size_t</span> rows, <span class="keywordtype">size_t</span> cols) {</div>
+<div class="line">    <span class="keywordtype">char</span> buff[255];</div>
+<div class="line">    *content = calloc(rows*cols, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>*));</div>
+<div class="line">    <span class="keywordtype">size_t</span> cnt = 0;</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> r = 0; r &lt; rows; r++) {</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> c = 0; c &lt; cols; c++) {</div>
+<div class="line">            <span class="keywordflow">if</span>( 0==r )</div>
+<div class="line">                snprintf(buff, <span class="keyword">sizeof</span>(buff), <span class="stringliteral">&quot;Header %zu&quot;</span>, cnt);</div>
+<div class="line">            <span class="keywordflow">else</span></div>
+<div class="line">                snprintf(buff, <span class="keyword">sizeof</span>(buff), <span class="stringliteral">&quot;Content %zu&quot;</span>, cnt);</div>
+<div class="line">            (*content)[cnt] = strdup(buff);</div>
+<div class="line">            cnt++;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span></div>
-<div class="line">create_table_ex13_2(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
-<div class="line">   <a id="a8" name="a8"></a><a class="code hl_function" href="hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9">hpdftbl_stroke_from_data</a>(pdf_doc, pdf_page, &amp;tbl_spec, NULL);</div>
+<div class="line">create_table_ex02_1(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_rows = 4;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_cols = 4;</div>
+<div class="line"> </div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a id="a2" name="a2"></a><a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
+<div class="line">    <a id="a3" name="a3"></a><a class="code hl_function" href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header</a>(tbl, TRUE);</div>
+<div class="line"> </div>
+<div class="line">    content_t content;</div>
+<div class="line">    setup_dummy_data(&amp;content, num_rows, num_cols);</div>
+<div class="line">    <a id="a4" name="a4"></a><a class="code hl_function" href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a>(tbl, content);</div>
+<div class="line"> </div>
+<div class="line">    HPDF_REAL xpos = <a id="a5" name="a5"></a><a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
+<div class="line">    HPDF_REAL ypos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a id="a6" name="a6"></a><a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a> - 1);</div>
+<div class="line">    HPDF_REAL width = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a id="a7" name="a7"></a><a class="code hl_define" href="hpdftbl_8h.html#a74d6a937e9d5494f2fcf4b12783b7521">A4PAGE_WIDTH_CM</a> - 5);</div>
+<div class="line">    HPDF_REAL height = 0;  <span class="comment">// Calculate height automatically</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Stroke the table to the page</span></div>
+<div class="line">    <a id="a8" name="a8"></a><a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Setup a new PDF document with one page</span></div>
@@ -247,7 +193,6 @@ $(document).ready(function(){initNavTree('tut_ex13_2_8c-example.html',''); initR
 <div class="line">        <a id="a9" name="a9"></a><a class="code hl_function" href="hpdftbl_8h.html#af75cc3044be7037191c1e49f059b2e73">hpdftbl_stroke_grid</a>(*pdf_doc, *pdf_page);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span></div>
 <div class="line">stroke_pdfdoc(HPDF_Doc pdf_doc, <span class="keywordtype">char</span> *file) {</div>
@@ -265,38 +210,39 @@ $(document).ready(function(){initNavTree('tut_ex13_2_8c-example.html',''); initR
 <div class="line"><span class="preprocessor">#pragma GCC diagnostic ignored &quot;-Wunused-parameter&quot;</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"> </div>
+<div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span></div>
 <div class="line">main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
-<div class="line">    </div>
+<div class="line"> </div>
 <div class="line">    HPDF_Doc pdf_doc;</div>
 <div class="line">    HPDF_Page pdf_page;</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">if</span> (setjmp(env)) {</div>
 <div class="line">        HPDF_Free(pdf_doc);</div>
+<div class="line">        closelog();</div>
 <div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    setup_hpdf(&amp;pdf_doc, &amp;pdf_page, FALSE);</div>
-<div class="line"> </div>
-<div class="line">    create_table_ex13_2(pdf_doc, pdf_page);</div>
-<div class="line">    </div>
+<div class="line">    create_table_ex02_1(pdf_doc, pdf_page);</div>
 <div class="line">    stroke_pdfdoc(pdf_doc, OUTPUT_FILE);</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#ifndef _MSC_VER</span></div>
 <div class="line"><span class="preprocessor">#pragma GCC diagnostic pop</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ahpdftbl_8c_html_ae606b38b3769692e75eba490964216c9"><div class="ttname"><a href="hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9">hpdftbl_stroke_from_data</a></div><div class="ttdeci">int hpdftbl_stroke_from_data(HPDF_Doc pdf_doc, HPDF_Page pdf_page, hpdftbl_spec_t *tbl_spec, hpdftbl_theme_t *theme)</div><div class="ttdoc">Construct the table from a array specification.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1626</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1320</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:586</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1945</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_af0b3ef1634a1dd01dec3e052d7cdf3c5"><div class="ttname"><a href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header</a></div><div class="ttdeci">int hpdftbl_use_header(hpdftbl_t t, _Bool use)</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:787</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_a74d6a937e9d5494f2fcf4b12783b7521"><div class="ttname"><a href="hpdftbl_8h.html#a74d6a937e9d5494f2fcf4b12783b7521">A4PAGE_WIDTH_CM</a></div><div class="ttdeci">#define A4PAGE_WIDTH_CM</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:100</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a926e8b332d44d03402264d039f293cb7"><div class="ttname"><a href="hpdftbl_8h.html#a926e8b332d44d03402264d039f293cb7">hpdftbl_hpdf_get_errstr</a></div><div class="ttdeci">const char * hpdftbl_hpdf_get_errstr(HPDF_STATUS err_code)</div><div class="ttdoc">Function to return a human readable error string for an error code from Core HPDF library.</div><div class="ttdef"><b>Definition:</b> hpdftbl_errstr.c:178</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:99</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:129</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ae062b47275855810a63dbd85085f86a3"><div class="ttname"><a href="hpdftbl_8h.html#ae062b47275855810a63dbd85085f86a3">HPDFTBL_END_CELLSPECS</a></div><div class="ttdeci">#define HPDFTBL_END_CELLSPECS</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:111</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_af75cc3044be7037191c1e49f059b2e73"><div class="ttname"><a href="hpdftbl_8h.html#af75cc3044be7037191c1e49f059b2e73">hpdftbl_stroke_grid</a></div><div class="ttdeci">void hpdftbl_stroke_grid(HPDF_Doc pdf, HPDF_Page page)</div><div class="ttdef"><b>Definition:</b> hpdftbl_grid.c:46</div></div>
-<div class="ttc" id="astructhpdftbl__cell__spec_html"><div class="ttname"><a href="structhpdftbl__cell__spec.html">hpdftbl_cell_spec</a></div><div class="ttdoc">Used in data driven table creation.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:355</div></div>
-<div class="ttc" id="astructhpdftbl__cell__spec_html_a97ab3b8ef2f074e3774c66099d7ec59b"><div class="ttname"><a href="structhpdftbl__cell__spec.html#a97ab3b8ef2f074e3774c66099d7ec59b">hpdftbl_cell_spec::row</a></div><div class="ttdeci">size_t row</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:357</div></div>
-<div class="ttc" id="astructhpdftbl__spec_html"><div class="ttname"><a href="structhpdftbl__spec.html">hpdftbl_spec</a></div><div class="ttdoc">Used in data driven table creation.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:382</div></div>
-<div class="ttc" id="astructhpdftbl__spec_html_af06d911bb9e05f491ef3da520d03796c"><div class="ttname"><a href="structhpdftbl__spec.html#af06d911bb9e05f491ef3da520d03796c">hpdftbl_spec::title</a></div><div class="ttdeci">char * title</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:384</div></div>
+<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:272</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

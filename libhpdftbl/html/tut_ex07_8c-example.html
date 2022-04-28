@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta2</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -87,8 +89,7 @@ $(document).ready(function(){initNavTree('tut_ex07_8c-example.html',''); initRes
 </div><!--header-->
 <div class="contents">
 <p >Expand cells over multiple columns and rows.</p>
-<div class="fragment"><div class="line"><span class="comment">/* tut_ex07 */</span></div>
-<div class="line"> </div>
+<div class="fragment"><div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;string.h&gt;</span></div>
@@ -267,16 +268,16 @@ $(document).ready(function(){initNavTree('tut_ex07_8c-example.html',''); initRes
 <div class="ttc" id="ahpdftbl_8c_html_af883dd1ae69782730244efe6a76a88c2"><div class="ttname"><a href="hpdftbl_8c.html#af883dd1ae69782730244efe6a76a88c2">hpdftbl_set_label_cb</a></div><div class="ttdeci">int hpdftbl_set_label_cb(hpdftbl_t t, hpdftbl_content_callback_t cb)</div><div class="ttdoc">Set table label callback.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1174</div></div>
 <div class="ttc" id="ahpdftbl_8c_html_affd0f2a21048bc048b4bc5a85e227a33"><div class="ttname"><a href="hpdftbl_8c.html#affd0f2a21048bc048b4bc5a85e227a33">hpdftbl_set_content_cb</a></div><div class="ttdeci">int hpdftbl_set_content_cb(hpdftbl_t t, hpdftbl_content_callback_t cb)</div><div class="ttdoc">Set table content callback.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1050</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a926e8b332d44d03402264d039f293cb7"><div class="ttname"><a href="hpdftbl_8h.html#a926e8b332d44d03402264d039f293cb7">hpdftbl_hpdf_get_errstr</a></div><div class="ttdeci">const char * hpdftbl_hpdf_get_errstr(HPDF_STATUS err_code)</div><div class="ttdoc">Function to return a human readable error string for an error code from Core HPDF library.</div><div class="ttdef"><b>Definition:</b> hpdftbl_errstr.c:178</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:98</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:128</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:99</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:129</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_af75cc3044be7037191c1e49f059b2e73"><div class="ttname"><a href="hpdftbl_8h.html#af75cc3044be7037191c1e49f059b2e73">hpdftbl_stroke_grid</a></div><div class="ttdeci">void hpdftbl_stroke_grid(HPDF_Doc pdf, HPDF_Page page)</div><div class="ttdef"><b>Definition:</b> hpdftbl_grid.c:46</div></div>
-<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:271</div></div>
+<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:272</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Apr 25 2022 06:41:42 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu Apr 28 2022 06:51:24 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>
