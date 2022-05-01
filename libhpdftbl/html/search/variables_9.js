@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['outer_5fborder_0',['outer_border',['../structhpdftbl.html#a146db3baacb546af0fb4c1c4b4acc05b',1,'hpdftbl::outer_border()'],['../structhpdftbl__theme.html#ac000fbdd941cd4476114de0686f979b0',1,'hpdftbl_theme::outer_border()']]]
+  ['outer_5fborder_0',['outer_border',['../structhpdftbl__theme.html#a76114a8791c9687d4fc0009766d3a68a',1,'hpdftbl_theme']]],
+  ['outer_5fgrid_1',['outer_grid',['../structhpdftbl.html#a20efd9b50061ec1d8fa68f99d1d21561',1,'hpdftbl']]]
 ];

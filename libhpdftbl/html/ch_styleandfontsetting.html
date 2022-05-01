@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta2</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta3</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -66,7 +66,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('md__font_and_style.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('ch_styleandfontsetting.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('md__font_and_style.html',''); initResi
   <div class="headertitle"><div class="title">Style and font setting </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p >The format of each cell can be adjusted with respect to:</p>
+<div class="textblock"><p ><a class="anchor" id="md_FontAndStyle"></a> The format of each cell can be adjusted with respect to:</p>
 <ol type="1">
 <li>Font-family and style (size, bold, italic etc.)</li>
 <li>Font- and background-color</li>
@@ -127,15 +127,15 @@ $(document).ready(function(){initNavTree('md__font_and_style.html',''); initResi
 <div class="line">                                  <span class="keywordtype">size_t</span> c, </div>
 <div class="line">                                  <span class="keywordtype">char</span> *font,  HPDF_REAL fsize,</div>
 <div class="line">                                  HPDF_RGBColor color, HPDF_RGBColor background);</div>
-<div class="ttc" id="ahpdftbl_8c_html_a5be6faf3e7910835333809150e9d5d1e"><div class="ttname"><a href="hpdftbl_8c.html#a5be6faf3e7910835333809150e9d5d1e">hpdftbl_set_background</a></div><div class="ttdeci">int hpdftbl_set_background(hpdftbl_t t, HPDF_RGBColor background)</div><div class="ttdoc">Set table background color.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:758</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_a60d5cb61c0461c2459565cac98cf7604"><div class="ttname"><a href="hpdftbl_8c.html#a60d5cb61c0461c2459565cac98cf7604">hpdftbl_set_content_style</a></div><div class="ttdeci">int hpdftbl_set_content_style(hpdftbl_t t, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set font style for text content.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1367</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_aa7c2d799cd5064945c2c346449125329"><div class="ttname"><a href="hpdftbl_8c.html#aa7c2d799cd5064945c2c346449125329">hpdftbl_set_label_style</a></div><div class="ttdeci">int hpdftbl_set_label_style(hpdftbl_t t, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set the font style for labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1344</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_abbf178ee835bf23800334c0e34964511"><div class="ttname"><a href="hpdftbl_8c.html#abbf178ee835bf23800334c0e34964511">hpdftbl_set_row_content_style</a></div><div class="ttdeci">int hpdftbl_set_row_content_style(hpdftbl_t t, size_t r, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set the font style for an entire row of cells.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1391</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_aee5f23dc45a1898015a1d563ccc9e26d"><div class="ttname"><a href="hpdftbl_8c.html#aee5f23dc45a1898015a1d563ccc9e26d">hpdftbl_set_cell_content_style</a></div><div class="ttdeci">int hpdftbl_set_cell_content_style(hpdftbl_t t, size_t r, size_t c, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set the font style for content of specified cell.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1438</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_af4e71fc83643c8a867ddbf63097cbfbd"><div class="ttname"><a href="hpdftbl_8c.html#af4e71fc83643c8a867ddbf63097cbfbd">hpdftbl_set_col_content_style</a></div><div class="ttdeci">int hpdftbl_set_col_content_style(hpdftbl_t t, size_t c, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set the font style for an entre column of cells.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1414</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a5be6faf3e7910835333809150e9d5d1e"><div class="ttname"><a href="hpdftbl_8c.html#a5be6faf3e7910835333809150e9d5d1e">hpdftbl_set_background</a></div><div class="ttdeci">int hpdftbl_set_background(hpdftbl_t t, HPDF_RGBColor background)</div><div class="ttdoc">Set table background color.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:811</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a60d5cb61c0461c2459565cac98cf7604"><div class="ttname"><a href="hpdftbl_8c.html#a60d5cb61c0461c2459565cac98cf7604">hpdftbl_set_content_style</a></div><div class="ttdeci">int hpdftbl_set_content_style(hpdftbl_t t, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set font style for text content.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1421</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_aa7c2d799cd5064945c2c346449125329"><div class="ttname"><a href="hpdftbl_8c.html#aa7c2d799cd5064945c2c346449125329">hpdftbl_set_label_style</a></div><div class="ttdeci">int hpdftbl_set_label_style(hpdftbl_t t, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set the font style for labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1398</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_abbf178ee835bf23800334c0e34964511"><div class="ttname"><a href="hpdftbl_8c.html#abbf178ee835bf23800334c0e34964511">hpdftbl_set_row_content_style</a></div><div class="ttdeci">int hpdftbl_set_row_content_style(hpdftbl_t t, size_t r, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set the font style for an entire row of cells.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1445</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_aee5f23dc45a1898015a1d563ccc9e26d"><div class="ttname"><a href="hpdftbl_8c.html#aee5f23dc45a1898015a1d563ccc9e26d">hpdftbl_set_cell_content_style</a></div><div class="ttdeci">int hpdftbl_set_cell_content_style(hpdftbl_t t, size_t r, size_t c, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set the font style for content of specified cell.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1492</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_af4e71fc83643c8a867ddbf63097cbfbd"><div class="ttname"><a href="hpdftbl_8c.html#af4e71fc83643c8a867ddbf63097cbfbd">hpdftbl_set_col_content_style</a></div><div class="ttdeci">int hpdftbl_set_col_content_style(hpdftbl_t t, size_t c, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set the font style for an entre column of cells.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1468</div></div>
 <div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:272</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md49"></a>
-Specifying fonts and colors</h1>
+</div><!-- fragment --><h1><a class="anchor" id="sec_specifyingfontsandcolors"></a>
+Adjusting fonts and colors</h1>
 <p >Fonts are specified as a string with the type font family name as recognized by the core Haru PDF library, e.g. "Times-Roman", "Times-Italic", "Times-Bold" etc. As a convenience not to have to remember the exact font name strings the following three font family are defined as <code>HPDF_FF_*</code> where the last part of the name is specified as the following table shows</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -150,21 +150,21 @@ Specifying fonts and colors</h1>
 <p ><em><b>Table 1:</b></em> <em>Predefined font family and variants</em></p>
 <p >So to use the "Helvetic" font family the constant "`HPDF_FF_HELVETICA`" is used and so on.</p>
 <p >Colors are specified in the standard Haru way, i.e as an instance of the structure "`HPDF_RGBColor`". As another convenience the following colors are predefined</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#define COLOR_DARK_RED      (HPDF_RGBColor) { 0.6f, 0.0f, 0.0f }</span></div>
-<div class="line"><span class="preprocessor">#define COLOR_RED           (HPDF_RGBColor) { 1.0f, 0.0f, 0.0f }</span></div>
-<div class="line"><span class="preprocessor">#define COLOR_LIGHT_GREEN   (HPDF_RGBColor) { 0.9f, 1.0f, 0.9f }</span></div>
-<div class="line"><span class="preprocessor">#define COLOR_GREEN         (HPDF_RGBColor) { 0.4f, 0.9f, 0.4f }</span></div>
-<div class="line"><span class="preprocessor">#define COLOR_DARK_GRAY     (HPDF_RGBColor) { 0.2f, 0.2f, 0.2f }</span></div>
-<div class="line"><span class="preprocessor">#define COLOR_LIGHT_GRAY    (HPDF_RGBColor) { 0.9f, 0.9f, 0.9f }</span></div>
-<div class="line"><span class="preprocessor">#define COLOR_GRAY          (HPDF_RGBColor) { 0.5f, 0.5f, 0.5f }</span></div>
-<div class="line"><span class="preprocessor">#define COLOR_SILVER        (HPDF_RGBColor) { 0.75f, 0.75f, 0.75f }</span></div>
-<div class="line"><span class="preprocessor">#define COLOR_LIGHT_BLUE    (HPDF_RGBColor) { 1.0f, 1.0f, 0.9f }</span></div>
-<div class="line"><span class="preprocessor">#define COLOR_BLUE          (HPDF_RGBColor) { 0.0f, 0.0f, 1.0f }</span></div>
-<div class="line"><span class="preprocessor">#define COLOR_WHITE         (HPDF_RGBColor) { 1.0f, 1.0f, 1.0f }</span></div>
-<div class="line"><span class="preprocessor">#define COLOR_BLACK         (HPDF_RGBColor) { 0.0f, 0.0f, 0.0f }</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#define HPDF_COLOR_DARK_RED      (HPDF_RGBColor) { 0.6f, 0.0f, 0.0f }</span></div>
+<div class="line"><span class="preprocessor">#define HPDF_COLOR_RED           (HPDF_RGBColor) { 1.0f, 0.0f, 0.0f }</span></div>
+<div class="line"><span class="preprocessor">#define HPDF_COLOR_LIGHT_GREEN   (HPDF_RGBColor) { 0.9f, 1.0f, 0.9f }</span></div>
+<div class="line"><span class="preprocessor">#define HPDF_COLOR_GREEN         (HPDF_RGBColor) { 0.4f, 0.9f, 0.4f }</span></div>
+<div class="line"><span class="preprocessor">#define HPDF_COLOR_DARK_GRAY     (HPDF_RGBColor) { 0.2f, 0.2f, 0.2f }</span></div>
+<div class="line"><span class="preprocessor">#define HPDF_COLOR_LIGHT_GRAY    (HPDF_RGBColor) { 0.9f, 0.9f, 0.9f }</span></div>
+<div class="line"><span class="preprocessor">#define HPDF_COLOR_GRAY          (HPDF_RGBColor) { 0.5f, 0.5f, 0.5f }</span></div>
+<div class="line"><span class="preprocessor">#define HPDF_COLOR_SILVER        (HPDF_RGBColor) { 0.75f, 0.75f, 0.75f }</span></div>
+<div class="line"><span class="preprocessor">#define HPDF_COLOR_LIGHT_BLUE    (HPDF_RGBColor) { 1.0f, 1.0f, 0.9f }</span></div>
+<div class="line"><span class="preprocessor">#define HPDF_COLOR_BLUE          (HPDF_RGBColor) { 0.0f, 0.0f, 1.0f }</span></div>
+<div class="line"><span class="preprocessor">#define HPDF_COLOR_WHITE         (HPDF_RGBColor) { 1.0f, 1.0f, 1.0f }</span></div>
+<div class="line"><span class="preprocessor">#define HPDF_COLOR_BLACK         (HPDF_RGBColor) { 0.0f, 0.0f, 0.0f }</span></div>
 </div><!-- fragment --><p >So for example to set the overall default font to 12pt Times Roman with black text on white bottom the following call must be made</p>
 <div class="fragment"><div class="line">...</div>
-<div class="line">hpdftbl_set_content_style(tbl, <a class="code hl_define" href="hpdftbl_8h.html#a7a83ce59e9bf575b65ea47ddaa2c5b22">HPDF_FF_TIMES</a>, 12, COLOR_BLACK, COLOR_WHITE);</div>
+<div class="line">hpdftbl_set_content_style(tbl, <a class="code hl_define" href="hpdftbl_8h.html#a7a83ce59e9bf575b65ea47ddaa2c5b22">HPDF_FF_TIMES</a>, 12, HPDF_COLOR_BLACK, HPDF_COLOR_WHITE);</div>
 <div class="line">...</div>
 <div class="ttc" id="ahpdftbl_8h_html_a7a83ce59e9bf575b65ea47ddaa2c5b22"><div class="ttname"><a href="hpdftbl_8h.html#a7a83ce59e9bf575b65ea47ddaa2c5b22">HPDF_FF_TIMES</a></div><div class="ttdeci">#define HPDF_FF_TIMES</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:53</div></div>
 </div><!-- fragment --><p >Since RGB for colors are specified as a flotaing point number in range [0.0, 1.0] and most color table give colors as a integer triple there is exists a macro to make this conversion easier</p>
@@ -172,7 +172,7 @@ Specifying fonts and colors</h1>
 </div><!-- fragment --><p >which will allow the easier specification of color such as</p>
 <div class="fragment"><div class="line">HPDF_RGBColor color_saddle_brown = <a class="code hl_define" href="hpdftbl_8h.html#a3e159770e79494aa1c5e1f44aec6db86">HPDF_COLOR_FROMRGB</a>(139,69,19);</div>
 <div class="ttc" id="ahpdftbl_8h_html_a3e159770e79494aa1c5e1f44aec6db86"><div class="ttname"><a href="hpdftbl_8h.html#a3e159770e79494aa1c5e1f44aec6db86">HPDF_COLOR_FROMRGB</a></div><div class="ttdeci">#define HPDF_COLOR_FROMRGB(r, g, b)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:116</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md59"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md56"></a>
 Using style callbacks</h1>
 <p >In much the same way as callbacks can be used for specifying content and labels so can a callback be used to specify the style of a cell or the entire table.</p>
 <p >A style callback has the following signature</p>
@@ -212,10 +212,10 @@ Using style callbacks</h1>
 <div class="line"><span class="keywordtype">int</span></div>
 <div class="line"><a class="code hl_function" href="hpdftbl_8c.html#a3bb3e58ecf4bc3bda2da271d50b291fe">hpdftbl_set_content_style_cb</a>(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl, </div>
 <div class="line">                             <a class="code hl_typedef" href="hpdftbl_8h.html#a3d711e82876140fbd564b76c08753343">hpdftbl_content_style_callback_t</a> cb);</div>
-<div class="ttc" id="ahpdftbl_8c_html_a3bb3e58ecf4bc3bda2da271d50b291fe"><div class="ttname"><a href="hpdftbl_8c.html#a3bb3e58ecf4bc3bda2da271d50b291fe">hpdftbl_set_content_style_cb</a></div><div class="ttdeci">int hpdftbl_set_content_style_cb(hpdftbl_t t, hpdftbl_content_style_callback_t cb)</div><div class="ttdoc">Set callback to specify cell content style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1489</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_a52f9197df715189854f0fb5561e54ad0"><div class="ttname"><a href="hpdftbl_8c.html#a52f9197df715189854f0fb5561e54ad0">hpdftbl_set_cell_content_style_cb</a></div><div class="ttdeci">int hpdftbl_set_cell_content_style_cb(hpdftbl_t t, size_t r, size_t c, hpdftbl_content_style_callback_t cb)</div><div class="ttdoc">Set cell specific callback to specify cell content style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1463</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a3bb3e58ecf4bc3bda2da271d50b291fe"><div class="ttname"><a href="hpdftbl_8c.html#a3bb3e58ecf4bc3bda2da271d50b291fe">hpdftbl_set_content_style_cb</a></div><div class="ttdeci">int hpdftbl_set_content_style_cb(hpdftbl_t t, hpdftbl_content_style_callback_t cb)</div><div class="ttdoc">Set callback to specify cell content style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1543</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a52f9197df715189854f0fb5561e54ad0"><div class="ttname"><a href="hpdftbl_8c.html#a52f9197df715189854f0fb5561e54ad0">hpdftbl_set_cell_content_style_cb</a></div><div class="ttdeci">int hpdftbl_set_cell_content_style_cb(hpdftbl_t t, size_t r, size_t c, hpdftbl_content_style_callback_t cb)</div><div class="ttdoc">Set cell specific callback to specify cell content style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1517</div></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Due to som technicalities <b>the style callbacks are called twice</b> per cell. The first call is necessary to setup the background canvas and at that stage the content is not necessarily known since it could be later specified with a content callback. The first time the callback is made the <code>content</code> parameter is always guaranteed to be <code>NULL</code></dd></dl>
-<h2><a class="anchor" id="autotoc_md61"></a>
+<h2><a class="anchor" id="autotoc_md59"></a>
 Style callback example</h2>
 <p >An example of a callback function to set a background color for a header row/column for a table could for example be done as follows</p>
 <div class="fragment"><div class="line">_Bool</div>
@@ -225,8 +225,8 @@ Style callback example</h2>
 <div class="line">    <span class="keywordflow">if</span>( 0==r || 0==c ) { <span class="comment">// Headers</span></div>
 <div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#a2ccdf0b1af9425d3da05630f4ad83e55">font</a> = HPDF_FF_HELVETICA_BOLD;</div>
 <div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#a619758665ef84d588ff83b68aedca64b">fsize</a> = 12;</div>
-<div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#a5f7a740ab73b38b629246b6795cbcaa2">color</a> = COLOR_BLACK;</div>
-<div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#ad4dedddd2d1175580db9daacb3b04c35">background</a> = COLOR_LIGHT_GRAY;</div>
+<div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#a5f7a740ab73b38b629246b6795cbcaa2">color</a> = HPDF_COLOR_BLACK;</div>
+<div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#ad4dedddd2d1175580db9daacb3b04c35">background</a> = HPDF_COLOR_LIGHT_GRAY;</div>
 <div class="line">        <span class="keywordflow">if</span> ( c &gt; 0 )</div>
 <div class="line">            style-&gt;<a class="code hl_variable" href="structtext__style.html#a963bfee894450ddf9cc32e81ae274af2">halign</a> = <a class="code hl_enumvalue" href="hpdftbl_8h.html#a641e356caf346df9a98ebdc91518d55da2159ffbd3a68037511ab5ab4dd35ace7">CENTER</a>;</div>
 <div class="line">        <span class="keywordflow">else</span></div>
@@ -234,12 +234,13 @@ Style callback example</h2>
 <div class="line">    } <span class="keywordflow">else</span> { <span class="comment">// Content</span></div>
 <div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#a2ccdf0b1af9425d3da05630f4ad83e55">font</a> = <a class="code hl_define" href="hpdftbl_8h.html#a7a83ce59e9bf575b65ea47ddaa2c5b22">HPDF_FF_TIMES</a>;</div>
 <div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#a619758665ef84d588ff83b68aedca64b">fsize</a> = 11;</div>
-<div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#a5f7a740ab73b38b629246b6795cbcaa2">color</a> = COLOR_BLACK;</div>
-<div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#ad4dedddd2d1175580db9daacb3b04c35">background</a> = COLOR_WHITE;</div>
+<div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#a5f7a740ab73b38b629246b6795cbcaa2">color</a> = HPDF_COLOR_BLACK;</div>
+<div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#ad4dedddd2d1175580db9daacb3b04c35">background</a> = HPDF_COLOR_WHITE;</div>
 <div class="line">        style-&gt;<a class="code hl_variable" href="structtext__style.html#a963bfee894450ddf9cc32e81ae274af2">halign</a> = <a class="code hl_enumvalue" href="hpdftbl_8h.html#a641e356caf346df9a98ebdc91518d55da2159ffbd3a68037511ab5ab4dd35ace7">CENTER</a>;</div>
 <div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> TRUE;</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code hl_define" href="hpdftbl_8c.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>;</div>
 <div class="line">}</div>
+<div class="ttc" id="ahpdftbl_8c_html_aa8cecfc5c5c054d2875c03e77b7be15d"><div class="ttname"><a href="hpdftbl_8c.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a></div><div class="ttdeci">#define TRUE</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:50</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a641e356caf346df9a98ebdc91518d55da2159ffbd3a68037511ab5ab4dd35ace7"><div class="ttname"><a href="hpdftbl_8h.html#a641e356caf346df9a98ebdc91518d55da2159ffbd3a68037511ab5ab4dd35ace7">CENTER</a></div><div class="ttdeci">@ CENTER</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:140</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a641e356caf346df9a98ebdc91518d55dadb45120aafd37a973140edee24708065"><div class="ttname"><a href="hpdftbl_8h.html#a641e356caf346df9a98ebdc91518d55dadb45120aafd37a973140edee24708065">LEFT</a></div><div class="ttdeci">@ LEFT</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:139</div></div>
 </div><!-- fragment --><p >and the table setup code can then be written as</p>
@@ -262,42 +263,32 @@ Style callback example</h2>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
 <div class="line">}</div>
-<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:586</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_abd26b96fb00eb1a30862ee67f9328cc3"><div class="ttname"><a href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a></div><div class="ttdeci">int hpdftbl_set_colwidth_percent(hpdftbl_t t, size_t c, float w)</div><div class="ttdoc">Set column width as percentage of overall table width.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:676</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1945</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_affd0f2a21048bc048b4bc5a85e227a33"><div class="ttname"><a href="hpdftbl_8c.html#affd0f2a21048bc048b4bc5a85e227a33">hpdftbl_set_content_cb</a></div><div class="ttdeci">int hpdftbl_set_content_cb(hpdftbl_t t, hpdftbl_content_callback_t cb)</div><div class="ttdoc">Set table content callback.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1050</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:577</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_abd26b96fb00eb1a30862ee67f9328cc3"><div class="ttname"><a href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a></div><div class="ttdeci">int hpdftbl_set_colwidth_percent(hpdftbl_t t, size_t c, float w)</div><div class="ttdoc">Set column width as percentage of overall table width.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:667</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1997</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_affd0f2a21048bc048b4bc5a85e227a33"><div class="ttname"><a href="hpdftbl_8c.html#affd0f2a21048bc048b4bc5a85e227a33">hpdftbl_set_content_cb</a></div><div class="ttdeci">int hpdftbl_set_content_cb(hpdftbl_t t, hpdftbl_content_callback_t cb)</div><div class="ttdoc">Set table content callback.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1104</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a74d6a937e9d5494f2fcf4b12783b7521"><div class="ttname"><a href="hpdftbl_8h.html#a74d6a937e9d5494f2fcf4b12783b7521">A4PAGE_WIDTH_CM</a></div><div class="ttdeci">#define A4PAGE_WIDTH_CM</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:100</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:99</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:129</div></div>
 </div><!-- fragment --><p >The resulting table is shown in <b>Figure 10.</b> below.</p>
 <p ><img src="tut_ex09.png" alt="" class="inline" title="tut_ex09.png"/>    <em><b>Figure 10:</b></em> <em>Using a style callback to highlight header rows &amp; columns.</em> <em><a class="el" href="tut_ex09_8c-example.html">tut_ex09.c</a></em></p>
-<h1><a class="anchor" id="autotoc_md65"></a>
+<h1><a class="anchor" id="sec_themes"></a>
 Using style themes</h1>
-<p >if you have multiple table in a document it is possible to create a <em>table theme</em> which consists of some core styling of a table that can be reused. The data saved in a theme is defined by the structure <code><a class="el" href="structhpdftbl__theme.html" title="Define a set of styles into a table theme.">hpdftbl_theme</a></code> with the following definition and members</p>
-<div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structhpdftbl__theme.html">hpdftbl_theme</a> {</div>
-<div class="line">    <a class="code hl_struct" href="structtext__style.html">hpdf_text_style_t</a> *<a class="code hl_variable" href="structhpdftbl__theme.html#addb828f8fc7f2510d9b4c619c6fd5771">content_style</a>;</div>
-<div class="line">    <a class="code hl_struct" href="structtext__style.html">hpdf_text_style_t</a> *<a class="code hl_variable" href="structhpdftbl__theme.html#aff15390195baaabd2afd5b6626237419">label_style</a>;</div>
-<div class="line">    <a class="code hl_struct" href="structtext__style.html">hpdf_text_style_t</a> *<a class="code hl_variable" href="structhpdftbl__theme.html#af25ffff4c357f8b77c8156a2624c0bed">header_style</a>;</div>
-<div class="line">    <a class="code hl_struct" href="structtext__style.html">hpdf_text_style_t</a> *<a class="code hl_variable" href="structhpdftbl__theme.html#a463cd78eea9e56b90992850a4db869cc">title_style</a>;</div>
-<div class="line">    <a class="code hl_struct" href="structborder__style.html">hpdf_border_style_t</a> *<a class="code hl_variable" href="structhpdftbl__theme.html#a11888f880a4019cc2ccd134a73bada77">inner_border</a>;</div>
-<div class="line">    <a class="code hl_struct" href="structborder__style.html">hpdf_border_style_t</a> *<a class="code hl_variable" href="structhpdftbl__theme.html#ac000fbdd941cd4476114de0686f979b0">outer_border</a>;</div>
-<div class="line">    _Bool <a class="code hl_variable" href="structhpdftbl__theme.html#aa56fbcd88a785084dbfb191404213598">use_labels</a>;</div>
-<div class="line">    _Bool <a class="code hl_variable" href="structhpdftbl__theme.html#a5e5a45626c52978e134fe29dccae8b15">use_label_grid_style</a>;</div>
-<div class="line">    _Bool <a class="code hl_variable" href="structhpdftbl__theme.html#a3477b128e9bb084b06eb018a8897a17d">use_header_row</a>;</div>
-<div class="line">} <a class="code hl_typedef" href="hpdftbl_8h.html#acb91717916845eb6e1464381a74f50de">hpdftbl_theme_t</a>;</div>
-<div class="ttc" id="ahpdftbl_8h_html_acb91717916845eb6e1464381a74f50de"><div class="ttname"><a href="hpdftbl_8h.html#acb91717916845eb6e1464381a74f50de">hpdftbl_theme_t</a></div><div class="ttdeci">struct hpdftbl_theme hpdftbl_theme_t</div><div class="ttdoc">Define a set of styles into a table theme.</div></div>
-<div class="ttc" id="astructborder__style_html"><div class="ttname"><a href="structborder__style.html">border_style</a></div><div class="ttdoc">Specification for table borders.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:209</div></div>
-<div class="ttc" id="astructhpdftbl__theme_html"><div class="ttname"><a href="structhpdftbl__theme.html">hpdftbl_theme</a></div><div class="ttdoc">Define a set of styles into a table theme.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:424</div></div>
-<div class="ttc" id="astructhpdftbl__theme_html_a11888f880a4019cc2ccd134a73bada77"><div class="ttname"><a href="structhpdftbl__theme.html#a11888f880a4019cc2ccd134a73bada77">hpdftbl_theme::inner_border</a></div><div class="ttdeci">hpdf_border_style_t * inner_border</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:434</div></div>
-<div class="ttc" id="astructhpdftbl__theme_html_a3477b128e9bb084b06eb018a8897a17d"><div class="ttname"><a href="structhpdftbl__theme.html#a3477b128e9bb084b06eb018a8897a17d">hpdftbl_theme::use_header_row</a></div><div class="ttdeci">_Bool use_header_row</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:442</div></div>
-<div class="ttc" id="astructhpdftbl__theme_html_a463cd78eea9e56b90992850a4db869cc"><div class="ttname"><a href="structhpdftbl__theme.html#a463cd78eea9e56b90992850a4db869cc">hpdftbl_theme::title_style</a></div><div class="ttdeci">hpdf_text_style_t * title_style</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:432</div></div>
-<div class="ttc" id="astructhpdftbl__theme_html_a5e5a45626c52978e134fe29dccae8b15"><div class="ttname"><a href="structhpdftbl__theme.html#a5e5a45626c52978e134fe29dccae8b15">hpdftbl_theme::use_label_grid_style</a></div><div class="ttdeci">_Bool use_label_grid_style</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:440</div></div>
-<div class="ttc" id="astructhpdftbl__theme_html_aa56fbcd88a785084dbfb191404213598"><div class="ttname"><a href="structhpdftbl__theme.html#aa56fbcd88a785084dbfb191404213598">hpdftbl_theme::use_labels</a></div><div class="ttdeci">_Bool use_labels</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:438</div></div>
-<div class="ttc" id="astructhpdftbl__theme_html_ac000fbdd941cd4476114de0686f979b0"><div class="ttname"><a href="structhpdftbl__theme.html#ac000fbdd941cd4476114de0686f979b0">hpdftbl_theme::outer_border</a></div><div class="ttdeci">hpdf_border_style_t * outer_border</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:436</div></div>
-<div class="ttc" id="astructhpdftbl__theme_html_addb828f8fc7f2510d9b4c619c6fd5771"><div class="ttname"><a href="structhpdftbl__theme.html#addb828f8fc7f2510d9b4c619c6fd5771">hpdftbl_theme::content_style</a></div><div class="ttdeci">hpdf_text_style_t * content_style</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:426</div></div>
-<div class="ttc" id="astructhpdftbl__theme_html_af25ffff4c357f8b77c8156a2624c0bed"><div class="ttname"><a href="structhpdftbl__theme.html#af25ffff4c357f8b77c8156a2624c0bed">hpdftbl_theme::header_style</a></div><div class="ttdeci">hpdf_text_style_t * header_style</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:430</div></div>
-<div class="ttc" id="astructhpdftbl__theme_html_aff15390195baaabd2afd5b6626237419"><div class="ttname"><a href="structhpdftbl__theme.html#aff15390195baaabd2afd5b6626237419">hpdftbl_theme::label_style</a></div><div class="ttdeci">hpdf_text_style_t * label_style</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:428</div></div>
-</div><!-- fragment --><p> This allow the setting of all main font/style setting in one go. This strcture can be set up manually and then applied to a table. However, the recommended way is to first use the "theme getter" function to get the default theme and then modify this default theme as needed. The functions to work with a theme are:</p>
+<p >A theme (or style theme) is a definition of the "look &amp; feel" of a table. It doesn't affect the structure of the table such as the size of the table or how many columns or rows a cell spans. It is practical shortcut when many different tables should be displayed in the same style. It allows the compact specification of the table by applying a theme to the table instead of having to call multiple functions to chieve the same thing. In addition if the design should be changed there is only one place to update instead of for each table.</p>
+<dl class="section note"><dt>Note</dt><dd>There is not yet any support to read and write themes from a file. A theme is therefor an <em>in memory</em> structure useful within one program.</dd></dl>
+<p>A theme controls the following aspects of a table</p>
+<ul>
+<li>The content and label text style</li>
+<li>The header and title text style</li>
+<li>The inner and outer border style</li>
+<li>The usage (or not) of labels and whether or not the shorter label grind lines should be used</li>
+<li>If a header row should be used or not</li>
+<li>If a title should be used or not</li>
+</ul>
+<p >if you have multiple table in a document it is possible to create a <em>table theme</em> which consists of some core styling of a table that can be reused.</p>
+<p >All information for a theme is encapsulated in the <a class="el" href="structhpdftbl__theme.html" title="Define a set of styles into a table theme.">hpdftbl_theme</a> structure.</p>
+<p >This structure can be set up manually and then applied to a table. However, the recommended way is to first use the "theme getter" function to get the default theme and then modify this default theme as needed since it allows you to only have to update the parts affected by a change.</p>
+<p >The functions to work with a theme are as follows:</p>
 <div class="fragment"><div class="line"><span class="comment">// Apply the given theme to a table</span></div>
 <div class="line"><span class="keywordtype">int</span></div>
 <div class="line"><a class="code hl_function" href="hpdftbl_8c.html#aa69c87be9c690ac9f3dc8a9ecf748f36">hpdftbl_apply_theme</a>(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> t, <a class="code hl_struct" href="structhpdftbl__theme.html">hpdftbl_theme_t</a> *theme);</div>
@@ -309,9 +300,10 @@ Using style themes</h1>
 <div class="line"><span class="comment">// Destroy the memory used by a theme</span></div>
 <div class="line"><span class="keywordtype">int</span></div>
 <div class="line"><a class="code hl_function" href="hpdftbl_8c.html#a734ca37ac3b1106b98f645a0c859812c">hpdftbl_destroy_theme</a>(<a class="code hl_struct" href="structhpdftbl__theme.html">hpdftbl_theme_t</a> *theme);</div>
-<div class="ttc" id="ahpdftbl_8c_html_a2089087e554335e1b3f5f5940613b9aa"><div class="ttname"><a href="hpdftbl_8c.html#a2089087e554335e1b3f5f5940613b9aa">hpdftbl_get_default_theme</a></div><div class="ttdeci">hpdftbl_theme_t * hpdftbl_get_default_theme(void)</div><div class="ttdoc">Return the default theme.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:442</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_a734ca37ac3b1106b98f645a0c859812c"><div class="ttname"><a href="hpdftbl_8c.html#a734ca37ac3b1106b98f645a0c859812c">hpdftbl_destroy_theme</a></div><div class="ttdeci">int hpdftbl_destroy_theme(hpdftbl_theme_t *theme)</div><div class="ttdoc">Destroy existing theme structure and free memory.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:561</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_aa69c87be9c690ac9f3dc8a9ecf748f36"><div class="ttname"><a href="hpdftbl_8c.html#aa69c87be9c690ac9f3dc8a9ecf748f36">hpdftbl_apply_theme</a></div><div class="ttdeci">int hpdftbl_apply_theme(hpdftbl_t t, hpdftbl_theme_t *theme)</div><div class="ttdoc">Apply a specified theme to a table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1569</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a2089087e554335e1b3f5f5940613b9aa"><div class="ttname"><a href="hpdftbl_8c.html#a2089087e554335e1b3f5f5940613b9aa">hpdftbl_get_default_theme</a></div><div class="ttdeci">hpdftbl_theme_t * hpdftbl_get_default_theme(void)</div><div class="ttdoc">Return the default theme.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:459</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a734ca37ac3b1106b98f645a0c859812c"><div class="ttname"><a href="hpdftbl_8c.html#a734ca37ac3b1106b98f645a0c859812c">hpdftbl_destroy_theme</a></div><div class="ttdeci">int hpdftbl_destroy_theme(hpdftbl_theme_t *theme)</div><div class="ttdoc">Destroy existing theme structure and free memory.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:554</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_aa69c87be9c690ac9f3dc8a9ecf748f36"><div class="ttname"><a href="hpdftbl_8c.html#aa69c87be9c690ac9f3dc8a9ecf748f36">hpdftbl_apply_theme</a></div><div class="ttdeci">int hpdftbl_apply_theme(hpdftbl_t t, hpdftbl_theme_t *theme)</div><div class="ttdoc">Apply a specified theme to a table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1625</div></div>
+<div class="ttc" id="astructhpdftbl__theme_html"><div class="ttname"><a href="structhpdftbl__theme.html">hpdftbl_theme</a></div><div class="ttdoc">Define a set of styles into a table theme.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:434</div></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>It is the responsibility of the user of the library to destroy the theme structure by ensuring that <code><a class="el" href="hpdftbl_8c.html#a734ca37ac3b1106b98f645a0c859812c" title="Destroy existing theme structure and free memory.">hpdftbl_destroy_theme()</a></code> is called when a theme goes out of scope.</dd></dl>
 <p>The default font styles for the default theme are shown in table 1.</p>
 <table class="markdownTable">
@@ -346,18 +338,81 @@ Using style themes</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">inner_border   </td><td class="markdownTableBodyNone">Grey   </td><td class="markdownTableBodyNone">0.7    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">outer_border   </td><td class="markdownTableBodyNone">Dark Grey   </td><td class="markdownTableBodyNone">1.0   </td></tr>
+<td class="markdownTableBodyNone">outer_grid   </td><td class="markdownTableBodyNone">Dark Grey   </td><td class="markdownTableBodyNone">1.0   </td></tr>
 </table>
 <p ><em><b>Table 3:</b></em> <em>Default border parameters.</em></p>
-<p >&#160;</p>
-<dl class="section note"><dt>Note</dt><dd>There is currently no support for serializing a theme to/from a file. </dd></dl>
+<h1><a class="anchor" id="sec_borderstyles"></a>
+Adjusting grid line styles</h1>
+<p >There are four distinct set of grid lines as far as the library is concerned.</p>
+<ol type="1">
+<li>The outer gridline (or border) around the table, and</li>
+<li>The inner vertical grid line</li>
+<li>The inner horizontal grid line</li>
+<li>The inner top grid line (not the outer border!)</li>
+</ol>
+<p >All these types of gridlines are styled in the same way using the functions</p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
+<div class="line"><a class="code hl_function" href="hpdftbl_8c.html#aa397e828bbed03432aa0a2ead0e6379b">hpdftbl_set_inner_tgrid_style</a>(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> t, </div>
+<div class="line">                              HPDF_REAL width, HPDF_RGBColor color,<a class="code hl_typedef" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span></div>
+<div class="line"><a class="code hl_function" href="hpdftbl_8c.html#ad60b183955eb454d6ff98dafdc3e5171">hpdftbl_set_inner_vgrid_style</a>(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> t, </div>
+<div class="line">                              HPDF_REAL width, HPDF_RGBColor color, <a class="code hl_typedef" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span></div>
+<div class="line"><a class="code hl_function" href="hpdftbl_8c.html#af66a8855647fe4fd916604a5583df277">hpdftbl_set_inner_hgrid_style</a>(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> t, </div>
+<div class="line">                              HPDF_REAL width, HPDF_RGBColor color, <a class="code hl_typedef" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span></div>
+<div class="line"><a class="code hl_function" href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79">hpdftbl_set_inner_grid_style</a>(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> t, </div>
+<div class="line">                             HPDF_REAL width, HPDF_RGBColor color, <a class="code hl_typedef" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle);</div>
+<div class="ttc" id="ahpdftbl_8c_html_aa397e828bbed03432aa0a2ead0e6379b"><div class="ttname"><a href="hpdftbl_8c.html#aa397e828bbed03432aa0a2ead0e6379b">hpdftbl_set_inner_tgrid_style</a></div><div class="ttdeci">int hpdftbl_set_inner_tgrid_style(hpdftbl_t t, HPDF_REAL width, HPDF_RGBColor color, hpdftbl_line_dashstyle_t dashstyle)</div><div class="ttdoc">Set inner horizontal top border grid style. This would be the gridline just below the header row.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:769</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ad60b183955eb454d6ff98dafdc3e5171"><div class="ttname"><a href="hpdftbl_8c.html#ad60b183955eb454d6ff98dafdc3e5171">hpdftbl_set_inner_vgrid_style</a></div><div class="ttdeci">int hpdftbl_set_inner_vgrid_style(hpdftbl_t t, HPDF_REAL width, HPDF_RGBColor color, hpdftbl_line_dashstyle_t dashstyle)</div><div class="ttdoc">Set inner vertical border grid style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:750</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_af3613ad2a82907bd8275e8447a2e7d79"><div class="ttname"><a href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79">hpdftbl_set_inner_grid_style</a></div><div class="ttdeci">int hpdftbl_set_inner_grid_style(hpdftbl_t t, HPDF_REAL width, HPDF_RGBColor color, hpdftbl_line_dashstyle_t dashstyle)</div><div class="ttdoc">Set inner border grid style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:710</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_af66a8855647fe4fd916604a5583df277"><div class="ttname"><a href="hpdftbl_8c.html#af66a8855647fe4fd916604a5583df277">hpdftbl_set_inner_hgrid_style</a></div><div class="ttdeci">int hpdftbl_set_inner_hgrid_style(hpdftbl_t t, HPDF_REAL width, HPDF_RGBColor color, hpdftbl_line_dashstyle_t dashstyle)</div><div class="ttdoc">Set inner horizontal border grid style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:731</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_abc5e23ef640f73c91c0da02ab1faa89c"><div class="ttname"><a href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a></div><div class="ttdeci">enum hpdftbl_dashstyle hpdftbl_line_dashstyle_t</div><div class="ttdoc">Possible line dash styles for grid lines.</div></div>
+</div><!-- fragment --><p >Each type of gridline can be adjusted with line width, color and style. The last function in the list, <a class="el" href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79" title="Set inner border grid style.">hpdftbl_set_inner_grid_style()</a>, is a convinience function that sets both the vertical and horizontal inner lines in one call.</p>
+<p >The following example (<a class="el" href="tut_ex20_8c-example.html">tut_ex20.c</a> ) makes use of these settings as shown below</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span></div>
+<div class="line">create_table_ex20(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_rows = 5;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_cols = 4;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
+<div class="line">    content_t content;</div>
+<div class="line"> </div>
+<div class="line">    setup_dummy_data(&amp;content, num_rows, num_cols);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a>(tbl, content);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ad60b183955eb454d6ff98dafdc3e5171">hpdftbl_set_inner_vgrid_style</a>(tbl, 0.7, HPDF_COLOR_DARK_GRAY, <a class="code hl_enumvalue" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23a700c78bc2cd76acaab26651bf7b4941f">LINE_SOLID</a>);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#af66a8855647fe4fd916604a5583df277">hpdftbl_set_inner_hgrid_style</a>(tbl, 0.8, HPDF_COLOR_GRAY, <a class="code hl_enumvalue" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23ac9824cf2c82a80044ce62f9f6a8d70a5">LINE_DOT1</a>);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#aa397e828bbed03432aa0a2ead0e6379b">hpdftbl_set_inner_tgrid_style</a>(tbl, 1.5, HPDF_COLOR_BLACK, <a class="code hl_enumvalue" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23a700c78bc2cd76acaab26651bf7b4941f">LINE_SOLID</a>);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a23faf2eec6a68c41b083bc455ba14ca9">hpdftbl_set_outer_grid_style</a>(tbl, 1.5, HPDF_COLOR_BLACK, <a class="code hl_enumvalue" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23a700c78bc2cd76acaab26651bf7b4941f">LINE_SOLID</a>);</div>
+<div class="line"> </div>
+<div class="line">    HPDF_REAL xpos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
+<div class="line">    HPDF_REAL ypos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a> - 1);</div>
+<div class="line">    HPDF_REAL width = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(10);</div>
+<div class="line">    HPDF_REAL height = 0;  <span class="comment">// Calculate height automatically</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Stroke the table to the page</span></div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
+<div class="line">}</div>
+<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1374</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a23faf2eec6a68c41b083bc455ba14ca9"><div class="ttname"><a href="hpdftbl_8c.html#a23faf2eec6a68c41b083bc455ba14ca9">hpdftbl_set_outer_grid_style</a></div><div class="ttdeci">int hpdftbl_set_outer_grid_style(hpdftbl_t t, HPDF_REAL width, HPDF_RGBColor color, hpdftbl_line_dashstyle_t dashstyle)</div><div class="ttdoc">Set outer border grid style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:691</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_abf7bd1810c28966c0af1a86365677e23a700c78bc2cd76acaab26651bf7b4941f"><div class="ttname"><a href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23a700c78bc2cd76acaab26651bf7b4941f">LINE_SOLID</a></div><div class="ttdeci">@ LINE_SOLID</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:194</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_abf7bd1810c28966c0af1a86365677e23ac9824cf2c82a80044ce62f9f6a8d70a5"><div class="ttname"><a href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23ac9824cf2c82a80044ce62f9f6a8d70a5">LINE_DOT1</a></div><div class="ttdeci">@ LINE_DOT1</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:195</div></div>
+</div><!-- fragment --><p >and when run will result in the following table:</p>
+<div class="image">
+<img src="tut_ex20.png" alt=""/>
+</div>
+<p > </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Apr 28 2022 06:51:24 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun May 1 2022 13:14:00 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

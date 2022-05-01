@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outer_5fborder_0',['outer_border',['../structhpdftbl.html#a146db3baacb546af0fb4c1c4b4acc05b',1,'hpdftbl::outer_border()'],['../structhpdftbl__theme.html#ac000fbdd941cd4476114de0686f979b0',1,'hpdftbl_theme::outer_border()']]]
+  ['num_0',['num',['../structline__dash__style.html#a140d449f4eaaa9afc56f07abb4922597',1,'line_dash_style']]]
 ];

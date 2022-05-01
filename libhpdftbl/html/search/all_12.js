@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['widgets_0',['Widgets',['../md__using_widgets.html',1,'']]],
-  ['width_1',['width',['../structborder__style.html#a4f29c3b2841b17180ba269809503cc9a',1,'border_style::width()'],['../structhpdftbl__cell.html#a4f29c3b2841b17180ba269809503cc9a',1,'hpdftbl_cell::width()'],['../structhpdftbl.html#a4f29c3b2841b17180ba269809503cc9a',1,'hpdftbl::width()'],['../structhpdftbl__spec.html#a4f29c3b2841b17180ba269809503cc9a',1,'hpdftbl_spec::width()']]]
+  ['use_5fcell_5flabels_0',['use_cell_labels',['../structhpdftbl.html#ad1234372a32e134b7cbad554cee655c2',1,'hpdftbl']]],
+  ['use_5fheader_1',['use_header',['../structhpdftbl__spec.html#ac5c0bf7f08ef02a570f5b8c4296e634b',1,'hpdftbl_spec']]],
+  ['use_5fheader_5frow_2',['use_header_row',['../structhpdftbl.html#a3477b128e9bb084b06eb018a8897a17d',1,'hpdftbl::use_header_row()'],['../structhpdftbl__theme.html#a3477b128e9bb084b06eb018a8897a17d',1,'hpdftbl_theme::use_header_row()']]],
+  ['use_5flabel_5fgrid_5fstyle_3',['use_label_grid_style',['../structhpdftbl.html#a5e5a45626c52978e134fe29dccae8b15',1,'hpdftbl::use_label_grid_style()'],['../structhpdftbl__theme.html#a5e5a45626c52978e134fe29dccae8b15',1,'hpdftbl_theme::use_label_grid_style()']]],
+  ['use_5flabelgrid_4',['use_labelgrid',['../structhpdftbl__spec.html#a34c84bffcee1f8d45930eca45fa3853b',1,'hpdftbl_spec']]],
+  ['use_5flabels_5',['use_labels',['../structhpdftbl__spec.html#aa56fbcd88a785084dbfb191404213598',1,'hpdftbl_spec::use_labels()'],['../structhpdftbl__theme.html#aa56fbcd88a785084dbfb191404213598',1,'hpdftbl_theme::use_labels()']]],
+  ['use_5fzebra_6',['use_zebra',['../structhpdftbl.html#a3973273e2460749a382abb60a09c8a28',1,'hpdftbl::use_zebra()'],['../structhpdftbl__theme.html#a3973273e2460749a382abb60a09c8a28',1,'hpdftbl_theme::use_zebra()']]]
 ];

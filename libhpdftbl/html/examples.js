@@ -1,5 +1,6 @@
 var examples =
 [
+    [ "example01.c", "example01_8c-example.html", null ],
     [ "tut_ex01.c", "tut_ex01_8c-example.html", null ],
     [ "tut_ex02.c", "tut_ex02_8c-example.html", null ],
     [ "tut_ex02_1.c", "tut_ex02_1_8c-example.html", null ],
@@ -15,5 +16,6 @@ var examples =
     [ "tut_ex12.c", "tut_ex12_8c-example.html", null ],
     [ "tut_ex13_1.c", "tut_ex13_1_8c-example.html", null ],
     [ "tut_ex13_2.c", "tut_ex13_2_8c-example.html", null ],
-    [ "tut_ex14.c", "tut_ex14_8c-example.html", null ]
+    [ "tut_ex14.c", "tut_ex14_8c-example.html", null ],
+    [ "tut_ex20.c", "tut_ex20_8c-example.html", null ]
 ];

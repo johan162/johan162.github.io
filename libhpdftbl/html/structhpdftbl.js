@@ -9,10 +9,12 @@ var structhpdftbl =
     [ "content_style_cb", "structhpdftbl.html#a724e6e7b7029c0198bad1a9ca1cdda15", null ],
     [ "header_style", "structhpdftbl.html#a905e87e1ac462550a7e2c9571f49c630", null ],
     [ "height", "structhpdftbl.html#a64f3448e2733fa528f9de13b7c627d69", null ],
-    [ "inner_border", "structhpdftbl.html#afef2abd1bf24314a8e3346ba05c87c24", null ],
+    [ "inner_hgrid", "structhpdftbl.html#a5478bf2fac675d72b1bdd48b381900b0", null ],
+    [ "inner_tgrid", "structhpdftbl.html#a3f9ee9972beac05de39ec516e53ecc97", null ],
+    [ "inner_vgrid", "structhpdftbl.html#a3c34a3b391c21c125c8139f0a63d8bf4", null ],
     [ "label_cb", "structhpdftbl.html#afa7f611082a18bdef83176786d1e5114", null ],
     [ "label_style", "structhpdftbl.html#adcd69a0681be0895f317768491c6fb3d", null ],
-    [ "outer_border", "structhpdftbl.html#a146db3baacb546af0fb4c1c4b4acc05b", null ],
+    [ "outer_grid", "structhpdftbl.html#a20efd9b50061ec1d8fa68f99d1d21561", null ],
     [ "pdf_doc", "structhpdftbl.html#a953ebc32da69561907f48eecdda9c96d", null ],
     [ "pdf_page", "structhpdftbl.html#add9714fb55f614fb001a0897a0697ec0", null ],
     [ "posx", "structhpdftbl.html#ab85445d048189b0cf3b4b79d92fb6a18", null ],
@@ -24,5 +26,8 @@ var structhpdftbl =
     [ "use_cell_labels", "structhpdftbl.html#ad1234372a32e134b7cbad554cee655c2", null ],
     [ "use_header_row", "structhpdftbl.html#a3477b128e9bb084b06eb018a8897a17d", null ],
     [ "use_label_grid_style", "structhpdftbl.html#a5e5a45626c52978e134fe29dccae8b15", null ],
-    [ "width", "structhpdftbl.html#a4f29c3b2841b17180ba269809503cc9a", null ]
+    [ "use_zebra", "structhpdftbl.html#a3973273e2460749a382abb60a09c8a28", null ],
+    [ "width", "structhpdftbl.html#a4f29c3b2841b17180ba269809503cc9a", null ],
+    [ "zebra1_color", "structhpdftbl.html#ab044965a68417d75ff8ff03cb1079c45", null ],
+    [ "zebra2_color", "structhpdftbl.html#af487ccac3e46aa245ce2431398ac085e", null ]
 ];

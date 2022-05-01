@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['dash1_0',['DASH1',['../hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da356bee9bcbdbbdb7778e88a7c392b143',1,'hpdftbl.h']]],
-  ['dash2_1',['DASH2',['../hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da6b53f8296640805fdaad3358b195821a',1,'hpdftbl.h']]],
-  ['dash3_2',['DASH3',['../hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7dabcae910d2aaba85406a0b79e13f3c7d6',1,'hpdftbl.h']]],
-  ['dashdot_3',['DASHDOT',['../hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da8aad371d411577dee0fb0af404e58eb1',1,'hpdftbl.h']]],
-  ['dot1_4',['DOT1',['../hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da22d7d3df618036901ddc02213056caf8',1,'hpdftbl.h']]],
-  ['dot2_5',['DOT2',['../hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da8ce475519dbb414a574a890d819ced96',1,'hpdftbl.h']]],
-  ['dot3_6',['DOT3',['../hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da14ff84160ff13a591e7d45da0052d6b9',1,'hpdftbl.h']]]
+  ['left_0',['LEFT',['../hpdftbl_8h.html#a641e356caf346df9a98ebdc91518d55dadb45120aafd37a973140edee24708065',1,'hpdftbl.h']]],
+  ['line_5fdash1_1',['LINE_DASH1',['../hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23acbd159e685428047663e5d350926484a',1,'hpdftbl.h']]],
+  ['line_5fdash2_2',['LINE_DASH2',['../hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23a83c885ca37d933eda6bac28935e9cc09',1,'hpdftbl.h']]],
+  ['line_5fdash3_3',['LINE_DASH3',['../hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23ad7fad9cf3d6f0de01e88499aa13770c7',1,'hpdftbl.h']]],
+  ['line_5fdashdot_4',['LINE_DASHDOT',['../hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23a5e497d00070256a0b4caecb567625fb5',1,'hpdftbl.h']]],
+  ['line_5fdot1_5',['LINE_DOT1',['../hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23ac9824cf2c82a80044ce62f9f6a8d70a5',1,'hpdftbl.h']]],
+  ['line_5fdot2_6',['LINE_DOT2',['../hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23a498f42b7c0b166e07ca935de5d8093ce',1,'hpdftbl.h']]],
+  ['line_5fdot3_7',['LINE_DOT3',['../hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23ac37fdca4238d715a2610a6dc1e985259',1,'hpdftbl.h']]],
+  ['line_5fsolid_8',['LINE_SOLID',['../hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23a700c78bc2cd76acaab26651bf7b4941f',1,'hpdftbl.h']]]
 ];

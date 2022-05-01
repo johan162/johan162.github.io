@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta2</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta3</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -105,8 +105,8 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtext__style.html">text_style</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specification of a text style.  <a href="structtext__style.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structborder__style.html">border_style</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specification for table borders.  <a href="structborder__style.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgrid__style.html">grid_style</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specification for table grid lines.  <a href="structgrid__style.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhpdftbl__cell.html">hpdftbl_cell</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specification of individual cells in the table.  <a href="structhpdftbl__cell.html#details">More...</a><br /></td></tr>
@@ -161,47 +161,47 @@ Macros</h2></td></tr>
 <tr class="memitem:a8175e838df42ebf84deb3e647f4efb3a"><td class="memItemLeft" align="right" valign="top"><a id="a8175e838df42ebf84deb3e647f4efb3a" name="a8175e838df42ebf84deb3e647f4efb3a"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_FF_COURIER_BOLDITALIC</b>&#160;&#160;&#160;&quot;Courier-BoldOblique&quot;</td></tr>
 <tr class="separator:a8175e838df42ebf84deb3e647f4efb3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68b9570c39bd1e193fe65b734cc47cb2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#a68b9570c39bd1e193fe65b734cc47cb2">COLOR_DARK_RED</a>&#160;&#160;&#160;(HPDF_RGBColor) { 0.6f, 0.0f, 0.0f }</td></tr>
-<tr class="separator:a68b9570c39bd1e193fe65b734cc47cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad86358bf19927183dd7b4ae215a29731"><td class="memItemLeft" align="right" valign="top"><a id="ad86358bf19927183dd7b4ae215a29731" name="ad86358bf19927183dd7b4ae215a29731"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_RED</b>&#160;&#160;&#160;(HPDF_RGBColor) { 1.0f, 0.0f, 0.0f }</td></tr>
-<tr class="separator:ad86358bf19927183dd7b4ae215a29731"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac91787398b7bb768aa1bb662085e47d5"><td class="memItemLeft" align="right" valign="top"><a id="ac91787398b7bb768aa1bb662085e47d5" name="ac91787398b7bb768aa1bb662085e47d5"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_LIGHT_GREEN</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.9f, 1.0f, 0.9f }</td></tr>
-<tr class="separator:ac91787398b7bb768aa1bb662085e47d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc9149f5de51bd9ac4f5ebbfa153f018"><td class="memItemLeft" align="right" valign="top"><a id="afc9149f5de51bd9ac4f5ebbfa153f018" name="afc9149f5de51bd9ac4f5ebbfa153f018"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_GREEN</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.4f, 0.9f, 0.4f }</td></tr>
-<tr class="separator:afc9149f5de51bd9ac4f5ebbfa153f018"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaaec42f9e5d8b8240243192d9ee43ec"><td class="memItemLeft" align="right" valign="top"><a id="aaaaec42f9e5d8b8240243192d9ee43ec" name="aaaaec42f9e5d8b8240243192d9ee43ec"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_DARK_GREEN</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.05f, 0.37f, 0.02f }</td></tr>
-<tr class="separator:aaaaec42f9e5d8b8240243192d9ee43ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c546bb9d8660d44115f17f15d561fae"><td class="memItemLeft" align="right" valign="top"><a id="a2c546bb9d8660d44115f17f15d561fae" name="a2c546bb9d8660d44115f17f15d561fae"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_DARK_GRAY</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.2f, 0.2f, 0.2f }</td></tr>
-<tr class="separator:a2c546bb9d8660d44115f17f15d561fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc2954ef000e2049ff7368a66e921a81"><td class="memItemLeft" align="right" valign="top"><a id="adc2954ef000e2049ff7368a66e921a81" name="adc2954ef000e2049ff7368a66e921a81"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_LIGHT_GRAY</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.9f, 0.9f, 0.9f }</td></tr>
-<tr class="separator:adc2954ef000e2049ff7368a66e921a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3aaf3b0287d26dfb6ecb3b1c46e950c8"><td class="memItemLeft" align="right" valign="top"><a id="a3aaf3b0287d26dfb6ecb3b1c46e950c8" name="a3aaf3b0287d26dfb6ecb3b1c46e950c8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_GRAY</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.5f, 0.5f, 0.5f }</td></tr>
-<tr class="separator:a3aaf3b0287d26dfb6ecb3b1c46e950c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a222ba410c8d99aaacadef5ecd4d7952e"><td class="memItemLeft" align="right" valign="top"><a id="a222ba410c8d99aaacadef5ecd4d7952e" name="a222ba410c8d99aaacadef5ecd4d7952e"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_SILVER</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.75f, 0.75f, 0.75f }</td></tr>
-<tr class="separator:a222ba410c8d99aaacadef5ecd4d7952e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62f68a1c5b69b706d68bb01eaf2a4aeb"><td class="memItemLeft" align="right" valign="top"><a id="a62f68a1c5b69b706d68bb01eaf2a4aeb" name="a62f68a1c5b69b706d68bb01eaf2a4aeb"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_LIGHT_BLUE</b>&#160;&#160;&#160;(HPDF_RGBColor) { 1.0f, 1.0f, 0.9f }</td></tr>
-<tr class="separator:a62f68a1c5b69b706d68bb01eaf2a4aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23c70d699a5a775bc2e1ebeb8603f630"><td class="memItemLeft" align="right" valign="top"><a id="a23c70d699a5a775bc2e1ebeb8603f630" name="a23c70d699a5a775bc2e1ebeb8603f630"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_BLUE</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.0f, 0.0f, 1.0f }</td></tr>
-<tr class="separator:a23c70d699a5a775bc2e1ebeb8603f630"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13d2340de395ffd615ad44cf397377d7"><td class="memItemLeft" align="right" valign="top"><a id="a13d2340de395ffd615ad44cf397377d7" name="a13d2340de395ffd615ad44cf397377d7"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_DARK_BLUE</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.0f, 0.0f, 0.6f }</td></tr>
-<tr class="separator:a13d2340de395ffd615ad44cf397377d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b44987ffdc2af19b635206b94334b69"><td class="memItemLeft" align="right" valign="top"><a id="a9b44987ffdc2af19b635206b94334b69" name="a9b44987ffdc2af19b635206b94334b69"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_WHITE</b>&#160;&#160;&#160;(HPDF_RGBColor) { 1.0f, 1.0f, 1.0f }</td></tr>
-<tr class="separator:a9b44987ffdc2af19b635206b94334b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba2a7fe77a7501e5844370eec0185207"><td class="memItemLeft" align="right" valign="top"><a id="aba2a7fe77a7501e5844370eec0185207" name="aba2a7fe77a7501e5844370eec0185207"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COLOR_BLACK</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.0f, 0.0f, 0.0f }</td></tr>
-<tr class="separator:aba2a7fe77a7501e5844370eec0185207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a528f935fabcf44dabce6d22f3f3db848"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#a528f935fabcf44dabce6d22f3f3db848">HPDF_COLOR_DARK_RED</a>&#160;&#160;&#160;(HPDF_RGBColor) { 0.6f, 0.0f, 0.0f }</td></tr>
+<tr class="separator:a528f935fabcf44dabce6d22f3f3db848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad41523bf6a26ee5edb1b84c8a54ad132"><td class="memItemLeft" align="right" valign="top"><a id="ad41523bf6a26ee5edb1b84c8a54ad132" name="ad41523bf6a26ee5edb1b84c8a54ad132"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_RED</b>&#160;&#160;&#160;(HPDF_RGBColor) { 1.0f, 0.0f, 0.0f }</td></tr>
+<tr class="separator:ad41523bf6a26ee5edb1b84c8a54ad132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d5b0c364644e65bb4fa23d021725f3"><td class="memItemLeft" align="right" valign="top"><a id="a53d5b0c364644e65bb4fa23d021725f3" name="a53d5b0c364644e65bb4fa23d021725f3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_LIGHT_GREEN</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.9f, 1.0f, 0.9f }</td></tr>
+<tr class="separator:a53d5b0c364644e65bb4fa23d021725f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43ba434543e95f39b55ea495d7735fd6"><td class="memItemLeft" align="right" valign="top"><a id="a43ba434543e95f39b55ea495d7735fd6" name="a43ba434543e95f39b55ea495d7735fd6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_GREEN</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.4f, 0.9f, 0.4f }</td></tr>
+<tr class="separator:a43ba434543e95f39b55ea495d7735fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc9eaa7350fd8f664534b6f78bf8babd"><td class="memItemLeft" align="right" valign="top"><a id="afc9eaa7350fd8f664534b6f78bf8babd" name="afc9eaa7350fd8f664534b6f78bf8babd"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_DARK_GREEN</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.05f, 0.37f, 0.02f }</td></tr>
+<tr class="separator:afc9eaa7350fd8f664534b6f78bf8babd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7a683aec23e87f0bc40de3af3723afd"><td class="memItemLeft" align="right" valign="top"><a id="af7a683aec23e87f0bc40de3af3723afd" name="af7a683aec23e87f0bc40de3af3723afd"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_DARK_GRAY</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.2f, 0.2f, 0.2f }</td></tr>
+<tr class="separator:af7a683aec23e87f0bc40de3af3723afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc58b4b4f03b30f04d4e2c6800771b63"><td class="memItemLeft" align="right" valign="top"><a id="adc58b4b4f03b30f04d4e2c6800771b63" name="adc58b4b4f03b30f04d4e2c6800771b63"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_LIGHT_GRAY</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.9f, 0.9f, 0.9f }</td></tr>
+<tr class="separator:adc58b4b4f03b30f04d4e2c6800771b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cddbbffb2af9de9d57c9a0b4c845aa8"><td class="memItemLeft" align="right" valign="top"><a id="a8cddbbffb2af9de9d57c9a0b4c845aa8" name="a8cddbbffb2af9de9d57c9a0b4c845aa8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_GRAY</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.5f, 0.5f, 0.5f }</td></tr>
+<tr class="separator:a8cddbbffb2af9de9d57c9a0b4c845aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e44179ada7acba73537232cbcb97939"><td class="memItemLeft" align="right" valign="top"><a id="a2e44179ada7acba73537232cbcb97939" name="a2e44179ada7acba73537232cbcb97939"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_SILVER</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.75f, 0.75f, 0.75f }</td></tr>
+<tr class="separator:a2e44179ada7acba73537232cbcb97939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac39550cea98f4d67ee983f754a2e39c1"><td class="memItemLeft" align="right" valign="top"><a id="ac39550cea98f4d67ee983f754a2e39c1" name="ac39550cea98f4d67ee983f754a2e39c1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_LIGHT_BLUE</b>&#160;&#160;&#160;(HPDF_RGBColor) { 1.0f, 1.0f, 0.9f }</td></tr>
+<tr class="separator:ac39550cea98f4d67ee983f754a2e39c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08ae12451242919a951bdb462a0d0681"><td class="memItemLeft" align="right" valign="top"><a id="a08ae12451242919a951bdb462a0d0681" name="a08ae12451242919a951bdb462a0d0681"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_BLUE</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.0f, 0.0f, 1.0f }</td></tr>
+<tr class="separator:a08ae12451242919a951bdb462a0d0681"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f1e12d78abeea112e43df064c2d2f23"><td class="memItemLeft" align="right" valign="top"><a id="a7f1e12d78abeea112e43df064c2d2f23" name="a7f1e12d78abeea112e43df064c2d2f23"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_DARK_BLUE</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.0f, 0.0f, 0.6f }</td></tr>
+<tr class="separator:a7f1e12d78abeea112e43df064c2d2f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac467df0ba42f870c7d6491f0d5facf85"><td class="memItemLeft" align="right" valign="top"><a id="ac467df0ba42f870c7d6491f0d5facf85" name="ac467df0ba42f870c7d6491f0d5facf85"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_WHITE</b>&#160;&#160;&#160;(HPDF_RGBColor) { 1.0f, 1.0f, 1.0f }</td></tr>
+<tr class="separator:ac467df0ba42f870c7d6491f0d5facf85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a7f70b2d8dc31d661ba80327ff730e6"><td class="memItemLeft" align="right" valign="top"><a id="a6a7f70b2d8dc31d661ba80327ff730e6" name="a6a7f70b2d8dc31d661ba80327ff730e6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDF_COLOR_BLACK</b>&#160;&#160;&#160;(HPDF_RGBColor) { 0.0f, 0.0f, 0.0f }</td></tr>
+<tr class="separator:a6a7f70b2d8dc31d661ba80327ff730e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a871430d78bdf177962464c3697147361"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#a871430d78bdf177962464c3697147361">HPDFTBL_DEFAULT_TARGET_ENCODING</a>&#160;&#160;&#160;&quot;ISO8859-4&quot;</td></tr>
 <tr class="separator:a871430d78bdf177962464c3697147361"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f64253d3b88b7ef56e76cf8090e281b"><td class="memItemLeft" align="right" valign="top"><a id="a8f64253d3b88b7ef56e76cf8090e281b" name="a8f64253d3b88b7ef56e76cf8090e281b"></a>
@@ -259,13 +259,13 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a3d711e82876140fbd564b76c08753343"><td class="memItemLeft" align="right" valign="top">typedef _Bool(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#a3d711e82876140fbd564b76c08753343">hpdftbl_content_style_callback_t</a>) (void *, size_t, size_t, char *content, <a class="el" href="hpdftbl_8h.html#ab1a0bfd569d2bfc10817b040a8893c44">hpdf_text_style_t</a> *)</td></tr>
 <tr class="memdesc:a3d711e82876140fbd564b76c08753343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type specification for the content style.  <a href="hpdftbl_8h.html#a3d711e82876140fbd564b76c08753343">More...</a><br /></td></tr>
 <tr class="separator:a3d711e82876140fbd564b76c08753343"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a562bda7481966ae717e9665ebbc5aa5c"><td class="memItemLeft" align="right" valign="top"><a id="a562bda7481966ae717e9665ebbc5aa5c" name="a562bda7481966ae717e9665ebbc5aa5c"></a>
-typedef enum <a class="el" href="hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7d">hpdftbl_dash_style</a>&#160;</td><td class="memItemRight" valign="bottom"><b>hpdftbl_line_style_t</b></td></tr>
-<tr class="memdesc:a562bda7481966ae717e9665ebbc5aa5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Possible line dash styles in table frames. <br /></td></tr>
-<tr class="separator:a562bda7481966ae717e9665ebbc5aa5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecb2b8e97f8234b11ecd8583d81c2270"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structborder__style.html">border_style</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#aecb2b8e97f8234b11ecd8583d81c2270">hpdf_border_style_t</a></td></tr>
-<tr class="memdesc:aecb2b8e97f8234b11ecd8583d81c2270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specification for table borders.  <a href="hpdftbl_8h.html#aecb2b8e97f8234b11ecd8583d81c2270">More...</a><br /></td></tr>
-<tr class="separator:aecb2b8e97f8234b11ecd8583d81c2270"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc5e23ef640f73c91c0da02ab1faa89c"><td class="memItemLeft" align="right" valign="top"><a id="abc5e23ef640f73c91c0da02ab1faa89c" name="abc5e23ef640f73c91c0da02ab1faa89c"></a>
+typedef enum <a class="el" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23">hpdftbl_dashstyle</a>&#160;</td><td class="memItemRight" valign="bottom"><b>hpdftbl_line_dashstyle_t</b></td></tr>
+<tr class="memdesc:abc5e23ef640f73c91c0da02ab1faa89c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Possible line dash styles for grid lines. <br /></td></tr>
+<tr class="separator:abc5e23ef640f73c91c0da02ab1faa89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3456f42c12ca4ce72191d36bc3c5613"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structgrid__style.html">grid_style</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#ab3456f42c12ca4ce72191d36bc3c5613">hpdftbl_grid_style_t</a></td></tr>
+<tr class="memdesc:ab3456f42c12ca4ce72191d36bc3c5613"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specification for table grid lines.  <a href="hpdftbl_8h.html#ab3456f42c12ca4ce72191d36bc3c5613">More...</a><br /></td></tr>
+<tr class="separator:ab3456f42c12ca4ce72191d36bc3c5613"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac71c9940b6fbb69877cc74c404e7062f"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structhpdftbl__cell.html">hpdftbl_cell</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#ac71c9940b6fbb69877cc74c404e7062f">hpdftbl_cell_t</a></td></tr>
 <tr class="memdesc:ac71c9940b6fbb69877cc74c404e7062f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type definition for the cell structure.  <a href="hpdftbl_8h.html#ac71c9940b6fbb69877cc74c404e7062f">More...</a><br /></td></tr>
 <tr class="separator:ac71c9940b6fbb69877cc74c404e7062f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -296,20 +296,20 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a641e356caf346df9a98ebdc91518d55d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration for horizontal text alignment.  <a href="hpdftbl_8h.html#a641e356caf346df9a98ebdc91518d55d">More...</a><br /></td></tr>
 <tr class="separator:a641e356caf346df9a98ebdc91518d55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e829cbbaf8e884986c79aaa17c86b7d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7d">hpdftbl_dash_style</a> { <br />
-&#160;&#160;<a class="el" href="hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da1b45f84e1f6603b52e5ef442836df9af">SOLID</a> = 0
-, <a class="el" href="hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da22d7d3df618036901ddc02213056caf8">DOT1</a> = 1
-, <a class="el" href="hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da8ce475519dbb414a574a890d819ced96">DOT2</a> = 2
-, <a class="el" href="hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da14ff84160ff13a591e7d45da0052d6b9">DOT3</a> = 3
+<tr class="memitem:abf7bd1810c28966c0af1a86365677e23"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23">hpdftbl_dashstyle</a> { <br />
+&#160;&#160;<a class="el" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23a700c78bc2cd76acaab26651bf7b4941f">LINE_SOLID</a> = 0
+, <a class="el" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23ac9824cf2c82a80044ce62f9f6a8d70a5">LINE_DOT1</a> = 1
+, <a class="el" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23a498f42b7c0b166e07ca935de5d8093ce">LINE_DOT2</a> = 2
+, <a class="el" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23ac37fdca4238d715a2610a6dc1e985259">LINE_DOT3</a> = 3
 , <br />
-&#160;&#160;<a class="el" href="hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da356bee9bcbdbbdb7778e88a7c392b143">DASH1</a> = 4
-, <a class="el" href="hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da6b53f8296640805fdaad3358b195821a">DASH2</a> = 5
-, <a class="el" href="hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7dabcae910d2aaba85406a0b79e13f3c7d6">DASH3</a> = 6
-, <a class="el" href="hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7da8aad371d411577dee0fb0af404e58eb1">DASHDOT</a> = 7
+&#160;&#160;<a class="el" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23acbd159e685428047663e5d350926484a">LINE_DASH1</a> = 4
+, <a class="el" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23a83c885ca37d933eda6bac28935e9cc09">LINE_DASH2</a> = 5
+, <a class="el" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23ad7fad9cf3d6f0de01e88499aa13770c7">LINE_DASH3</a> = 6
+, <a class="el" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23a5e497d00070256a0b4caecb567625fb5">LINE_DASHDOT</a> = 7
 <br />
  }</td></tr>
-<tr class="memdesc:a2e829cbbaf8e884986c79aaa17c86b7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Possible line dash styles in table frames.  <a href="hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7d">More...</a><br /></td></tr>
-<tr class="separator:a2e829cbbaf8e884986c79aaa17c86b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:abf7bd1810c28966c0af1a86365677e23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Possible line dash styles for grid lines.  <a href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23">More...</a><br /></td></tr>
+<tr class="separator:abf7bd1810c28966c0af1a86365677e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -377,14 +377,23 @@ Functions</h2></td></tr>
 <tr class="memitem:a5be6faf3e7910835333809150e9d5d1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#a5be6faf3e7910835333809150e9d5d1e">hpdftbl_set_background</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_RGBColor background)</td></tr>
 <tr class="memdesc:a5be6faf3e7910835333809150e9d5d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set table background color.  <a href="hpdftbl_8h.html#a5be6faf3e7910835333809150e9d5d1e">More...</a><br /></td></tr>
 <tr class="separator:a5be6faf3e7910835333809150e9d5d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12605f454f23b6bbc743e80a4b97abc4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#a12605f454f23b6bbc743e80a4b97abc4">hpdftbl_set_outer_border</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color)</td></tr>
-<tr class="memdesc:a12605f454f23b6bbc743e80a4b97abc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify style for table outer border.  <a href="hpdftbl_8h.html#a12605f454f23b6bbc743e80a4b97abc4">More...</a><br /></td></tr>
-<tr class="separator:a12605f454f23b6bbc743e80a4b97abc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a390be06c0c66bd17b873343fbb5961c1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#a390be06c0c66bd17b873343fbb5961c1">hpdftbl_set_inner_border</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color)</td></tr>
-<tr class="memdesc:a390be06c0c66bd17b873343fbb5961c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify style for table inner border.  <a href="hpdftbl_8h.html#a390be06c0c66bd17b873343fbb5961c1">More...</a><br /></td></tr>
-<tr class="separator:a390be06c0c66bd17b873343fbb5961c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa397e828bbed03432aa0a2ead0e6379b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#aa397e828bbed03432aa0a2ead0e6379b">hpdftbl_set_inner_tgrid_style</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color, <a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle)</td></tr>
+<tr class="memdesc:aa397e828bbed03432aa0a2ead0e6379b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set inner horizontal top border grid style. This would be the gridline just below the header row.  <a href="hpdftbl_8h.html#aa397e828bbed03432aa0a2ead0e6379b">More...</a><br /></td></tr>
+<tr class="separator:aa397e828bbed03432aa0a2ead0e6379b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad60b183955eb454d6ff98dafdc3e5171"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#ad60b183955eb454d6ff98dafdc3e5171">hpdftbl_set_inner_vgrid_style</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color, <a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle)</td></tr>
+<tr class="memdesc:ad60b183955eb454d6ff98dafdc3e5171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set inner vertical border grid style.  <a href="hpdftbl_8h.html#ad60b183955eb454d6ff98dafdc3e5171">More...</a><br /></td></tr>
+<tr class="separator:ad60b183955eb454d6ff98dafdc3e5171"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af66a8855647fe4fd916604a5583df277"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#af66a8855647fe4fd916604a5583df277">hpdftbl_set_inner_hgrid_style</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color, <a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle)</td></tr>
+<tr class="memdesc:af66a8855647fe4fd916604a5583df277"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set inner horizontal border grid style.  <a href="hpdftbl_8h.html#af66a8855647fe4fd916604a5583df277">More...</a><br /></td></tr>
+<tr class="separator:af66a8855647fe4fd916604a5583df277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3613ad2a82907bd8275e8447a2e7d79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#af3613ad2a82907bd8275e8447a2e7d79">hpdftbl_set_inner_grid_style</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color, <a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle)</td></tr>
+<tr class="memdesc:af3613ad2a82907bd8275e8447a2e7d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set inner border grid style.  <a href="hpdftbl_8h.html#af3613ad2a82907bd8275e8447a2e7d79">More...</a><br /></td></tr>
+<tr class="separator:af3613ad2a82907bd8275e8447a2e7d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23faf2eec6a68c41b083bc455ba14ca9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#a23faf2eec6a68c41b083bc455ba14ca9">hpdftbl_set_outer_grid_style</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color, <a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle)</td></tr>
+<tr class="memdesc:a23faf2eec6a68c41b083bc455ba14ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set outer border grid style.  <a href="hpdftbl_8h.html#a23faf2eec6a68c41b083bc455ba14ca9">More...</a><br /></td></tr>
+<tr class="separator:a23faf2eec6a68c41b083bc455ba14ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6eca4a1059b707febb44f399b7507867"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#a6eca4a1059b707febb44f399b7507867">hpdftbl_set_header_style</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</td></tr>
-<tr class="memdesc:a6eca4a1059b707febb44f399b7507867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify style for table heder row.  <a href="hpdftbl_8h.html#a6eca4a1059b707febb44f399b7507867">More...</a><br /></td></tr>
+<tr class="memdesc:a6eca4a1059b707febb44f399b7507867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify style for table header row.  <a href="hpdftbl_8h.html#a6eca4a1059b707febb44f399b7507867">More...</a><br /></td></tr>
 <tr class="separator:a6eca4a1059b707febb44f399b7507867"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c77daa33f06fa163606d3c2e2854bc1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8h.html#a4c77daa33f06fa163606d3c2e2854bc1">hpdftbl_set_header_halign</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, <a class="el" href="hpdftbl_8h.html#ab6fa0884985d94928ddcfc0697a1e2b1">hpdftbl_text_align_t</a> align)</td></tr>
 <tr class="memdesc:a4c77daa33f06fa163606d3c2e2854bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set table header text align.  <a href="hpdftbl_8h.html#a4c77daa33f06fa163606d3c2e2854bc1">More...</a><br /></td></tr>
@@ -524,7 +533,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >A4 Height in CM </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex01_8c-example.html#a5">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a5">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a6">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a7">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a8">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a8">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a9">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a10">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a11">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a16">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a8">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a9">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a9">tut_ex12.c</a>, <a class="el" href="tut_ex13_1_8c-example.html#a4">tut_ex13_1.c</a>, <a class="el" href="tut_ex13_2_8c-example.html#a7">tut_ex13_2.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a12">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex01_8c-example.html#a5">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a5">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a7">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a9">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a9">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a9">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a10">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a11">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a12">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a17">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a8">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a10">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a10">tut_ex12.c</a>, <a class="el" href="tut_ex13_1_8c-example.html#a6">tut_ex13_1.c</a>, <a class="el" href="tut_ex13_2_8c-example.html#a9">tut_ex13_2.c</a>, <a class="el" href="tut_ex14_8c-example.html#a14">tut_ex14.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a17">tut_ex20.c</a>.</dd>
 </dl>
 
 </div>
@@ -541,24 +550,24 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >A4 Width in CM </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex02_1_8c-example.html#a7">tut_ex02_1.c</a>, <a class="el" href="tut_ex09_8c-example.html#a17">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a9">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a10">tut_ex11.c</a>, and <a class="el" href="tut_ex12_8c-example.html#a10">tut_ex12.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex02_1_8c-example.html#a8">tut_ex02_1.c</a>, <a class="el" href="tut_ex09_8c-example.html#a18">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a9">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a11">tut_ex11.c</a>, and <a class="el" href="tut_ex12_8c-example.html#a11">tut_ex12.c</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="a68b9570c39bd1e193fe65b734cc47cb2" name="a68b9570c39bd1e193fe65b734cc47cb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68b9570c39bd1e193fe65b734cc47cb2">&#9670;&nbsp;</a></span>COLOR_DARK_RED</h2>
+<a id="a528f935fabcf44dabce6d22f3f3db848" name="a528f935fabcf44dabce6d22f3f3db848"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a528f935fabcf44dabce6d22f3f3db848">&#9670;&nbsp;</a></span>HPDF_COLOR_DARK_RED</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define COLOR_DARK_RED&#160;&#160;&#160;(HPDF_RGBColor) { 0.6f, 0.0f, 0.0f }</td>
+          <td class="memname">#define HPDF_COLOR_DARK_RED&#160;&#160;&#160;(HPDF_RGBColor) { 0.6f, 0.0f, 0.0f }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p >Basic color definitions </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex14_8c-example.html#a2">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a21">example01.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a3">tut_ex14.c</a>.</dd>
 </dl>
 
 </div>
@@ -639,7 +648,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>HPDF_REAL Converted value in dots </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex01_8c-example.html#a4">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a4">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a5">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a6">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a7">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a7">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a8">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a9">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a10">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a15">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a7">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a8">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a8">tut_ex12.c</a>, <a class="el" href="tut_ex13_1_8c-example.html#a3">tut_ex13_1.c</a>, <a class="el" href="tut_ex13_2_8c-example.html#a6">tut_ex13_2.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a11">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex01_8c-example.html#a4">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a4">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a6">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a8">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a8">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a8">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a9">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a10">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a11">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a16">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a7">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a9">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a9">tut_ex12.c</a>, <a class="el" href="tut_ex13_1_8c-example.html#a5">tut_ex13_1.c</a>, <a class="el" href="tut_ex13_2_8c-example.html#a8">tut_ex13_2.c</a>, <a class="el" href="tut_ex14_8c-example.html#a13">tut_ex14.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a16">tut_ex20.c</a>.</dd>
 </dl>
 
 </div>
@@ -752,23 +761,6 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="aecb2b8e97f8234b11ecd8583d81c2270" name="aecb2b8e97f8234b11ecd8583d81c2270"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecb2b8e97f8234b11ecd8583d81c2270">&#9670;&nbsp;</a></span>hpdf_border_style_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct <a class="el" href="structborder__style.html">border_style</a> <a class="el" href="hpdftbl_8h.html#aecb2b8e97f8234b11ecd8583d81c2270">hpdf_border_style_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Specification for table borders. </p>
-<p >Contains line properties used when stroking a border line </p>
-
-</div>
-</div>
 <a id="ab1a0bfd569d2bfc10817b040a8893c44" name="ab1a0bfd569d2bfc10817b040a8893c44"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab1a0bfd569d2bfc10817b040a8893c44">&#9670;&nbsp;</a></span>hpdf_text_style_t</h2>
 
@@ -911,6 +903,23 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ab3456f42c12ca4ce72191d36bc3c5613" name="ab3456f42c12ca4ce72191d36bc3c5613"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3456f42c12ca4ce72191d36bc3c5613">&#9670;&nbsp;</a></span>hpdftbl_grid_style_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structgrid__style.html">grid_style</a> <a class="el" href="hpdftbl_8h.html#ab3456f42c12ca4ce72191d36bc3c5613">hpdftbl_grid_style_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Specification for table grid lines. </p>
+<p >Contains line properties used when stroking a grid line </p>
+
+</div>
+</div>
 <a id="a9f7b00fc28973e60f6f05df1c02b72ed" name="a9f7b00fc28973e60f6f05df1c02b72ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f7b00fc28973e60f6f05df1c02b72ed">&#9670;&nbsp;</a></span>hpdftbl_spec_t</h2>
 
@@ -985,35 +994,35 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a2e829cbbaf8e884986c79aaa17c86b7d" name="a2e829cbbaf8e884986c79aaa17c86b7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e829cbbaf8e884986c79aaa17c86b7d">&#9670;&nbsp;</a></span>hpdftbl_dash_style</h2>
+<a id="abf7bd1810c28966c0af1a86365677e23" name="abf7bd1810c28966c0af1a86365677e23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf7bd1810c28966c0af1a86365677e23">&#9670;&nbsp;</a></span>hpdftbl_dashstyle</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="hpdftbl_8h.html#a2e829cbbaf8e884986c79aaa17c86b7d">hpdftbl_dash_style</a></td>
+          <td class="memname">enum <a class="el" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23">hpdftbl_dashstyle</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Possible line dash styles in table frames. </p>
+<p>Possible line dash styles for grid lines. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2e829cbbaf8e884986c79aaa17c86b7da1b45f84e1f6603b52e5ef442836df9af" name="a2e829cbbaf8e884986c79aaa17c86b7da1b45f84e1f6603b52e5ef442836df9af"></a>SOLID&#160;</td><td class="fielddoc"><p >Solid line </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abf7bd1810c28966c0af1a86365677e23a700c78bc2cd76acaab26651bf7b4941f" name="abf7bd1810c28966c0af1a86365677e23a700c78bc2cd76acaab26651bf7b4941f"></a>LINE_SOLID&#160;</td><td class="fielddoc"><p >Solid line </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a2e829cbbaf8e884986c79aaa17c86b7da22d7d3df618036901ddc02213056caf8" name="a2e829cbbaf8e884986c79aaa17c86b7da22d7d3df618036901ddc02213056caf8"></a>DOT1&#160;</td><td class="fielddoc"><p >Dotted line variant 1 </p>
+<tr><td class="fieldname"><a id="abf7bd1810c28966c0af1a86365677e23ac9824cf2c82a80044ce62f9f6a8d70a5" name="abf7bd1810c28966c0af1a86365677e23ac9824cf2c82a80044ce62f9f6a8d70a5"></a>LINE_DOT1&#160;</td><td class="fielddoc"><p >Dotted line variant 1 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a2e829cbbaf8e884986c79aaa17c86b7da8ce475519dbb414a574a890d819ced96" name="a2e829cbbaf8e884986c79aaa17c86b7da8ce475519dbb414a574a890d819ced96"></a>DOT2&#160;</td><td class="fielddoc"><p >Dotted line variant 2 </p>
+<tr><td class="fieldname"><a id="abf7bd1810c28966c0af1a86365677e23a498f42b7c0b166e07ca935de5d8093ce" name="abf7bd1810c28966c0af1a86365677e23a498f42b7c0b166e07ca935de5d8093ce"></a>LINE_DOT2&#160;</td><td class="fielddoc"><p >Dotted line variant 2 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a2e829cbbaf8e884986c79aaa17c86b7da14ff84160ff13a591e7d45da0052d6b9" name="a2e829cbbaf8e884986c79aaa17c86b7da14ff84160ff13a591e7d45da0052d6b9"></a>DOT3&#160;</td><td class="fielddoc"><p >Dotted line variant 3 </p>
+<tr><td class="fieldname"><a id="abf7bd1810c28966c0af1a86365677e23ac37fdca4238d715a2610a6dc1e985259" name="abf7bd1810c28966c0af1a86365677e23ac37fdca4238d715a2610a6dc1e985259"></a>LINE_DOT3&#160;</td><td class="fielddoc"><p >Dotted line variant 3 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a2e829cbbaf8e884986c79aaa17c86b7da356bee9bcbdbbdb7778e88a7c392b143" name="a2e829cbbaf8e884986c79aaa17c86b7da356bee9bcbdbbdb7778e88a7c392b143"></a>DASH1&#160;</td><td class="fielddoc"><p >Dashed line variant 1 </p>
+<tr><td class="fieldname"><a id="abf7bd1810c28966c0af1a86365677e23acbd159e685428047663e5d350926484a" name="abf7bd1810c28966c0af1a86365677e23acbd159e685428047663e5d350926484a"></a>LINE_DASH1&#160;</td><td class="fielddoc"><p >Dashed line variant 1 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a2e829cbbaf8e884986c79aaa17c86b7da6b53f8296640805fdaad3358b195821a" name="a2e829cbbaf8e884986c79aaa17c86b7da6b53f8296640805fdaad3358b195821a"></a>DASH2&#160;</td><td class="fielddoc"><p >Dashed line variant 2 </p>
+<tr><td class="fieldname"><a id="abf7bd1810c28966c0af1a86365677e23a83c885ca37d933eda6bac28935e9cc09" name="abf7bd1810c28966c0af1a86365677e23a83c885ca37d933eda6bac28935e9cc09"></a>LINE_DASH2&#160;</td><td class="fielddoc"><p >Dashed line variant 2 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a2e829cbbaf8e884986c79aaa17c86b7dabcae910d2aaba85406a0b79e13f3c7d6" name="a2e829cbbaf8e884986c79aaa17c86b7dabcae910d2aaba85406a0b79e13f3c7d6"></a>DASH3&#160;</td><td class="fielddoc"><p >Dashed line variant 3 </p>
+<tr><td class="fieldname"><a id="abf7bd1810c28966c0af1a86365677e23ad7fad9cf3d6f0de01e88499aa13770c7" name="abf7bd1810c28966c0af1a86365677e23ad7fad9cf3d6f0de01e88499aa13770c7"></a>LINE_DASH3&#160;</td><td class="fielddoc"><p >Dashed line variant 3 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a2e829cbbaf8e884986c79aaa17c86b7da8aad371d411577dee0fb0af404e58eb1" name="a2e829cbbaf8e884986c79aaa17c86b7da8aad371d411577dee0fb0af404e58eb1"></a>DASHDOT&#160;</td><td class="fielddoc"><p >Dashed-dot line variant 1 </p>
+<tr><td class="fieldname"><a id="abf7bd1810c28966c0af1a86365677e23a5e497d00070256a0b4caecb567625fb5" name="abf7bd1810c28966c0af1a86365677e23a5e497d00070256a0b4caecb567625fb5"></a>LINE_DASHDOT&#160;</td><td class="fielddoc"><p >Dashed-dot line variant 1 </p>
 </td></tr>
 </table>
 
@@ -1370,6 +1379,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 for error , 0 for success </dd></dl>
 
 </div>
 </div>
@@ -1443,6 +1453,7 @@ Functions</h2></td></tr>
 
 <p>Get stroking anchor point. </p>
 <p >Get base point for table positioning. By default the top left is used. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#a975559350861291240dc08d76e103aca" title="Switch stroking anchor point.">hpdftbl_set_anchor_top_left</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>TRUE if anchor is top left, FALSE otherwise </dd></dl>
 
 </div>
 </div>
@@ -1488,7 +1499,7 @@ Functions</h2></td></tr>
 <p >The function returns a pointer to a static string that cannot be modified. It will translate both internal table error messages as well as generic HPDF library error codes.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">err_code</td><td>The error code to be translated </td></tr>
+    <tr><td class="paramname">err</td><td>The error code to be translated </td></tr>
   </table>
   </dd>
 </dl>
@@ -1598,7 +1609,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to an error string, NULL if the error code is invalid</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160" title="Translate a table error code to a human readable string.">hpdftbl_get_errstr()</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex01_8c-example.html#a0">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a0">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a0">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a0">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a0">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a0">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a0">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a0">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a0">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a0">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a0">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a0">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a0">tut_ex12.c</a>, <a class="el" href="tut_ex13_1_8c-example.html#a0">tut_ex13_1.c</a>, <a class="el" href="tut_ex13_2_8c-example.html#a0">tut_ex13_2.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a0">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a0">example01.c</a>, <a class="el" href="tut_ex01_8c-example.html#a0">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a0">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a0">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a0">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a0">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a0">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a0">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a0">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a0">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a0">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a0">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a0">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a0">tut_ex12.c</a>, <a class="el" href="tut_ex13_1_8c-example.html#a0">tut_ex13_1.c</a>, <a class="el" href="tut_ex13_2_8c-example.html#a0">tut_ex13_2.c</a>, <a class="el" href="tut_ex14_8c-example.html#a0">tut_ex14.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a0">tut_ex20.c</a>.</dd>
 </dl>
 
 </div>
@@ -1620,7 +1631,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Switch stroking anchor point. </p>
-<p >Set anchor point for table positioning. By default the top left is used as anchor. Calling this function with FALSE can set the basepoint to bottom left instead. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Set anchor point for table positioning. By default the top left is used as anchor. Calling this function with FALSE can set the basepoint to bottom left instead.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">anchor</td><td>Set to TRUE to use top left as anchor, FALSE for bottom left </td></tr>
   </table>
@@ -2302,10 +2314,11 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 <p >Set content callback. This callback gets called for each cell in the table and the returned string will be used as the content. The string will be duplicated so it is safe for a client to reuse the string space. If NULL is returned from the callback then the content will be set to the content specified with the direct content setting. The callback function will receive the Table tag and the row and column </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
-    <tr><td class="paramname">cb</td><td>Callback function</td></tr>
+    <tr><td class="paramname">cb</td><td>Callback function </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 for error , 0 otherwise</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#aae07e6f243360d9c80c18396ed9837f2" title="Set cell content callback.">hpdftbl_set_cell_content_cb()</a> </dd></dl>
 
 </div>
@@ -2520,7 +2533,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Specify style for table heder row. </p>
+<p>Specify style for table header row. </p>
 <p >Set the font properties and background for the header row which is the top row if enabled. The header row will be automatically enabled after calling this function. The header can be enabled/disabled separately with <a class="el" href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header()</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
@@ -2535,14 +2548,14 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 
 </div>
 </div>
-<a id="a390be06c0c66bd17b873343fbb5961c1" name="a390be06c0c66bd17b873343fbb5961c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a390be06c0c66bd17b873343fbb5961c1">&#9670;&nbsp;</a></span>hpdftbl_set_inner_border()</h2>
+<a id="af3613ad2a82907bd8275e8447a2e7d79" name="af3613ad2a82907bd8275e8447a2e7d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3613ad2a82907bd8275e8447a2e7d79">&#9670;&nbsp;</a></span>hpdftbl_set_inner_grid_style()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int hpdftbl_set_inner_border </td>
+          <td class="memname">int hpdftbl_set_inner_grid_style </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
           <td class="paramname"><em>t</em>, </td>
@@ -2557,7 +2570,13 @@ hpdftbl_set_cell_content_callback() </dd></dl>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">HPDF_RGBColor&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a>&#160;</td>
+          <td class="paramname"><em>dashstyle</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2567,16 +2586,176 @@ hpdftbl_set_cell_content_callback() </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Specify style for table inner border. </p>
-<p >Set inner border properties </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Set inner border grid style. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
-    <tr><td class="paramname">width</td><td>Line width </td></tr>
+    <tr><td class="paramname">width</td><td>Line width (in pt) </td></tr>
     <tr><td class="paramname">color</td><td>Line color </td></tr>
+    <tr><td class="paramname">dashstyle</td><td>Line dash style </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#af66a8855647fe4fd916604a5583df277" title="Set inner horizontal border grid style.">hpdftbl_set_inner_hgrid_style()</a>, <a class="el" href="hpdftbl_8c.html#ad60b183955eb454d6ff98dafdc3e5171" title="Set inner vertical border grid style.">hpdftbl_set_inner_vgrid_style</a> </dd></dl>
+
+</div>
+</div>
+<a id="af66a8855647fe4fd916604a5583df277" name="af66a8855647fe4fd916604a5583df277"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af66a8855647fe4fd916604a5583df277">&#9670;&nbsp;</a></span>hpdftbl_set_inner_hgrid_style()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_set_inner_hgrid_style </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HPDF_REAL&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HPDF_RGBColor&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a>&#160;</td>
+          <td class="paramname"><em>dashstyle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set inner horizontal border grid style. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Table handle </td></tr>
+    <tr><td class="paramname">width</td><td>Line width (in pt) </td></tr>
+    <tr><td class="paramname">color</td><td>Line color </td></tr>
+    <tr><td class="paramname">dashstyle</td><td>Line dash style </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79" title="Set inner border grid style.">hpdftbl_set_inner_grid_style()</a> </dd></dl>
+
+</div>
+</div>
+<a id="aa397e828bbed03432aa0a2ead0e6379b" name="aa397e828bbed03432aa0a2ead0e6379b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa397e828bbed03432aa0a2ead0e6379b">&#9670;&nbsp;</a></span>hpdftbl_set_inner_tgrid_style()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_set_inner_tgrid_style </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HPDF_REAL&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HPDF_RGBColor&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a>&#160;</td>
+          <td class="paramname"><em>dashstyle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set inner horizontal top border grid style. This would be the gridline just below the header row. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Table handle </td></tr>
+    <tr><td class="paramname">width</td><td>Line width (in pt) </td></tr>
+    <tr><td class="paramname">color</td><td>Line color </td></tr>
+    <tr><td class="paramname">dashstyle</td><td>Line dash style </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
+
+</div>
+</div>
+<a id="ad60b183955eb454d6ff98dafdc3e5171" name="ad60b183955eb454d6ff98dafdc3e5171"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad60b183955eb454d6ff98dafdc3e5171">&#9670;&nbsp;</a></span>hpdftbl_set_inner_vgrid_style()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_set_inner_vgrid_style </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HPDF_REAL&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HPDF_RGBColor&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a>&#160;</td>
+          <td class="paramname"><em>dashstyle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set inner vertical border grid style. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Table handle </td></tr>
+    <tr><td class="paramname">width</td><td>Line width (in pt) </td></tr>
+    <tr><td class="paramname">color</td><td>Line color </td></tr>
+    <tr><td class="paramname">dashstyle</td><td>Line dash style </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79" title="Set inner border grid style.">hpdftbl_set_inner_grid_style()</a> </dd></dl>
 
 </div>
 </div>
@@ -2721,14 +2900,14 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 
 </div>
 </div>
-<a id="a12605f454f23b6bbc743e80a4b97abc4" name="a12605f454f23b6bbc743e80a4b97abc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12605f454f23b6bbc743e80a4b97abc4">&#9670;&nbsp;</a></span>hpdftbl_set_outer_border()</h2>
+<a id="a23faf2eec6a68c41b083bc455ba14ca9" name="a23faf2eec6a68c41b083bc455ba14ca9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23faf2eec6a68c41b083bc455ba14ca9">&#9670;&nbsp;</a></span>hpdftbl_set_outer_grid_style()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int hpdftbl_set_outer_border </td>
+          <td class="memname">int hpdftbl_set_outer_grid_style </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
           <td class="paramname"><em>t</em>, </td>
@@ -2743,7 +2922,13 @@ hpdftbl_set_cell_content_callback() </dd></dl>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">HPDF_RGBColor&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a>&#160;</td>
+          <td class="paramname"><em>dashstyle</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2753,12 +2938,13 @@ hpdftbl_set_cell_content_callback() </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Specify style for table outer border. </p>
-<p >Set outer border properties </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Set outer border grid style. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
-    <tr><td class="paramname">width</td><td>Line width </td></tr>
+    <tr><td class="paramname">width</td><td>Line width (in pt) </td></tr>
     <tr><td class="paramname">color</td><td>Line color </td></tr>
+    <tr><td class="paramname">dashstyle</td><td>Line dash style </td></tr>
   </table>
   </dd>
 </dl>
@@ -2937,7 +3123,8 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 </div><div class="memdoc">
 
 <p>Set table title. </p>
-<p >Set table title </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Set table title. A title will occupy a separate row above the table that is not included in the row count. A table is enabled when the table text is &lt;&gt; NULL and disabled when the title text is == NULL.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
     <tr><td class="paramname">title</td><td>Title string </td></tr>
@@ -3216,7 +3403,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex01_8c-example.html#a7">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a7">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a9">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a9">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a10">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a10">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a11">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a12">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a13">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a19">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a11">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a12">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a12">tut_ex12.c</a>, <a class="el" href="tut_ex13_1_8c-example.html#a6">tut_ex13_1.c</a>, <a class="el" href="tut_ex13_2_8c-example.html#a9">tut_ex13_2.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a14">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex01_8c-example.html#a7">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a7">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a10">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a11">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a11">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a11">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a12">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a13">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a14">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a20">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a11">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a13">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a13">tut_ex12.c</a>, <a class="el" href="tut_ex13_1_8c-example.html#a8">tut_ex13_1.c</a>, <a class="el" href="tut_ex13_2_8c-example.html#a11">tut_ex13_2.c</a>, <a class="el" href="tut_ex14_8c-example.html#a16">tut_ex14.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a19">tut_ex20.c</a>.</dd>
 </dl>
 
 </div>
@@ -3333,6 +3520,8 @@ hpdftbl_set_cell_content_callback() </dd></dl>
   </table>
   </dd>
 </dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a7">example01.c</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -3369,7 +3558,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#a6eca4a1059b707febb44f399b7507867" title="Specify style for table heder row.">hpdftbl_set_header_style()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#a6eca4a1059b707febb44f399b7507867" title="Specify style for table header row.">hpdftbl_set_header_style()</a> </dd></dl>
 
 </div>
 </div>
@@ -3531,6 +3720,8 @@ hpdftbl_set_cell_content_callback() </dd></dl>
   </table>
   </dd>
 </dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a3">example01.c</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -3625,7 +3816,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex14_8c-example.html#a1">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a2">example01.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a2">tut_ex14.c</a>.</dd>
 </dl>
 
 </div>
@@ -3699,6 +3890,8 @@ hpdftbl_set_cell_content_callback() </dd></dl>
     <tr><td class="paramname">state</td><td>State of button On/Off </td></tr>
   </table>
   </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a4">example01.c</a>.</dd>
 </dl>
 
 </div>
@@ -3787,7 +3980,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex14_8c-example.html#a3">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a5">example01.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a4">tut_ex14.c</a>.</dd>
 </dl>
 
 </div>
@@ -3798,7 +3991,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="hpdftbl_8h.html">hpdftbl.h</a></li>
-    <li class="footer">Generated on Thu Apr 28 2022 06:51:24 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun May 1 2022 13:14:00 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

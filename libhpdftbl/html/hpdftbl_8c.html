@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta2</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta3</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -112,14 +112,11 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aa8cecfc5c5c054d2875c03e77b7be15d"><td class="memItemLeft" align="right" valign="top"><a id="aa8cecfc5c5c054d2875c03e77b7be15d" name="aa8cecfc5c5c054d2875c03e77b7be15d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>TRUE</b>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:aa8cecfc5c5c054d2875c03e77b7be15d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:aa8cecfc5c5c054d2875c03e77b7be15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa93f0eb578d23995850d61f7d61c55c1"><td class="memItemLeft" align="right" valign="top"><a id="aa93f0eb578d23995850d61f7d61c55c1" name="aa93f0eb578d23995850d61f7d61c55c1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>FALSE</b>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:aa93f0eb578d23995850d61f7d61c55c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:aa93f0eb578d23995850d61f7d61c55c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a974f006c64ac3ccb3fe26c81c6d73567"><td class="memItemLeft" align="right" valign="top"><a id="a974f006c64ac3ccb3fe26c81c6d73567" name="a974f006c64ac3ccb3fe26c81c6d73567"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>_IDX</b>(r,  c)&#160;&#160;&#160;(r*t-&gt;cols+c)</td></tr>
+<tr class="memitem:a974f006c64ac3ccb3fe26c81c6d73567"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#a974f006c64ac3ccb3fe26c81c6d73567">_IDX</a>(r,  c)&#160;&#160;&#160;(r*t-&gt;cols+c)</td></tr>
 <tr class="separator:a974f006c64ac3ccb3fe26c81c6d73567"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10ee461ea0beca7fb7672780827df77e"><td class="memItemLeft" align="right" valign="top"><a id="a10ee461ea0beca7fb7672780827df77e" name="a10ee461ea0beca7fb7672780827df77e"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDFTBL_DEFAULT_TITLE_STYLE</b>&#160;&#160;&#160;(<a class="el" href="hpdftbl_8h.html#ab1a0bfd569d2bfc10817b040a8893c44">hpdf_text_style_t</a>){HPDF_FF_HELVETICA_BOLD,11,(HPDF_RGBColor){0,0,0},(HPDF_RGBColor){0.9f,0.9f,0.9f}, <a class="el" href="hpdftbl_8h.html#a641e356caf346df9a98ebdc91518d55dadb45120aafd37a973140edee24708065">LEFT</a>}</td></tr>
@@ -134,11 +131,23 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDFTBL_DEFAULT_CONTENT_STYLE</b>&#160;&#160;&#160;(<a class="el" href="hpdftbl_8h.html#ab1a0bfd569d2bfc10817b040a8893c44">hpdf_text_style_t</a>){HPDF_FF_COURIER,10,(HPDF_RGBColor){0.2f,0.2f,0.2f},(HPDF_RGBColor){1,1,1}, <a class="el" href="hpdftbl_8h.html#a641e356caf346df9a98ebdc91518d55dadb45120aafd37a973140edee24708065">LEFT</a>}</td></tr>
 <tr class="separator:a0ad6c969265221bb02c8a457125f7abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6b4966d650e0d1ebdeae5833812d8bb"><td class="memItemLeft" align="right" valign="top"><a id="aa6b4966d650e0d1ebdeae5833812d8bb" name="aa6b4966d650e0d1ebdeae5833812d8bb"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDFTBL_DEFAULT_INNER_BORDER_STYLE</b>&#160;&#160;&#160;(<a class="el" href="hpdftbl_8h.html#aecb2b8e97f8234b11ecd8583d81c2270">hpdf_border_style_t</a>){0.7f, (HPDF_RGBColor){0.5f,0.5f,0.5f},0}</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDFTBL_DEFAULT_INNER_BORDER_STYLE</b>&#160;&#160;&#160;(hpdftbl_border_style_t){0.7f, (HPDF_RGBColor){0.5f,0.5f,0.5f},0}</td></tr>
 <tr class="separator:aa6b4966d650e0d1ebdeae5833812d8bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8154dfe9edaa7098aaa51a19a322015"><td class="memItemLeft" align="right" valign="top"><a id="aa8154dfe9edaa7098aaa51a19a322015" name="aa8154dfe9edaa7098aaa51a19a322015"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDFTBL_DEFAULT_INNER_VBORDER_STYLE</b>&#160;&#160;&#160;(<a class="el" href="hpdftbl_8h.html#ab3456f42c12ca4ce72191d36bc3c5613">hpdftbl_grid_style_t</a>){0, (HPDF_RGBColor){0.5f,0.5f,0.5f},0}</td></tr>
+<tr class="separator:aa8154dfe9edaa7098aaa51a19a322015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45fb19bcc3a1a9efaef7cfe7cc55998"><td class="memItemLeft" align="right" valign="top"><a id="aa45fb19bcc3a1a9efaef7cfe7cc55998" name="aa45fb19bcc3a1a9efaef7cfe7cc55998"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDFTBL_DEFAULT_INNER_HBORDER_STYLE</b>&#160;&#160;&#160;(<a class="el" href="hpdftbl_8h.html#ab3456f42c12ca4ce72191d36bc3c5613">hpdftbl_grid_style_t</a>){0, (HPDF_RGBColor){0.5f,0.5f,0.5f},0}</td></tr>
+<tr class="separator:aa45fb19bcc3a1a9efaef7cfe7cc55998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4432690a491707320112262532d4a48a"><td class="memItemLeft" align="right" valign="top"><a id="a4432690a491707320112262532d4a48a" name="a4432690a491707320112262532d4a48a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDFTBL_DEFAULT_OUTER_BORDER_STYLE</b>&#160;&#160;&#160;(<a class="el" href="hpdftbl_8h.html#aecb2b8e97f8234b11ecd8583d81c2270">hpdf_border_style_t</a>){1.0f, (HPDF_RGBColor){0.2f,0.2f,0.2f},0}</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDFTBL_DEFAULT_OUTER_BORDER_STYLE</b>&#160;&#160;&#160;(<a class="el" href="hpdftbl_8h.html#ab3456f42c12ca4ce72191d36bc3c5613">hpdftbl_grid_style_t</a>){1.0f, (HPDF_RGBColor){0.2f,0.2f,0.2f},0}</td></tr>
 <tr class="separator:a4432690a491707320112262532d4a48a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57589aefbb60314f3c0db36aebd83c38"><td class="memItemLeft" align="right" valign="top"><a id="a57589aefbb60314f3c0db36aebd83c38" name="a57589aefbb60314f3c0db36aebd83c38"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDFTBL_DEFAULT_ZEBRA1_COLOR</b>&#160;&#160;&#160;(HPDF_RGBColor){1.0f,1.0f,1.0f}</td></tr>
+<tr class="separator:a57589aefbb60314f3c0db36aebd83c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1b0c74414a17f0c871d8c2ade43d348"><td class="memItemLeft" align="right" valign="top"><a id="ad1b0c74414a17f0c871d8c2ade43d348" name="ad1b0c74414a17f0c871d8c2ade43d348"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HPDFTBL_DEFAULT_ZEBRA2_COLOR</b>&#160;&#160;&#160;(HPDF_RGBColor){0.95f,0.95f,0.95f}</td></tr>
+<tr class="separator:ad1b0c74414a17f0c871d8c2ade43d348"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24bcba01f3612324cccb7cb53bc388ad"><td class="memItemLeft" align="right" valign="top"><a id="a24bcba01f3612324cccb7cb53bc388ad" name="a24bcba01f3612324cccb7cb53bc388ad"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>_SET_ERR</b>(t,  err,  r,  c)&#160;&#160;&#160;do {err_code=err;err_row=r;err_col=c; if(hpdftbl_err_handler){hpdftbl_err_handler(t,r,c,err);}} while(0)</td></tr>
 <tr class="separator:a24bcba01f3612324cccb7cb53bc388ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,9 +167,9 @@ typedef struct <a class="el" href="structline__dash__style.html">line_dash_style
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8476799b3a7d4a66e1faa6cfc2eaa9f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#a8476799b3a7d4a66e1faa6cfc2eaa9f7">hpdftbl_set_line_dash</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, <a class="el" href="hpdftbl_8h.html#a562bda7481966ae717e9665ebbc5aa5c">hpdftbl_line_style_t</a> style)</td></tr>
-<tr class="memdesc:a8476799b3a7d4a66e1faa6cfc2eaa9f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal helper to set the line style.  <a href="hpdftbl_8c.html#a8476799b3a7d4a66e1faa6cfc2eaa9f7">More...</a><br /></td></tr>
-<tr class="separator:a8476799b3a7d4a66e1faa6cfc2eaa9f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17de605666554c704fa1ddf862cd4afa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#a17de605666554c704fa1ddf862cd4afa">hpdftbl_set_line_dash</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, <a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> style)</td></tr>
+<tr class="memdesc:a17de605666554c704fa1ddf862cd4afa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal helper to set the line style.  <a href="hpdftbl_8c.html#a17de605666554c704fa1ddf862cd4afa">More...</a><br /></td></tr>
+<tr class="separator:a17de605666554c704fa1ddf862cd4afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a975559350861291240dc08d76e103aca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#a975559350861291240dc08d76e103aca">hpdftbl_set_anchor_top_left</a> (const _Bool anchor)</td></tr>
 <tr class="memdesc:a975559350861291240dc08d76e103aca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch stroking anchor point.  <a href="hpdftbl_8c.html#a975559350861291240dc08d76e103aca">More...</a><br /></td></tr>
 <tr class="separator:a975559350861291240dc08d76e103aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,14 +212,23 @@ Functions</h2></td></tr>
 <tr class="memitem:abd26b96fb00eb1a30862ee67f9328cc3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, size_t c, float w)</td></tr>
 <tr class="memdesc:abd26b96fb00eb1a30862ee67f9328cc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set column width as percentage of overall table width.  <a href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">More...</a><br /></td></tr>
 <tr class="separator:abd26b96fb00eb1a30862ee67f9328cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12605f454f23b6bbc743e80a4b97abc4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#a12605f454f23b6bbc743e80a4b97abc4">hpdftbl_set_outer_border</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color)</td></tr>
-<tr class="memdesc:a12605f454f23b6bbc743e80a4b97abc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify style for table outer border.  <a href="hpdftbl_8c.html#a12605f454f23b6bbc743e80a4b97abc4">More...</a><br /></td></tr>
-<tr class="separator:a12605f454f23b6bbc743e80a4b97abc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a390be06c0c66bd17b873343fbb5961c1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#a390be06c0c66bd17b873343fbb5961c1">hpdftbl_set_inner_border</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color)</td></tr>
-<tr class="memdesc:a390be06c0c66bd17b873343fbb5961c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify style for table inner border.  <a href="hpdftbl_8c.html#a390be06c0c66bd17b873343fbb5961c1">More...</a><br /></td></tr>
-<tr class="separator:a390be06c0c66bd17b873343fbb5961c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23faf2eec6a68c41b083bc455ba14ca9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#a23faf2eec6a68c41b083bc455ba14ca9">hpdftbl_set_outer_grid_style</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color, <a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle)</td></tr>
+<tr class="memdesc:a23faf2eec6a68c41b083bc455ba14ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set outer border grid style.  <a href="hpdftbl_8c.html#a23faf2eec6a68c41b083bc455ba14ca9">More...</a><br /></td></tr>
+<tr class="separator:a23faf2eec6a68c41b083bc455ba14ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3613ad2a82907bd8275e8447a2e7d79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79">hpdftbl_set_inner_grid_style</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color, <a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle)</td></tr>
+<tr class="memdesc:af3613ad2a82907bd8275e8447a2e7d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set inner border grid style.  <a href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79">More...</a><br /></td></tr>
+<tr class="separator:af3613ad2a82907bd8275e8447a2e7d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af66a8855647fe4fd916604a5583df277"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#af66a8855647fe4fd916604a5583df277">hpdftbl_set_inner_hgrid_style</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color, <a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle)</td></tr>
+<tr class="memdesc:af66a8855647fe4fd916604a5583df277"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set inner horizontal border grid style.  <a href="hpdftbl_8c.html#af66a8855647fe4fd916604a5583df277">More...</a><br /></td></tr>
+<tr class="separator:af66a8855647fe4fd916604a5583df277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad60b183955eb454d6ff98dafdc3e5171"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#ad60b183955eb454d6ff98dafdc3e5171">hpdftbl_set_inner_vgrid_style</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color, <a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle)</td></tr>
+<tr class="memdesc:ad60b183955eb454d6ff98dafdc3e5171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set inner vertical border grid style.  <a href="hpdftbl_8c.html#ad60b183955eb454d6ff98dafdc3e5171">More...</a><br /></td></tr>
+<tr class="separator:ad60b183955eb454d6ff98dafdc3e5171"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa397e828bbed03432aa0a2ead0e6379b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#aa397e828bbed03432aa0a2ead0e6379b">hpdftbl_set_inner_tgrid_style</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_REAL width, HPDF_RGBColor color, <a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a> dashstyle)</td></tr>
+<tr class="memdesc:aa397e828bbed03432aa0a2ead0e6379b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set inner horizontal top border grid style. This would be the gridline just below the header row.  <a href="hpdftbl_8c.html#aa397e828bbed03432aa0a2ead0e6379b">More...</a><br /></td></tr>
+<tr class="separator:aa397e828bbed03432aa0a2ead0e6379b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6eca4a1059b707febb44f399b7507867"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#a6eca4a1059b707febb44f399b7507867">hpdftbl_set_header_style</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</td></tr>
-<tr class="memdesc:a6eca4a1059b707febb44f399b7507867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify style for table heder row.  <a href="hpdftbl_8c.html#a6eca4a1059b707febb44f399b7507867">More...</a><br /></td></tr>
+<tr class="memdesc:a6eca4a1059b707febb44f399b7507867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify style for table header row.  <a href="hpdftbl_8c.html#a6eca4a1059b707febb44f399b7507867">More...</a><br /></td></tr>
 <tr class="separator:a6eca4a1059b707febb44f399b7507867"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5be6faf3e7910835333809150e9d5d1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#a5be6faf3e7910835333809150e9d5d1e">hpdftbl_set_background</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, HPDF_RGBColor background)</td></tr>
 <tr class="memdesc:a5be6faf3e7910835333809150e9d5d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set table background color.  <a href="hpdftbl_8c.html#a5be6faf3e7910835333809150e9d5d1e">More...</a><br /></td></tr>
@@ -308,7 +326,71 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Main source module for hpdftbl. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a974f006c64ac3ccb3fe26c81c6d73567" name="a974f006c64ac3ccb3fe26c81c6d73567"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a974f006c64ac3ccb3fe26c81c6d73567">&#9670;&nbsp;</a></span>_IDX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _IDX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">r, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">c&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(r*t-&gt;cols+c)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Shortcut to calculate the array index from table position </p>
+
+</div>
+</div>
+<a id="aa93f0eb578d23995850d61f7d61c55c1" name="aa93f0eb578d23995850d61f7d61c55c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa93f0eb578d23995850d61f7d61c55c1">&#9670;&nbsp;</a></span>FALSE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FALSE&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Boolean false value </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a1">example01.c</a>, <a class="el" href="tut_ex01_8c-example.html#a8">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a8">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a11">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a7">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a12">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a12">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a13">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a14">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a15">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a21">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a12">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a14">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a14">tut_ex12.c</a>, <a class="el" href="tut_ex13_1_8c-example.html#a4">tut_ex13_1.c</a>, <a class="el" href="tut_ex13_2_8c-example.html#a6">tut_ex13_2.c</a>, <a class="el" href="tut_ex14_8c-example.html#a1">tut_ex14.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a6">tut_ex20.c</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="aa8cecfc5c5c054d2875c03e77b7be15d" name="aa8cecfc5c5c054d2875c03e77b7be15d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8cecfc5c5c054d2875c03e77b7be15d">&#9670;&nbsp;</a></span>TRUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TRUE&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Boolean truth value </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a6">example01.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a4">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a5">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a6">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a6">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a4">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a4">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a4">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a10">tut_ex09.c</a>, <a class="el" href="tut_ex11_8c-example.html#a6">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a6">tut_ex12.c</a>, <a class="el" href="tut_ex13_1_8c-example.html#a3">tut_ex13_1.c</a>, <a class="el" href="tut_ex13_2_8c-example.html#a7">tut_ex13_2.c</a>, <a class="el" href="tut_ex14_8c-example.html#a8">tut_ex14.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a8">tut_ex20.c</a>.</dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a0458284e22611f14c7738f129242d6f9" name="a0458284e22611f14c7738f129242d6f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0458284e22611f14c7738f129242d6f9">&#9670;&nbsp;</a></span>HPDF_RoundedCornerRectangle()</h2>
 
@@ -479,7 +561,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A handle to a table, NULL in case of OOM </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex01_8c-example.html#a2">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a2">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a2">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a2">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a2">tut_ex04.c</a>, <a class="el" href="tut_ex09_8c-example.html#a11">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a4">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a4">tut_ex11.c</a>, and <a class="el" href="tut_ex12_8c-example.html#a4">tut_ex12.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex01_8c-example.html#a2">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a2">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a2">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a2">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a2">tut_ex04.c</a>, <a class="el" href="tut_ex09_8c-example.html#a12">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a4">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a4">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a4">tut_ex12.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a2">tut_ex20.c</a>.</dd>
 </dl>
 
 </div>
@@ -526,7 +608,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A handle to a table, NULL in case of OOM </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex05_8c-example.html#a2">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a2">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a2">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a2">tut_ex08.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a5">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a17">example01.c</a>, <a class="el" href="tut_ex05_8c-example.html#a2">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a2">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a2">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a2">tut_ex08.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a6">tut_ex14.c</a>.</dd>
 </dl>
 
 <p class="reference">Referenced by <a class="el" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create()</a>, and <a class="el" href="hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9">hpdftbl_stroke_from_data()</a>.</p>
@@ -636,6 +718,9 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 for error , 0 for success </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a15">example01.c</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -709,6 +794,7 @@ Functions</h2></td></tr>
 
 <p>Get stroking anchor point. </p>
 <p >Get base point for table positioning. By default the top left is used. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#a975559350861291240dc08d76e103aca" title="Switch stroking anchor point.">hpdftbl_set_anchor_top_left</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>TRUE if anchor is top left, FALSE otherwise </dd></dl>
 
 </div>
 </div>
@@ -731,6 +817,8 @@ Functions</h2></td></tr>
 <p>Return the default theme. </p>
 <p >Create and return a theme corresponding to the default table theme. It is the calling functions responsibility to call <a class="el" href="hpdftbl_8c.html#a734ca37ac3b1106b98f645a0c859812c" title="Destroy existing theme structure and free memory.">hpdftbl_destroy_theme()</a> to free the allocated memory. The default theme is a good starting point to just make minor modifications without having to define all elements. </p><dl class="section return"><dt>Returns</dt><dd>A new theme initialized to the default settings</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#aa69c87be9c690ac9f3dc8a9ecf748f36" title="Apply a specified theme to a table.">hpdftbl_apply_theme()</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a12">example01.c</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -754,7 +842,7 @@ Functions</h2></td></tr>
 <p >The function returns a pointer to a static string that cannot be modified. It will translate both internal table error messages as well as generic HPDF library error codes.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">err_code</td><td>The error code to be translated </td></tr>
+    <tr><td class="paramname">err</td><td>The error code to be translated </td></tr>
   </table>
   </dd>
 </dl>
@@ -835,6 +923,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The last error code </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a14">example01.c</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -855,11 +945,14 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Switch stroking anchor point. </p>
-<p >Set anchor point for table positioning. By default the top left is used as anchor. Calling this function with FALSE can set the basepoint to bottom left instead. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Set anchor point for table positioning. By default the top left is used as anchor. Calling this function with FALSE can set the basepoint to bottom left instead.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">anchor</td><td>Set to TRUE to use top left as anchor, FALSE for bottom left </td></tr>
   </table>
   </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a10">example01.c</a>.</dd>
 </dl>
 
 </div>
@@ -1054,7 +1147,7 @@ Functions</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8h.html#a712124f09767b6dca8f28443b77c441a" title="Type specification for the table canvas callback.">hpdftbl_canvas_callback_t</a> </dd>
 <dd>
 hpdftbl_set_canvas_callback </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex14_8c-example.html#a10">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a31">example01.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a12">tut_ex14.c</a>.</dd>
 </dl>
 
 </div>
@@ -1109,7 +1202,7 @@ hpdftbl_set_canvas_callback </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>-1 on failure, 0 otherwise</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#affd0f2a21048bc048b4bc5a85e227a33" title="Set table content callback.">hpdftbl_set_content_cb()</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex06_8c-example.html#a7">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a7">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a7">tut_ex08.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a9">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex06_8c-example.html#a8">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a8">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a8">tut_ex08.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a11">tut_ex14.c</a>.</dd>
 </dl>
 
 </div>
@@ -1187,6 +1280,8 @@ hpdftbl_set_canvas_callback </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#a60d5cb61c0461c2459565cac98cf7604" title="Set font style for text content.">hpdftbl_set_content_style()</a> </dd>
 <dd>
 <a class="el" href="hpdftbl_8c.html#a52f9197df715189854f0fb5561e54ad0" title="Set cell specific callback to specify cell content style.">hpdftbl_set_cell_content_style_cb()</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a29">example01.c</a>.</dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="hpdftbl_8c.html#af4e71fc83643c8a867ddbf63097cbfbd">hpdftbl_set_col_content_style()</a>, and <a class="el" href="hpdftbl_8c.html#abbf178ee835bf23800334c0e34964511">hpdftbl_set_row_content_style()</a>.</p>
 
@@ -1355,7 +1450,7 @@ hpdftbl_set_canvas_callback </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>-1 on error, 0 if successful</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#ac27365d9d1493f93be019950904e5567" title="Clear all cell spanning.">hpdftbl_clear_spanning()</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex07_8c-example.html#a8">tut_ex07.c</a>, and <a class="el" href="tut_ex08_8c-example.html#a8">tut_ex08.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a28">example01.c</a>, <a class="el" href="tut_ex07_8c-example.html#a9">tut_ex07.c</a>, and <a class="el" href="tut_ex08_8c-example.html#a9">tut_ex08.c</a>.</dd>
 </dl>
 
 </div>
@@ -1471,7 +1566,7 @@ hpdftbl_set_canvas_callback </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex08_8c-example.html#a9">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a14">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a5">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a6">tut_ex11.c</a>, and <a class="el" href="tut_ex12_8c-example.html#a6">tut_ex12.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a30">example01.c</a>, <a class="el" href="tut_ex08_8c-example.html#a10">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a15">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a5">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a7">tut_ex11.c</a>, and <a class="el" href="tut_ex12_8c-example.html#a7">tut_ex12.c</a>.</dd>
 </dl>
 
 </div>
@@ -1514,7 +1609,7 @@ hpdftbl_set_canvas_callback </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>hpdftbl_set_content_callback() </dd>
 <dd>
 hpdftbl_set_cell_content_callback() </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex02_8c-example.html#a3">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a4">tut_ex02_1.c</a>, <a class="el" href="tut_ex04_8c-example.html#a3">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a3">tut_ex05.c</a>, <a class="el" href="tut_ex10_8c-example.html#a6">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a7">tut_ex11.c</a>, and <a class="el" href="tut_ex12_8c-example.html#a7">tut_ex12.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a18">example01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a3">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a5">tut_ex02_1.c</a>, <a class="el" href="tut_ex04_8c-example.html#a3">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a3">tut_ex05.c</a>, <a class="el" href="tut_ex10_8c-example.html#a6">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a8">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a8">tut_ex12.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a3">tut_ex20.c</a>.</dd>
 </dl>
 
 </div>
@@ -1549,12 +1644,13 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 <p >Set content callback. This callback gets called for each cell in the table and the returned string will be used as the content. The string will be duplicated so it is safe for a client to reuse the string space. If NULL is returned from the callback then the content will be set to the content specified with the direct content setting. The callback function will receive the Table tag and the row and column </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
-    <tr><td class="paramname">cb</td><td>Callback function</td></tr>
+    <tr><td class="paramname">cb</td><td>Callback function </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 for error , 0 otherwise</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#aae07e6f243360d9c80c18396ed9837f2" title="Set cell content callback.">hpdftbl_set_cell_content_cb()</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex06_8c-example.html#a5">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a5">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a5">tut_ex08.c</a>, and <a class="el" href="tut_ex09_8c-example.html#a12">tut_ex09.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex06_8c-example.html#a6">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a6">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a6">tut_ex08.c</a>, and <a class="el" href="tut_ex09_8c-example.html#a13">tut_ex09.c</a>.</dd>
 </dl>
 
 </div>
@@ -1618,6 +1714,8 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#aee5f23dc45a1898015a1d563ccc9e26d" title="Set the font style for content of specified cell.">hpdftbl_set_cell_content_style()</a> </dd>
 <dd>
 <a class="el" href="hpdftbl_8c.html#a52f9197df715189854f0fb5561e54ad0" title="Set cell specific callback to specify cell content style.">hpdftbl_set_cell_content_style_cb()</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a25">example01.c</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -1657,7 +1755,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#a52f9197df715189854f0fb5561e54ad0" title="Set cell specific callback to specify cell content style.">hpdftbl_set_cell_content_style_cb()</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex09_8c-example.html#a13">tut_ex09.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex09_8c-example.html#a14">tut_ex09.c</a>.</dd>
 </dl>
 
 </div>
@@ -1773,7 +1871,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Specify style for table heder row. </p>
+<p>Specify style for table header row. </p>
 <p >Set the font properties and background for the header row which is the top row if enabled. The header row will be automatically enabled after calling this function. The header can be enabled/disabled separately with <a class="el" href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header()</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
@@ -1788,14 +1886,14 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 
 </div>
 </div>
-<a id="a390be06c0c66bd17b873343fbb5961c1" name="a390be06c0c66bd17b873343fbb5961c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a390be06c0c66bd17b873343fbb5961c1">&#9670;&nbsp;</a></span>hpdftbl_set_inner_border()</h2>
+<a id="af3613ad2a82907bd8275e8447a2e7d79" name="af3613ad2a82907bd8275e8447a2e7d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3613ad2a82907bd8275e8447a2e7d79">&#9670;&nbsp;</a></span>hpdftbl_set_inner_grid_style()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int hpdftbl_set_inner_border </td>
+          <td class="memname">int hpdftbl_set_inner_grid_style </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
           <td class="paramname"><em>t</em>, </td>
@@ -1810,7 +1908,13 @@ hpdftbl_set_cell_content_callback() </dd></dl>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">HPDF_RGBColor&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a>&#160;</td>
+          <td class="paramname"><em>dashstyle</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1820,16 +1924,182 @@ hpdftbl_set_cell_content_callback() </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Specify style for table inner border. </p>
-<p >Set inner border properties </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Set inner border grid style. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
-    <tr><td class="paramname">width</td><td>Line width </td></tr>
+    <tr><td class="paramname">width</td><td>Line width (in pt) </td></tr>
     <tr><td class="paramname">color</td><td>Line color </td></tr>
+    <tr><td class="paramname">dashstyle</td><td>Line dash style </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#af66a8855647fe4fd916604a5583df277" title="Set inner horizontal border grid style.">hpdftbl_set_inner_hgrid_style()</a>, <a class="el" href="hpdftbl_8c.html#ad60b183955eb454d6ff98dafdc3e5171" title="Set inner vertical border grid style.">hpdftbl_set_inner_vgrid_style</a> </dd></dl>
+
+</div>
+</div>
+<a id="af66a8855647fe4fd916604a5583df277" name="af66a8855647fe4fd916604a5583df277"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af66a8855647fe4fd916604a5583df277">&#9670;&nbsp;</a></span>hpdftbl_set_inner_hgrid_style()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_set_inner_hgrid_style </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HPDF_REAL&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HPDF_RGBColor&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a>&#160;</td>
+          <td class="paramname"><em>dashstyle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set inner horizontal border grid style. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Table handle </td></tr>
+    <tr><td class="paramname">width</td><td>Line width (in pt) </td></tr>
+    <tr><td class="paramname">color</td><td>Line color </td></tr>
+    <tr><td class="paramname">dashstyle</td><td>Line dash style </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79" title="Set inner border grid style.">hpdftbl_set_inner_grid_style()</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex20_8c-example.html#a12">tut_ex20.c</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="aa397e828bbed03432aa0a2ead0e6379b" name="aa397e828bbed03432aa0a2ead0e6379b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa397e828bbed03432aa0a2ead0e6379b">&#9670;&nbsp;</a></span>hpdftbl_set_inner_tgrid_style()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_set_inner_tgrid_style </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HPDF_REAL&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HPDF_RGBColor&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a>&#160;</td>
+          <td class="paramname"><em>dashstyle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set inner horizontal top border grid style. This would be the gridline just below the header row. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Table handle </td></tr>
+    <tr><td class="paramname">width</td><td>Line width (in pt) </td></tr>
+    <tr><td class="paramname">color</td><td>Line color </td></tr>
+    <tr><td class="paramname">dashstyle</td><td>Line dash style </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex20_8c-example.html#a14">tut_ex20.c</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ad60b183955eb454d6ff98dafdc3e5171" name="ad60b183955eb454d6ff98dafdc3e5171"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad60b183955eb454d6ff98dafdc3e5171">&#9670;&nbsp;</a></span>hpdftbl_set_inner_vgrid_style()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_set_inner_vgrid_style </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HPDF_REAL&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HPDF_RGBColor&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a>&#160;</td>
+          <td class="paramname"><em>dashstyle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set inner vertical border grid style. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Table handle </td></tr>
+    <tr><td class="paramname">width</td><td>Line width (in pt) </td></tr>
+    <tr><td class="paramname">color</td><td>Line color </td></tr>
+    <tr><td class="paramname">dashstyle</td><td>Line dash style </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79" title="Set inner border grid style.">hpdftbl_set_inner_grid_style()</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex20_8c-example.html#a10">tut_ex20.c</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -1871,7 +2141,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8h.html#a0817d30c0f6977210bc2453a888d8986" title="Type specification for the table content callback.">hpdftbl_content_callback_t</a> </dd>
 <dd>
 <a class="el" href="hpdftbl_8c.html#a2cb345067c13687b41dbfd3f5b712ec2" title="Set cell label callback.">hpdftbl_set_cell_label_cb()</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex06_8c-example.html#a6">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a6">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a6">tut_ex08.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a8">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex06_8c-example.html#a7">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a7">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a7">tut_ex08.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a10">tut_ex14.c</a>.</dd>
 </dl>
 
 </div>
@@ -1973,13 +2243,13 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#a2cb345067c13687b41dbfd3f5b712ec2" title="Set cell label callback.">hpdftbl_set_cell_label_cb()</a> </dd>
 <dd>
 <a class="el" href="hpdftbl_8c.html#af883dd1ae69782730244efe6a76a88c2" title="Set table label callback.">hpdftbl_set_label_cb()</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex04_8c-example.html#a4">tut_ex04.c</a>, and <a class="el" href="tut_ex05_8c-example.html#a4">tut_ex05.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a19">example01.c</a>, <a class="el" href="tut_ex04_8c-example.html#a4">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a4">tut_ex05.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a4">tut_ex20.c</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="a8476799b3a7d4a66e1faa6cfc2eaa9f7" name="a8476799b3a7d4a66e1faa6cfc2eaa9f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8476799b3a7d4a66e1faa6cfc2eaa9f7">&#9670;&nbsp;</a></span>hpdftbl_set_line_dash()</h2>
+<a id="a17de605666554c704fa1ddf862cd4afa" name="a17de605666554c704fa1ddf862cd4afa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17de605666554c704fa1ddf862cd4afa">&#9670;&nbsp;</a></span>hpdftbl_set_line_dash()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1993,7 +2263,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a562bda7481966ae717e9665ebbc5aa5c">hpdftbl_line_style_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a>&#160;</td>
           <td class="paramname"><em>style</em>&#160;</td>
         </tr>
         <tr>
@@ -2005,7 +2275,8 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 </div><div class="memdoc">
 
 <p>Internal helper to set the line style. </p>
-<p >The drawing of a dashed line uses the undrlying HPDF function HPDF_Page_SetDash() </p><dl class="params"><dt>Parameters</dt><dd>
+<p >The drawing of a dashed line uses the underlying HPDF function HPDF_Page_SetDash()</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
     <tr><td class="paramname">style</td><td></td></tr>
@@ -2013,18 +2284,25 @@ hpdftbl_set_cell_content_callback() </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>-1 on error, 0 on success</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structline__dash__style.html" title="Definition of a dashed line style.">line_dash_style</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structline__dash__style.html" title="Definition of a dashed line style.">line_dash_style</a></dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Complete the usage of dashed styles to the table gridlines. This is not yet supported. The library should support:<ul>
+<li>Different styles for outer and inner border</li>
+<li>Different styles for inner vertical and horizontal grid lines</li>
+<li>Different style for the top inner horizontal gridline</li>
+<li>Gridstyles should be added to the theme structure</li>
+</ul>
+</dd></dl>
 
 </div>
 </div>
-<a id="a12605f454f23b6bbc743e80a4b97abc4" name="a12605f454f23b6bbc743e80a4b97abc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12605f454f23b6bbc743e80a4b97abc4">&#9670;&nbsp;</a></span>hpdftbl_set_outer_border()</h2>
+<a id="a23faf2eec6a68c41b083bc455ba14ca9" name="a23faf2eec6a68c41b083bc455ba14ca9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23faf2eec6a68c41b083bc455ba14ca9">&#9670;&nbsp;</a></span>hpdftbl_set_outer_grid_style()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int hpdftbl_set_outer_border </td>
+          <td class="memname">int hpdftbl_set_outer_grid_style </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
           <td class="paramname"><em>t</em>, </td>
@@ -2039,7 +2317,13 @@ hpdftbl_set_cell_content_callback() </dd></dl>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">HPDF_RGBColor&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a>&#160;</td>
+          <td class="paramname"><em>dashstyle</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2049,16 +2333,19 @@ hpdftbl_set_cell_content_callback() </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Specify style for table outer border. </p>
-<p >Set outer border properties </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Set outer border grid style. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
-    <tr><td class="paramname">width</td><td>Line width </td></tr>
+    <tr><td class="paramname">width</td><td>Line width (in pt) </td></tr>
     <tr><td class="paramname">color</td><td>Line color </td></tr>
+    <tr><td class="paramname">dashstyle</td><td>Line dash style </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex20_8c-example.html#a15">tut_ex20.c</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -2233,7 +2520,8 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 </div><div class="memdoc">
 
 <p>Set table title. </p>
-<p >Set table title </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Set table title. A title will occupy a separate row above the table that is not included in the row count. A table is enabled when the table text is &lt;&gt; NULL and disabled when the title text is == NULL.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
     <tr><td class="paramname">title</td><td>Title string </td></tr>
@@ -2285,6 +2573,8 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#acda02a218a3499273febac76d8889dfb" title="Set table title.">hpdftbl_set_title()</a> </dd>
 <dd>
 <a class="el" href="hpdftbl_8c.html#afe26fd3e305b3168d58e76471fcbe167" title="Set the table title style.">hpdftbl_set_title_style()</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a23">example01.c</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -2347,6 +2637,8 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#acda02a218a3499273febac76d8889dfb" title="Set table title.">hpdftbl_set_title()</a> </dd>
 <dd>
 <a class="el" href="hpdftbl_8c.html#ab8cb60e8aa0ba957797b9ed15f0c3241" title="Set horizontal alignment for table title.">hpdftbl_set_title_halign()</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a22">example01.c</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -2424,7 +2716,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#a1ad33904c2c7f478fa0a3320820381f9" title="Get the height calculated for the last constructed table.">hpdftbl_get_last_auto_height()</a> </dd>
 <dd>
 <a class="el" href="hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9" title="Construct the table from a array specification.">hpdftbl_stroke_from_data()</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex01_8c-example.html#a6">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a6">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a8">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a8">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a9">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a9">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a10">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a11">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a12">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a18">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a10">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a11">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a11">tut_ex12.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a13">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a20">example01.c</a>, <a class="el" href="tut_ex01_8c-example.html#a6">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a6">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a9">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a10">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a10">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a10">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a11">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a12">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a13">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a19">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a10">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a12">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a12">tut_ex12.c</a>, <a class="el" href="tut_ex14_8c-example.html#a15">tut_ex14.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a18">tut_ex20.c</a>.</dd>
 </dl>
 
 </div>
@@ -2479,7 +2771,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763" title="Stroke the table.">hpdftbl_stroke()</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex13_1_8c-example.html#a5">tut_ex13_1.c</a>, and <a class="el" href="tut_ex13_2_8c-example.html#a8">tut_ex13_2.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a13">example01.c</a>, <a class="el" href="tut_ex13_1_8c-example.html#a7">tut_ex13_1.c</a>, and <a class="el" href="tut_ex13_2_8c-example.html#a10">tut_ex13_2.c</a>.</dd>
 </dl>
 
 </div>
@@ -2517,8 +2809,8 @@ hpdftbl_set_cell_content_callback() </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#a6eca4a1059b707febb44f399b7507867" title="Specify style for table heder row.">hpdftbl_set_header_style()</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex02_1_8c-example.html#a3">tut_ex02_1.c</a>, <a class="el" href="tut_ex11_8c-example.html#a5">tut_ex11.c</a>, and <a class="el" href="tut_ex12_8c-example.html#a5">tut_ex12.c</a>.</dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#a6eca4a1059b707febb44f399b7507867" title="Specify style for table header row.">hpdftbl_set_header_style()</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a26">example01.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a3">tut_ex02_1.c</a>, <a class="el" href="tut_ex11_8c-example.html#a5">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a5">tut_ex12.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a9">tut_ex20.c</a>.</dd>
 </dl>
 
 </div>
@@ -2557,7 +2849,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#a5f4278417bc42a09aabfca973dbd31ba">hpdftbl_use_labels</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex03_8c-example.html#a5">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a6">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a6">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a4">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a4">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a4">tut_ex08.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a7">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="example01_8c-example.html#a27">example01.c</a>, <a class="el" href="tut_ex03_8c-example.html#a6">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a7">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a7">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a5">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a5">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a5">tut_ex08.c</a>, <a class="el" href="tut_ex14_8c-example.html#a9">tut_ex14.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a7">tut_ex20.c</a>.</dd>
 </dl>
 
 </div>
@@ -2596,7 +2888,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152">hpdftbl_use_labelgrid()</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex03_8c-example.html#a4">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a5">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a5">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a3">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a3">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a3">tut_ex08.c</a>, and <a class="el" href="tut_ex14_8c-example.html#a6">tut_ex14.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex03_8c-example.html#a4">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a5">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a5">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a3">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a3">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a3">tut_ex08.c</a>, <a class="el" href="tut_ex14_8c-example.html#a7">tut_ex14.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a5">tut_ex20.c</a>.</dd>
 </dl>
 
 </div>
@@ -2607,7 +2899,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="hpdftbl_8c.html">hpdftbl.c</a></li>
-    <li class="footer">Generated on Thu Apr 28 2022 06:51:24 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun May 1 2022 13:14:00 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

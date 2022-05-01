@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['tables_20layout_20from_20data_0',['Tables layout from data',['../md__tables_from_data.html',1,'']]],
-  ['tag_1',['tag',['../structhpdftbl.html#a3fd9a258481b2a4c0610d35a95c516f6',1,'hpdftbl']]],
-  ['text_5fstyle_2',['text_style',['../structtext__style.html',1,'']]],
-  ['textwidth_3',['textwidth',['../structhpdftbl__cell.html#a8b7f57ef49424cdc89f4641bbb88bf27',1,'hpdftbl_cell']]],
-  ['title_4',['title',['../structhpdftbl__spec.html#af06d911bb9e05f491ef3da520d03796c',1,'hpdftbl_spec']]],
-  ['title_5fstyle_5',['title_style',['../structhpdftbl.html#a5bfda6a8c773a6ef2997ecc6f90b714c',1,'hpdftbl::title_style()'],['../structhpdftbl__theme.html#a463cd78eea9e56b90992850a4db869cc',1,'hpdftbl_theme::title_style()']]],
-  ['title_5ftxt_6',['title_txt',['../structhpdftbl.html#a9517b2a31eac537dc20e18f76b7e2862',1,'hpdftbl']]]
+  ['style_20and_20font_20setting_0',['Style and font setting',['../ch_styleandfontsetting.html',1,'']]],
+  ['style_5fcb_1',['style_cb',['../structhpdftbl__cell.html#a4e08894bd50b36a946f19bcc92a4ed4f',1,'hpdftbl_cell::style_cb()'],['../structhpdftbl__cell__spec.html#a4e08894bd50b36a946f19bcc92a4ed4f',1,'hpdftbl_cell_spec::style_cb()'],['../structhpdftbl__spec.html#a4e08894bd50b36a946f19bcc92a4ed4f',1,'hpdftbl_spec::style_cb()']]]
 ];

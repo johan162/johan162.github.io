@@ -1,14 +1,10 @@
 var searchData=
 [
-  ['label_0',['label',['../structhpdftbl__cell.html#acf60de4c64d60c1b9449c056bc6bfcf7',1,'hpdftbl_cell::label()'],['../structhpdftbl__cell__spec.html#acf60de4c64d60c1b9449c056bc6bfcf7',1,'hpdftbl_cell_spec::label()']]],
-  ['label_5fcb_1',['label_cb',['../structhpdftbl__cell.html#afa7f611082a18bdef83176786d1e5114',1,'hpdftbl_cell::label_cb()'],['../structhpdftbl.html#afa7f611082a18bdef83176786d1e5114',1,'hpdftbl::label_cb()'],['../structhpdftbl__cell__spec.html#afa7f611082a18bdef83176786d1e5114',1,'hpdftbl_cell_spec::label_cb()'],['../structhpdftbl__spec.html#afa7f611082a18bdef83176786d1e5114',1,'hpdftbl_spec::label_cb()']]],
-  ['label_5fstyle_2',['label_style',['../structhpdftbl.html#adcd69a0681be0895f317768491c6fb3d',1,'hpdftbl::label_style()'],['../structhpdftbl__theme.html#aff15390195baaabd2afd5b6626237419',1,'hpdftbl_theme::label_style()']]],
-  ['left_3',['LEFT',['../hpdftbl_8h.html#a641e356caf346df9a98ebdc91518d55dadb45120aafd37a973140edee24708065',1,'hpdftbl.h']]],
-  ['legalpage_5fheight_5fcm_4',['LEGALPAGE_HEIGHT_CM',['../hpdftbl_8h.html#a80c24a2638ef0e759fab00685b10f914',1,'hpdftbl.h']]],
-  ['legalpage_5fwidth_5fcm_5',['LEGALPAGE_WIDTH_CM',['../hpdftbl_8h.html#a29e7282ee256158b26359db67bb29667',1,'hpdftbl.h']]],
-  ['letterrpage_5fheight_5fcm_6',['LETTERRPAGE_HEIGHT_CM',['../hpdftbl_8h.html#aca2ab1bc582e9056ab4bc685306048aa',1,'hpdftbl.h']]],
-  ['letterrpage_5fwidth_5fcm_7',['LETTERRPAGE_WIDTH_CM',['../hpdftbl_8h.html#a994fad01afdaa79c2ee16c59bc47b1af',1,'hpdftbl.h']]],
-  ['line_5fdash_5fstyle_8',['line_dash_style',['../structline__dash__style.html',1,'']]],
-  ['line_5fdash_5fstyle_5ft_9',['line_dash_style_t',['../hpdftbl_8c.html#ad3336e228bea9b33e86ce3085e2a926e',1,'hpdftbl.c']]],
-  ['line_5fstyle_10',['line_style',['../structborder__style.html#a4550ac3c1c8b923439eb240d4819b7e0',1,'border_style']]]
+  ['inner_5fhborder_0',['inner_hborder',['../structhpdftbl__theme.html#ae7569676d667102beb475b50588d6409',1,'hpdftbl_theme']]],
+  ['inner_5fhgrid_1',['inner_hgrid',['../structhpdftbl.html#a5478bf2fac675d72b1bdd48b381900b0',1,'hpdftbl']]],
+  ['inner_5ftborder_2',['inner_tborder',['../structhpdftbl__theme.html#ad247a9b47904ae402e63cc574a4196f5',1,'hpdftbl_theme']]],
+  ['inner_5ftgrid_3',['inner_tgrid',['../structhpdftbl.html#a3f9ee9972beac05de39ec516e53ecc97',1,'hpdftbl']]],
+  ['inner_5fvborder_4',['inner_vborder',['../structhpdftbl__theme.html#a6552211dcbea232f37beeb92813a03bd',1,'hpdftbl_theme']]],
+  ['inner_5fvgrid_5',['inner_vgrid',['../structhpdftbl.html#a3c34a3b391c21c125c8139f0a63d8bf4',1,'hpdftbl']]],
+  ['introduction_20to_20hpdftbl_6',['Introduction to hpdftbl',['../index.html',1,'']]]
 ];

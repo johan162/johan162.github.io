@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ypos_0',['ypos',['../structhpdftbl__spec.html#a3c284168bd070eceb2106480e7b9560b',1,'hpdftbl_spec']]]
+  ['xpos_0',['xpos',['../structhpdftbl__spec.html#a75f36b86eeb82a2ba0c2266fe52449dd',1,'hpdftbl_spec']]]
 ];

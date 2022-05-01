@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta2</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta3</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -225,7 +225,7 @@ $(document).ready(function(){initNavTree('tut_ex10_8c-example.html',''); initRes
 <div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    setup_hpdf(&amp;pdf_doc, &amp;pdf_page, FALSE);</div>
+<div class="line">    setup_hpdf(&amp;pdf_doc, &amp;pdf_page, <a id="a12" name="a12"></a><a class="code hl_define" href="hpdftbl_8c.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>);</div>
 <div class="line">    create_table_ex10(pdf_doc, pdf_page);</div>
 <div class="line">    stroke_pdfdoc(pdf_doc, OUTPUT_FILE);</div>
 <div class="line"> </div>
@@ -235,12 +235,13 @@ $(document).ready(function(){initNavTree('tut_ex10_8c-example.html',''); initRes
 <div class="line"><span class="preprocessor">#ifndef _MSC_VER</span></div>
 <div class="line"><span class="preprocessor">#pragma GCC diagnostic pop</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1320</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_a2ff1cca64859bc1acea1c323c5972f3d"><div class="ttname"><a href="hpdftbl_8c.html#a2ff1cca64859bc1acea1c323c5972f3d">hpdftbl_default_table_error_handler</a></div><div class="ttdeci">void hpdftbl_default_table_error_handler(hpdftbl_t t, int r, int c, int err)</div><div class="ttdoc">A simple default table error handler callback that outputs the error to stderr in human readable form...</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:237</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:586</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_abd26b96fb00eb1a30862ee67f9328cc3"><div class="ttname"><a href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a></div><div class="ttdeci">int hpdftbl_set_colwidth_percent(hpdftbl_t t, size_t c, float w)</div><div class="ttdoc">Set column width as percentage of overall table width.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:676</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_adab6f6dae9a3d74906eba7e4e92c0ea4"><div class="ttname"><a href="hpdftbl_8c.html#adab6f6dae9a3d74906eba7e4e92c0ea4">hpdftbl_set_errhandler</a></div><div class="ttdeci">hpdftbl_error_handler_t hpdftbl_set_errhandler(hpdftbl_error_handler_t err_handler)</div><div class="ttdoc">Specify errhandler for the table routines.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:292</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1945</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1374</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a2ff1cca64859bc1acea1c323c5972f3d"><div class="ttname"><a href="hpdftbl_8c.html#a2ff1cca64859bc1acea1c323c5972f3d">hpdftbl_default_table_error_handler</a></div><div class="ttdeci">void hpdftbl_default_table_error_handler(hpdftbl_t t, int r, int c, int err)</div><div class="ttdoc">A simple default table error handler callback that outputs the error to stderr in human readable form...</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:254</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_aa93f0eb578d23995850d61f7d61c55c1"><div class="ttname"><a href="hpdftbl_8c.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a></div><div class="ttdeci">#define FALSE</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:51</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:577</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_abd26b96fb00eb1a30862ee67f9328cc3"><div class="ttname"><a href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a></div><div class="ttdeci">int hpdftbl_set_colwidth_percent(hpdftbl_t t, size_t c, float w)</div><div class="ttdoc">Set column width as percentage of overall table width.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:667</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_adab6f6dae9a3d74906eba7e4e92c0ea4"><div class="ttname"><a href="hpdftbl_8c.html#adab6f6dae9a3d74906eba7e4e92c0ea4">hpdftbl_set_errhandler</a></div><div class="ttdeci">hpdftbl_error_handler_t hpdftbl_set_errhandler(hpdftbl_error_handler_t err_handler)</div><div class="ttdoc">Specify errhandler for the table routines.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:309</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1997</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a74d6a937e9d5494f2fcf4b12783b7521"><div class="ttname"><a href="hpdftbl_8h.html#a74d6a937e9d5494f2fcf4b12783b7521">A4PAGE_WIDTH_CM</a></div><div class="ttdeci">#define A4PAGE_WIDTH_CM</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:100</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a926e8b332d44d03402264d039f293cb7"><div class="ttname"><a href="hpdftbl_8h.html#a926e8b332d44d03402264d039f293cb7">hpdftbl_hpdf_get_errstr</a></div><div class="ttdeci">const char * hpdftbl_hpdf_get_errstr(HPDF_STATUS err_code)</div><div class="ttdoc">Function to return a human readable error string for an error code from Core HPDF library.</div><div class="ttdef"><b>Definition:</b> hpdftbl_errstr.c:178</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:99</div></div>
@@ -252,7 +253,7 @@ $(document).ready(function(){initNavTree('tut_ex10_8c-example.html',''); initRes
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Apr 28 2022 06:51:24 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun May 1 2022 13:14:00 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

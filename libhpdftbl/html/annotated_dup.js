@@ -1,6 +1,6 @@
 var annotated_dup =
 [
-    [ "border_style", "structborder__style.html", "structborder__style" ],
+    [ "grid_style", "structgrid__style.html", "structgrid__style" ],
     [ "hpdftbl", "structhpdftbl.html", "structhpdftbl" ],
     [ "hpdftbl_cell", "structhpdftbl__cell.html", "structhpdftbl__cell" ],
     [ "hpdftbl_cell_spec", "structhpdftbl__cell__spec.html", "structhpdftbl__cell__spec" ],

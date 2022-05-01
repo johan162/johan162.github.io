@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta2</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta3</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>cells&#160;:&#160;<a class="el" href="structhpdftbl.html#a8a29181dd86aa6ced42db9a31a65bc1a">hpdftbl</a></li>
 <li>col&#160;:&#160;<a class="el" href="structhpdftbl__cell__spec.html#a72f49011b5605e0c59eabd1ab811cdfd">hpdftbl_cell_spec</a></li>
 <li>col_width_percent&#160;:&#160;<a class="el" href="structhpdftbl.html#a67aeb56f4513f758fa6b8608b553cb68">hpdftbl</a></li>
-<li>color&#160;:&#160;<a class="el" href="structborder__style.html#a5f7a740ab73b38b629246b6795cbcaa2">border_style</a>, <a class="el" href="structtext__style.html#a5f7a740ab73b38b629246b6795cbcaa2">text_style</a></li>
+<li>color&#160;:&#160;<a class="el" href="structgrid__style.html#a5f7a740ab73b38b629246b6795cbcaa2">grid_style</a>, <a class="el" href="structtext__style.html#a5f7a740ab73b38b629246b6795cbcaa2">text_style</a></li>
 <li>cols&#160;:&#160;<a class="el" href="structhpdftbl.html#a8bc05371b3a4013263f68932ba1b6452">hpdftbl</a>, <a class="el" href="structhpdftbl__spec.html#a8bc05371b3a4013263f68932ba1b6452">hpdftbl_spec</a></li>
 <li>colspan&#160;:&#160;<a class="el" href="structhpdftbl__cell.html#a69d883d62c0eea91d5deeb8a55e5f4c9">hpdftbl_cell</a>, <a class="el" href="structhpdftbl__cell__spec.html#ae74f1d9590853b94da0728301f50f837">hpdftbl_cell_spec</a></li>
 <li>content&#160;:&#160;<a class="el" href="structhpdftbl__cell.html#ab0746fb6288bd31fd0d505fab48d8785">hpdftbl_cell</a></li>
@@ -135,7 +135,12 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
-<li>inner_border&#160;:&#160;<a class="el" href="structhpdftbl.html#afef2abd1bf24314a8e3346ba05c87c24">hpdftbl</a>, <a class="el" href="structhpdftbl__theme.html#a11888f880a4019cc2ccd134a73bada77">hpdftbl_theme</a></li>
+<li>inner_hborder&#160;:&#160;<a class="el" href="structhpdftbl__theme.html#ae7569676d667102beb475b50588d6409">hpdftbl_theme</a></li>
+<li>inner_hgrid&#160;:&#160;<a class="el" href="structhpdftbl.html#a5478bf2fac675d72b1bdd48b381900b0">hpdftbl</a></li>
+<li>inner_tborder&#160;:&#160;<a class="el" href="structhpdftbl__theme.html#ad247a9b47904ae402e63cc574a4196f5">hpdftbl_theme</a></li>
+<li>inner_tgrid&#160;:&#160;<a class="el" href="structhpdftbl.html#a3f9ee9972beac05de39ec516e53ecc97">hpdftbl</a></li>
+<li>inner_vborder&#160;:&#160;<a class="el" href="structhpdftbl__theme.html#a6552211dcbea232f37beeb92813a03bd">hpdftbl_theme</a></li>
+<li>inner_vgrid&#160;:&#160;<a class="el" href="structhpdftbl.html#a3c34a3b391c21c125c8139f0a63d8bf4">hpdftbl</a></li>
 </ul>
 
 
@@ -143,7 +148,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>label&#160;:&#160;<a class="el" href="structhpdftbl__cell.html#acf60de4c64d60c1b9449c056bc6bfcf7">hpdftbl_cell</a>, <a class="el" href="structhpdftbl__cell__spec.html#acf60de4c64d60c1b9449c056bc6bfcf7">hpdftbl_cell_spec</a></li>
 <li>label_cb&#160;:&#160;<a class="el" href="structhpdftbl.html#afa7f611082a18bdef83176786d1e5114">hpdftbl</a>, <a class="el" href="structhpdftbl__cell.html#afa7f611082a18bdef83176786d1e5114">hpdftbl_cell</a>, <a class="el" href="structhpdftbl__cell__spec.html#afa7f611082a18bdef83176786d1e5114">hpdftbl_cell_spec</a>, <a class="el" href="structhpdftbl__spec.html#afa7f611082a18bdef83176786d1e5114">hpdftbl_spec</a></li>
 <li>label_style&#160;:&#160;<a class="el" href="structhpdftbl.html#adcd69a0681be0895f317768491c6fb3d">hpdftbl</a>, <a class="el" href="structhpdftbl__theme.html#aff15390195baaabd2afd5b6626237419">hpdftbl_theme</a></li>
-<li>line_style&#160;:&#160;<a class="el" href="structborder__style.html#a4550ac3c1c8b923439eb240d4819b7e0">border_style</a></li>
+<li>line_dashstyle&#160;:&#160;<a class="el" href="structgrid__style.html#a8f662b36a70c50842a0b6540e303b755">grid_style</a></li>
 </ul>
 
 
@@ -153,7 +158,8 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
-<li>outer_border&#160;:&#160;<a class="el" href="structhpdftbl.html#a146db3baacb546af0fb4c1c4b4acc05b">hpdftbl</a>, <a class="el" href="structhpdftbl__theme.html#ac000fbdd941cd4476114de0686f979b0">hpdftbl_theme</a></li>
+<li>outer_border&#160;:&#160;<a class="el" href="structhpdftbl__theme.html#a76114a8791c9687d4fc0009766d3a68a">hpdftbl_theme</a></li>
+<li>outer_grid&#160;:&#160;<a class="el" href="structhpdftbl.html#a20efd9b50061ec1d8fa68f99d1d21561">hpdftbl</a></li>
 </ul>
 
 
@@ -195,11 +201,12 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>use_label_grid_style&#160;:&#160;<a class="el" href="structhpdftbl.html#a5e5a45626c52978e134fe29dccae8b15">hpdftbl</a>, <a class="el" href="structhpdftbl__theme.html#a5e5a45626c52978e134fe29dccae8b15">hpdftbl_theme</a></li>
 <li>use_labelgrid&#160;:&#160;<a class="el" href="structhpdftbl__spec.html#a34c84bffcee1f8d45930eca45fa3853b">hpdftbl_spec</a></li>
 <li>use_labels&#160;:&#160;<a class="el" href="structhpdftbl__spec.html#aa56fbcd88a785084dbfb191404213598">hpdftbl_spec</a>, <a class="el" href="structhpdftbl__theme.html#aa56fbcd88a785084dbfb191404213598">hpdftbl_theme</a></li>
+<li>use_zebra&#160;:&#160;<a class="el" href="structhpdftbl.html#a3973273e2460749a382abb60a09c8a28">hpdftbl</a>, <a class="el" href="structhpdftbl__theme.html#a3973273e2460749a382abb60a09c8a28">hpdftbl_theme</a></li>
 </ul>
 
 
 <h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
-<li>width&#160;:&#160;<a class="el" href="structborder__style.html#a4f29c3b2841b17180ba269809503cc9a">border_style</a>, <a class="el" href="structhpdftbl.html#a4f29c3b2841b17180ba269809503cc9a">hpdftbl</a>, <a class="el" href="structhpdftbl__cell.html#a4f29c3b2841b17180ba269809503cc9a">hpdftbl_cell</a>, <a class="el" href="structhpdftbl__spec.html#a4f29c3b2841b17180ba269809503cc9a">hpdftbl_spec</a></li>
+<li>width&#160;:&#160;<a class="el" href="structgrid__style.html#a4f29c3b2841b17180ba269809503cc9a">grid_style</a>, <a class="el" href="structhpdftbl.html#a4f29c3b2841b17180ba269809503cc9a">hpdftbl</a>, <a class="el" href="structhpdftbl__cell.html#a4f29c3b2841b17180ba269809503cc9a">hpdftbl_cell</a>, <a class="el" href="structhpdftbl__spec.html#a4f29c3b2841b17180ba269809503cc9a">hpdftbl_spec</a></li>
 </ul>
 
 
@@ -211,12 +218,18 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <h3><a id="index_y" name="index_y"></a>- y -</h3><ul>
 <li>ypos&#160;:&#160;<a class="el" href="structhpdftbl__spec.html#a3c284168bd070eceb2106480e7b9560b">hpdftbl_spec</a></li>
 </ul>
+
+
+<h3><a id="index_z" name="index_z"></a>- z -</h3><ul>
+<li>zebra1_color&#160;:&#160;<a class="el" href="structhpdftbl.html#ab044965a68417d75ff8ff03cb1079c45">hpdftbl</a>, <a class="el" href="structhpdftbl__theme.html#ab044965a68417d75ff8ff03cb1079c45">hpdftbl_theme</a></li>
+<li>zebra2_color&#160;:&#160;<a class="el" href="structhpdftbl.html#af487ccac3e46aa245ce2431398ac085e">hpdftbl</a>, <a class="el" href="structhpdftbl__theme.html#af487ccac3e46aa245ce2431398ac085e">hpdftbl_theme</a></li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Apr 28 2022 06:51:24 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun May 1 2022 13:14:01 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>
