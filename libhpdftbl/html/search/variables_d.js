@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['tag_0',['tag',['../structhpdftbl.html#a3fd9a258481b2a4c0610d35a95c516f6',1,'hpdftbl']]],
-  ['textwidth_1',['textwidth',['../structhpdftbl__cell.html#a8b7f57ef49424cdc89f4641bbb88bf27',1,'hpdftbl_cell']]],
-  ['title_2',['title',['../structhpdftbl__spec.html#af06d911bb9e05f491ef3da520d03796c',1,'hpdftbl_spec']]],
-  ['title_5fstyle_3',['title_style',['../structhpdftbl.html#a5bfda6a8c773a6ef2997ecc6f90b714c',1,'hpdftbl::title_style()'],['../structhpdftbl__theme.html#a463cd78eea9e56b90992850a4db869cc',1,'hpdftbl_theme::title_style()']]],
-  ['title_5ftxt_4',['title_txt',['../structhpdftbl.html#a9517b2a31eac537dc20e18f76b7e2862',1,'hpdftbl']]]
+  ['row_0',['row',['../structhpdftbl__cell__spec.html#a97ab3b8ef2f074e3774c66099d7ec59b',1,'hpdftbl_cell_spec']]],
+  ['rows_1',['rows',['../structhpdftbl.html#ad161320eba27a8b966baac47bee35c46',1,'hpdftbl::rows()'],['../structhpdftbl__spec.html#ad161320eba27a8b966baac47bee35c46',1,'hpdftbl_spec::rows()']]],
+  ['rowspan_2',['rowspan',['../structhpdftbl__cell.html#a37e892bae1877e4f65bf3870dbbc80e1',1,'hpdftbl_cell::rowspan()'],['../structhpdftbl__cell__spec.html#a98f685e43777849cf39dfc995321b42a',1,'hpdftbl_cell_spec::rowspan()']]]
 ];

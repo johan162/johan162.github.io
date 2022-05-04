@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0-beta3</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -166,7 +166,7 @@ $(document).ready(function(){initNavTree('tut_ex02_1_8c-example.html',''); initR
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_cols = 4;</div>
 <div class="line"> </div>
 <div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a id="a2" name="a2"></a><a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
-<div class="line">    <a id="a3" name="a3"></a><a class="code hl_function" href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header</a>(tbl, <a id="a4" name="a4"></a><a class="code hl_define" href="hpdftbl_8c.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
+<div class="line">    <a id="a3" name="a3"></a><a class="code hl_function" href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header</a>(tbl, <a id="a4" name="a4"></a><a class="code hl_define" href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
 <div class="line"> </div>
 <div class="line">    content_t content;</div>
 <div class="line">    setup_dummy_data(&amp;content, num_rows, num_cols);</div>
@@ -223,7 +223,7 @@ $(document).ready(function(){initNavTree('tut_ex02_1_8c-example.html',''); initR
 <div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    setup_hpdf(&amp;pdf_doc, &amp;pdf_page, <a id="a11" name="a11"></a><a class="code hl_define" href="hpdftbl_8c.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>);</div>
+<div class="line">    setup_hpdf(&amp;pdf_doc, &amp;pdf_page, <a id="a11" name="a11"></a><a class="code hl_define" href="hpdftbl_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>);</div>
 <div class="line">    create_table_ex02_1(pdf_doc, pdf_page);</div>
 <div class="line">    stroke_pdfdoc(pdf_doc, OUTPUT_FILE);</div>
 <div class="line"> </div>
@@ -233,24 +233,24 @@ $(document).ready(function(){initNavTree('tut_ex02_1_8c-example.html',''); initR
 <div class="line"><span class="preprocessor">#ifndef _MSC_VER</span></div>
 <div class="line"><span class="preprocessor">#pragma GCC diagnostic pop</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1374</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_aa8cecfc5c5c054d2875c03e77b7be15d"><div class="ttname"><a href="hpdftbl_8c.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a></div><div class="ttdeci">#define TRUE</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:50</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_aa93f0eb578d23995850d61f7d61c55c1"><div class="ttname"><a href="hpdftbl_8c.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a></div><div class="ttdeci">#define FALSE</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:51</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:577</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1997</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_af0b3ef1634a1dd01dec3e052d7cdf3c5"><div class="ttname"><a href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header</a></div><div class="ttdeci">int hpdftbl_use_header(hpdftbl_t t, _Bool use)</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:840</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_a74d6a937e9d5494f2fcf4b12783b7521"><div class="ttname"><a href="hpdftbl_8h.html#a74d6a937e9d5494f2fcf4b12783b7521">A4PAGE_WIDTH_CM</a></div><div class="ttdeci">#define A4PAGE_WIDTH_CM</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:100</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1292</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:449</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1898</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_af0b3ef1634a1dd01dec3e052d7cdf3c5"><div class="ttname"><a href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header</a></div><div class="ttdeci">int hpdftbl_use_header(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Enable/disable the interpretation of the top row as a header row.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:742</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_a74d6a937e9d5494f2fcf4b12783b7521"><div class="ttname"><a href="hpdftbl_8h.html#a74d6a937e9d5494f2fcf4b12783b7521">A4PAGE_WIDTH_CM</a></div><div class="ttdeci">#define A4PAGE_WIDTH_CM</div><div class="ttdoc">Standard A4 paper width in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:129</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a926e8b332d44d03402264d039f293cb7"><div class="ttname"><a href="hpdftbl_8h.html#a926e8b332d44d03402264d039f293cb7">hpdftbl_hpdf_get_errstr</a></div><div class="ttdeci">const char * hpdftbl_hpdf_get_errstr(HPDF_STATUS err_code)</div><div class="ttdoc">Function to return a human readable error string for an error code from Core HPDF library.</div><div class="ttdef"><b>Definition:</b> hpdftbl_errstr.c:178</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:99</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:129</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_aa8cecfc5c5c054d2875c03e77b7be15d"><div class="ttname"><a href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a></div><div class="ttdeci">#define TRUE</div><div class="ttdoc">Boolean truth value.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:47</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_aa93f0eb578d23995850d61f7d61c55c1"><div class="ttname"><a href="hpdftbl_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a></div><div class="ttdeci">#define FALSE</div><div class="ttdoc">Boolean false value.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:52</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdoc">Standard A4 paper height in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:124</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:182</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_af75cc3044be7037191c1e49f059b2e73"><div class="ttname"><a href="hpdftbl_8h.html#af75cc3044be7037191c1e49f059b2e73">hpdftbl_stroke_grid</a></div><div class="ttdeci">void hpdftbl_stroke_grid(HPDF_Doc pdf, HPDF_Page page)</div><div class="ttdef"><b>Definition:</b> hpdftbl_grid.c:46</div></div>
-<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:272</div></div>
+<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:351</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 1 2022 13:14:00 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed May 4 2022 00:18:21 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

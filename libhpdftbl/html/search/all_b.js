@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['min_5fcalculated_5fpercent_5fcell_5fwidth_0',['MIN_CALCULATED_PERCENT_CELL_WIDTH',['../hpdftbl_8h.html#a812abdf0b811cc35107aa352472b927a',1,'hpdftbl.h']]]
+  ['minheight_0',['minheight',['../structhpdftbl.html#a0cf8608a27d2fb2c5c2b5078ead87a22',1,'hpdftbl']]]
 ];

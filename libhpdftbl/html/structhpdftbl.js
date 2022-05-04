@@ -1,5 +1,6 @@
 var structhpdftbl =
 [
+    [ "bottom_vmargin_factor", "structhpdftbl.html#a58cfb4a00048cb2667f0f74fdd93bd24", null ],
     [ "canvas_cb", "structhpdftbl.html#ac0b686f623c6a898f31ae37ee18b803d", null ],
     [ "cells", "structhpdftbl.html#a8a29181dd86aa6ced42db9a31a65bc1a", null ],
     [ "col_width_percent", "structhpdftbl.html#a67aeb56f4513f758fa6b8608b553cb68", null ],
@@ -14,6 +15,7 @@ var structhpdftbl =
     [ "inner_vgrid", "structhpdftbl.html#a3c34a3b391c21c125c8139f0a63d8bf4", null ],
     [ "label_cb", "structhpdftbl.html#afa7f611082a18bdef83176786d1e5114", null ],
     [ "label_style", "structhpdftbl.html#adcd69a0681be0895f317768491c6fb3d", null ],
+    [ "minheight", "structhpdftbl.html#a0cf8608a27d2fb2c5c2b5078ead87a22", null ],
     [ "outer_grid", "structhpdftbl.html#a20efd9b50061ec1d8fa68f99d1d21561", null ],
     [ "pdf_doc", "structhpdftbl.html#a953ebc32da69561907f48eecdda9c96d", null ],
     [ "pdf_page", "structhpdftbl.html#add9714fb55f614fb001a0897a0697ec0", null ],
