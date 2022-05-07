@@ -60,6 +60,7 @@ var globals_dup =
     [ "set_tag", "globals_s.html", null ],
     [ "set_text_", "globals_s.html", null ],
     [ "set_title", "globals_s.html", null ],
+    [ "set_zebra", "globals_s.html", null ],
     [ "spec_t", "globals_s.html", null ],
     [ "stroke", "globals_s.html", null ],
     [ "stroke_fr", "globals_s.html", null ],

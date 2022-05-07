@@ -30,6 +30,7 @@ var structhpdftbl =
     [ "use_label_grid_style", "structhpdftbl.html#a5e5a45626c52978e134fe29dccae8b15", null ],
     [ "use_zebra", "structhpdftbl.html#a3973273e2460749a382abb60a09c8a28", null ],
     [ "width", "structhpdftbl.html#a4f29c3b2841b17180ba269809503cc9a", null ],
-    [ "zebra1_color", "structhpdftbl.html#ab044965a68417d75ff8ff03cb1079c45", null ],
-    [ "zebra2_color", "structhpdftbl.html#af487ccac3e46aa245ce2431398ac085e", null ]
+    [ "zebra_color1", "structhpdftbl.html#acc64f8a06ac58e650e737e28482e2c37", null ],
+    [ "zebra_color2", "structhpdftbl.html#a94652cfea14675747ff1ecc93a84e949", null ],
+    [ "zebra_phase", "structhpdftbl.html#aacdafd6123b1d86b6111fd2c0e8d200c", null ]
 ];

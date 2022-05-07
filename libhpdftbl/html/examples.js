@@ -17,5 +17,7 @@ var examples =
     [ "tut_ex13_1.c", "tut_ex13_1_8c-example.html", null ],
     [ "tut_ex13_2.c", "tut_ex13_2_8c-example.html", null ],
     [ "tut_ex14.c", "tut_ex14_8c-example.html", null ],
+    [ "tut_ex15.c", "tut_ex15_8c-example.html", null ],
+    [ "tut_ex15_1.c", "tut_ex15_1_8c-example.html", null ],
     [ "tut_ex20.c", "tut_ex20_8c-example.html", null ]
 ];

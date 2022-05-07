@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.1-wip</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -88,9 +88,9 @@ $(document).ready(function(){initNavTree('md__building.html',''); initResizable(
   <div class="headertitle"><div class="title">Building the library </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md33"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md23"></a>
 The short version</h1>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
 Compiling the tar ball</h2>
 <p >If you downloaded the tar-ball then it should be trivial to build and install if you have the necessary pre-requisites. Just download the tar-ball and do the standard spell:</p>
 <div class="fragment"><div class="line">$ tar xzf libhpdftbl-1.0.0.tar.gz</div>
@@ -100,7 +100,7 @@ Compiling the tar ball</h2>
 </div><!-- fragment --><p >If you miss any library the <code>configure</code> process will discover this and tell you what you need to install. This would otherwise compile and install the library in <code>/usr/local</code> subtree. It wil build and install both a static and dynamic library.</p>
 <dl class="section note"><dt>Note</dt><dd>By calling <code>./configure -h</code> a list of possible options on how the library should be compiled and installed will be shown.</dd></dl>
 <p>Depending on your system this might also be available as a pre-built package for you to install directly via perhaps <code>apt</code>on Linux or <code>brew</code> on OSX.</p>
-<h1><a class="anchor" id="autotoc_md35"></a>
+<h1><a class="anchor" id="autotoc_md29"></a>
 Pre-requisites</h1>
 <dl class="section note"><dt>Note</dt><dd>OSX Package manager: We recommend using <code>brew</code> as the package manager for OSX.</dd></dl>
 <p>There are two external libraries required to rebuild libhpdftbl and more importantly use the library with an actual application and these are:</p>
@@ -110,11 +110,11 @@ Pre-requisites</h1>
 <li><b>iconv</b> - The character encoding conversion library. On OSX &gt; 11.x this is included by default once you have <code>xcode</code> command line tools installed which is basically a pre-requisite required for all development on OSX. <br  />
  *(On really old versions of OSX this was not the case.)*</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="autotoc_md31"></a>
 Different versions of iconv on OSX</h2>
 <p >Unfortunately there are two main versions of <code>libiconv</code> readily available for OSX which are incompatible as one uses the prefix "`iconv_*`" and the other "`libiconv_*`" on its exported functions. Compiling <code>libhpdftbl</code> requires the first of these which is the prevelant version and the default on both OSX and Linux.</p>
 <p >This is almost exclusivly an issue for those that actively develop on OSX and may have over time installed multiple versions of libraries and as such are aware of these challenges.</p>
-<h2><a class="anchor" id="autotoc_md37"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 OSX native libiconv</h2>
 <p >After installing <code>xcode</code> command line tools on OSX you can assume that a library called <code>/usr/lib/iconv.dylib</code> is available. However, if you actually try to list this library in <code>/usr/lib</code> you will not find it! Still, if you link your code with <code>-liconv</code> it will work as expected. How come? <br  />
 </p>
@@ -123,10 +123,10 @@ OSX native libiconv</h2>
 <div class="fragment"><div class="line">/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/lib/libiconv.tbd</div>
 </div><!-- fragment --><p >and the corresponding include header at</p>
 <div class="fragment"><div class="line">/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/iconv.h</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md38"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md39"></a>
 OSX GNU port of libiconv</h2>
 <p >If you have happened to install <code>libiconv</code> via the MacPorts you are out of luck and need to change. MacPorts uses the GNU version which uses the prefix "`libiconv_*`" for its exported function and is not compatible since the table library assumes the naming convention of the standard OSX version (after v11)</p>
-<h2><a class="anchor" id="autotoc_md39"></a>
+<h2><a class="anchor" id="autotoc_md40"></a>
 Troubleshooting OSX &lt;tt&gt;libiconv&lt;/tt&gt;</h2>
 <ol type="1">
 <li>Find out all installed versions of <code>libiconv</code> on your installation <br  />
@@ -139,14 +139,14 @@ Troubleshooting OSX &lt;tt&gt;libiconv&lt;/tt&gt;</h2>
  <pre class="fragment">$&gt; echo $PATH
 </pre></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md40"></a>
+<h1><a class="anchor" id="autotoc_md42"></a>
 Building the library from source</h1>
 <p >There are two levels of rebuilding the library</p>
 <ol type="1">
 <li>Using a build environment to rebuild the library</li>
 <li>Rebuilding from a cloned repo and rebuild the build environment</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Rebuilding using av existing build environment</h2>
 <p >Rebuilding the library using a pre-configured build environment only requires <code>gcc</code> and <code>make</code> together with the standard C/C++ libraries to be installed.</p>
 <p >The library source with suitable build-environment is distributed as a tar-ball</p>
@@ -158,7 +158,7 @@ Rebuilding using av existing build environment</h2>
 <div class="line">... (output from the configuration and build omitted) ...</div>
 </div><!-- fragment --><p >and then (optionally) install the library</p>
 <div class="fragment"><div class="line">$ make install</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md42"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md44"></a>
 Rebuilding from a cloned repo</h2>
 <dl class="section note"><dt>Note</dt><dd>This is for experienced developers!</dd></dl>
 <p>The repo does not include any of the generated files as the tar-ball does. This means that the following build tools needs to be setup in order to fully rebuild from a cloned repo.</p>
@@ -190,9 +190,9 @@ Rebuilding from a cloned repo</h2>
 </div><!-- fragment --><p >If you would like to install the library make the <code>install</code> target</p>
 <div class="fragment"><div class="line">$&gt; make install</div>
 </div><!-- fragment --><p >This will install headers and library under "`/usr/local`" (unless the prefix was changed when running the <code>configure</code>)</p>
-<h1><a class="anchor" id="autotoc_md43"></a>
+<h1><a class="anchor" id="autotoc_md47"></a>
 Miscellaneous</h1>
-<h2><a class="anchor" id="autotoc_md44"></a>
+<h2><a class="anchor" id="autotoc_md48"></a>
 Some notes on Compiling for debugging</h2>
 <p >Since the library builds with <code>libtool</code> and this tool will generate a wrapper shell script for each example to load the, not yet installed, library it also means this "executable" shell script cannot directly be used to debug with for example <code>gdb</code>.</p>
 <p >The solution for this is to configure the library to only build static libraries which are directly linked with the example binaries and as such can be debugged as usual. This configuration is done with:</p>
@@ -201,17 +201,17 @@ Some notes on Compiling for debugging</h2>
 <p >An alternative way (as recommended in the <a href="https://www.gnu.org/software/libtool/manual/html_node/Debugging-executables.html">libtool manual</a>) is to launch the debugger with:</p>
 <div class="fragment"><div class="line">$&gt; libtool --mode=execute gdb &lt;example program&gt;</div>
 </div><!-- fragment --><p >As a convenience a script is provided to handle the debug build configuration <a class="el" href="dbgbld_8sh.html" title="Setup a build environment for debugging.">scripts/dbgbld.sh</a></p>
-<h2><a class="anchor" id="autotoc_md45"></a>
+<h2><a class="anchor" id="autotoc_md49"></a>
 Some notes on updating the documentation</h2>
 <p >By design the documentation is not updated by the default make target in order minimize the build time during development. To rebuild the <em>html</em> documentation build the target</p>
 <div class="fragment"><div class="line">$&gt; make html</div>
 </div><!-- fragment --><p >and to rebuild the <em>PDF</em> version build the target</p>
 <div class="fragment"><div class="line">$&gt; make pdf</div>
 </div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd>There is a shell script <a class="el" href="docupload_8sh_8in.html" title="Upload the generated documentation to the github pages doc site for the author.">scripts/docupload.sh.in</a> that the author (i.e. me!) uses to upload the HTML and PDF documentation to the Github pages of the author. For obvious reason this script will not work for anyone else since it requires write access to the doc repo (through a SSL certificate).</dd></dl>
-<h2><a class="anchor" id="autotoc_md46"></a>
+<h2><a class="anchor" id="autotoc_md51"></a>
 Some notes on Windows build</h2>
 <p >The source files are suitable augmented to also compile on MS Windows with selective defines. However, since I have no longer access to a Windows system to verify the workings this is left as an exercise to the reader. Hence this should be considered as a best effort</p>
-<h2><a class="anchor" id="autotoc_md47"></a>
+<h2><a class="anchor" id="autotoc_md52"></a>
 Some notes on using C or C++ to build</h2>
 <p >The source files are also suitable augmented to compile on both a C and a C++ compiler. However, the default build environment is setup for a pure C library build. To add a configuration switch for this would be the sensible way to handle this. This is not done and again, is left as an exercise for the reader. </p>
 </div></div><!-- contents -->
@@ -220,7 +220,7 @@ Some notes on using C or C++ to build</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed May 4 2022 00:18:21 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri May 6 2022 05:43:30 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

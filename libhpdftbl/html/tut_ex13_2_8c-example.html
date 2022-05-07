@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.1.0</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -93,9 +93,10 @@ $(document).ready(function(){initNavTree('tut_ex13_2_8c-example.html',''); initR
 <div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;alloca.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#if !(defined _WIN32 || defined __WIN32__)</span></div>
 <div class="line"><span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;libgen.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;sys/stat.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"><span class="preprocessor">#include &lt;hpdf.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;math.h&gt;</span></div>
@@ -103,21 +104,13 @@ $(document).ready(function(){initNavTree('tut_ex13_2_8c-example.html',''); initR
 <div class="line"><span class="preprocessor">#include &lt;time.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#if !(defined _WIN32 || defined __WIN32__)</span></div>
 <div class="line"><span class="preprocessor">#include &lt;sys/utsname.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;libgen.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;sys/stat.h&gt;</span></div>
+<div class="line"> </div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// This include should always be used</span></div>
 <div class="line"><span class="preprocessor">#include &quot;../src/hpdftbl.h&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// The output after running the program will be written to this file</span></div>
-<div class="line"><span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><span class="preprocessor">#define OUTPUT_FILE &quot;tut_ex13_2.pdf&quot;</span></div>
-<div class="line"><span class="preprocessor">#else</span></div>
-<div class="line"><span class="preprocessor">#define OUTPUT_FILE &quot;/tmp/tut_ex13_2.pdf&quot;</span></div>
-<div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="preprocessor">#define TRUE 1</span></div>
-<div class="line"><span class="preprocessor">#define FALSE 0</span></div>
-<div class="line"> </div>
-<div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// For simulated exception handling</span></div>
 <div class="line">jmp_buf env;</div>
@@ -279,32 +272,43 @@ $(document).ready(function(){initNavTree('tut_ex13_2_8c-example.html',''); initR
 <div class="line">    setup_hpdf(&amp;pdf_doc, &amp;pdf_page, <a class="code hl_define" href="hpdftbl_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>);</div>
 <div class="line"> </div>
 <div class="line">    create_table_ex13_2(pdf_doc, pdf_page);</div>
-<div class="line">    </div>
-<div class="line">    stroke_pdfdoc(pdf_doc, OUTPUT_FILE);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> ( 2==argc ) {</div>
+<div class="line">        <span class="keyword">struct </span>stat sb;</div>
+<div class="line">        <span class="keywordflow">if</span> (stat(dirname(argv[1]), &amp;sb) == 0 &amp;&amp; S_ISDIR(sb.st_mode)) {</div>
+<div class="line">            stroke_pdfdoc(pdf_doc, argv[1]);</div>
+<div class="line">            <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">char</span> fname[255];</div>
+<div class="line">    snprintf(fname, <span class="keyword">sizeof</span> fname, <span class="stringliteral">&quot;out/%s.pdf&quot;</span>, basename(argv[0]));</div>
+<div class="line">    stroke_pdfdoc(pdf_doc, fname);</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#ifndef _MSC_VER</span></div>
 <div class="line"><span class="preprocessor">#pragma GCC diagnostic pop</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ahpdftbl_8c_html_ae606b38b3769692e75eba490964216c9"><div class="ttname"><a href="hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9">hpdftbl_stroke_from_data</a></div><div class="ttdeci">int hpdftbl_stroke_from_data(HPDF_Doc pdf_doc, HPDF_Page pdf_page, hpdftbl_spec_t *tbl_spec, hpdftbl_theme_t *theme)</div><div class="ttdoc">Construct the table from a array specification.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1552</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ae606b38b3769692e75eba490964216c9"><div class="ttname"><a href="hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9">hpdftbl_stroke_from_data</a></div><div class="ttdeci">int hpdftbl_stroke_from_data(HPDF_Doc pdf_doc, HPDF_Page pdf_page, hpdftbl_spec_t *tbl_spec, hpdftbl_theme_t *theme)</div><div class="ttdoc">Construct the table from a array specification.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1583</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a926e8b332d44d03402264d039f293cb7"><div class="ttname"><a href="hpdftbl_8h.html#a926e8b332d44d03402264d039f293cb7">hpdftbl_hpdf_get_errstr</a></div><div class="ttdeci">const char * hpdftbl_hpdf_get_errstr(HPDF_STATUS err_code)</div><div class="ttdoc">Function to return a human readable error string for an error code from Core HPDF library.</div><div class="ttdef"><b>Definition:</b> hpdftbl_errstr.c:178</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_aa8cecfc5c5c054d2875c03e77b7be15d"><div class="ttname"><a href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a></div><div class="ttdeci">#define TRUE</div><div class="ttdoc">Boolean truth value.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:47</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_aa93f0eb578d23995850d61f7d61c55c1"><div class="ttname"><a href="hpdftbl_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a></div><div class="ttdeci">#define FALSE</div><div class="ttdoc">Boolean false value.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:52</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdoc">Standard A4 paper height in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:124</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:182</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ae062b47275855810a63dbd85085f86a3"><div class="ttname"><a href="hpdftbl_8h.html#ae062b47275855810a63dbd85085f86a3">HPDFTBL_END_CELLSPECS</a></div><div class="ttdeci">#define HPDFTBL_END_CELLSPECS</div><div class="ttdoc">Sentinel to mark the end of Cell Specifications for data driven table definition.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:164</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdoc">Standard A4 paper height in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:165</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:223</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ae062b47275855810a63dbd85085f86a3"><div class="ttname"><a href="hpdftbl_8h.html#ae062b47275855810a63dbd85085f86a3">HPDFTBL_END_CELLSPECS</a></div><div class="ttdeci">#define HPDFTBL_END_CELLSPECS</div><div class="ttdoc">Sentinel to mark the end of Cell Specifications for data driven table definition.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:205</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_af75cc3044be7037191c1e49f059b2e73"><div class="ttname"><a href="hpdftbl_8h.html#af75cc3044be7037191c1e49f059b2e73">hpdftbl_stroke_grid</a></div><div class="ttdeci">void hpdftbl_stroke_grid(HPDF_Doc pdf, HPDF_Page page)</div><div class="ttdef"><b>Definition:</b> hpdftbl_grid.c:46</div></div>
-<div class="ttc" id="astructhpdftbl__cell__spec_html"><div class="ttname"><a href="structhpdftbl__cell__spec.html">hpdftbl_cell_spec</a></div><div class="ttdoc">Used in data driven table creation.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:448</div></div>
-<div class="ttc" id="astructhpdftbl__cell__spec_html_a97ab3b8ef2f074e3774c66099d7ec59b"><div class="ttname"><a href="structhpdftbl__cell__spec.html#a97ab3b8ef2f074e3774c66099d7ec59b">hpdftbl_cell_spec::row</a></div><div class="ttdeci">size_t row</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:450</div></div>
-<div class="ttc" id="astructhpdftbl__spec_html"><div class="ttname"><a href="structhpdftbl__spec.html">hpdftbl_spec</a></div><div class="ttdoc">Used in data driven table creation.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:475</div></div>
-<div class="ttc" id="astructhpdftbl__spec_html_af06d911bb9e05f491ef3da520d03796c"><div class="ttname"><a href="structhpdftbl__spec.html#af06d911bb9e05f491ef3da520d03796c">hpdftbl_spec::title</a></div><div class="ttdeci">char * title</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:477</div></div>
+<div class="ttc" id="astructhpdftbl__cell__spec_html"><div class="ttname"><a href="structhpdftbl__cell__spec.html">hpdftbl_cell_spec</a></div><div class="ttdoc">Used in data driven table creation.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:495</div></div>
+<div class="ttc" id="astructhpdftbl__cell__spec_html_a97ab3b8ef2f074e3774c66099d7ec59b"><div class="ttname"><a href="structhpdftbl__cell__spec.html#a97ab3b8ef2f074e3774c66099d7ec59b">hpdftbl_cell_spec::row</a></div><div class="ttdeci">size_t row</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:497</div></div>
+<div class="ttc" id="astructhpdftbl__spec_html"><div class="ttname"><a href="structhpdftbl__spec.html">hpdftbl_spec</a></div><div class="ttdoc">Used in data driven table creation.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:522</div></div>
+<div class="ttc" id="astructhpdftbl__spec_html_af06d911bb9e05f491ef3da520d03796c"><div class="ttname"><a href="structhpdftbl__spec.html#af06d911bb9e05f491ef3da520d03796c">hpdftbl_spec::title</a></div><div class="ttdeci">char * title</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:524</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed May 4 2022 00:18:21 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 7 2022 09:24:52 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

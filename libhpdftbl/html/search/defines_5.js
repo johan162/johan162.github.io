@@ -11,8 +11,8 @@ var searchData=
   ['hpdftbl_5fdefault_5fsource_5fencoding_8',['HPDFTBL_DEFAULT_SOURCE_ENCODING',['../hpdftbl_8h.html#a8f64253d3b88b7ef56e76cf8090e281b',1,'hpdftbl.h']]],
   ['hpdftbl_5fdefault_5ftarget_5fencoding_9',['HPDFTBL_DEFAULT_TARGET_ENCODING',['../hpdftbl_8h.html#a871430d78bdf177962464c3697147361',1,'hpdftbl.h']]],
   ['hpdftbl_5fdefault_5ftitle_5fstyle_10',['HPDFTBL_DEFAULT_TITLE_STYLE',['../hpdftbl__theme_8c.html#a10ee461ea0beca7fb7672780827df77e',1,'hpdftbl_theme.c']]],
-  ['hpdftbl_5fdefault_5fzebra1_5fcolor_11',['HPDFTBL_DEFAULT_ZEBRA1_COLOR',['../hpdftbl__theme_8c.html#a57589aefbb60314f3c0db36aebd83c38',1,'hpdftbl_theme.c']]],
-  ['hpdftbl_5fdefault_5fzebra2_5fcolor_12',['HPDFTBL_DEFAULT_ZEBRA2_COLOR',['../hpdftbl__theme_8c.html#ad1b0c74414a17f0c871d8c2ade43d348',1,'hpdftbl_theme.c']]],
+  ['hpdftbl_5fdefault_5fzebra_5fcolor1_11',['HPDFTBL_DEFAULT_ZEBRA_COLOR1',['../hpdftbl__theme_8c.html#a091b247161579f3916335733bd295771',1,'hpdftbl_theme.c']]],
+  ['hpdftbl_5fdefault_5fzebra_5fcolor2_12',['HPDFTBL_DEFAULT_ZEBRA_COLOR2',['../hpdftbl__theme_8c.html#a01306836e31521435a798853ebbcaaba',1,'hpdftbl_theme.c']]],
   ['hpdftbl_5fend_5fcellspecs_13',['HPDFTBL_END_CELLSPECS',['../hpdftbl_8h.html#ae062b47275855810a63dbd85085f86a3',1,'hpdftbl.h']]],
   ['hpdftbl_5fmin_5fcalculated_5fpercent_5fcell_5fwidth_14',['HPDFTBL_MIN_CALCULATED_PERCENT_CELL_WIDTH',['../hpdftbl_8h.html#a1a0eb169474a6c19e9dd888f2db222e7',1,'hpdftbl.h']]]
 ];
