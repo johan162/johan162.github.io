@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.1.0</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.1.1-wip</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('ch_styleandfontsetting.html',''); init
 <li>Font- and background-color</li>
 <li>Border thickness and color</li>
 </ol>
-<p >In this section we will focus on how to adjust the font and background color. The styld can be adjusted both forthe entire table at once and alse for individual cells. The individual cell style will always override the table cell style.</p>
+<p >In this section we will focus on how to adjust the font and background color. The style can be adjusted both for the entire table at once and also for individual cells. The individual cell style will always override the table cell style.</p>
 <p >The primary API to adjust the table style are:</p>
 <div class="fragment"><div class="line"><span class="comment">// Set background color for entire table</span></div>
 <div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="hpdftbl_8c.html#a5be6faf3e7910835333809150e9d5d1e">hpdftbl_set_background</a>(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> t, </div>
@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('ch_styleandfontsetting.html',''); init
 <div class="line">                              <span class="keywordtype">char</span> *font, HPDF_REAL fsize, </div>
 <div class="line">                              HPDF_RGBColor color, HPDF_RGBColor background);</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Set conten style for specified cell</span></div>
+<div class="line"><span class="comment">// Set content style for specified cell</span></div>
 <div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="hpdftbl_8c.html#aee5f23dc45a1898015a1d563ccc9e26d">hpdftbl_set_cell_content_style</a>(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> t, </div>
 <div class="line">                                   <span class="keywordtype">size_t</span> r, <span class="keywordtype">size_t</span> c, </div>
 <div class="line">                                   <span class="keywordtype">char</span> *font, HPDF_REAL fsize, </div>
@@ -149,7 +149,7 @@ Adjusting fonts and colors</h1>
 </table>
 <p ><em><b>Table 1:</b></em> <em>Predefined font family and variants</em></p>
 <p >So to use the "Helvetic" font family the constant "`HPDF_FF_HELVETICA`" is used and so on.</p>
-<p >Colors are specified in the standard Haru way, i.e as an instance of the structure "`HPDF_RGBColor`". As another convenience the following colors are predefined</p>
+<p >Colors are specified in the standard Haru way, i.e. as an instance of the structure "`HPDF_RGBColor`". As another convenience the following colors are predefined</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#define HPDF_COLOR_DARK_RED      (HPDF_RGBColor) { 0.6f, 0.0f, 0.0f }</span></div>
 <div class="line"><span class="preprocessor">#define HPDF_COLOR_RED           (HPDF_RGBColor) { 1.0f, 0.0f, 0.0f }</span></div>
 <div class="line"><span class="preprocessor">#define HPDF_COLOR_LIGHT_GREEN   (HPDF_RGBColor) { 0.9f, 1.0f, 0.9f }</span></div>
@@ -166,12 +166,12 @@ Adjusting fonts and colors</h1>
 <div class="fragment"><div class="line">...</div>
 <div class="line">hpdftbl_set_content_style(tbl, HPDF_FF_TIMES, 12, HPDF_COLOR_BLACK, HPDF_COLOR_WHITE);</div>
 <div class="line">...</div>
-</div><!-- fragment --><p >Since RGB for colors are specified as a flotaing point number in range [0.0, 1.0] and most color table give colors as a integer triple there is exists a macro to make this conversion easier</p>
+</div><!-- fragment --><p >Since RGB for colors are specified as a floating point number in range [0.0, 1.0] and most color table give colors as an integer triple there is exists a macro to make this conversion easier</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#define HPDF_COLOR_FROMRGB(r,g,b) (HPDF_RGBColor){r/255.0,g/255.0,b/255.0} </span></div>
 </div><!-- fragment --><p >which will allow the easier specification of color such as</p>
 <div class="fragment"><div class="line">HPDF_RGBColor color_saddle_brown = <a class="code hl_define" href="hpdftbl_8h.html#a3e159770e79494aa1c5e1f44aec6db86">HPDF_COLOR_FROMRGB</a>(139,69,19);</div>
 <div class="ttc" id="ahpdftbl_8h_html_a3e159770e79494aa1c5e1f44aec6db86"><div class="ttname"><a href="hpdftbl_8h.html#a3e159770e79494aa1c5e1f44aec6db86">HPDF_COLOR_FROMRGB</a></div><div class="ttdeci">#define HPDF_COLOR_FROMRGB(r, g, b)</div><div class="ttdoc">Utility macro to calculate a color constant from RGB integer values [0,255].</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:210</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md53"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md67"></a>
 Using style callbacks</h1>
 <p >In much the same way as callbacks can be used for specifying content and labels so can a callback be used to specify the style of a cell or the entire table.</p>
 <p >A style callback has the following signature</p>
@@ -184,8 +184,8 @@ Using style callbacks</h1>
 <p >The parameters are used as follows:</p><ul>
 <li>The <code>tag</code> parameter has the same meaning as for content and label callbacks; an optional unique identifier for the table.** The <code>tag</code> parameter should always be checked for possible <code>NULL</code> value since it is not required for a table to have a tag.</li>
 <li>The <code>r</code> and <code>c</code> arguments are the row and column of the cell the callback is made for</li>
-<li>The <code>content</code> is the cell content string. The rationale for including this in the style callback is to allow for highligthning in the table of specific data. It could for example be something as simple as wanting to mark all values above a certain threshold with another background color in the table to draw attention.</li>
-<li>Finally the actual style is encompassed by the <code>hpdf_text_style_t</code> and is defined as the following structure <br  />
+<li>The <code>content</code> is the cell content string. The rationale for including this in the style callback is to allow for highlighting in the table of specific data. It could for example be something as simple as wanting to mark all values above a certain threshold with another background color in the table to draw attention.</li>
+<li>Finally, the actual style is encompassed by the <code>hpdf_text_style_t</code> and is defined as the following structure <br  />
  <div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structtext__style.html">text_style</a> {</div>
 <div class="line">    <span class="keywordtype">char</span> *<a class="code hl_variable" href="structtext__style.html#a2ccdf0b1af9425d3da05630f4ad83e55">font</a>;                     </div>
 <div class="line">    HPDF_REAL <a class="code hl_variable" href="structtext__style.html#a619758665ef84d588ff83b68aedca64b">fsize</a>;                </div>
@@ -202,7 +202,7 @@ Using style callbacks</h1>
 <div class="ttc" id="astructtext__style_html_ad4dedddd2d1175580db9daacb3b04c35"><div class="ttname"><a href="structtext__style.html#ad4dedddd2d1175580db9daacb3b04c35">text_style::background</a></div><div class="ttdeci">HPDF_RGBColor background</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:266</div></div>
 </div><!-- fragment --></li>
 </ul>
-<p >The style callbacks can exactly as the content callback be specified for either the entire table or for a specific cell. A cell callback will always override a table callback. The two functions to setup style callbacks are</p>
+<p >The style callbacks can exactly as the content callback be specified for either the entire table or for a specific cell. A cell callback will always override a table callback. The two functions to set up style callbacks are</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
 <div class="line"><a class="code hl_function" href="hpdftbl_8c.html#a52f9197df715189854f0fb5561e54ad0">hpdftbl_set_cell_content_style_cb</a>(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl, </div>
 <div class="line">                                  <span class="keywordtype">size_t</span> r, <span class="keywordtype">size_t</span> c, </div>
@@ -213,8 +213,8 @@ Using style callbacks</h1>
 <div class="line">                             <a class="code hl_typedef" href="hpdftbl_8h.html#a3d711e82876140fbd564b76c08753343">hpdftbl_content_style_callback_t</a> cb);</div>
 <div class="ttc" id="ahpdftbl_8c_html_a3bb3e58ecf4bc3bda2da271d50b291fe"><div class="ttname"><a href="hpdftbl_8c.html#a3bb3e58ecf4bc3bda2da271d50b291fe">hpdftbl_set_content_style_cb</a></div><div class="ttdeci">int hpdftbl_set_content_style_cb(hpdftbl_t t, hpdftbl_content_style_callback_t cb)</div><div class="ttdoc">Set callback to specify cell content style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1497</div></div>
 <div class="ttc" id="ahpdftbl_8c_html_a52f9197df715189854f0fb5561e54ad0"><div class="ttname"><a href="hpdftbl_8c.html#a52f9197df715189854f0fb5561e54ad0">hpdftbl_set_cell_content_style_cb</a></div><div class="ttdeci">int hpdftbl_set_cell_content_style_cb(hpdftbl_t t, size_t r, size_t c, hpdftbl_content_style_callback_t cb)</div><div class="ttdoc">Set cell specific callback to specify cell content style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1471</div></div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Due to som technicalities <b>the style callbacks are called twice</b> per cell. The first call is necessary to setup the background canvas and at that stage the content is not necessarily known since it could be later specified with a content callback. The first time the callback is made the <code>content</code> parameter is always guaranteed to be <code>NULL</code></dd></dl>
-<h2><a class="anchor" id="autotoc_md54"></a>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Due to som technicalities <b>the style callbacks are called twice</b> per cell. The first call is necessary to set up the background canvas and at that stage the content is not necessarily known since it could be later specified with a content callback. The first time the callback is made the <code>content</code> parameter is always guaranteed to be <code>NULL</code></dd></dl>
+<h2><a class="anchor" id="autotoc_md69"></a>
 Style callback example</h2>
 <p >An example of a callback function to set a background color for a header row/column for a table could for example be done as follows</p>
 <div class="fragment"><div class="line">_Bool</div>
@@ -271,16 +271,16 @@ Style callback example</h2>
 <div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:223</div></div>
 </div><!-- fragment --><p >The resulting table is shown in <b>Figure 10.</b> below.</p>
 <p ><img src="tut_ex09.png" alt="" class="inline" title="tut_ex09.png"/>    <em><b>Figure 10:</b></em> <em>Using a style callback to highlight header rows &amp; columns.</em> <em><a class="el" href="tut_ex09_8c-example.html">tut_ex09.c</a></em></p>
-<h1><a class="anchor" id="sec_themes"></a>
+<h1><a class="anchor" id="sec-themes"></a>
 Using style themes</h1>
-<p >A theme (or style theme) is a definition of the "look &amp; feel" of a table. It doesn't affect the structure of the table such as the size of the table or how many columns or rows a cell spans. It is practical shortcut when many different tables should be displayed in the same style. It allows the compact specification of the table by applying a theme to the table instead of having to call multiple functions to chieve the same thing. In addition if the design should be changed there is only one place to update instead of for each table.</p>
+<p >A theme (or style theme) is a definition of the "look &amp; feel" of a table. It doesn't affect the structure of the table such as the size of the table or how many columns or rows a cell spans. It is practical shortcut when many tables should be displayed in the same style. It allows the compact specification of the table by applying a theme to the table instead of having to call multiple functions to achieve the same thing. In addition, if the design should be changed there is only one place to update instead of for each table.</p>
 <dl class="section note"><dt>Note</dt><dd>There is not yet any support to read and write themes from a file. A theme is therefor an <em>in memory</em> structure useful within one program.</dd></dl>
 <p>A theme controls the following aspects of a table</p>
 <ul>
 <li>The content and label text style</li>
 <li>The header and title text style</li>
 <li>The inner and outer border style</li>
-<li>The usage (or not) of labels and whether or not the shorter label grind lines should be used</li>
+<li>The usage (or not) of labels and whether the shorter label grind lines should be used</li>
 <li>If a header row should be used or not</li>
 <li>If a title should be used or not</li>
 </ul>
@@ -370,7 +370,7 @@ Adjusting grid line styles</h1>
 <div class="ttc" id="ahpdftbl_8c_html_af3613ad2a82907bd8275e8447a2e7d79"><div class="ttname"><a href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79">hpdftbl_set_inner_grid_style</a></div><div class="ttdeci">int hpdftbl_set_inner_grid_style(hpdftbl_t t, HPDF_REAL width, HPDF_RGBColor color, hpdftbl_line_dashstyle_t dashstyle)</div><div class="ttdoc">Set inner border grid style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:608</div></div>
 <div class="ttc" id="ahpdftbl_8c_html_af66a8855647fe4fd916604a5583df277"><div class="ttname"><a href="hpdftbl_8c.html#af66a8855647fe4fd916604a5583df277">hpdftbl_set_inner_hgrid_style</a></div><div class="ttdeci">int hpdftbl_set_inner_hgrid_style(hpdftbl_t t, HPDF_REAL width, HPDF_RGBColor color, hpdftbl_line_dashstyle_t dashstyle)</div><div class="ttdoc">Set inner horizontal border grid style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:626</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_abc5e23ef640f73c91c0da02ab1faa89c"><div class="ttname"><a href="hpdftbl_8h.html#abc5e23ef640f73c91c0da02ab1faa89c">hpdftbl_line_dashstyle_t</a></div><div class="ttdeci">enum hpdftbl_dashstyle hpdftbl_line_dashstyle_t</div><div class="ttdoc">Possible line dash styles for grid lines.</div></div>
-</div><!-- fragment --><p >Each type of gridline can be adjusted with line width, color and style. The last function in the list, <a class="el" href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79" title="Set inner border grid style.">hpdftbl_set_inner_grid_style()</a>, is a convenience function that sets both the vertical and horizontal inner lines in one call.</p>
+</div><!-- fragment --><p >Each type of gridlines can be adjusted with line width, color and style. The last function in the list, <a class="el" href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79" title="Set inner border grid style.">hpdftbl_set_inner_grid_style()</a>, is a convenience function that sets both the vertical and horizontal inner lines in one call.</p>
 <p >The table below illustrates the various dashed line styles available and their names. See also <a class="el" href="hpdftbl_8h.html#abf7bd1810c28966c0af1a86365677e23">hpdftbl_dashstyle</a> and grid style functions <a class="el" href="hpdftbl_8c.html#af3613ad2a82907bd8275e8447a2e7d79">hpdftbl_set_inner_grid_style()</a>, <a class="el" href="hpdftbl_8c.html#ad60b183955eb454d6ff98dafdc3e5171">hpdftbl_set_inner_vgrid_style()</a> and <a class="el" href="hpdftbl_8c.html#af66a8855647fe4fd916604a5583df277">hpdftbl_set_inner_hgrid_style()</a></p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -430,7 +430,7 @@ Adjusting grid line styles</h1>
 <img src="tut_ex20.png" alt=""/>
 </div>
 <p ></p>
-<h1><a class="anchor" id="autotoc_md60"></a>
+<h1><a class="anchor" id="autotoc_md70"></a>
 Adding zebra lines in a table</h1>
 <p >A common way to make it easier to read a table is to make every other row a different color. This is sometimes known as zebra lines (or rows). This can be easily accomplished in the library by using the functions</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
@@ -508,7 +508,7 @@ Adding zebra lines in a table</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat May 7 2022 09:24:52 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 7 2022 15:39:03 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

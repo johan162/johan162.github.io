@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.1.0</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.1.1-wip</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -88,12 +88,12 @@ $(document).ready(function(){initNavTree('md_TablesFromData.html',''); initResiz
   <div class="headertitle"><div class="title">Tables layout from data </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p >So far we have constructed the layout of table by issuing API calls per table to setup, for example, the column widths and what cells should merge with what other cells and so on. Previously we saw that data to be put in the table could be specified by either directly issuing API calls per cell, using a 2D array that we populate with data and then finally use callbacks to generate the data in the cells.</p>
+<div class="textblock"><p >So far we have constructed the layout of table by issuing API calls per table to set up, for example, the column widths and what cells should merge with what other cells and so on. Previously we saw that data to be put in the table could be specified by either directly issuing API calls per cell, using a 2D array that we populate with data and then finally use callbacks to generate the data in the cells.</p>
 <p >The final and most powerful way of constructing a table is to define the table structure as data. This <em>structural data</em> together with a style theme can completely define a table.</p>
-<p >This will allow the dynamic construction of tables with only one API call insted of the multiple call required to construct a table the usual way. It can initially seem more complex but for advanced table this is indeed a much simpler and easy to maintain. In fact, this will allow a table to bed defined entirely in a database and makes it possible to adjust tha table as the data changes without ever updating the code (or recompile).</p>
-<h1><a class="anchor" id="autotoc_md31"></a>
+<p >This will allow the dynamic construction of tables with only one API call instead of the multiple call required to construct a table the usual way. It can initially seem more complex but for advanced table this is indeed a much simpler and easy to maintain. In fact, this will allow a table to bed defined entirely in a database and makes it possible to adjust tha table as the data changes without ever updating the code (or recompile).</p>
+<h1><a class="anchor" id="autotoc_md35"></a>
 Defining a table in data</h1>
-<p >There are two data structure that are used when defining a table. First there is a data structure for the overall table specifics and then in that structure a structure to specify the layout of each cell. In addition, a theme needs to be defined (see section on <a class="el" href="ch_styleandfontsetting.html#sec_themes">Themes</a>). It is possible to omit the theme by specifying <code>NULL</code> in which case the default theme will be used.</p>
+<p >There are two data structure that are used when defining a table. First there is a data structure for the overall table specifics and then in that structure a structure to specify the layout of each cell. In addition, a theme needs to be defined (see section on Themes). It is possible to omit the theme by specifying <code>NULL</code> in which case the default theme will be used.</p>
 <p >To stroke a table from data the following API call is used</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
 <div class="line"><a class="code hl_function" href="hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9">hpdftbl_stroke_from_data</a>(HPDF_Doc pdf_doc, HPDF_Page pdf_page, <a class="code hl_struct" href="structhpdftbl__spec.html">hpdftbl_spec_t</a> tbl_spec, <a class="code hl_struct" href="structhpdftbl__theme.html">hpdftbl_theme_t</a> *theme);</div>
@@ -162,7 +162,7 @@ Defining a table in data</h1>
 <div class="ttc" id="astructhpdftbl__cell__spec_html_acf60de4c64d60c1b9449c056bc6bfcf7"><div class="ttname"><a href="structhpdftbl__cell__spec.html#acf60de4c64d60c1b9449c056bc6bfcf7">hpdftbl_cell_spec::label</a></div><div class="ttdeci">char * label</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:505</div></div>
 <div class="ttc" id="astructhpdftbl__cell__spec_html_ae74f1d9590853b94da0728301f50f837"><div class="ttname"><a href="structhpdftbl__cell__spec.html#ae74f1d9590853b94da0728301f50f837">hpdftbl_cell_spec::colspan</a></div><div class="ttdeci">unsigned colspan</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:503</div></div>
 <div class="ttc" id="astructhpdftbl__cell__spec_html_afa7f611082a18bdef83176786d1e5114"><div class="ttname"><a href="structhpdftbl__cell__spec.html#afa7f611082a18bdef83176786d1e5114">hpdftbl_cell_spec::label_cb</a></div><div class="ttdeci">hpdftbl_content_callback_t label_cb</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:509</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md41"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md36"></a>
 A first example of defining table as data</h1>
 <p >To understand how this is done lets start to define a basic 3x3 table with header row (so 4x3 in total) as data. First we create an instance of the table data</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structhpdftbl__spec.html">hpdftbl_spec_t</a> tbl_spec = {</div>
@@ -175,7 +175,7 @@ A first example of defining table as data</h1>
 <div class="line">        <span class="comment">// Row and columns</span></div>
 <div class="line">        .rows=4, .cols=3,</div>
 <div class="line"> </div>
-<div class="line">        <span class="comment">// xpos and ypos</span></div>
+<div class="line">        <span class="comment">// Position of the table, xpos and ypos</span></div>
 <div class="line">        .xpos=<a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1), .ypos=<a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a>-2),</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// width and height</span></div>
@@ -195,7 +195,7 @@ A first example of defining table as data</h1>
 <div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdoc">Standard A4 paper height in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:165</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:223</div></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>In the table definition we use the C99 feature of specifying the field name when defining data in a structure.</dd></dl>
-<p>Then the actual API call is trivial to what we seen before and consists of only one line of code</p>
+<p>Then the actual API call is trivial to what we have seen before and consists of only one line of code</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span></div>
 <div class="line">create_table_ex13_1(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
 <div class="line">   <a class="code hl_function" href="hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9">hpdftbl_stroke_from_data</a>(pdf_doc, pdf_page, &amp;tbl_spec, NULL);</div>
@@ -203,10 +203,10 @@ A first example of defining table as data</h1>
 </div><!-- fragment --><p >The result is as expected and shown in <b>Figure 13</b> but with much less code!</p>
 <p ><img src="tut_ex13_1.png" alt="" class="inline" title="tut_ex13_1"/>    <br  />
  <em><b>Figure 13:</b></em> *Defining a table with a data structure <a class="el" href="tut_ex13_1_8c-example.html">tut_ex13_1.c</a>*</p>
-<h1><a class="anchor" id="autotoc_md44"></a>
+<h1><a class="anchor" id="autotoc_md38"></a>
 A second example of defining a table as data</h1>
 <p >In the previous example we kept it simple didn't specify any format or content fór a table cell. Let us therefore create a slightly more complex example where we create a form which easily could be used to display data records from a DB.</p>
-<p >The nice thing about separating layout and table structure from the data population in the callbacks is that this can almost be seen as a poor mans model-view-controller where the table structure is completely separate from the</p>
+<p >The nice thing about separating layout and table structure from the data population in the callbacks is that this can almost be seen as a poor man's model-view-controller where the table structure is completely separate from the</p>
 <p >A good way to start designing a table is to make a sketch on how it should look. Our goal is to crete the table structure as shown in the empty table in <b>Figure 14</b> below</p>
 <p ><img src="table_design_1.png" alt="" class="inline" title="Rough Table design"/>    <br  />
  <em><b>Figure 14:</b></em> <em>Sketch of table to be designed</em></p>
@@ -216,11 +216,11 @@ A second example of defining a table as data</h1>
 <li>No header and no title</li>
 <li>We use labels and label grids</li>
 </ol>
-<p >To make it easier to see how to construct the table we can overlay the sketch with a grid shown in blue in <b>Figure 15</b>. As can be seen this is a basic 5x4 table where a number or cells span multiple columns.</p>
+<p >To make it easier to see how to construct the table we can overlay the sketch with a grid shown in blue in <b>Figure 15</b>. As can be seen this is a basic 5x4 table where a number of cells span multiple columns.</p>
 <p ><img src="table_design_2.png" alt="" class="inline" title="Rough Table design 2"/>    <br  />
- <em><b>Figure 15:</b></em> <em>Sketch of table to be designed with 5x4 table overlayed</em></p>
-<p >To start we setup the table specification as in the previous example with necessary changes. We will also need to specify cell specifications this time and we assume those are available in an array of cell structures called <code>cell_specs</code>.</p>
-<p >Before we specify the table structure we have one design decision to make. For the callbacks we can either use the table callback for all cells and check row and column to get the appropriate data or we can add individual callbacks for each cell. The first case has the advantage to only need one callback function (but lot of tests) and the second that each callback will be small and focused to get the data for that individual cell but we will need potentially one callback for each cell unless there are commonalities between the cells so one callback can serve multiple cells. Remember that we still get the row and column as arguments in the callback so we weill always know exactly for which cell the callback was made.</p>
+ <em><b>Figure 15:</b></em> <em>Sketch of table to be designed with 5x4 table overlaid</em></p>
+<p >To start we set up the table specification as in the previous example with necessary changes. We will also need to specify cell specifications this time, and we assume those are available in an array of cell structures called <code>cell_specs</code>.</p>
+<p >Before we specify the table structure we have one design decision to make. For the callbacks we can either use the table callback for all cells and check row and column to get the appropriate data, or we can add individual callbacks for each cell. The first case has the advantage to only need one callback function (but a lot of tests) and the second that each callback will be small and focused to get the data for that individual cell, but we will need potentially one callback for each cell unless there are commonalities between the cells so one callback can serve multiple cells. Remember that we still get the row and column as arguments in the callback so we weill always know exactly for which cell the callback was made.</p>
 <p >To keep the size of this example we will use the table callback method for content and specify the label directly in the cell specification. With this decision made we get the following definition cell specifications</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structhpdftbl__cell__spec.html">hpdftbl_cell_spec_t</a> cell_specs[] = {</div>
 <div class="line">        {.<a class="code hl_variable" href="structhpdftbl__cell__spec.html#a97ab3b8ef2f074e3774c66099d7ec59b">row</a>=0, .col=0, .rowspan=1, .colspan=3,</div>
@@ -242,7 +242,7 @@ A second example of defining a table as data</h1>
 <div class="line">         .label=<span class="stringliteral">&quot;E-mail:&quot;</span>,</div>
 <div class="line">         .content_cb=NULL, .label_cb=NULL, .style_cb=NULL, .canvas_cb=NULL},</div>
 <div class="line">        {.row=4, .col=0, .rowspan=1, .colspan=2,</div>
-<div class="line">         .label=<span class="stringliteral">&quot;Workphone:&quot;</span>,</div>
+<div class="line">         .label=<span class="stringliteral">&quot;Work-phone:&quot;</span>,</div>
 <div class="line">         .content_cb=NULL, .label_cb=NULL, .style_cb=NULL, .canvas_cb=NULL},</div>
 <div class="line">        {.row=4, .col=2, .rowspan=1, .colspan=2,</div>
 <div class="line">         .label=<span class="stringliteral">&quot;Mobile:&quot;</span>,</div>
@@ -250,7 +250,7 @@ A second example of defining a table as data</h1>
 <div class="line">         <a class="code hl_define" href="hpdftbl_8h.html#ae062b47275855810a63dbd85085f86a3">HPDFTBL_END_CELLSPECS</a> <span class="comment">// Sentinel to mark the end of</span></div>
 <div class="line">};</div>
 <div class="ttc" id="ahpdftbl_8h_html_ae062b47275855810a63dbd85085f86a3"><div class="ttname"><a href="hpdftbl_8h.html#ae062b47275855810a63dbd85085f86a3">HPDFTBL_END_CELLSPECS</a></div><div class="ttdeci">#define HPDFTBL_END_CELLSPECS</div><div class="ttdoc">Sentinel to mark the end of Cell Specifications for data driven table definition.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:205</div></div>
-</div><!-- fragment --><p >As can be seen we need to have a end of cell specification sentinel since we could decide to provide details for one or more cells and there is no way for the library to know how many fields to read otherwise. There is even a convenience constant in the library <code>PDFTBL_END_CELLSPECS</code> that can be used as the last record.</p>
+</div><!-- fragment --><p >As can be seen we need to have an end of cell specification sentinel since we could decide to provide details for one or more cells and there is no way for the library to know how many fields to read otherwise. There is even a convenience constant in the library <code>PDFTBL_END_CELLSPECS</code> that can be used as the last record.</p>
 <p >The overall table specification is pretty much as before but with the added cell specifications.</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structhpdftbl__spec.html">hpdftbl_spec_t</a> tbl_spec = {</div>
 <div class="line">        <span class="comment">// Title and header flag</span></div>
@@ -280,7 +280,7 @@ A second example of defining a table as data</h1>
 </div><!-- fragment --><p >When this is run (see <a class="el" href="tut_ex13_2_8c-example.html">tut_ex13_2.c</a>) it generates the following image, <b>Figure 13.2</b></p>
 <p ><img src="tut_ex13_2.png" alt="" class="inline" title="tut_13_2.c"/>    <br  />
  <em><b>Figure 16:</b></em> <em>Specifying a table as data with cell specifications.</em></p>
-<p >What remains is to write the proper table content callback that will populate the table. In a real life scenario his data will most likely come from a database but adding that in our example would bring to far. Instead we will just use some fake static dummmy data to illustrate the principle.</p>
+<p >What remains is to write the proper table content callback that will populate the table. In a real life scenario his data will most likely come from a database but adding that in our example would bring too far. Instead, we will just use some fake static dummy data to illustrate the principle.</p>
 <p >Since we have one callback for all cells we need to test from which cell the call come from. Here is a very important point to make. <b>The row and column number will be the row and cell columns in the original table before any column or row spans was applied.</b> In this example it means that for example the "Date" field (upper right) will have <code>row=0</code> and <code>col=3</code> and <b>not</b> <code>(0,1)</code>!!.</p>
 <p >With this information we can write the following (dummy) table callback</p>
 <div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">char</span> *</div>
@@ -321,7 +321,7 @@ A second example of defining a table as data</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat May 7 2022 09:24:52 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 7 2022 15:39:03 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>
