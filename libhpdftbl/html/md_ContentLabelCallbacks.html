@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('md_ContentLabelCallbacks.html',''); in
 <div class="contents">
 <div class="textblock"><p >In the "[Getting started](GettingStarted.md)" chapter we discussed the preferred way to specify data and labels in table using data arrays. This is a very good way to populate a table in the cases the data is fairly static.</p>
 <p >For data that is more dynamic and determined at runtime it is of course possible to construct the data array but the table library have one better way to do this and that is to set up label and content callbacks.</p>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
 Introducing content callback functions</h1>
 <p ><b>Content callbacks</b> are functions that are called by the table library for each cell and returns a string which is used as tne data to be displayed. The signature for a cell callback is defined by the type <code>hpdftbl_content_callback_t</code> which is a pointer to a function defined as:</p>
 <div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keywordtype">char</span> * (*hpdftbl_content_callback_t)(<span class="keywordtype">void</span> *, size_t, size_t);</div>
@@ -123,7 +123,7 @@ Introducing content callback functions</h1>
 <li><code><a class="el" href="hpdftbl_8c.html#ae46a8eb1b5db85c5b03991efa249f649" title="Set cell canvas callback.">hpdftbl_set_canvas_cb()</a></code>: This is an advanced callback to allow for low level painting directly on the canvas that is the cell area. The arguments to the callback is different as it includes the bounding-box for th cell area. We will not further discuss this.</li>
 </ol>
 <dl class="section note"><dt>Note</dt><dd><b>Returned content string</b>. When a content string is added in the table it is added as a copy of the string pointed to by the returned string pointer from the callback function. It is therefore perfectly possible to have a static allocated buffer in the callback function that is used to construct the content. When the table is destroyed using <code><a class="el" href="hpdftbl_8c.html#ab2745647099eb2b3896931cba0221762" title="Destroy a table and free all memory.">hpdftbl_destroy()</a></code> all used memory will be freed.</dd></dl>
-<h1><a class="anchor" id="autotoc_md19"></a>
+<h1><a class="anchor" id="autotoc_md17"></a>
 A content callback example</h1>
 <p >Let's now construct a simple example where the content and the labels are specified with callbacks.</p>
 <p >We will create callbacks that will add a date string to the top left cell and just som dummy content in the rest of the cells. We could do this in two ways.</p>
@@ -200,7 +200,7 @@ A content callback example</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat May 7 2022 15:39:03 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun May 8 2022 10:30:31 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

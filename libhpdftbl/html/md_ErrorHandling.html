@@ -130,7 +130,7 @@ $(document).ready(function(){initNavTree('md_ErrorHandling.html',''); initResiza
 <dl class="section note"><dt>Note</dt><dd>A common way to extend the error handling is to log the errors to syslog. When the library is used on OSX from 11.0 and onwards it should be remembered that OSX is broken by design as far as syslog logging is concerned. Apple in its wisdom introduced "Unified logging" which breaks the <code>syslog()</code> function and no logging is ever produced in the filesystem directly (i.e. to <code>/var/log/system.log</code>). <br  />
  Instead, the only way to view the logs is by using the utility <code>log</code>. So in order to view the log from a particular application the following command has to be given <br  />
  &lsquo;log stream --info --debug --predicate 'sender == "APPLICATION_NAME"&rsquo; &ndash;style syslog`</dd></dl>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md19"></a>
 Translating HPDF error codes</h1>
 <p >The standard error handler for the plain HPDF library is specified when a new document is created, for example as'</p>
 <div class="fragment"><div class="line">...</div>
@@ -144,7 +144,7 @@ Translating HPDF error codes</h1>
 <div class="line"><a class="code hl_function" href="hpdftbl_8h.html#a926e8b332d44d03402264d039f293cb7">hpdftbl_hpdf_get_errstr</a>(<span class="keyword">const</span> HPDF_STATUS err_code) </div>
 <div class="ttc" id="ahpdftbl_8h_html_a926e8b332d44d03402264d039f293cb7"><div class="ttname"><a href="hpdftbl_8h.html#a926e8b332d44d03402264d039f293cb7">hpdftbl_hpdf_get_errstr</a></div><div class="ttdeci">const char * hpdftbl_hpdf_get_errstr(HPDF_STATUS err_code)</div><div class="ttdoc">Function to return a human readable error string for an error code from Core HPDF library.</div><div class="ttdef"><b>Definition:</b> hpdftbl_errstr.c:178</div></div>
 </div><!-- fragment --><p >and is used in the error handler in all the examples.</p>
-<h1><a class="anchor" id="autotoc_md12"></a>
+<h1><a class="anchor" id="autotoc_md25"></a>
 Example of setting up error handler</h1>
 <p >The following table creation code have a deliberate error in that it tries to assign a total column width of more than 100% which of course isn't possible.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span></div>
@@ -183,7 +183,7 @@ Example of setting up error handler</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat May 7 2022 15:39:03 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun May 8 2022 10:30:31 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>
