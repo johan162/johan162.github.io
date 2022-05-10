@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.1.1-wip</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.2.0</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -103,6 +103,8 @@ $(document).ready(function(){initNavTree('hpdftbl_8c.html',''); initResizable();
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;iconv.h&gt;</code><br />
 <code>#include &lt;hpdf.h&gt;</code><br />
+<code>#include &lt;libgen.h&gt;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="hpdftbl_8h_source.html">hpdftbl.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -288,6 +290,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae07ffb136a6e6fd7311afc0acf7cf763"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a> (HPDF_Doc pdf, const HPDF_Page page, <a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</td></tr>
 <tr class="memdesc:ae07ffb136a6e6fd7311afc0acf7cf763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stroke the table.  <a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">More...</a><br /></td></tr>
 <tr class="separator:ae07ffb136a6e6fd7311afc0acf7cf763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06c3fd57e13c380f55edc65083653f26"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl_8c.html#a06c3fd57e13c380f55edc65083653f26">hpdftbl_stroke_pdfdoc</a> (HPDF_Doc pdf_doc, char *file)</td></tr>
+<tr class="memdesc:a06c3fd57e13c380f55edc65083653f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stroke PDF document to file with check that the directory in path exists.  <a href="hpdftbl_8c.html#a06c3fd57e13c380f55edc65083653f26">More...</a><br /></td></tr>
+<tr class="separator:a06c3fd57e13c380f55edc65083653f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -305,6 +310,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>hpdftbl_err_col</b> = 
 <tr class="memdesc:ac41cf094a7c1865199e929e43c592e8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The column where the last error was generated. <br  />
  <br /></td></tr>
 <tr class="separator:ac41cf094a7c1865199e929e43c592e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ede8f5ea3065aedc1f481818da7129"><td class="memItemLeft" align="right" valign="top"><a id="ac7ede8f5ea3065aedc1f481818da7129" name="ac7ede8f5ea3065aedc1f481818da7129"></a>
+<a class="el" href="hpdftbl_8h.html#a21dab8b38ee079b1927e54c888e3a384">hpdftbl_error_handler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>hpdftbl_err_handler</b> = NULL</td></tr>
+<tr class="separator:ac7ede8f5ea3065aedc1f481818da7129"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Main module for flexible table drawing with HPDF library. </p>
@@ -2836,6 +2844,47 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 
 </div>
 </div>
+<a id="a06c3fd57e13c380f55edc65083653f26" name="a06c3fd57e13c380f55edc65083653f26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06c3fd57e13c380f55edc65083653f26">&#9670;&nbsp;</a></span>hpdftbl_stroke_pdfdoc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_stroke_pdfdoc </td>
+          <td>(</td>
+          <td class="paramtype">HPDF_Doc&#160;</td>
+          <td class="paramname"><em>pdf_doc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stroke PDF document to file with check that the directory in path exists. </p>
+<p >Note: It is a checked error if the full path is longer than 1014 characters</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pdf_doc</td><td>Haru PDF document handle </td></tr>
+    <tr><td class="paramname">file</td><td>Full pathname of file to write to </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="tut_ex01_8c-example.html#a9">tut_ex01.c</a>, <a class="el" href="tut_ex02_8c-example.html#a9">tut_ex02.c</a>, <a class="el" href="tut_ex02_1_8c-example.html#a12">tut_ex02_1.c</a>, <a class="el" href="tut_ex03_8c-example.html#a12">tut_ex03.c</a>, <a class="el" href="tut_ex04_8c-example.html#a13">tut_ex04.c</a>, <a class="el" href="tut_ex05_8c-example.html#a13">tut_ex05.c</a>, <a class="el" href="tut_ex06_8c-example.html#a14">tut_ex06.c</a>, <a class="el" href="tut_ex07_8c-example.html#a15">tut_ex07.c</a>, <a class="el" href="tut_ex08_8c-example.html#a16">tut_ex08.c</a>, <a class="el" href="tut_ex09_8c-example.html#a21">tut_ex09.c</a>, <a class="el" href="tut_ex10_8c-example.html#a13">tut_ex10.c</a>, <a class="el" href="tut_ex11_8c-example.html#a15">tut_ex11.c</a>, <a class="el" href="tut_ex12_8c-example.html#a15">tut_ex12.c</a>, <a class="el" href="tut_ex13_1_8c-example.html#a9">tut_ex13_1.c</a>, <a class="el" href="tut_ex13_2_8c-example.html#a12">tut_ex13_2.c</a>, <a class="el" href="tut_ex14_8c-example.html#a16">tut_ex14.c</a>, <a class="el" href="tut_ex15_8c-example.html#a11">tut_ex15.c</a>, <a class="el" href="tut_ex15_1_8c-example.html#a14">tut_ex15_1.c</a>, and <a class="el" href="tut_ex20_8c-example.html#a20">tut_ex20.c</a>.</dd>
+</dl>
+
+</div>
+</div>
 <a id="af0b3ef1634a1dd01dec3e052d7cdf3c5" name="af0b3ef1634a1dd01dec3e052d7cdf3c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0b3ef1634a1dd01dec3e052d7cdf3c5">&#9670;&nbsp;</a></span>hpdftbl_use_header()</h2>
 
@@ -2974,7 +3023,7 @@ hpdftbl_set_cell_content_callback() </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="hpdftbl_8c.html">hpdftbl.c</a></li>
-    <li class="footer">Generated on Sun May 8 2022 10:30:31 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue May 10 2022 05:14:23 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

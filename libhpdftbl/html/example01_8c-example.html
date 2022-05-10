@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.1.1-wip</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.2.0</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -189,7 +189,7 @@ $(document).ready(function(){initNavTree('example01_8c-example.html',''); initRe
 <div class="line">cb_name(<span class="keywordtype">void</span> *tag, <span class="keywordtype">size_t</span> r, <span class="keywordtype">size_t</span> c) {</div>
 <div class="line">    <span class="keyword">static</span> <span class="keywordtype">char</span> buf[256];</div>
 <div class="line">    <span class="keyword">struct </span>utsname sysinfo;</div>
-<div class="line">    <span class="keywordflow">if</span> (-1 == uname(&amp;sysinfo)) {</div>
+<div class="line">    <span class="keywordflow">if</span> (static_date || -1 == uname(&amp;sysinfo)) {</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="stringliteral">&quot;???&quot;</span>;</div>
 <div class="line">    } <span class="keywordflow">else</span> {</div>
 <div class="line">        snprintf(buf, <span class="keyword">sizeof</span>(buf), <span class="stringliteral">&quot;Name: %s, Kernel: %s %s&quot;</span>, sysinfo.nodename,</div>
@@ -366,7 +366,7 @@ $(document).ready(function(){initNavTree('example01_8c-example.html',''); initRe
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Setup a PDF document with one page</span></div>
+<div class="line"><span class="comment">// Add another page in the document</span></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span></div>
 <div class="line">add_a4page(<span class="keywordtype">void</span>) {</div>
 <div class="line">    pdf_page = HPDF_AddPage(pdf_doc);</div>
@@ -644,6 +644,24 @@ $(document).ready(function(){initNavTree('example01_8c-example.html',''); initRe
 <div class="line"><span class="preprocessor">#pragma GCC diagnostic ignored &quot;-Wunused-parameter&quot;</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"> </div>
+<div class="line"><span class="keywordtype">char</span> *</div>
+<div class="line">setup_filename(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
+<div class="line">    <span class="keyword">static</span> <span class="keywordtype">char</span> file[1024];</div>
+<div class="line">    <span class="keywordflow">if</span> ( 2==argc ) {</div>
+<div class="line">        strncpy(file, argv[1], <span class="keyword">sizeof</span> file);</div>
+<div class="line">        file[<span class="keyword">sizeof</span>(file)-1] = 0;</div>
+<div class="line">    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( 1==argc ) {</div>
+<div class="line">        <span class="keywordtype">char</span> fbuff[255];</div>
+<div class="line">        strncpy(fbuff, argv[0], <span class="keyword">sizeof</span> fbuff);</div>
+<div class="line">        fbuff[<span class="keyword">sizeof</span>(fbuff) - 1] = 0;</div>
+<div class="line">        <span class="keywordtype">char</span> *bname = basename(fbuff);</div>
+<div class="line">        snprintf(file, <span class="keyword">sizeof</span> file, <span class="stringliteral">&quot;out/%s.pdf&quot;</span>, bname);</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="keywordflow">return</span> NULL;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> file;</div>
+<div class="line">}</div>
+<div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span></div>
 <div class="line">main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
 <div class="line">    t_func_tbl_stroke examples[] = {ex_tbl1, ex_tbl2, ex_tbl3, ex_tbl4,</div>
@@ -678,38 +696,37 @@ $(document).ready(function(){initNavTree('example01_8c-example.html',''); initRe
 <div class="line">        (*examples[i])();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> ( 2==argc ) {</div>
-<div class="line">        <span class="keyword">struct </span>stat sb;</div>
-<div class="line">        <span class="keywordflow">if</span> (stat(dirname(argv[1]), &amp;sb) == 0 &amp;&amp; S_ISDIR(sb.st_mode)) {</div>
-<div class="line">            stroke_pdfdoc(argv[1]);</div>
-<div class="line">            <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
-<div class="line">        }</div>
+<div class="line">    <span class="keywordtype">char</span> *file;</div>
+<div class="line">    <span class="keywordflow">if</span>( NULL == (file=setup_filename(argc, argv)) ) {</div>
+<div class="line">        fprintf(stderr,<span class="stringliteral">&quot;ERROR: Unknown arguments!\n&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    stroke_pdfdoc( OUTPUT_FILE);</div>
+<div class="line">    stroke_pdfdoc(file);</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> (EXIT_SUCCESS);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#ifndef _MSC_VER</span></div>
 <div class="line"><span class="preprocessor">#pragma GCC diagnostic pop</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1323</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_a2e5bb2f0d055d9e3a5e0631c4b0cff21"><div class="ttname"><a href="hpdftbl_8c.html#a2e5bb2f0d055d9e3a5e0631c4b0cff21">hpdftbl_set_min_rowheight</a></div><div class="ttdeci">int hpdftbl_set_min_rowheight(hpdftbl_t t, float h)</div><div class="ttdoc">Set the minimum row height in the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:543</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_a4a339735a5dae90e6349fddf6c14d152"><div class="ttname"><a href="hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152">hpdftbl_use_labelgrid</a></div><div class="ttdeci">int hpdftbl_use_labelgrid(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Shorter vertical line to mark labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:814</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_a5f4278417bc42a09aabfca973dbd31ba"><div class="ttname"><a href="hpdftbl_8c.html#a5f4278417bc42a09aabfca973dbd31ba">hpdftbl_use_labels</a></div><div class="ttdeci">int hpdftbl_use_labels(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Enable/Disable the use of cell labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:793</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_a60d5cb61c0461c2459565cac98cf7604"><div class="ttname"><a href="hpdftbl_8c.html#a60d5cb61c0461c2459565cac98cf7604">hpdftbl_set_content_style</a></div><div class="ttdeci">int hpdftbl_set_content_style(hpdftbl_t t, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set style for text content.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1375</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_a6ff78fe6264c00147dd5f074629230d1"><div class="ttname"><a href="hpdftbl_8c.html#a6ff78fe6264c00147dd5f074629230d1">hpdftbl_get_last_errcode</a></div><div class="ttdeci">int hpdftbl_get_last_errcode(const char **errstr, int *row, int *col)</div><div class="ttdoc">Return last error code.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:255</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_a734be6eefc1e6f486f0ee1b6fc273a23"><div class="ttname"><a href="hpdftbl_8c.html#a734be6eefc1e6f486f0ee1b6fc273a23">hpdftbl_set_cellspan</a></div><div class="ttdeci">int hpdftbl_set_cellspan(hpdftbl_t t, size_t r, size_t c, size_t rowspan, size_t colspan)</div><div class="ttdoc">Set cell spanning.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:947</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_aa578af688050ac485bf01c5d12d8bccc"><div class="ttname"><a href="hpdftbl_8c.html#aa578af688050ac485bf01c5d12d8bccc">hpdftbl_set_labels</a></div><div class="ttdeci">int hpdftbl_set_labels(hpdftbl_t t, char **labels)</div><div class="ttdoc">Set the text for the cell labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1285</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_aad0f4078a299fcaebde02f16905fe51f"><div class="ttname"><a href="hpdftbl_8c.html#aad0f4078a299fcaebde02f16905fe51f">hpdftbl_create_title</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create_title(size_t rows, size_t cols, char *title)</div><div class="ttdoc">Create a new table with title top row.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:464</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ab8cb60e8aa0ba957797b9ed15f0c3241"><div class="ttname"><a href="hpdftbl_8c.html#ab8cb60e8aa0ba957797b9ed15f0c3241">hpdftbl_set_title_halign</a></div><div class="ttdeci">int hpdftbl_set_title_halign(hpdftbl_t t, hpdftbl_text_align_t align)</div><div class="ttdoc">Set horizontal alignment for table title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1560</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_abd26b96fb00eb1a30862ee67f9328cc3"><div class="ttname"><a href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a></div><div class="ttdeci">int hpdftbl_set_colwidth_percent(hpdftbl_t t, size_t c, float w)</div><div class="ttdoc">Set column width as percentage of overall table width.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:562</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1913</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ae606b38b3769692e75eba490964216c9"><div class="ttname"><a href="hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9">hpdftbl_stroke_from_data</a></div><div class="ttdeci">int hpdftbl_stroke_from_data(HPDF_Doc pdf_doc, HPDF_Page pdf_page, hpdftbl_spec_t *tbl_spec, hpdftbl_theme_t *theme)</div><div class="ttdoc">Construct the table from a array specification.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1583</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ae9ec685b53d042bb0036debe66b4a40b"><div class="ttname"><a href="hpdftbl_8c.html#ae9ec685b53d042bb0036debe66b4a40b">hpdftbl_set_cell_canvas_cb</a></div><div class="ttdeci">int hpdftbl_set_cell_canvas_cb(hpdftbl_t t, size_t r, size_t c, hpdftbl_canvas_callback_t cb)</div><div class="ttdoc">Set cell canvas callback.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1138</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_aee5f23dc45a1898015a1d563ccc9e26d"><div class="ttname"><a href="hpdftbl_8c.html#aee5f23dc45a1898015a1d563ccc9e26d">hpdftbl_set_cell_content_style</a></div><div class="ttdeci">int hpdftbl_set_cell_content_style(hpdftbl_t t, size_t r, size_t c, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set the font style for content of specified cell.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1446</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_af0b3ef1634a1dd01dec3e052d7cdf3c5"><div class="ttname"><a href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header</a></div><div class="ttdeci">int hpdftbl_use_header(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Enable/disable the interpretation of the top row as a header row.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:773</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_afe26fd3e305b3168d58e76471fcbe167"><div class="ttname"><a href="hpdftbl_8c.html#afe26fd3e305b3168d58e76471fcbe167">hpdftbl_set_title_style</a></div><div class="ttdeci">int hpdftbl_set_title_style(hpdftbl_t t, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set the table title style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1518</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1327</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a2e5bb2f0d055d9e3a5e0631c4b0cff21"><div class="ttname"><a href="hpdftbl_8c.html#a2e5bb2f0d055d9e3a5e0631c4b0cff21">hpdftbl_set_min_rowheight</a></div><div class="ttdeci">int hpdftbl_set_min_rowheight(hpdftbl_t t, float h)</div><div class="ttdoc">Set the minimum row height in the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:547</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a4a339735a5dae90e6349fddf6c14d152"><div class="ttname"><a href="hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152">hpdftbl_use_labelgrid</a></div><div class="ttdeci">int hpdftbl_use_labelgrid(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Shorter vertical line to mark labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:818</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a5f4278417bc42a09aabfca973dbd31ba"><div class="ttname"><a href="hpdftbl_8c.html#a5f4278417bc42a09aabfca973dbd31ba">hpdftbl_use_labels</a></div><div class="ttdeci">int hpdftbl_use_labels(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Enable/Disable the use of cell labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:797</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a60d5cb61c0461c2459565cac98cf7604"><div class="ttname"><a href="hpdftbl_8c.html#a60d5cb61c0461c2459565cac98cf7604">hpdftbl_set_content_style</a></div><div class="ttdeci">int hpdftbl_set_content_style(hpdftbl_t t, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set style for text content.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1379</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a6ff78fe6264c00147dd5f074629230d1"><div class="ttname"><a href="hpdftbl_8c.html#a6ff78fe6264c00147dd5f074629230d1">hpdftbl_get_last_errcode</a></div><div class="ttdeci">int hpdftbl_get_last_errcode(const char **errstr, int *row, int *col)</div><div class="ttdoc">Return last error code.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:259</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a734be6eefc1e6f486f0ee1b6fc273a23"><div class="ttname"><a href="hpdftbl_8c.html#a734be6eefc1e6f486f0ee1b6fc273a23">hpdftbl_set_cellspan</a></div><div class="ttdeci">int hpdftbl_set_cellspan(hpdftbl_t t, size_t r, size_t c, size_t rowspan, size_t colspan)</div><div class="ttdoc">Set cell spanning.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:951</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_aa578af688050ac485bf01c5d12d8bccc"><div class="ttname"><a href="hpdftbl_8c.html#aa578af688050ac485bf01c5d12d8bccc">hpdftbl_set_labels</a></div><div class="ttdeci">int hpdftbl_set_labels(hpdftbl_t t, char **labels)</div><div class="ttdoc">Set the text for the cell labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1289</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_aad0f4078a299fcaebde02f16905fe51f"><div class="ttname"><a href="hpdftbl_8c.html#aad0f4078a299fcaebde02f16905fe51f">hpdftbl_create_title</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create_title(size_t rows, size_t cols, char *title)</div><div class="ttdoc">Create a new table with title top row.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:468</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ab8cb60e8aa0ba957797b9ed15f0c3241"><div class="ttname"><a href="hpdftbl_8c.html#ab8cb60e8aa0ba957797b9ed15f0c3241">hpdftbl_set_title_halign</a></div><div class="ttdeci">int hpdftbl_set_title_halign(hpdftbl_t t, hpdftbl_text_align_t align)</div><div class="ttdoc">Set horizontal alignment for table title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1564</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_abd26b96fb00eb1a30862ee67f9328cc3"><div class="ttname"><a href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a></div><div class="ttdeci">int hpdftbl_set_colwidth_percent(hpdftbl_t t, size_t c, float w)</div><div class="ttdoc">Set column width as percentage of overall table width.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:566</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1917</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ae606b38b3769692e75eba490964216c9"><div class="ttname"><a href="hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9">hpdftbl_stroke_from_data</a></div><div class="ttdeci">int hpdftbl_stroke_from_data(HPDF_Doc pdf_doc, HPDF_Page pdf_page, hpdftbl_spec_t *tbl_spec, hpdftbl_theme_t *theme)</div><div class="ttdoc">Construct the table from a array specification.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1587</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ae9ec685b53d042bb0036debe66b4a40b"><div class="ttname"><a href="hpdftbl_8c.html#ae9ec685b53d042bb0036debe66b4a40b">hpdftbl_set_cell_canvas_cb</a></div><div class="ttdeci">int hpdftbl_set_cell_canvas_cb(hpdftbl_t t, size_t r, size_t c, hpdftbl_canvas_callback_t cb)</div><div class="ttdoc">Set cell canvas callback.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1142</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_aee5f23dc45a1898015a1d563ccc9e26d"><div class="ttname"><a href="hpdftbl_8c.html#aee5f23dc45a1898015a1d563ccc9e26d">hpdftbl_set_cell_content_style</a></div><div class="ttdeci">int hpdftbl_set_cell_content_style(hpdftbl_t t, size_t r, size_t c, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set the font style for content of specified cell.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1450</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_af0b3ef1634a1dd01dec3e052d7cdf3c5"><div class="ttname"><a href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header</a></div><div class="ttdeci">int hpdftbl_use_header(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Enable/disable the interpretation of the top row as a header row.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:777</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_afe26fd3e305b3168d58e76471fcbe167"><div class="ttname"><a href="hpdftbl_8c.html#afe26fd3e305b3168d58e76471fcbe167">hpdftbl_set_title_style</a></div><div class="ttdeci">int hpdftbl_set_title_style(hpdftbl_t t, char *font, HPDF_REAL fsize, HPDF_RGBColor color, HPDF_RGBColor background)</div><div class="ttdoc">Set the table title style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1522</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a02a3464823807ca444823b613e6760ad"><div class="ttname"><a href="hpdftbl_8h.html#a02a3464823807ca444823b613e6760ad">hpdftbl_table_widget_letter_buttons</a></div><div class="ttdeci">void hpdftbl_table_widget_letter_buttons(HPDF_Doc doc, HPDF_Page page, HPDF_REAL xpos, HPDF_REAL ypos, HPDF_REAL width, HPDF_REAL height, HPDF_RGBColor on_color, HPDF_RGBColor off_color, HPDF_RGBColor on_background, HPDF_RGBColor off_background, HPDF_REAL fsize, const char *letters, _Bool *state)</div><div class="ttdoc">Display an array of letters as a table where each letter is its own &quot;mini&quot; cell   and sorrounded by a...</div><div class="ttdef"><b>Definition:</b> hpdftbl_widget.c:74</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a2089087e554335e1b3f5f5940613b9aa"><div class="ttname"><a href="hpdftbl_8h.html#a2089087e554335e1b3f5f5940613b9aa">hpdftbl_get_default_theme</a></div><div class="ttdeci">hpdftbl_theme_t * hpdftbl_get_default_theme(void)</div><div class="ttdoc">Return the default theme.</div><div class="ttdef"><b>Definition:</b> hpdftbl_theme.c:212</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a381c4ec9972f63c8e5700e6e7a548233"><div class="ttname"><a href="hpdftbl_8h.html#a381c4ec9972f63c8e5700e6e7a548233">hpdftbl_widget_segment_hbar</a></div><div class="ttdeci">void hpdftbl_widget_segment_hbar(HPDF_Doc doc, HPDF_Page page, HPDF_REAL xpos, HPDF_REAL ypos, HPDF_REAL width, HPDF_REAL height, size_t num_segments, HPDF_RGBColor on_color, double val_percent, _Bool hide_val)</div><div class="ttdoc">Draw a horizontal segment meter that can be used to visualize a discrete value.</div><div class="ttdef"><b>Definition:</b> hpdftbl_widget.c:299</div></div>
@@ -733,7 +750,7 @@ $(document).ready(function(){initNavTree('example01_8c-example.html',''); initRe
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 8 2022 10:30:31 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue May 10 2022 05:14:23 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

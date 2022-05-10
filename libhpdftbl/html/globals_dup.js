@@ -65,6 +65,7 @@ var globals_dup =
     [ "stroke", "globals_s.html", null ],
     [ "stroke_fr", "globals_s.html", null ],
     [ "stroke_gr", "globals_s.html", null ],
+    [ "stroke_pd", "globals_s.html", null ],
     [ "t", "globals_t.html", null ],
     [ "table_wid", "globals_t.html", null ],
     [ "text_alig", "globals_t.html", null ],

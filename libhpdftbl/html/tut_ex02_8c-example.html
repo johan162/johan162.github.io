@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.1.1-wip</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.2.0</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -182,22 +182,30 @@ $(document).ready(function(){initNavTree('tut_ex02_8c-example.html',''); initRes
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span></div>
-<div class="line">stroke_pdfdoc(HPDF_Doc pdf_doc, <span class="keywordtype">char</span> *file) {</div>
-<div class="line">    printf(<span class="stringliteral">&quot;Sending to file \&quot;%s\&quot; ...\n&quot;</span>, file);</div>
-<div class="line">    <span class="keywordflow">if</span> (HPDF_OK != HPDF_SaveToFile(pdf_doc, file)) {</div>
-<div class="line">        fprintf(stderr, <span class="stringliteral">&quot;ERROR: Cannot save to file!&quot;</span>);</div>
-<div class="line">    }</div>
-<div class="line">    HPDF_Free(pdf_doc);</div>
-<div class="line">    printf(<span class="stringliteral">&quot;Done.\n&quot;</span>);</div>
-<div class="line">}</div>
-<div class="line"> </div>
 <div class="line"><span class="preprocessor">#ifndef _MSC_VER</span></div>
 <div class="line"><span class="comment">// Silent gcc about unused &quot;arg&quot; in the callback and error functions</span></div>
 <div class="line"><span class="preprocessor">#pragma GCC diagnostic push</span></div>
 <div class="line"><span class="preprocessor">#pragma GCC diagnostic ignored &quot;-Wunused-parameter&quot;</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">char</span> *</div>
+<div class="line">setup_filename(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
+<div class="line">    <span class="keyword">static</span> <span class="keywordtype">char</span> file[1024];</div>
+<div class="line">    <span class="keywordflow">if</span> ( 2==argc ) {</div>
+<div class="line">        strncpy(file, argv[1], <span class="keyword">sizeof</span> file);</div>
+<div class="line">        file[<span class="keyword">sizeof</span>(file)-1] = 0;</div>
+<div class="line">    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( 1==argc ) {</div>
+<div class="line">        <span class="keywordtype">char</span> fbuff[255];</div>
+<div class="line">        strncpy(fbuff, argv[0], <span class="keyword">sizeof</span> fbuff);</div>
+<div class="line">        fbuff[<span class="keyword">sizeof</span>(fbuff) - 1] = 0;</div>
+<div class="line">        <span class="keywordtype">char</span> *bname = basename(fbuff);</div>
+<div class="line">        snprintf(file, <span class="keyword">sizeof</span> file, <span class="stringliteral">&quot;out/%s.pdf&quot;</span>, bname);</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="keywordflow">return</span> NULL;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> file;</div>
+<div class="line">}</div>
+<div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span></div>
 <div class="line">main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
@@ -211,30 +219,30 @@ $(document).ready(function(){initNavTree('tut_ex02_8c-example.html',''); initRes
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    setup_hpdf(&amp;pdf_doc, &amp;pdf_page, <a id="a8" name="a8"></a><a class="code hl_define" href="hpdftbl_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>);</div>
-<div class="line"> </div>
 <div class="line">    create_table_ex02(pdf_doc, pdf_page);</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> ( 2==argc ) {</div>
-<div class="line">        <span class="keyword">struct </span>stat sb;</div>
-<div class="line">        <span class="keywordflow">if</span> (stat(dirname(argv[1]), &amp;sb) == 0 &amp;&amp; S_ISDIR(sb.st_mode)) {</div>
-<div class="line">            stroke_pdfdoc(pdf_doc, argv[1]);</div>
-<div class="line">            <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
-<div class="line">        }</div>
+<div class="line">    <span class="keywordtype">char</span> *file;</div>
+<div class="line">    <span class="keywordflow">if</span>( NULL == (file=setup_filename(argc, argv)) ) {</div>
+<div class="line">        fprintf(stderr,<span class="stringliteral">&quot;ERROR: Unknown arguments!\n&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">char</span> fname[255];</div>
-<div class="line">    snprintf(fname, <span class="keyword">sizeof</span> fname, <span class="stringliteral">&quot;out/%s.pdf&quot;</span>, basename(argv[0]));</div>
-<div class="line">    stroke_pdfdoc(pdf_doc, fname);</div>
-<div class="line"> </div>
+<div class="line">    printf(<span class="stringliteral">&quot;Sending to file \&quot;%s\&quot; ...\n&quot;</span>, file);</div>
+<div class="line">    <span class="keywordflow">if</span> ( -1 == <a id="a9" name="a9"></a><a class="code hl_function" href="hpdftbl_8c.html#a06c3fd57e13c380f55edc65083653f26">hpdftbl_stroke_pdfdoc</a>(pdf_doc, file) ) {</div>
+<div class="line">        fprintf(stderr,<span class="stringliteral">&quot;ERROR: Cannot save to file. Does the full directory path exist?\n&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
+<div class="line">    }</div>
+<div class="line">    printf(<span class="stringliteral">&quot;Done.\n&quot;</span>);</div>
 <div class="line">    <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#ifndef _MSC_VER</span></div>
 <div class="line"><span class="preprocessor">#pragma GCC diagnostic pop</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1323</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:449</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1913</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a06c3fd57e13c380f55edc65083653f26"><div class="ttname"><a href="hpdftbl_8c.html#a06c3fd57e13c380f55edc65083653f26">hpdftbl_stroke_pdfdoc</a></div><div class="ttdeci">int hpdftbl_stroke_pdfdoc(HPDF_Doc pdf_doc, char *file)</div><div class="ttdoc">Stroke PDF document to file with check that the directory in path exists.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:2118</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1327</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:453</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1917</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a926e8b332d44d03402264d039f293cb7"><div class="ttname"><a href="hpdftbl_8h.html#a926e8b332d44d03402264d039f293cb7">hpdftbl_hpdf_get_errstr</a></div><div class="ttdeci">const char * hpdftbl_hpdf_get_errstr(HPDF_STATUS err_code)</div><div class="ttdoc">Function to return a human readable error string for an error code from Core HPDF library.</div><div class="ttdef"><b>Definition:</b> hpdftbl_errstr.c:178</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_aa93f0eb578d23995850d61f7d61c55c1"><div class="ttname"><a href="hpdftbl_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a></div><div class="ttdeci">#define FALSE</div><div class="ttdoc">Boolean false value.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:52</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdoc">Standard A4 paper height in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:165</div></div>
@@ -246,7 +254,7 @@ $(document).ready(function(){initNavTree('tut_ex02_8c-example.html',''); initRes
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 8 2022 10:30:31 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue May 10 2022 05:14:23 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

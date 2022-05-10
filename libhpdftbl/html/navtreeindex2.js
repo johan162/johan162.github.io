@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"structtext__style.html#a619758665ef84d588ff83b68aedca64b":[11,0,8,3],
+"structtext__style.html#a963bfee894450ddf9cc32e81ae274af2":[11,0,8,4],
 "structtext__style.html#ad4dedddd2d1175580db9daacb3b04c35":[11,0,8,0],
 "todo.html":[10],
 "tut_ex01_8c-example.html":[13,1],

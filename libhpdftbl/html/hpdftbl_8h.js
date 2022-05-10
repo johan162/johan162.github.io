@@ -114,6 +114,7 @@ var hpdftbl_8h =
     [ "hpdftbl_stroke", "hpdftbl_8h.html#acb00c1055f2e88bef7db9bfa387e1eef", null ],
     [ "hpdftbl_stroke_from_data", "hpdftbl_8h.html#ae606b38b3769692e75eba490964216c9", null ],
     [ "hpdftbl_stroke_grid", "hpdftbl_8h.html#af75cc3044be7037191c1e49f059b2e73", null ],
+    [ "hpdftbl_stroke_pdfdoc", "hpdftbl_8h.html#a06c3fd57e13c380f55edc65083653f26", null ],
     [ "hpdftbl_table_widget_letter_buttons", "hpdftbl_8h.html#a02a3464823807ca444823b613e6760ad", null ],
     [ "hpdftbl_use_header", "hpdftbl_8h.html#af0b3ef1634a1dd01dec3e052d7cdf3c5", null ],
     [ "hpdftbl_use_labelgrid", "hpdftbl_8h.html#a4a339735a5dae90e6349fddf6c14d152", null ],

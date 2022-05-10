@@ -54,6 +54,7 @@ var hpdftbl_8c =
     [ "hpdftbl_set_zebra_color", "hpdftbl_8c.html#ac54fd0a60115fd6e1c6a3b985e25c87d", null ],
     [ "hpdftbl_stroke", "hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763", null ],
     [ "hpdftbl_stroke_from_data", "hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9", null ],
+    [ "hpdftbl_stroke_pdfdoc", "hpdftbl_8c.html#a06c3fd57e13c380f55edc65083653f26", null ],
     [ "hpdftbl_use_header", "hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5", null ],
     [ "hpdftbl_use_labelgrid", "hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152", null ],
     [ "hpdftbl_use_labels", "hpdftbl_8c.html#a5f4278417bc42a09aabfca973dbd31ba", null ],
