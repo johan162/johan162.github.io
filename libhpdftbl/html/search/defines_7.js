@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['true_0',['TRUE',['../hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d',1,'TRUE():&#160;hpdftbl.h'],['../hpdftbl__widget_8c.html#aa8cecfc5c5c054d2875c03e77b7be15d',1,'TRUE():&#160;hpdftbl_widget.c']]]
+  ['max_0',['max',['../hpdftbl_8h.html#affe776513b24d84b39af8ab0930fef7f',1,'hpdftbl.h']]],
+  ['min_1',['min',['../hpdftbl_8h.html#ac6afabdc09a49a433ee19d8a9486056d',1,'hpdftbl.h']]]
 ];

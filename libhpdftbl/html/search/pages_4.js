@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getting_20started_0',['Getting started',['../md_GettingStarted.html',1,'']]]
+  ['font_20and_20style_20setting_0',['Font and style setting',['../ch_styleandfontsetting.html',1,'']]]
 ];

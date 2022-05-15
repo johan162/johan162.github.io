@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.2.0</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.3.0</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -90,70 +90,90 @@ $(document).ready(function(){initNavTree('md_GettingStarted.html',''); initResiz
 <div class="contents">
 <div class="textblock"><p >In this section we will introduce the basic usage of the <code>hpdftbl</code> library. We will start simple and work us all the way to complex tables and explain what is happening as we go along.</p>
 <p >We will not assume any knowledge of the table library, but <b>we will assume that you are familiar with the plain Haru PDF library</b>.</p>
-<p >&#160;</p>
-<h1><a class="anchor" id="autotoc_md45"></a>
-Creating a PDF page infrastructure</h1>
-<p >Before we start creating a table we need to set up a plain PDF page with the core HPDF library. The HPDF library has excellent documentation on how to do this, and we will use the same simple setup for all our examples. We will create a document in A4 size that have one page. For this we use a few utility functions and our <code>main()</code> will always have the following structure:</p>
+<h1><a class="anchor" id="autotoc_md26"></a>
+Creating an infrastructure for the examples</h1>
+<p >Before we start creating a table we need to set up a plain PDF page with the core HPDF library. The HPDF library has excellent documentation on how to do this, and we will use the same basic setup for all our examples. We will create a document in A4 size that have one page that will be written to a file whose name is taken from the program arguments. For this we use a few utility functions and our <code>main()</code> will always have the following structure:</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
 <div class="line">main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
-<div class="line"> </div>
+<div class="line">    </div>
 <div class="line">    HPDF_Doc pdf_doc;</div>
 <div class="line">    HPDF_Page pdf_page;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (setjmp(env)) {</div>
+<div class="line">    <span class="keywordflow">if</span> (setjmp(_hpdftbl_jmp_env)) {</div>
+<div class="line">        HPDF_Free(pdf_doc);</div>
 <div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    setup_hpdf(&amp;pdf_doc, &amp;pdf_page, <a class="code hl_define" href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
+<div class="line">    <a class="code hl_function" href="unit__test_8inc_8h.html#af5962cfe76bc5cd6e1e6448bb2245951">setup_hpdf</a>(&amp;pdf_doc, &amp;pdf_page, <a class="code hl_define" href="hpdftbl_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>);</div>
+<div class="line">    create_table_&lt;EXAMPLE NAME&gt;(pdf_doc, pdf_page);</div>
 <div class="line"> </div>
-<div class="line">    create_table_&lt;NAME_OF_EXAMPLE&gt;(pdf_doc, pdf_page);</div>
-<div class="line">    </div>
-<div class="line">    stroke_pdfdoc(pdf_doc, OUTPUT_FILE);</div>
-<div class="line">    <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line">    <span class="keywordflow">if</span>( -1 == <a class="code hl_function" href="unit__test_8inc_8h.html#a0a80a785fa3cbd16e27dc0816e4126b3">stroke_to_file</a>(pdf_doc, argc, argv) )</div>
+<div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
+<div class="line">   <span class="keywordflow">else</span></div>
+<div class="line">        <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
 <div class="line">}</div>
-<div class="ttc" id="ahpdftbl_8h_html_aa8cecfc5c5c054d2875c03e77b7be15d"><div class="ttname"><a href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a></div><div class="ttdeci">#define TRUE</div><div class="ttdoc">Boolean truth value.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:47</div></div>
-</div><!-- fragment --><p >In the <code>examples</code> directory the full source code for the setup and stroke function can be found in all the tutorial examples, for example <a class="el" href="tut_ex01_8c-example.html">tut_ex01.c</a>. They are very basic and follows the standard hpdf library methodology. The <code>setup_hpdf()</code> creates a new document and one A4 page and the <code>stroke_pdfdoc()</code> strokes the document to the given output file.</p>
-<p >In the following we will focus only on the <code>create_table_&lt;NAME_OF_EXAMPLE&gt;()</code> function which will use the two parameters <code>pdf_doc</code> and <code>pdf_page</code> to refer to the document and page to construct the table.</p>
+<div class="ttc" id="ahpdftbl_8h_html_aa93f0eb578d23995850d61f7d61c55c1"><div class="ttname"><a href="hpdftbl_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a></div><div class="ttdeci">#define FALSE</div><div class="ttdoc">Boolean false value.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:52</div></div>
+<div class="ttc" id="aunit__test_8inc_8h_html_a0a80a785fa3cbd16e27dc0816e4126b3"><div class="ttname"><a href="unit__test_8inc_8h.html#a0a80a785fa3cbd16e27dc0816e4126b3">stroke_to_file</a></div><div class="ttdeci">int stroke_to_file(HPDF_Doc pdf_doc, int argc, char **argv)</div><div class="ttdoc">Stroke the created PDF page to a file.</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:198</div></div>
+<div class="ttc" id="aunit__test_8inc_8h_html_af5962cfe76bc5cd6e1e6448bb2245951"><div class="ttname"><a href="unit__test_8inc_8h.html#af5962cfe76bc5cd6e1e6448bb2245951">setup_hpdf</a></div><div class="ttdeci">void setup_hpdf(HPDF_Doc *pdf_doc, HPDF_Page *pdf_page, _Bool addgrid)</div><div class="ttdoc">Create a new PDF document with one page in A4 format.</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:139</div></div>
+</div><!-- fragment --><p >In order to make the example code consistent and focused on the table library and not on the general creating of PDF document we will include the supporting Haru set-up code in an include file and instead of the <code>main()</code> function shown above we will replace it with a macro with one parameter; the table function to be called to set-up the table example (see <a class="el" href="unit__test_8inc_8h.html#aff4ec7c85c8078f491e81904b8181679" title="Macro to create a main() function to call the table creation function for each example....">TUTEX_MAIN()</a>).</p>
+<p >All our example code will therefore be a fully standalone programs but structured in way not to obscure the actual table creation with a lot of boiler-plate PDF set-up code. All tutorial example programs <code>tut_ex&lt;nn&gt;</code> will therefore have the following general structure:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="unit__test_8inc_8h.html">unit_test.inc.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span></div>
+<div class="line">create_table_XXXX(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
+<div class="line">    ...</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_define" href="unit__test_8inc_8h.html#aff4ec7c85c8078f491e81904b8181679">TUTEX_MAIN</a>(create_table_XXXX, <a class="code hl_define" href="hpdftbl_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>)</div>
+<div class="ttc" id="aunit__test_8inc_8h_html"><div class="ttname"><a href="unit__test_8inc_8h.html">unit_test.inc.h</a></div><div class="ttdoc">Common functions for all unit-test/examples.</div></div>
+<div class="ttc" id="aunit__test_8inc_8h_html_aff4ec7c85c8078f491e81904b8181679"><div class="ttname"><a href="unit__test_8inc_8h.html#aff4ec7c85c8078f491e81904b8181679">TUTEX_MAIN</a></div><div class="ttdeci">#define TUTEX_MAIN(_tbl_, _showgrid_)</div><div class="ttdoc">Macro to create a main() function to call the table creation function for each example....</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:269</div></div>
+</div><!-- fragment --><p >The second argument to the <a class="el" href="unit__test_8inc_8h.html#aff4ec7c85c8078f491e81904b8181679" title="Macro to create a main() function to call the table creation function for each example....">TUTEX_MAIN()</a> macro determines if the example should be generated with gridlines on the paper. This is useful for precisely position the table on a page.</p>
+<p >In the <code>examples</code> directory the full source code for the setup and stroke functions can be found in all the tutorial examples, for example <a class="el" href="tut_ex01_8c-example.html">tut_ex01.c</a>. They are very basic and follows the standard hpdf library methodology. The <code><a class="el" href="unit__test_8inc_8h.html#af5962cfe76bc5cd6e1e6448bb2245951" title="Create a new PDF document with one page in A4 format.">setup_hpdf()</a></code> creates a new document wth one A4 page and the <code><a class="el" href="unit__test_8inc_8h.html#a0a80a785fa3cbd16e27dc0816e4126b3" title="Stroke the created PDF page to a file.">stroke_to_file()</a></code> strokes the document to an output file which depends on the program argument.</p>
+<dl class="section note"><dt>Note</dt><dd>If any of the test programs are run without any arguments the output file will be stored in the <code>out</code> directory and have the same name as the basename of the program with a "*.pdf" suffix. If exactly one filename is specified as an argument then this is the file the output will be written to.</dd></dl>
+<p>In the following we will focus only on the <code>create_table_&lt;NAME_OF_EXAMPLE&gt;()</code> function which will use the two parameters <code>pdf_doc</code> and <code>pdf_page</code> to refer to the document and page to construct the table.</p>
 <dl class="section note"><dt>Note</dt><dd>In order to make the examples robust and compatible with both Windows and Linux/OSX systems some conditional compilation instructions are also used, but we will not display them while discussing the basic usage to keep the focus on what matters.</dd></dl>
 <p>The full source for all example are available in the <code>examples/</code> directory as well as in the Examples section of this manual.</p>
 <p >&#160;</p>
-<h1><a class="anchor" id="autotoc_md51"></a>
+<h1><a class="anchor" id="autotoc_md32"></a>
 Your first table</h1>
 <p ><a class="el" href="tut_ex01_8c-example.html">tut_ex01.c</a></p>
-<p >The first example shows the absolute most basic usage. We create a 2x2 table in steps as follows</p>
+<p >The first example shows the absolute most basic usage. We create a 2x2 table in steps as follows. We will follow the framework oulined above. Our first example is tut_ex01.c</p>
 <p >First we construct a table handle for a 2x2 table</p>
-<div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">size_t</span> num_rows = 2;</div>
-<div class="line"><span class="keyword">const</span> <span class="keywordtype">size_t</span> num_cols = 2;</div>
-<div class="line"><a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
-<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:453</div></div>
-<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:392</div></div>
-</div><!-- fragment --><p >Here we note that:</p><ul>
+<p ></p>
+<div class="fragment"><div class="line">create_table_ex01(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_rows = 2;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_cols = 2;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
+<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:482</div></div>
+<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:413</div></div>
+</div><!-- fragment --><p> Here we note that:</p><ul>
 <li>The size of the table has to be determined before the table handle is created</li>
 <li>All table function will refer to this handle, and we will always use the variable name <code>tbl</code> for this handle</li>
 <li>We use <code>size_t</code> instead of <code>int</code> since the table dimension is a size and as such can never be negative. In C it is always good practice to use <code>size_t</code> for positive numeric entities.</li>
 </ul>
 <p >Once we have the table handle we can start to add content in these cells. For now lets just put a string that indicates the cells position.</p>
-<div class="fragment"><div class="line"><a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 0, 0, NULL, <span class="stringliteral">&quot;Cell 0x0&quot;</span>);</div>
-<div class="line"><a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 0, 1, NULL, <span class="stringliteral">&quot;Cell 0x1&quot;</span>);</div>
-<div class="line"><a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 1, 0, NULL, <span class="stringliteral">&quot;Cell 1x0&quot;</span>);</div>
-<div class="line"><a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 1, 1, NULL, <span class="stringliteral">&quot;Cell 1x1&quot;</span>);</div>
-<div class="ttc" id="ahpdftbl_8c_html_a4313487a69cc772e777e29f5917e739c"><div class="ttname"><a href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a></div><div class="ttdeci">int hpdftbl_set_cell(hpdftbl_t t, int r, int c, char *label, char *content)</div><div class="ttdoc">Set content for specific cell.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:917</div></div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>You can ignore the <code>NULL</code> argument for now (it will be explained shortly).</dd></dl>
-<p>Here we note that:</p>
+<div class="fragment"><div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 0, 0, NULL, <span class="stringliteral">&quot;Cell 0x0&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 0, 1, NULL, <span class="stringliteral">&quot;Cell 0x1&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 1, 0, NULL, <span class="stringliteral">&quot;Cell 1x0&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 1, 1, NULL, <span class="stringliteral">&quot;Cell 1x1&quot;</span>);</div>
+<div class="ttc" id="ahpdftbl_8c_html_a4313487a69cc772e777e29f5917e739c"><div class="ttname"><a href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a></div><div class="ttdeci">int hpdftbl_set_cell(hpdftbl_t t, int r, int c, char *label, char *content)</div><div class="ttdoc">Set content for specific cell.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:946</div></div>
+</div><!-- fragment --><p> Here we note that:</p>
 <ul>
-<li>Cells are referred to starting from the top left cell that is cell (0x0)</li>
+<li>Cells are referred to starting from the top left cell that is cell (0x0).</li>
+<li>The <code>NULL</code> argument (4th argument) will be explained shortly.</li>
 </ul>
-<p >Now It's time to size and position the table on the page. As a minimum you must specify the <code>x</code> and <code>y</code> position as well as the width of the table. The library is smart enough to automatically figure out the height (but it is also possible to force a larger height than strictly necessary)</p>
+<p >Now It's time to size and position the table on the page. As a minimum you must specify the <code>x</code> and <code>y</code> position as well as the width of the table. The library is smart enough to automatically figure out the height (but it is also possible to force a larger height than strictly necessary either by specifying an overall table height or a minimum row height using <a class="el" href="hpdftbl_8c.html#a2e5bb2f0d055d9e3a5e0631c4b0cff21" title="Set the minimum row height in the table.">hpdftbl_set_min_rowheight()</a>)</p>
 <p >The native coordinate system for PDF pages are given as the printing unit of DPI or <em>dots per inch</em>. By default, the resolution of a PDF is 72 DPI.</p>
 <p >To make it easier to directly set the size and position in centimeters a convenience function <code><a class="el" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00" title="Convert cm to dots using the default resolution (72 DPI)">hpdftbl_cm2dpi()</a></code> can be used.</p>
 <dl class="section note"><dt>Note</dt><dd>For precision positioning it is more accurate to give the position and sizes in dots directly.</dd></dl>
-<p>In this example we set the size and position in centimeters. We position the top left of the table <em>1cm</em> below and <em>1cm</em> to the right of the top left corner of the paper and make the table <em>5cm</em> wide as follows:</p>
-<div class="fragment"><div class="line">HPDF_REAL xpos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
-<div class="line">HPDF_REAL ypos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a> - 1);</div>
-<div class="line">HPDF_REAL width = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(5);</div>
-<div class="line">HPDF_REAL height = 0;  <span class="comment">// Calculate height automatically</span></div>
-<div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdoc">Standard A4 paper height in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:165</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:223</div></div>
+<p>In this example we set the size and position in centimeters. The paper coordinate system has its origin in the lower left corner of the paper. We position the top left of the table <em>1 cm</em> below and <em>1 cm</em> to the right of the top left corner of the paper. To make this easier we make use of the constant <code>A4PAGE_HEIGHT_CM</code> and make the table <em>5 cm</em> wide as follows:</p>
+<div class="fragment"><div class="line">    HPDF_REAL xpos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
+<div class="line">    HPDF_REAL ypos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a> - 1);</div>
+<div class="line">    HPDF_REAL width = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(5);</div>
+<div class="line">    HPDF_REAL height = 0;  <span class="comment">// Calculate height automatically</span></div>
+<div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdoc">Standard A4 paper height in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:176</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:234</div></div>
 </div><!-- fragment --><p >Now, there are several important observations to be made here:</p>
 <ul>
 <li>The origin of the paper coordinate system is bottom left which is (0,0)</li>
@@ -161,77 +181,79 @@ Your first table</h1>
 <li>We use a predefined constant <code>A4PAGE_HEIGHT_IN_CM</code> to position the table vertically 1 cm from the top of the paper</li>
 <li>We let the library calculate the minimum table height automatically (based on the font height used in the table)</li>
 </ul>
-<p >Now the only thing remaining is to print or stroke the table to the page</p>
-<div class="fragment"><div class="line">hpdftbl_stroke(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
-</div><!-- fragment --><p >and we are done!</p>
-<p >If we put it all together it will give us the following basic table creation code</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span></div>
-<div class="line">create_table_ex01(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_rows = 2;</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_cols = 2;</div>
-<div class="line">    </div>
-<div class="line">    <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 0, 0, NULL, <span class="stringliteral">&quot;Cell 0x0&quot;</span>);</div>
-<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 0, 1, NULL, <span class="stringliteral">&quot;Cell 0x1&quot;</span>);</div>
-<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 1, 0, NULL, <span class="stringliteral">&quot;Cell 1x0&quot;</span>);</div>
-<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 1, 1, NULL, <span class="stringliteral">&quot;Cell 1x1&quot;</span>);</div>
-<div class="line"> </div>
-<div class="line">    HPDF_REAL xpos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
-<div class="line">    HPDF_REAL ypos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a> - 1);</div>
-<div class="line">    HPDF_REAL width = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(5);</div>
-<div class="line">    HPDF_REAL height = 0;  <span class="comment">// Calculate height automatically</span></div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
+<p >Now the only thing remaining is to print or stroke the table to the page and use the macro to create a main function <a class="el" href="unit__test_8inc_8h.html#aff4ec7c85c8078f491e81904b8181679" title="Macro to create a main() function to call the table creation function for each example....">TUTEX_MAIN()</a> as follows:</p>
+<div class="fragment"><div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
 <div class="line">}</div>
-<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1917</div></div>
-</div><!-- fragment --><p> The generated table is shown in <b>Figure 1.</b> (<a class="el" href="tut_ex01_8c-example.html">tut_ex01.c</a>)</p>
+<div class="line"> </div>
+<div class="line"><a class="code hl_define" href="unit__test_8inc_8h.html#aff4ec7c85c8078f491e81904b8181679">TUTEX_MAIN</a>(create_table_ex01, <a class="code hl_define" href="hpdftbl_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>)</div>
+<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1726</div></div>
+</div><!-- fragment --><p> and we are done!</p>
+<p >If we put it all together it will give us the following basic table creation code</p>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="unit__test_8inc_8h.html">unit_test.inc.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordtype">void</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>create_table_ex01(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_rows = 2;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_cols = 2;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 0, 0, NULL, <span class="stringliteral">&quot;Cell 0x0&quot;</span>);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 0, 1, NULL, <span class="stringliteral">&quot;Cell 0x1&quot;</span>);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 1, 0, NULL, <span class="stringliteral">&quot;Cell 1x0&quot;</span>);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c">hpdftbl_set_cell</a>(tbl, 1, 1, NULL, <span class="stringliteral">&quot;Cell 1x1&quot;</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">// We have to specify the top left position on the PDF as well as the width.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="comment">// We let the library automatically determine the height of the table based</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">// on the font and number of rows.</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    HPDF_REAL xpos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    HPDF_REAL ypos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a> - 1);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    HPDF_REAL width = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(5);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    HPDF_REAL height = 0;  <span class="comment">// Calculate height automatically</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// Stroke the table to the page</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><a class="code hl_define" href="unit__test_8inc_8h.html#aff4ec7c85c8078f491e81904b8181679">TUTEX_MAIN</a>(create_table_ex01, <a class="code hl_define" href="hpdftbl_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>)</div>
+</div><!-- fragment --><p >The generated table is shown in <b>Figure 1.</b> (<a class="el" href="tut_ex01_8c-example.html">tut_ex01.c</a>)</p>
 <p ><img src="tut_ex01.png" alt="" class="inline" title="Figure 1 - tut_ex01.png"/>    <br  />
  <em><b>Figure 1:</b></em> <em>Your first table.</em></p>
-<p >As we explained above the coordinate system is in postscript dots. For precision positioning it might be useful to visualize this grid on the page. By using the <code><a class="el" href="hpdftbl_8h.html#af75cc3044be7037191c1e49f059b2e73">hpdftbl_stroke_grid()</a></code> function such a grid can be displayed on a page to help with positioning. If we add the grid to the page and show the upper left area of the paper with the grid we can view its positioning in the grid as shown in <b>Figure 2.</b></p>
+<p >As we explained above the coordinate system is in postscript dots. For precision positioning it might be useful to visualize this grid on the page. By using the <code><a class="el" href="hpdftbl_8h.html#af75cc3044be7037191c1e49f059b2e73">hpdftbl_stroke_grid()</a></code> function such a grid can be displayed on a page to help with positioning.</p>
+<p >In our infrastructure set-up this call is controlled by setting the secon macro parameter to <code>TRUE</code>, i.e. <code><a class="el" href="unit__test_8inc_8h.html#aff4ec7c85c8078f491e81904b8181679" title="Macro to create a main() function to call the table creation function for each example....">TUTEX_MAIN(create_table_ex01, FALSE)</a></code></p>
+<p >If we add the grid to the page and show the upper left area of the paper with the grid we can view its positioning in the grid as shown in <b>Figure 2.</b></p>
 <p ><img src="tut_ex01grid.png" alt="" class="inline" title="Figure 2 - tut_ex01grid.png"/>    <br  />
  <em><b>Figure 2:</b></em> <em>Your first table in the page coordinate system showing the upper left part of the paper.</em></p>
-<p >Since this is an A4 page it will have a height of roughly 841 points or 29.7cm</p>
-<h1><a class="anchor" id="autotoc_md52"></a>
+<p >Since this is an A4 page it will have a height of roughly 841 points or 29.7cm. In our setup it is possible to generate thegrid by setting the third argument to <a class="el" href="unit__test_8inc_8h.html#af5962cfe76bc5cd6e1e6448bb2245951" title="Create a new PDF document with one page in A4 format.">setup_hpdf()</a> to <code>TRUE</code>. This can be done by updating the <a class="el" href="unit__test_8inc_8h.html#aff4ec7c85c8078f491e81904b8181679" title="Macro to create a main() function to call the table creation function for each example....">TUTEX_MAIN()</a> macro</p>
+<h1><a class="anchor" id="autotoc_md36"></a>
 Your second table - disconnecting program structure from data</h1>
 <p >One drawback of the program in the first example above is that if we want to have a different table size we need to actually change the code since we need one function call to store the data to be displayed in each cell. Wouldn't it be better if we could just supply an array with the data we want to display?</p>
 <p >The function to do just that is</p>
 <div class="fragment"><div class="line"><a class="code hl_function" href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a>(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl, <span class="keywordtype">char</span> **content)</div>
-<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1327</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1180</div></div>
 </div><!-- fragment --><p >The content data is a 1-dimensional array of string pointers. Where each row is consecutive in the array. For example to create dummy data indicating what array position goes into what cell you could use the following setup:</p>
-<div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keywordtype">char</span> **content_t;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setup_dummy_data(content_t *content, <span class="keywordtype">size_t</span> rows, <span class="keywordtype">size_t</span> cols) {</div>
-<div class="line">    <span class="keywordtype">char</span> buff[255];</div>
-<div class="line">    *content = calloc(rows*cols, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>*));</div>
-<div class="line">    <span class="keywordtype">size_t</span> cnt = 0;</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> r = 0; r &lt; rows; r++) {</div>
-<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> c = 0; c &lt; cols; c++) {</div>
-<div class="line">            snprintf(buff, <span class="keyword">sizeof</span>(buff), <span class="stringliteral">&quot;Content %zu&quot;</span>, cnt);</div>
-<div class="line">            (*content)[cnt] = strdup(buff);</div>
-<div class="line">            cnt++;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>We allocate each string dynamically in the dummy-data and since the program is just an illustration and terminates after the page has been created we never bother to free this memory. In a real life scenario this would of course be crucial!</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>We allocate each string dynamically in the dummy-data and since the program is just an illustration and terminates after the page has been created we never bother to free this memory. In a real life scenario this would of course be crucial!</dd></dl>
 <p>We could then augment example 01 using this more efficient way to specify data as so:</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span></div>
-<div class="line">create_table_ex02(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
+ <div class="fragment"><div class="line">create_table_ex02(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_rows = 2;</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_cols = 2;</div>
+<div class="line"> </div>
 <div class="line">    <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
 <div class="line"> </div>
-<div class="line">    content_t content;</div>
-<div class="line">    setup_dummy_data(&amp;content, num_rows, num_cols);</div>
+<div class="line">    <a class="code hl_typedef" href="unit__test_8inc_8h.html#ae13fea76190b6075ceff0aa3258ef155">content_t</a> content;</div>
+<div class="line">    <a class="code hl_function" href="unit__test_8inc_8h.html#a52155bc4f54cf5fbdc3132dcf1a88cb0">setup_dummy_content</a>(&amp;content, 2, 2);</div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a>(tbl, content);</div>
 <div class="line"> </div>
 <div class="line">    HPDF_REAL xpos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
 <div class="line">    HPDF_REAL ypos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a> - 1);</div>
 <div class="line">    HPDF_REAL width = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(5);</div>
 <div class="line">    HPDF_REAL height = 0;  <span class="comment">// Calculate height automatically</span></div>
-<div class="line">    </div>
+<div class="line"> </div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
 <div class="line">}</div>
+<div class="ttc" id="aunit__test_8inc_8h_html_a52155bc4f54cf5fbdc3132dcf1a88cb0"><div class="ttname"><a href="unit__test_8inc_8h.html#a52155bc4f54cf5fbdc3132dcf1a88cb0">setup_dummy_content</a></div><div class="ttdeci">void setup_dummy_content(content_t *content, size_t rows, size_t cols)</div><div class="ttdoc">Create an array of char pointers to simulate real table data.</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:226</div></div>
+<div class="ttc" id="aunit__test_8inc_8h_html_ae13fea76190b6075ceff0aa3258ef155"><div class="ttname"><a href="unit__test_8inc_8h.html#ae13fea76190b6075ceff0aa3258ef155">content_t</a></div><div class="ttdeci">char ** content_t</div><div class="ttdoc">An array of char pointers.</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:218</div></div>
 </div><!-- fragment --><p> <a class="el" href="tut_ex02_8c-example.html">tut_ex02.c</a></p>
 <p >Running the code above in our infrastructure will give</p>
 <p ><img src="tut_ex02.png" alt="" class="inline" title="Figure 3 - tut_ex02.png"/>    <br  />
@@ -239,34 +261,35 @@ Your second table - disconnecting program structure from data</h1>
 <p >In the above (small) example it might not have been a big safe but if you have a table with 20x10 rows * cols then you will soon appreciate this way of specifying data.</p>
 <p >There is even one more way of specifying data that in some situations are more efficient and allows a clear division between the table structure and look&amp;feel and its data. This more efficient way is achieved by using cell callbacks either directly in individual cells or in one go by specifying the entire table as a data structure by using the <code><a class="el" href="hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9" title="Construct the table from a array specification.">hpdftbl_stroke_from_data()</a></code> function. This will be described later when we discuss how to use callback functions.</p>
 <p >But now it is time to explain the <code>NULL</code> value in the first example when we specified the content with the <code><a class="el" href="hpdftbl_8c.html#a4313487a69cc772e777e29f5917e739c" title="Set content for specific cell.">hpdftbl_set_cell()</a></code> function.</p>
-<h1><a class="anchor" id="autotoc_md54"></a>
+<h1><a class="anchor" id="autotoc_md38"></a>
 Adding a header row</h1>
 <p >While it is possible (as discussed in section <a class="el" href="ch_styleandfontsetting.html">Style and font setting</a> and <a class="el" href="ch_styleandfontsetting.html#sec_specifyingfontsandcolors">Fonts and Colors</a> ) to manually adjust the font, size, style, background etc. on each cell individually there is a convenient shortcut to create a basic table with a header using the <code><a class="el" href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5" title="Enable/disable the interpretation of the top row as a header row.">hpdftbl_use_header()</a></code> function. By modifying the code above and add this line we get the following code and resulting table</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span></div>
-<div class="line">create_table_ex11(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
+ <div class="fragment"><div class="line">create_table_ex02_1(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_rows = 4;</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_cols = 4;</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header</a>(tbl, <a class="code hl_define" href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
 <div class="line"> </div>
-<div class="line">    content_t content;</div>
-<div class="line">    setup_dummy_data(&amp;content, num_rows, num_cols);</div>
+<div class="line">    <a class="code hl_typedef" href="unit__test_8inc_8h.html#ae13fea76190b6075ceff0aa3258ef155">content_t</a> content;</div>
+<div class="line">    setup_dummy_content_with_header(&amp;content, num_rows, num_cols);</div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a>(tbl, content);</div>
 <div class="line"> </div>
 <div class="line">    HPDF_REAL xpos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
 <div class="line">    HPDF_REAL ypos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a> - 1);</div>
 <div class="line">    HPDF_REAL width = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#a74d6a937e9d5494f2fcf4b12783b7521">A4PAGE_WIDTH_CM</a> - 5);</div>
 <div class="line">    HPDF_REAL height = 0;  <span class="comment">// Calculate height automatically</span></div>
-<div class="line">    </div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Stroke the table to the page</span></div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
 <div class="line">}</div>
-<div class="ttc" id="ahpdftbl_8c_html_af0b3ef1634a1dd01dec3e052d7cdf3c5"><div class="ttname"><a href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header</a></div><div class="ttdeci">int hpdftbl_use_header(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Enable/disable the interpretation of the top row as a header row.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:777</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_a74d6a937e9d5494f2fcf4b12783b7521"><div class="ttname"><a href="hpdftbl_8h.html#a74d6a937e9d5494f2fcf4b12783b7521">A4PAGE_WIDTH_CM</a></div><div class="ttdeci">#define A4PAGE_WIDTH_CM</div><div class="ttdoc">Standard A4 paper width in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:170</div></div>
-</div><!-- fragment --><p >The resulting table can be seen in <b>Figure 4</b>. We also modified the dummy data to have the work "Header" in the first row (for details see <a class="el" href="tut_ex02_1_8c-example.html">tut_ex02_1.c</a> )</p>
+<div class="ttc" id="ahpdftbl_8c_html_af0b3ef1634a1dd01dec3e052d7cdf3c5"><div class="ttname"><a href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header</a></div><div class="ttdeci">int hpdftbl_use_header(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Enable/disable the interpretation of the top row as a header row.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:806</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_a74d6a937e9d5494f2fcf4b12783b7521"><div class="ttname"><a href="hpdftbl_8h.html#a74d6a937e9d5494f2fcf4b12783b7521">A4PAGE_WIDTH_CM</a></div><div class="ttdeci">#define A4PAGE_WIDTH_CM</div><div class="ttdoc">Standard A4 paper width in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:181</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_aa8cecfc5c5c054d2875c03e77b7be15d"><div class="ttname"><a href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a></div><div class="ttdeci">#define TRUE</div><div class="ttdoc">Boolean truth value.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:47</div></div>
+</div><!-- fragment --><p >The resulting table can be seen in <b>Figure 4</b>. We also modified the dummy data to have the work "Header" text for <code>row==0</code> in the first row (for details see <a class="el" href="tut_ex02_1_8c-example.html">tut_ex02_1.c</a> )</p>
 <p ><img src="tut_ex02_1.png" alt="" class="inline" title="Figure 4 - tut_ex02_1.png"/>    <br  />
  <em><b>Figure 4:</b></em> <em>Adding automatic header formatted row (<a class="el" href="tut_ex02_1_8c-example.html">tut_ex02_1.c</a>)</em></p>
-<h1><a class="anchor" id="autotoc_md55"></a>
+<h1><a class="anchor" id="autotoc_md39"></a>
 Using labels in the table cells</h1>
 <p >A variant of a table is to present data with a short label describing what kind of data is displayed. This is often used when a table is used to present a data form. An example of this is shown in <b>Figure 4.</b> below.</p>
 <p ><img src="tut_ex03.png" alt="" class="inline" title="Figure 4 - tut_ex03.png"/>    <br  />
@@ -286,13 +309,9 @@ Using labels in the table cells</h1>
  <img src="labelGrid_TF_small.png" alt="" class="inline" title="Figure 5 - tut_ex03.png"/>    <br  />
  <em><b>Figure 5:</b></em> <em>The two variants of left cell border with labels.</em></li>
 </ol>
-<p >Except for the simplest of tables both the table content and the labels should be specified in an array.</p>
-<p >We therefore start by amending our dummy data creation function to also create the data for the labels. It will now look like this:</p>
-<div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keywordtype">char</span> **content_t;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> </div>
-<div class="line">setup_dummy_data(content_t *content, content_t *labels, </div>
-<div class="line">                 <span class="keywordtype">size_t</span> rows, <span class="keywordtype">size_t</span> cols) {</div>
+<dl class="section note"><dt>Note</dt><dd>Except for the simplest of tables both the table content and the labels should be specified in an array.</dd></dl>
+<p>To create dummy date for both content and labels we use the function <a class="el" href="unit__test_8inc_8h.html#a2536f435821c1f995c779ac01e781f65" title="Create both array of char pointers to simulate real table content as well as an array of simulated la...">setup_dummy_content_label()</a></p>
+ <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="unit__test_8inc_8h.html#a2536f435821c1f995c779ac01e781f65">setup_dummy_content_label</a>(<a class="code hl_typedef" href="unit__test_8inc_8h.html#ae13fea76190b6075ceff0aa3258ef155">content_t</a> *content, <a class="code hl_typedef" href="unit__test_8inc_8h.html#ae13fea76190b6075ceff0aa3258ef155">content_t</a> *labels, <span class="keywordtype">size_t</span> rows, <span class="keywordtype">size_t</span> cols) {</div>
 <div class="line">    <span class="keywordtype">char</span> buff[255];</div>
 <div class="line">    *content = calloc(rows*cols, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>*));</div>
 <div class="line">    *labels = calloc(rows*cols, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>*));</div>
@@ -305,27 +324,28 @@ Using labels in the table cells</h1>
 <div class="line">            (*labels)[cnt] = strdup(buff);</div>
 <div class="line">            cnt++;</div>
 <div class="line">        }</div>
+<div class="ttc" id="aunit__test_8inc_8h_html_a2536f435821c1f995c779ac01e781f65"><div class="ttname"><a href="unit__test_8inc_8h.html#a2536f435821c1f995c779ac01e781f65">setup_dummy_content_label</a></div><div class="ttdeci">void setup_dummy_content_label(content_t *content, content_t *labels, size_t rows, size_t cols)</div><div class="ttdoc">Create both array of char pointers to simulate real table content as well as an array of simulated la...</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:246</div></div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --><p >In the same way as before we call the functions to specify both the content and the labels</p>
-<div class="fragment"><div class="line">setup_dummy_data(&amp;content, &amp;labels, num_rows, num_cols);</div>
-<div class="line">hpdftbl_set_content(tbl, content);</div>
-<div class="line">hpdftbl_set_labels(tbl, labels);</div>
-</div><!-- fragment --><p >and finally we also enable labels and the short variant of the left cell border</p>
-<div class="fragment"><div class="line"><a class="code hl_function" href="hpdftbl_8c.html#a5f4278417bc42a09aabfca973dbd31ba">hpdftbl_use_labels</a>(tbl, <a class="code hl_define" href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
-<div class="line"><a class="code hl_function" href="hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152">hpdftbl_use_labelgrid</a>(tbl, <a class="code hl_define" href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
-<div class="ttc" id="ahpdftbl_8c_html_a4a339735a5dae90e6349fddf6c14d152"><div class="ttname"><a href="hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152">hpdftbl_use_labelgrid</a></div><div class="ttdeci">int hpdftbl_use_labelgrid(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Shorter vertical line to mark labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:818</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_a5f4278417bc42a09aabfca973dbd31ba"><div class="ttname"><a href="hpdftbl_8c.html#a5f4278417bc42a09aabfca973dbd31ba">hpdftbl_use_labels</a></div><div class="ttdeci">int hpdftbl_use_labels(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Enable/Disable the use of cell labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:797</div></div>
-</div><!-- fragment --><p >the remaining code we can leave untouched. With this we get the result shown in <b>Figure 4.</b> with the full code for the table shown below.</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span></div>
-<div class="line">create_table_ex04(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
+</div><!-- fragment --><p >In the same way as before we call the functions to specify both the content and the labels (strictly speaking the call to <a class="el" href="hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152" title="Shorter vertical line to mark labels.">hpdftbl_use_labelgrid()</a> is not necessary since by default the short gridlines will be enabled when labels are first enabled.)</p>
+ <div class="fragment"><div class="line">    <a class="code hl_function" href="unit__test_8inc_8h.html#a2536f435821c1f995c779ac01e781f65">setup_dummy_content_label</a>(&amp;content, &amp;labels, num_rows, num_cols);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a>(tbl, content);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#aa578af688050ac485bf01c5d12d8bccc">hpdftbl_set_labels</a>(tbl, labels);</div>
+<div class="ttc" id="ahpdftbl_8c_html_aa578af688050ac485bf01c5d12d8bccc"><div class="ttname"><a href="hpdftbl_8c.html#aa578af688050ac485bf01c5d12d8bccc">hpdftbl_set_labels</a></div><div class="ttdeci">int hpdftbl_set_labels(hpdftbl_t t, char **labels)</div><div class="ttdoc">Set the text for the cell labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1142</div></div>
+</div><!-- fragment --><p> and finally we also enable labels and the short variant of the left cell border</p>
+<div class="fragment"><div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a5f4278417bc42a09aabfca973dbd31ba">hpdftbl_use_labels</a>(tbl, <a class="code hl_define" href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
+<div class="ttc" id="ahpdftbl_8c_html_a5f4278417bc42a09aabfca973dbd31ba"><div class="ttname"><a href="hpdftbl_8c.html#a5f4278417bc42a09aabfca973dbd31ba">hpdftbl_use_labels</a></div><div class="ttdeci">int hpdftbl_use_labels(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Enable/Disable the use of cell labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:826</div></div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152">hpdftbl_use_labelgrid</a>(tbl, <a class="code hl_define" href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
+<div class="ttc" id="ahpdftbl_8c_html_a4a339735a5dae90e6349fddf6c14d152"><div class="ttname"><a href="hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152">hpdftbl_use_labelgrid</a></div><div class="ttdeci">int hpdftbl_use_labelgrid(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Shorter vertical line to mark labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:847</div></div>
+</div><!-- fragment --><p> the remaining code we can leave untouched. With this we get the result shown in <b>Figure 4.</b> with the full code for the table shown below.</p>
+ <div class="fragment"><div class="line">create_table_ex04(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_rows = 2;</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_cols = 2;</div>
-<div class="line">    </div>
+<div class="line">    <span class="comment">//char *table_title = &quot;tut_ex01: 2x2 table&quot;;</span></div>
 <div class="line">    <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
-<div class="line">    content_t content, labels;</div>
+<div class="line">    <a class="code hl_typedef" href="unit__test_8inc_8h.html#ae13fea76190b6075ceff0aa3258ef155">content_t</a> content, labels;</div>
 <div class="line"> </div>
-<div class="line">    setup_dummy_data(&amp;content, &amp;labels, num_rows, num_cols);</div>
+<div class="line">    <a class="code hl_function" href="unit__test_8inc_8h.html#a2536f435821c1f995c779ac01e781f65">setup_dummy_content_label</a>(&amp;content, &amp;labels, num_rows, num_cols);</div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a>(tbl, content);</div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#aa578af688050ac485bf01c5d12d8bccc">hpdftbl_set_labels</a>(tbl, labels);</div>
 <div class="line">    </div>
@@ -337,43 +357,63 @@ Using labels in the table cells</h1>
 <div class="line">    HPDF_REAL width = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(5);</div>
 <div class="line">    HPDF_REAL height = 0;  <span class="comment">// Calculate height automatically</span></div>
 <div class="line"> </div>
+<div class="line">    <span class="comment">// Stroke the table to the page</span></div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
 <div class="line">}</div>
-<div class="ttc" id="ahpdftbl_8c_html_aa578af688050ac485bf01c5d12d8bccc"><div class="ttname"><a href="hpdftbl_8c.html#aa578af688050ac485bf01c5d12d8bccc">hpdftbl_set_labels</a></div><div class="ttdeci">int hpdftbl_set_labels(hpdftbl_t t, char **labels)</div><div class="ttdoc">Set the text for the cell labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1289</div></div>
-</div><!-- fragment --><p ><a class="el" href="tut_ex04_8c-example.html">tut_ex04.c</a></p>
-<h1><a class="anchor" id="autotoc_md56"></a>
+</div><!-- fragment --><p> <a class="el" href="tut_ex04_8c-example.html">tut_ex04.c</a></p>
+<h1><a class="anchor" id="autotoc_md40"></a>
 Adding a table title</h1>
 <p >We have one last part of the table we haven't yet used and that is the table title. In the previous examples we created a table using <code><a class="el" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754" title="Create a new table with no title.">hpdftbl_create()</a></code> but there is also <code><a class="el" href="hpdftbl_8c.html#aad0f4078a299fcaebde02f16905fe51f" title="Create a new table with title top row.">hpdftbl_create_title()</a></code>. A title can also be added to an existing table (or perhaps updated) using <code><a class="el" href="hpdftbl_8c.html#acda02a218a3499273febac76d8889dfb" title="Set table title.">hpdftbl_set_title()</a></code></p>
 <p >To create a table with a title</p>
-<div class="fragment"><div class="line"><span class="keywordtype">char</span> *table_title = <span class="stringliteral">&quot;tut_ex05: 2x2 table&quot;</span>;</div>
-<div class="line"><a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#aad0f4078a299fcaebde02f16905fe51f">hpdftbl_create_title</a>(num_rows, num_cols, table_title);</div>
-<div class="ttc" id="ahpdftbl_8c_html_aad0f4078a299fcaebde02f16905fe51f"><div class="ttname"><a href="hpdftbl_8c.html#aad0f4078a299fcaebde02f16905fe51f">hpdftbl_create_title</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create_title(size_t rows, size_t cols, char *title)</div><div class="ttdoc">Create a new table with title top row.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:468</div></div>
-</div><!-- fragment --><p >A table title occupies the top of the table in its own row which isn't part of the counting if the normal columns.</p>
+ <div class="fragment"><div class="line">    <span class="keywordtype">char</span> *table_title = <span class="stringliteral">&quot;tut_ex05: 2x2 table&quot;</span>;</div>
+<div class="line">    <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#aad0f4078a299fcaebde02f16905fe51f">hpdftbl_create_title</a>(num_rows, num_cols, table_title);</div>
+<div class="ttc" id="ahpdftbl_8c_html_aad0f4078a299fcaebde02f16905fe51f"><div class="ttname"><a href="hpdftbl_8c.html#aad0f4078a299fcaebde02f16905fe51f">hpdftbl_create_title</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create_title(size_t rows, size_t cols, char *title)</div><div class="ttdoc">Create a new table with title top row.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:497</div></div>
+</div><!-- fragment --><p> A table title occupies the top of the table in its own row which isn't part of the counting if the normal columns.</p>
 <p ><img src="tut_ex05.png" alt="" class="inline" title="Figure 6 - tut_ex04.png"/>    <br  />
  <em><b>Figure 6:</b></em> <em>Adding a title for the table. (<a class="el" href="tut_ex05_8c-example.html">tut_ex05.c</a>)</em></p>
 <p >It is possible to adjust the colors, font-properties, and alignments of the title with two additional functions <code><a class="el" href="hpdftbl_8c.html#afe26fd3e305b3168d58e76471fcbe167" title="Set the table title style.">hpdftbl_set_title_style()</a></code> and <code><a class="el" href="hpdftbl_8c.html#ab8cb60e8aa0ba957797b9ed15f0c3241" title="Set horizontal alignment for table title.">hpdftbl_set_title_halign()</a></code></p>
-<h1><a class="anchor" id="autotoc_md57"></a>
+<p >The complete code for this example is shown below</p>
+ <div class="fragment"><div class="line">create_table_ex05(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_rows = 2;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_cols = 2;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">char</span> *table_title = <span class="stringliteral">&quot;tut_ex05: 2x2 table&quot;</span>;</div>
+<div class="line">    <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#aad0f4078a299fcaebde02f16905fe51f">hpdftbl_create_title</a>(num_rows, num_cols, table_title);</div>
+<div class="line">    <a class="code hl_typedef" href="unit__test_8inc_8h.html#ae13fea76190b6075ceff0aa3258ef155">content_t</a> content, labels;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_function" href="unit__test_8inc_8h.html#a2536f435821c1f995c779ac01e781f65">setup_dummy_content_label</a>(&amp;content, &amp;labels, num_rows, num_cols);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a>(tbl, content);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#aa578af688050ac485bf01c5d12d8bccc">hpdftbl_set_labels</a>(tbl, labels);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a5f4278417bc42a09aabfca973dbd31ba">hpdftbl_use_labels</a>(tbl, <a class="code hl_define" href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152">hpdftbl_use_labelgrid</a>(tbl, <a class="code hl_define" href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
+<div class="line"> </div>
+<div class="line">    HPDF_REAL xpos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
+<div class="line">    HPDF_REAL ypos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a> - 1);</div>
+<div class="line">    HPDF_REAL width = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(5);</div>
+<div class="line">    HPDF_REAL height = 0;  <span class="comment">// Calculate height automatically</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Stroke the table to the page</span></div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md41"></a>
 Adjusting fonts and colors</h1>
 <p >The one thing we have skipped over so far and just used the defaults is the look &amp; feel of the table as far as colors and fonts go. It is possible to adjust these setting at several levels of granularity. It is possible to:</p>
 <ol type="1">
 <li>Adjust the entire table in one go using <code><a class="el" href="hpdftbl_8c.html#a60d5cb61c0461c2459565cac98cf7604" title="Set style for text content.">hpdftbl_set_content_style()</a></code></li>
 <li>Adjust one entire column using <code><a class="el" href="hpdftbl_8c.html#af4e71fc83643c8a867ddbf63097cbfbd" title="Set the font style for an entre column of cells.">hpdftbl_set_col_content_style()</a></code></li>
-</ol>
-<ol type="1">
 <li>Adjust one entire row in using <code><a class="el" href="hpdftbl_8c.html#abbf178ee835bf23800334c0e34964511" title="Set the style for an entire row of cells.">hpdftbl_set_row_content_style()</a></code></li>
-</ol>
-<ol type="1">
 <li>Adjust individual cells using <code><a class="el" href="hpdftbl_8c.html#a60d5cb61c0461c2459565cac98cf7604" title="Set style for text content.">hpdftbl_set_content_style()</a></code></li>
 </ol>
 <p >It is also possible to adjust the color and thickness of the borders, but we will not discuss this more here and instead refer the reader to the API documentation.</p>
-<dl class="section note"><dt>Note</dt><dd>We should also mention that there is a concept of a look &amp; feel theme for the table which can be used to adjust all the parameters at once. This is discussed in <a class="el" href="ch_styleandfontsetting.html#sec-themes">Using themes</a>. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>We should also mention that there is a concept of a look &amp; feel theme for the table which can be used to adjust all the parameters at once. This is discussed in <a class="el" href="ch_styleandfontsetting.html#sec_themes">Using themes</a>. </dd></dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue May 10 2022 05:14:23 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun May 15 2022 21:42:02 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

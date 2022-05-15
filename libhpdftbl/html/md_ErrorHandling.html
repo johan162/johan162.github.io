@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.2.0</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.3.0</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -99,17 +99,25 @@ $(document).ready(function(){initNavTree('md_ErrorHandling.html',''); initResiza
 <div class="line">        exit(1);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="ahpdftbl_8c_html_a6ff78fe6264c00147dd5f074629230d1"><div class="ttname"><a href="hpdftbl_8c.html#a6ff78fe6264c00147dd5f074629230d1">hpdftbl_get_last_errcode</a></div><div class="ttdeci">int hpdftbl_get_last_errcode(const char **errstr, int *row, int *col)</div><div class="ttdoc">Return last error code.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:259</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_abd26b96fb00eb1a30862ee67f9328cc3"><div class="ttname"><a href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a></div><div class="ttdeci">int hpdftbl_set_colwidth_percent(hpdftbl_t t, size_t c, float w)</div><div class="ttdoc">Set column width as percentage of overall table width.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:566</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a6ff78fe6264c00147dd5f074629230d1"><div class="ttname"><a href="hpdftbl_8c.html#a6ff78fe6264c00147dd5f074629230d1">hpdftbl_get_last_errcode</a></div><div class="ttdeci">int hpdftbl_get_last_errcode(const char **errstr, int *row, int *col)</div><div class="ttdoc">Return last error code.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:274</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_abd26b96fb00eb1a30862ee67f9328cc3"><div class="ttname"><a href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a></div><div class="ttdeci">int hpdftbl_set_colwidth_percent(hpdftbl_t t, size_t c, float w)</div><div class="ttdoc">Set column width as percentage of overall table width.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:595</div></div>
 </div><!-- fragment --><p >As can be seen from the snippet above it would yield quite long winding error handling if one where to check every single library call. Instead, there is the option of installing an error handler that would be called in the event of an error.</p>
 <p >The table error handle has the signature</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_typedef" href="hpdftbl_8h.html#a21dab8b38ee079b1927e54c888e3a384">hpdftbl_error_handler_t</a>)(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl, <span class="keywordtype">int</span> r, <span class="keywordtype">int</span> c, <span class="keywordtype">int</span> err)</div>
-<div class="ttc" id="ahpdftbl_8h_html_a21dab8b38ee079b1927e54c888e3a384"><div class="ttname"><a href="hpdftbl_8h.html#a21dab8b38ee079b1927e54c888e3a384">hpdftbl_error_handler_t</a></div><div class="ttdeci">void(* hpdftbl_error_handler_t)(hpdftbl_t, int, int, int)</div><div class="ttdoc">TYpe for error handler function.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:606</div></div>
-<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:392</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_a21dab8b38ee079b1927e54c888e3a384"><div class="ttname"><a href="hpdftbl_8h.html#a21dab8b38ee079b1927e54c888e3a384">hpdftbl_error_handler_t</a></div><div class="ttdeci">void(* hpdftbl_error_handler_t)(hpdftbl_t, int, int, int)</div><div class="ttdoc">TYpe for error handler function.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:627</div></div>
+<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:413</div></div>
 </div><!-- fragment --><p >Where the arguments are</p>
-<ol type="1">
-<li><code>tbl</code> The table in where the error happened. <b>Note</b> This might be <code>NULL´ since not all errors happen within the context of a table 2.</code>r<code>,</code>c<code>The row and column if the error happens in a specified cell, otherwise these will be (-1,-1) 3.</code>err` The internal error code. This si always a negative number.</li>
-</ol>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>tbl</code>   </td><td class="markdownTableBodyNone">The table in where the error happened. <br  />
+ <b>Note:</b> This might be <code>NULL</code> since not all errors happen within the context of a table    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>r</code>, <code>c</code>   </td><td class="markdownTableBodyNone">The row and column if the error happens in a specified cell, otherwise these will be (-1,-1)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>err</code>   </td><td class="markdownTableBodyNone">The internal error code. This si always a negative number.   </td></tr>
+</table>
 <p >The error handler is set with the <code><a class="el" href="hpdftbl_8c.html#adab6f6dae9a3d74906eba7e4e92c0ea4" title="Specify errhandler for the table routines.">hpdftbl_set_errhandler()</a></code> method. An example of a very simple error handle is:</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span></div>
 <div class="line">my_table_error_handler(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> t, <span class="keywordtype">int</span> r, <span class="keywordtype">int</span> c, <span class="keywordtype">int</span> err) {</div>
@@ -118,19 +126,101 @@ $(document).ready(function(){initNavTree('md_ErrorHandling.html',''); initResiza
 <div class="line">    } <span class="keywordflow">else</span> {</div>
 <div class="line">        fprintf(stderr, <span class="stringliteral">&quot;*** Table Error: [%d] \&quot;%s\&quot; \n&quot;</span>, err, <a class="code hl_function" href="hpdftbl_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160">hpdftbl_get_errstr</a>(err));</div>
 <div class="line">    }</div>
-<div class="line">    exit(1);</div>
+<div class="line">    exit(EXIT_FAILURE);</div>
 <div class="line">}</div>
-<div class="ttc" id="ahpdftbl_8c_html_acd0ca8ffa21fef59ce1d253dab6ca160"><div class="ttname"><a href="hpdftbl_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160">hpdftbl_get_errstr</a></div><div class="ttdeci">const char * hpdftbl_get_errstr(int err)</div><div class="ttdoc">Translate a table error code to a human readable string.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:200</div></div>
-</div><!-- fragment --><p> In the above error handler we have made use of the utility function <code><a class="el" href="hpdftbl_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160" title="Translate a table error code to a human readable string.">hpdftbl_get_errstr()</a></code> that translates the internal error code to a human-readable string.</p>
+<div class="ttc" id="ahpdftbl_8c_html_acd0ca8ffa21fef59ce1d253dab6ca160"><div class="ttname"><a href="hpdftbl_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160">hpdftbl_get_errstr</a></div><div class="ttdeci">const char * hpdftbl_get_errstr(int err)</div><div class="ttdoc">Translate a table error code to a human readable string.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:214</div></div>
+</div><!-- fragment --><p >In the above error handler we have made use of the utility function <code><a class="el" href="hpdftbl_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160" title="Translate a table error code to a human readable string.">hpdftbl_get_errstr()</a></code> that translates the internal error code to a human-readable string.</p>
 <p >In fact this exact error handler is available as a convenience in the library under the name <code>hpdftbl_default_table_error_handler</code> so to use this trivial error handler just add the following line to your code</p>
 <div class="fragment"><div class="line"><a class="code hl_function" href="hpdftbl_8c.html#adab6f6dae9a3d74906eba7e4e92c0ea4">hpdftbl_set_errhandler</a>(<a class="code hl_function" href="hpdftbl_8c.html#a2ff1cca64859bc1acea1c323c5972f3d">hpdftbl_default_table_error_handler</a>);</div>
-<div class="ttc" id="ahpdftbl_8c_html_a2ff1cca64859bc1acea1c323c5972f3d"><div class="ttname"><a href="hpdftbl_8c.html#a2ff1cca64859bc1acea1c323c5972f3d">hpdftbl_default_table_error_handler</a></div><div class="ttdeci">void hpdftbl_default_table_error_handler(hpdftbl_t t, int r, int c, int err)</div><div class="ttdoc">A basic default table error handler.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:231</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_adab6f6dae9a3d74906eba7e4e92c0ea4"><div class="ttname"><a href="hpdftbl_8c.html#adab6f6dae9a3d74906eba7e4e92c0ea4">hpdftbl_set_errhandler</a></div><div class="ttdeci">hpdftbl_error_handler_t hpdftbl_set_errhandler(hpdftbl_error_handler_t err_handler)</div><div class="ttdoc">Specify errhandler for the table routines.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:290</div></div>
-</div><!-- fragment --><p >More advanced error handler must be written for thr particular application they are to be used in.</p>
+<div class="ttc" id="ahpdftbl_8c_html_a2ff1cca64859bc1acea1c323c5972f3d"><div class="ttname"><a href="hpdftbl_8c.html#a2ff1cca64859bc1acea1c323c5972f3d">hpdftbl_default_table_error_handler</a></div><div class="ttdeci">void hpdftbl_default_table_error_handler(hpdftbl_t t, int r, int c, int err)</div><div class="ttdoc">A basic default table error handler.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:245</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_adab6f6dae9a3d74906eba7e4e92c0ea4"><div class="ttname"><a href="hpdftbl_8c.html#adab6f6dae9a3d74906eba7e4e92c0ea4">hpdftbl_set_errhandler</a></div><div class="ttdeci">hpdftbl_error_handler_t hpdftbl_set_errhandler(hpdftbl_error_handler_t err_handler)</div><div class="ttdoc">Specify errhandler for the table routines.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:319</div></div>
+</div><!-- fragment --><p >More advanced error handler must be written for the particular application they are to be used in.</p>
+<h1><a class="anchor" id="autotoc_md15"></a>
+Using emulated exception handling</h1>
+<p >As can be ssen above the default error handler terminates the running process with a call to <code>exit(EXIT_FAILURE)</code>. Terminating te process might not always be approriate (especially for a daemon process). An alternative way to handle a fault state is to use <code>setjmp()/longjmp()</code> to simulate an exception handling.</p>
+<p >In the program setup code a jump point is established and then if an error is detected the error handler will jump to the set jump point.</p>
+<p >For example, all tutorial examples share the same <code>main()</code> function as shown below</p>
+<div class="fragment"><div class="line">main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) { </div>
+<div class="line">    HPDF_Doc pdf_doc; </div>
+<div class="line">    HPDF_Page pdf_page;  </div>
+<div class="line">    <a class="code hl_variable" href="unit__test_8inc_8h.html#a78c47025bf33d069feea090f6290dd1e">run_as_unit_test</a> = 2==argc ; </div>
+<div class="line">    <span class="keywordflow">if</span> (setjmp(_hpdftbl_jmp_env)) {</div>
+<div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE; </div>
+<div class="line">    }  </div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#adab6f6dae9a3d74906eba7e4e92c0ea4">hpdftbl_set_errhandler</a>(table_error_handler); </div>
+<div class="line">    <a class="code hl_function" href="unit__test_8inc_8h.html#af5962cfe76bc5cd6e1e6448bb2245951">setup_hpdf</a>(&amp;pdf_doc, &amp;pdf_page, _showgrid_); </div>
+<div class="line">    _tbl_(pdf_doc, pdf_page); </div>
+<div class="line">    <span class="keywordflow">if</span>( -1 == <a class="code hl_function" href="unit__test_8inc_8h.html#a0a80a785fa3cbd16e27dc0816e4126b3">stroke_to_file</a>(pdf_doc, argc, argv) ) </div>
+<div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE; </div>
+<div class="line">    <span class="keywordflow">else</span> </div>
+<div class="line">        <span class="keywordflow">return</span> EXIT_SUCCESS; </div>
+<div class="line">}</div>
+<div class="ttc" id="aunit__test_8inc_8h_html_a0a80a785fa3cbd16e27dc0816e4126b3"><div class="ttname"><a href="unit__test_8inc_8h.html#a0a80a785fa3cbd16e27dc0816e4126b3">stroke_to_file</a></div><div class="ttdeci">int stroke_to_file(HPDF_Doc pdf_doc, int argc, char **argv)</div><div class="ttdoc">Stroke the created PDF page to a file.</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:198</div></div>
+<div class="ttc" id="aunit__test_8inc_8h_html_a78c47025bf33d069feea090f6290dd1e"><div class="ttname"><a href="unit__test_8inc_8h.html#a78c47025bf33d069feea090f6290dd1e">run_as_unit_test</a></div><div class="ttdeci">_Bool run_as_unit_test</div><div class="ttdoc">For the case when we use this example as a unit/integration test we do not want data such as dates,...</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:32</div></div>
+<div class="ttc" id="aunit__test_8inc_8h_html_af5962cfe76bc5cd6e1e6448bb2245951"><div class="ttname"><a href="unit__test_8inc_8h.html#af5962cfe76bc5cd6e1e6448bb2245951">setup_hpdf</a></div><div class="ttdeci">void setup_hpdf(HPDF_Doc *pdf_doc, HPDF_Page *pdf_page, _Bool addgrid)</div><div class="ttdoc">Create a new PDF document with one page in A4 format.</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:139</div></div>
+</div><!-- fragment --><p >The relevant part here is the <code>setjmp(_hpdftbl_jmp_env)</code> code which establish a jump destination. An basic error handler that uses this could now look like this:</p>
+<div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span></div>
+<div class="line">table_error_handler(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> t, <span class="keywordtype">int</span> r, <span class="keywordtype">int</span> c, <span class="keywordtype">int</span> err) {</div>
+<div class="line">    <span class="keywordflow">if</span> (r &gt; -1 &amp;&amp; c &gt; -1) {</div>
+<div class="line">        fprintf(stderr, <span class="stringliteral">&quot;*** Table Error: [%d] \&quot;%s\&quot; at cell (%d, %d)\n&quot;</span>, err, <a class="code hl_function" href="hpdftbl_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160">hpdftbl_get_errstr</a>(err), r, c);</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        fprintf(stderr, <span class="stringliteral">&quot;*** Table Error: [%d] \&quot;%s\&quot; \n&quot;</span>, err, <a class="code hl_function" href="hpdftbl_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160">hpdftbl_get_errstr</a>(err));</div>
+<div class="line">    }</div>
+<div class="line">    longjmp(_hpdftbl_jmp_env, 1);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p >If an error occur the <code>longjmp()</code> will come to the <code>setjmp()</code> point and since it returns the value of <code>1</code> it will enter the if-statement free the doc structure and then terminate the process by exiting the <code>main()</code> function.</p>
+<p >In a more complex program it might be useful to instead of exiting the process give the user an error message, do any cleanup (such as freeing the PDF document) and try again if this perhaps was a recoverable error.</p>
+<p >The actual error handler used in the tutorial examples is slightly longer as it prints all available information from the error handling "subsystem" such as which file and line number (in the library) where the error was triggered and any optional extra information was given in regard to the error mode. In addition, a stacktrace is also generated to <code>stderr</code></p>
+<p >The real (production grade) error handler therefore looks as shown below</p>
+ <div class="fragment"><div class="line">table_error_handler(<a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> t, <span class="keywordtype">int</span> r, <span class="keywordtype">int</span> c, <span class="keywordtype">int</span> err) {</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">int</span> lineno;</div>
+<div class="line">    <span class="keywordtype">char</span> *filename;</div>
+<div class="line">    <span class="keywordtype">char</span> *extrainfo;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a2408470d53154367525ea890ac0f0fc3">hpdftbl_get_last_err_file</a>(&amp;lineno, &amp;filename, &amp;extrainfo);</div>
+<div class="line">    <span class="keywordflow">if</span> (r &gt; -1 &amp;&amp; c &gt; -1) {</div>
+<div class="line">        fprintf(stderr, <span class="stringliteral">&quot;*** Table Error: [%d] \&quot;%s\&quot; at cell (%d, %d)&quot;</span>, err,</div>
+<div class="line">                <a class="code hl_function" href="hpdftbl_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160">hpdftbl_get_errstr</a>(err), r, c);</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        fprintf(stderr, <span class="stringliteral">&quot;*** Table Error: [%d] \&quot;%s\&quot;&quot;</span>, err,</div>
+<div class="line">                <a class="code hl_function" href="hpdftbl_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160">hpdftbl_get_errstr</a>(err));</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span>( filename != NULL ) {</div>
+<div class="line">        fprintf(stderr,<span class="stringliteral">&quot; in %s:%d&quot;</span>,filename, lineno);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span>( extrainfo != NULL ) {</div>
+<div class="line">        fprintf(stderr,<span class="stringliteral">&quot;. Info: \&quot;%s\&quot;\n&quot;</span>,extrainfo);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span> {</div>
+<div class="line">        fprintf(stderr,<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Also print the available stacktrace</span></div>
+<div class="line">    <span class="keywordtype">void</span>* callstack[128];</div>
+<div class="line">    <span class="keywordtype">int</span> i, frames = backtrace(callstack, 128);</div>
+<div class="line">    <span class="keywordtype">char</span>** callstack_sym = backtrace_symbols(callstack, frames);</div>
+<div class="line">    <span class="keywordflow">if</span>( callstack_sym != NULL ) {</div>
+<div class="line">        fprintf(stderr, <span class="stringliteral">&quot;Stacktrace:\n&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">for</span> (i = 0; i &lt; frames; ++i) {</div>
+<div class="line">            fprintf(stderr, <span class="stringliteral">&quot;%s\n&quot;</span>, callstack_sym[i]);</div>
+<div class="line">        }</div>
+<div class="line">        free(callstack_sym);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    longjmp(_hpdftbl_jmp_env, 1);</div>
+<div class="ttc" id="ahpdftbl_8c_html_a2408470d53154367525ea890ac0f0fc3"><div class="ttname"><a href="hpdftbl_8c.html#a2408470d53154367525ea890ac0f0fc3">hpdftbl_get_last_err_file</a></div><div class="ttdeci">void hpdftbl_get_last_err_file(int *lineno, char **file, char **extrainfo)</div><div class="ttdoc">Get the filename and line number where the last error occurred.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:303</div></div>
+<div class="line">}</div>
+</div><!-- fragment --><p> &#160;</p>
 <dl class="section note"><dt>Note</dt><dd>A common way to extend the error handling is to log the errors to syslog. When the library is used on OSX from 11.0 and onwards it should be remembered that OSX is broken by design as far as syslog logging is concerned. Apple in its wisdom introduced "Unified logging" which breaks the <code>syslog()</code> function and no logging is ever produced in the filesystem directly (i.e. to <code>/var/log/system.log</code>). <br  />
  Instead, the only way to view the logs is by using the utility <code>log</code>. So in order to view the log from a particular application the following command has to be given <br  />
- &lsquo;log stream --info --debug --predicate 'sender == "APPLICATION_NAME"&rsquo; &ndash;style syslog`</dd></dl>
-<h1><a class="anchor" id="autotoc_md21"></a>
+ <code>log stream --info --debug --predicate 'sender == "APPLICATION_NAME" --style syslog</code></dd></dl>
+<h1><a class="anchor" id="autotoc_md16"></a>
+Additional information</h1>
+<p >When an error is triggered the file name and line number in the library where the error was triggered is saved as well as an optional information string that some error states might set.</p>
+<p >All this extra information can be retrieved by the library function <a class="el" href="hpdftbl_8c.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a></p>
+<dl class="section note"><dt>Note</dt><dd>The file name and line number displayed is always the point in the library that discovered the error state. It does not indicate the file name and line number of the client code that triggered the error as the error is discovered in the library routines.</dd></dl>
+<h1><a class="anchor" id="autotoc_md17"></a>
 Translating HPDF error codes</h1>
 <p >The standard error handler for the plain HPDF library is specified when a new document is created, for example as'</p>
 <div class="fragment"><div class="line">...</div>
@@ -144,38 +234,45 @@ Translating HPDF error codes</h1>
 <div class="line"><a class="code hl_function" href="hpdftbl_8h.html#a926e8b332d44d03402264d039f293cb7">hpdftbl_hpdf_get_errstr</a>(<span class="keyword">const</span> HPDF_STATUS err_code) </div>
 <div class="ttc" id="ahpdftbl_8h_html_a926e8b332d44d03402264d039f293cb7"><div class="ttname"><a href="hpdftbl_8h.html#a926e8b332d44d03402264d039f293cb7">hpdftbl_hpdf_get_errstr</a></div><div class="ttdeci">const char * hpdftbl_hpdf_get_errstr(HPDF_STATUS err_code)</div><div class="ttdoc">Function to return a human readable error string for an error code from Core HPDF library.</div><div class="ttdef"><b>Definition:</b> hpdftbl_errstr.c:178</div></div>
 </div><!-- fragment --><p >and is used in the error handler in all the examples.</p>
-<h1><a class="anchor" id="autotoc_md25"></a>
+<h1><a class="anchor" id="autotoc_md18"></a>
 Example of setting up error handler</h1>
 <p >The following table creation code have a deliberate error in that it tries to assign a total column width of more than 100% which of course isn't possible.</p>
+<p ></p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span></div>
 <div class="line">create_table_ex10(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_rows = 4;</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_cols = 4;</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#adab6f6dae9a3d74906eba7e4e92c0ea4">hpdftbl_set_errhandler</a>(<a class="code hl_function" href="hpdftbl_8c.html#a2ff1cca64859bc1acea1c323c5972f3d">hpdftbl_default_table_error_handler</a>);</div>
-<div class="line"> </div>
 <div class="line">    <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
-<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a>(tbl, 0, 40);</div>
-<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a>(tbl, 1, 70);</div>
 <div class="line"> </div>
-<div class="line">    content_t content;</div>
-<div class="line">    setup_dummy_data(&amp;content, num_rows, num_cols);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a>(tbl, 0, 30);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a>(tbl, 1, 30);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_typedef" href="unit__test_8inc_8h.html#ae13fea76190b6075ceff0aa3258ef155">content_t</a> content;</div>
+<div class="line">    <a class="code hl_function" href="unit__test_8inc_8h.html#a52155bc4f54cf5fbdc3132dcf1a88cb0">setup_dummy_content</a>(&amp;content, num_rows, num_cols);</div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a>(tbl, content);</div>
 <div class="line"> </div>
 <div class="line">    HPDF_REAL xpos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
 <div class="line">    HPDF_REAL ypos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a> - 1);</div>
 <div class="line">    HPDF_REAL width = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#a74d6a937e9d5494f2fcf4b12783b7521">A4PAGE_WIDTH_CM</a> - 4);</div>
 <div class="line">    HPDF_REAL height = 0;  <span class="comment">// Calculate height automatically</span></div>
-<div class="line">    </div>
+<div class="line"> </div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
 <div class="line">}</div>
-<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1327</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:453</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1917</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_a74d6a937e9d5494f2fcf4b12783b7521"><div class="ttname"><a href="hpdftbl_8h.html#a74d6a937e9d5494f2fcf4b12783b7521">A4PAGE_WIDTH_CM</a></div><div class="ttdeci">#define A4PAGE_WIDTH_CM</div><div class="ttdoc">Standard A4 paper width in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:170</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdoc">Standard A4 paper height in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:165</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:223</div></div>
-</div><!-- fragment --><p >This is available in the example directory as <a class="el" href="tut_ex10_8c-example.html">tut_ex10.c</a>. When this code is executed the following will be printed to standard out and the process will be stopped.</p>
+<div class="ttc" id="ahpdftbl_8c_html_a224e99bb4ded35c2da3f3ba1646ff7d2"><div class="ttname"><a href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a></div><div class="ttdeci">int hpdftbl_set_content(hpdftbl_t t, char **content)</div><div class="ttdoc">Set the content for the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1180</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ab14d35a34e1bf7633e7edcc92a273754"><div class="ttname"><a href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create(size_t rows, size_t cols)</div><div class="ttdoc">Create a new table with no title.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:482</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1726</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_a74d6a937e9d5494f2fcf4b12783b7521"><div class="ttname"><a href="hpdftbl_8h.html#a74d6a937e9d5494f2fcf4b12783b7521">A4PAGE_WIDTH_CM</a></div><div class="ttdeci">#define A4PAGE_WIDTH_CM</div><div class="ttdoc">Standard A4 paper width in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:181</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdoc">Standard A4 paper height in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:176</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:234</div></div>
+<div class="ttc" id="aunit__test_8inc_8h_html_a52155bc4f54cf5fbdc3132dcf1a88cb0"><div class="ttname"><a href="unit__test_8inc_8h.html#a52155bc4f54cf5fbdc3132dcf1a88cb0">setup_dummy_content</a></div><div class="ttdeci">void setup_dummy_content(content_t *content, size_t rows, size_t cols)</div><div class="ttdoc">Create an array of char pointers to simulate real table data.</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:226</div></div>
+<div class="ttc" id="aunit__test_8inc_8h_html_ae13fea76190b6075ceff0aa3258ef155"><div class="ttname"><a href="unit__test_8inc_8h.html#ae13fea76190b6075ceff0aa3258ef155">content_t</a></div><div class="ttdeci">char ** content_t</div><div class="ttdoc">An array of char pointers.</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:218</div></div>
+</div><!-- fragment --><p >This is available in the example directory as <a class="el" href="tut_ex10_8c-example.html">tut_ex10.c</a>.</p>
+<p >If we simulate a "typo" and add a deliberate error by making the column widths larger than 100% by writing</p>
+<div class="fragment"><div class="line"><a class="code hl_function" href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a>(tbl, 0, 80);</div>
+<div class="line"><a class="code hl_function" href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a>(tbl, 1, 30);</div>
+</div><!-- fragment --><p >When this code is then executed the following will be printed to standard error and the process will be stopped.</p>
 <div class="fragment"><div class="line">*** Table Error: [-12] &quot;Total column width exceeds 100%&quot;</div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
@@ -183,7 +280,7 @@ Example of setting up error handler</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue May 10 2022 05:14:23 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun May 15 2022 21:42:02 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

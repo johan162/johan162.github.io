@@ -100,7 +100,7 @@ Creating a PDF page infrastructure</h1>
 <div class="line">    HPDF_Doc pdf_doc;</div>
 <div class="line">    HPDF_Page pdf_page;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (setjmp(env)) {</div>
+<div class="line">    <span class="keywordflow">if</span> (setjmp(_hpdftbl_jmp_env)) {</div>
 <div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -201,7 +201,7 @@ Your second table - disconnecting program structure from data</h1>
 </div><!-- fragment --><p >The content data is a 1-dimensional array of string pointers. Where each row is consecutive in the array. For example to create dummy data indicating what array position goes into what cell you could use the following setup:</p>
 <div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keywordtype">char</span> **content_t;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setup_dummy_data(content_t *content, <span class="keywordtype">size_t</span> rows, <span class="keywordtype">size_t</span> cols) {</div>
+<div class="line"><span class="keywordtype">void</span> setup_dummy_content_with_header(content_t *content, <span class="keywordtype">size_t</span> rows, <span class="keywordtype">size_t</span> cols) {</div>
 <div class="line">    <span class="keywordtype">char</span> buff[255];</div>
 <div class="line">    *content = calloc(rows*cols, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>*));</div>
 <div class="line">    <span class="keywordtype">size_t</span> cnt = 0;</div>
@@ -222,7 +222,7 @@ Your second table - disconnecting program structure from data</h1>
 <div class="line">    <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
 <div class="line"> </div>
 <div class="line">    content_t content;</div>
-<div class="line">    setup_dummy_data(&amp;content, num_rows, num_cols);</div>
+<div class="line">    setup_dummy_content_with_header(&amp;content, num_rows, num_cols);</div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a>(tbl, content);</div>
 <div class="line"> </div>
 <div class="line">    HPDF_REAL xpos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
@@ -251,7 +251,7 @@ Adding a header row</h1>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5">hpdftbl_use_header</a>(tbl, <a class="code hl_define" href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
 <div class="line"> </div>
 <div class="line">    content_t content;</div>
-<div class="line">    setup_dummy_data(&amp;content, num_rows, num_cols);</div>
+<div class="line">    setup_dummy_content_with_header(&amp;content, num_rows, num_cols);</div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a>(tbl, content);</div>
 <div class="line"> </div>
 <div class="line">    HPDF_REAL xpos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
@@ -290,7 +290,7 @@ Using labels in the table cells</h1>
 <div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keywordtype">char</span> **content_t;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> </div>
-<div class="line">setup_dummy_data(content_t *content, content_t *labels, </div>
+<div class="line">setup_dummy_content_with_header(content_t *content, content_t *labels, </div>
 <div class="line">                 <span class="keywordtype">size_t</span> rows, <span class="keywordtype">size_t</span> cols) {</div>
 <div class="line">    <span class="keywordtype">char</span> buff[255];</div>
 <div class="line">    *content = calloc(rows*cols, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>*));</div>
@@ -307,7 +307,7 @@ Using labels in the table cells</h1>
 <div class="line">    }</div>
 <div class="line">}</div>
 </div><!-- fragment --><p >In the same way as before we call the functions to specify both the content and the labels</p>
-<div class="fragment"><div class="line">setup_dummy_data(&amp;content, &amp;labels, num_rows, num_cols);</div>
+<div class="fragment"><div class="line">setup_dummy_content_with_header(&amp;content, &amp;labels, num_rows, num_cols);</div>
 <div class="line">hpdftbl_set_content(tbl, content);</div>
 <div class="line">hpdftbl_set_labels(tbl, labels);</div>
 </div><!-- fragment --><p >and finally we also enable labels and the short variant of the left cell border</p>
@@ -324,7 +324,7 @@ Using labels in the table cells</h1>
 <div class="line">    <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = <a class="code hl_function" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754">hpdftbl_create</a>(num_rows, num_cols);</div>
 <div class="line">    content_t content, labels;</div>
 <div class="line"> </div>
-<div class="line">    setup_dummy_data(&amp;content, &amp;labels, num_rows, num_cols);</div>
+<div class="line">    setup_dummy_content_with_header(&amp;content, &amp;labels, num_rows, num_cols);</div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a224e99bb4ded35c2da3f3ba1646ff7d2">hpdftbl_set_content</a>(tbl, content);</div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#aa578af688050ac485bf01c5d12d8bccc">hpdftbl_set_labels</a>(tbl, labels);</div>
 <div class="line">    </div>

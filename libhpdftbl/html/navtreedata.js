@@ -25,97 +25,103 @@
 var NAVTREE =
 [
   [ "libhpdftbl", "index.html", [
-    [ "Introduction to hpdftbl", "index.html", [
-      [ "What is this?", "index.html#autotoc_md7", null ],
-      [ "Features", "index.html#autotoc_md9", null ],
-      [ "Some Examples", "index.html#autotoc_md11", [
-        [ "Example 1 - Plain table with cell labels", "index.html#autotoc_md12", null ],
-        [ "Example 2 - Table with cell labels", "index.html#autotoc_md13", null ],
-        [ "Example 2 - Plain table with row/column spanning and table title", "index.html#autotoc_md15", null ],
-        [ "Example 3 - Table with labels and cell widgets", "index.html#autotoc_md16", null ]
+    [ "Overview", "index.html", [
+      [ "What is this?", "index.html#autotoc_md3", null ],
+      [ "Features", "index.html#autotoc_md6", null ],
+      [ "Some Examples", "index.html#autotoc_md8", [
+        [ "Example 1 - Plain table with cell labels", "index.html#autotoc_md9", null ],
+        [ "Example 2 - Table with cell labels", "index.html#autotoc_md10", null ],
+        [ "Example 2 - Plain table with row/column spanning and table title", "index.html#autotoc_md12", null ],
+        [ "Example 3 - Table with labels and cell widgets", "index.html#autotoc_md13", null ]
       ] ]
     ] ],
     [ "Building the library", "md_Building.html", [
-      [ "The short version; TL; DR", "md_Building.html#autotoc_md37", null ],
+      [ "The short version; TL; DR", "md_Building.html#autotoc_md14", null ],
       [ "Pre-requisites", "md_Building.html#pre-req", [
-        [ "Different versions of iconv on OSX", "md_Building.html#autotoc_md38", null ],
-        [ "OSX native libiconv", "md_Building.html#autotoc_md39", null ],
-        [ "OSX GNU port of libiconv", "md_Building.html#autotoc_md40", null ],
-        [ "Troubleshooting OSX <tt>libiconv</tt>", "md_Building.html#autotoc_md41", null ]
+        [ "Different versions of iconv on OSX", "md_Building.html#autotoc_md19", null ],
+        [ "OSX native libiconv", "md_Building.html#autotoc_md20", null ],
+        [ "OSX GNU port of libiconv", "md_Building.html#autotoc_md22", null ],
+        [ "Troubleshooting OSX <tt>libiconv</tt>", "md_Building.html#autotoc_md23", null ]
       ] ],
       [ "Building the library from source", "md_Building.html#building-from-source", [
-        [ "Rebuilding using av existing build environment", "md_Building.html#autotoc_md42", null ],
-        [ "Rebuilding from a cloned repo", "md_Building.html#autotoc_md44", null ]
+        [ "Rebuilding using av existing build environment", "md_Building.html#autotoc_md24", null ],
+        [ "Rebuilding from a cloned repo", "md_Building.html#autotoc_md25", null ]
       ] ],
-      [ "Miscellaneous", "md_Building.html#autotoc_md46", [
+      [ "Miscellaneous", "md_Building.html#autotoc_md27", [
         [ "Some notes on Compiling for debugging", "md_Building.html#lib-debug", null ],
-        [ "Some notes on updating the documentation", "md_Building.html#autotoc_md48", null ],
-        [ "Some notes on Windows build", "md_Building.html#autotoc_md49", null ],
-        [ "Some notes on using C or C++ to build", "md_Building.html#autotoc_md50", null ]
+        [ "Some notes on updating the documentation", "md_Building.html#autotoc_md28", null ],
+        [ "Some notes on Windows build", "md_Building.html#autotoc_md29", null ],
+        [ "Some notes on using C or C++ to build", "md_Building.html#autotoc_md30", null ]
       ] ]
     ] ],
     [ "Getting started", "md_GettingStarted.html", [
-      [ "Creating a PDF page infrastructure", "md_GettingStarted.html#autotoc_md45", null ],
-      [ "Your first table", "md_GettingStarted.html#autotoc_md51", null ],
-      [ "Your second table - disconnecting program structure from data", "md_GettingStarted.html#autotoc_md52", null ],
-      [ "Adding a header row", "md_GettingStarted.html#autotoc_md54", null ],
-      [ "Using labels in the table cells", "md_GettingStarted.html#autotoc_md55", null ],
-      [ "Adding a table title", "md_GettingStarted.html#autotoc_md56", null ],
-      [ "Adjusting fonts and colors", "md_GettingStarted.html#autotoc_md57", null ]
+      [ "Creating an infrastructure for the examples", "md_GettingStarted.html#autotoc_md26", null ],
+      [ "Your first table", "md_GettingStarted.html#autotoc_md32", null ],
+      [ "Your second table - disconnecting program structure from data", "md_GettingStarted.html#autotoc_md36", null ],
+      [ "Adding a header row", "md_GettingStarted.html#autotoc_md38", null ],
+      [ "Using labels in the table cells", "md_GettingStarted.html#autotoc_md39", null ],
+      [ "Adding a table title", "md_GettingStarted.html#autotoc_md40", null ],
+      [ "Adjusting fonts and colors", "md_GettingStarted.html#autotoc_md41", null ]
     ] ],
-    [ "Adjusting the layout of the table", "md_CellAndRowSpanning.html", [
-      [ "Cell and row spanning", "md_CellAndRowSpanning.html#autotoc_md10", null ],
-      [ "Adjusting column width", "md_CellAndRowSpanning.html#autotoc_md14", null ]
+    [ "Cell and row spanning", "md_CellAndRowSpanning.html", [
+      [ "Cell and row spanning", "md_CellAndRowSpanning.html#autotoc_md7", null ],
+      [ "Adjusting column width", "md_CellAndRowSpanning.html#autotoc_md11", null ]
     ] ],
-    [ "Content and label callbacks", "md_ContentLabelCallbacks.html", [
-      [ "Introducing content callback functions", "md_ContentLabelCallbacks.html#autotoc_md17", null ],
-      [ "A content callback example", "md_ContentLabelCallbacks.html#autotoc_md19", null ]
+    [ "Using callbacks", "sec_callbacks.html", [
+      [ "Introducing content callback functions", "sec_callbacks.html#autotoc_md21", null ],
+      [ "A content callback example", "sec_callbacks.html#autotoc_md31", null ],
+      [ "Dynamic (late binding) callbacks", "sec_callbacks.html#autotoc_md33", [
+        [ "Using late binding", "sec_callbacks.html#autotoc_md35", null ]
+      ] ]
     ] ],
     [ "Error handling", "md_ErrorHandling.html", [
-      [ "Translating HPDF error codes", "md_ErrorHandling.html#autotoc_md21", null ],
-      [ "Example of setting up error handler", "md_ErrorHandling.html#autotoc_md25", null ]
+      [ "Using emulated exception handling", "md_ErrorHandling.html#autotoc_md15", null ],
+      [ "Additional information", "md_ErrorHandling.html#autotoc_md16", null ],
+      [ "Translating HPDF error codes", "md_ErrorHandling.html#autotoc_md17", null ],
+      [ "Example of setting up error handler", "md_ErrorHandling.html#autotoc_md18", null ]
     ] ],
-    [ "Style and font setting", "ch_styleandfontsetting.html", [
+    [ "Font and style setting", "ch_styleandfontsetting.html", [
       [ "Adjusting fonts and colors", "ch_styleandfontsetting.html#sec_specifyingfontsandcolors", null ],
-      [ "Using style callbacks", "ch_styleandfontsetting.html#autotoc_md43", [
-        [ "Style callback example", "ch_styleandfontsetting.html#autotoc_md47", null ]
+      [ "Using style callbacks", "ch_styleandfontsetting.html#autotoc_md34", [
+        [ "Style callback example", "ch_styleandfontsetting.html#autotoc_md37", null ]
       ] ],
-      [ "Using style themes", "ch_styleandfontsetting.html#sec-themes", null ],
+      [ "Using style themes", "ch_styleandfontsetting.html#sec_themes", null ],
       [ "Adjusting grid line styles", "ch_styleandfontsetting.html#sec_borderstyles", null ],
-      [ "Adding zebra lines in a table", "ch_styleandfontsetting.html#autotoc_md53", null ]
+      [ "Adding zebra lines in a table", "ch_styleandfontsetting.html#autotoc_md42", null ]
     ] ],
     [ "Tables layout from data", "md_TablesFromData.html", [
-      [ "Defining a table in data", "md_TablesFromData.html#autotoc_md28", null ],
-      [ "A first example of defining table as data", "md_TablesFromData.html#autotoc_md35", null ],
-      [ "A second example of defining a table as data", "md_TablesFromData.html#autotoc_md36", null ]
+      [ "Defining a table in data", "md_TablesFromData.html#autotoc_md69", null ],
+      [ "A first example of defining table as data", "md_TablesFromData.html#autotoc_md70", null ],
+      [ "A second example of defining a table as data", "md_TablesFromData.html#autotoc_md71", null ]
     ] ],
     [ "Widgets", "md_UsingWidgets.html", [
-      [ "Overview", "md_UsingWidgets.html#autotoc_md18", [
-        [ "1. Segmented horizontal bar example", "md_UsingWidgets.html#autotoc_md20", null ],
-        [ "2. Horizontal bar example", "md_UsingWidgets.html#autotoc_md22", null ],
-        [ "3. Signal strength meter example", "md_UsingWidgets.html#autotoc_md23", null ],
-        [ "4. Radio sliding button example", "md_UsingWidgets.html#autotoc_md24", null ],
-        [ "5. Boxed letters example", "md_UsingWidgets.html#autotoc_md26", null ]
+      [ "Overview", "md_UsingWidgets.html#autotoc_md46", [
+        [ "1. Segmented horizontal bar example", "md_UsingWidgets.html#autotoc_md47", null ],
+        [ "2. Horizontal bar example", "md_UsingWidgets.html#autotoc_md48", null ],
+        [ "3. Signal strength meter example", "md_UsingWidgets.html#autotoc_md50", null ],
+        [ "4. Radio sliding button example", "md_UsingWidgets.html#autotoc_md51", null ],
+        [ "5. Boxed letters example", "md_UsingWidgets.html#autotoc_md53", null ]
       ] ],
-      [ "Widget functions", "md_UsingWidgets.html#autotoc_md27", [
-        [ "Segmented horizontal bar defining function", "md_UsingWidgets.html#autotoc_md29", null ],
-        [ "Horizontal bar defining function", "md_UsingWidgets.html#autotoc_md30", null ],
-        [ "Signal strength defining function", "md_UsingWidgets.html#autotoc_md31", null ],
-        [ "Radio sliding button defining function", "md_UsingWidgets.html#autotoc_md32", null ],
-        [ "Boxed letters defining function", "md_UsingWidgets.html#autotoc_md33", null ]
+      [ "Widget functions", "md_UsingWidgets.html#autotoc_md54", [
+        [ "Segmented horizontal bar defining function", "md_UsingWidgets.html#autotoc_md58", null ],
+        [ "Horizontal bar defining function", "md_UsingWidgets.html#autotoc_md59", null ],
+        [ "Signal strength defining function", "md_UsingWidgets.html#autotoc_md60", null ],
+        [ "Radio sliding button defining function", "md_UsingWidgets.html#autotoc_md61", null ],
+        [ "Boxed letters defining function", "md_UsingWidgets.html#autotoc_md62", null ]
       ] ],
-      [ "Usage", "md_UsingWidgets.html#autotoc_md34", null ]
+      [ "Usage", "md_UsingWidgets.html#autotoc_md64", null ]
     ] ],
-    [ "HPDFTBL API Overview", "md_APIOverview.html", [
-      [ "Table creation related functions", "md_APIOverview.html#autotoc_md59", null ],
-      [ "Table error handling", "md_APIOverview.html#autotoc_md60", null ],
-      [ "Theme handling methods", "md_APIOverview.html#autotoc_md61", null ],
-      [ "Table layout adjusting functions", "md_APIOverview.html#autotoc_md62", null ],
-      [ "Table style modifying functions", "md_APIOverview.html#autotoc_md63", null ],
-      [ "Content handling", "md_APIOverview.html#autotoc_md64", null ],
+    [ "API Overview", "md_APIOverview.html", [
+      [ "Table creation related functions", "md_APIOverview.html#autotoc_md49", null ],
+      [ "Table error handling", "md_APIOverview.html#autotoc_md52", null ],
+      [ "Theme handling methods", "md_APIOverview.html#autotoc_md55", null ],
+      [ "Table layout adjusting functions", "md_APIOverview.html#autotoc_md56", null ],
+      [ "Table style modifying functions", "md_APIOverview.html#autotoc_md57", null ],
+      [ "Content handling", "md_APIOverview.html#autotoc_md63", null ],
       [ "Callback handling", "md_APIOverview.html#autotoc_md65", null ],
-      [ "Text encoding", "md_APIOverview.html#autotoc_md66", null ],
-      [ "Misc utility function", "md_APIOverview.html#autotoc_md67", null ]
+      [ "Dynamic (late binding) callback handling", "md_APIOverview.html#autotoc_md66", null ],
+      [ "Text encoding", "md_APIOverview.html#autotoc_md67", null ],
+      [ "Misc utility function", "md_APIOverview.html#autotoc_md68", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Data Structures", "annotated.html", [
@@ -145,8 +151,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"hpdftbl_8h.html#aba528c256747e75c1166acdd76864e14",
-"structtext__style.html#a619758665ef84d588ff83b68aedca64b"
+"hpdftbl_8h.html#a9f7b00fc28973e60f6f05df1c02b72ed",
+"structhpdftbl__cell__spec.html#a98f685e43777849cf39dfc995321b42a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

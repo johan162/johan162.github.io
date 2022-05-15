@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hpdftbl_20api_20overview_0',['HPDFTBL API Overview',['../md_APIOverview.html',1,'']]]
+  ['getting_20started_0',['Getting started',['../md_GettingStarted.html',1,'']]]
 ];
