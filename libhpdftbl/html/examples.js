@@ -1,6 +1,7 @@
 var examples =
 [
     [ "example01.c", "example01_8c-example.html", null ],
+    [ "tut_ex00.c", "tut_ex00_8c-example.html", null ],
     [ "tut_ex01.c", "tut_ex01_8c-example.html", null ],
     [ "tut_ex02.c", "tut_ex02_8c-example.html", null ],
     [ "tut_ex02_1.c", "tut_ex02_1_8c-example.html", null ],
@@ -20,5 +21,9 @@ var examples =
     [ "tut_ex15.c", "tut_ex15_8c-example.html", null ],
     [ "tut_ex15_1.c", "tut_ex15_1_8c-example.html", null ],
     [ "tut_ex20.c", "tut_ex20_8c-example.html", null ],
-    [ "tut_ex30.c", "tut_ex30_8c-example.html", null ]
+    [ "tut_ex30.c", "tut_ex30_8c-example.html", null ],
+    [ "tut_ex40.c", "tut_ex40_8c-example.html", null ],
+    [ "tut_ex41.c", "tut_ex41_8c-example.html", null ],
+    [ "tests/tut_ex40.json", "tests_2tut_ex40_8json-example.html", null ],
+    [ "tests/tut_ex41.json", "tests_2tut_ex41_8json-example.html", null ]
 ];

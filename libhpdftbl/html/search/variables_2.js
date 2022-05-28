@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['dash_5fptn_0',['dash_ptn',['../structline__dash__style.html#a5e0de5d468ec91e16a823efbd46f32d0',1,'line_dash_style']]],
-  ['delta_5fx_1',['delta_x',['../structhpdftbl__cell.html#a22b383eb4a0e2aa333e6579aeb3b2461',1,'hpdftbl_cell']]],
-  ['delta_5fy_2',['delta_y',['../structhpdftbl__cell.html#a400b603bfa38f2d8794d6c7fb6e94fd2',1,'hpdftbl_cell']]],
-  ['docversion_3',['DOCVERSION',['../docupload_8sh_8in.html#a7baa3734a1d2854f604cfc476e3a50c6',1,'docupload.sh.in']]]
+  ['background_0',['background',['../structtext__style.html#ad4dedddd2d1175580db9daacb3b04c35',1,'text_style']]],
+  ['bottom_5fvmargin_5ffactor_1',['bottom_vmargin_factor',['../structhpdftbl.html#a58cfb4a00048cb2667f0f74fdd93bd24',1,'hpdftbl::bottom_vmargin_factor()'],['../structhpdftbl__theme.html#a58cfb4a00048cb2667f0f74fdd93bd24',1,'hpdftbl_theme::bottom_vmargin_factor()']]]
 ];

@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.3.0</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0-beta</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -111,12 +111,13 @@ Pre-requisites</h1>
 </li>
 <li><b>iconv</b> - The character encoding conversion library. On OSX &gt; 11.x this is included by default once you have <code>xcode</code> command line tools installed which is basically a pre-requisite required for all development on OSX. <br  />
  *(On ancient versions of OSX this was not the case.)*</li>
+<li><b>libjansson</b> - Library to parse JSON files. Needed to enable table serialization to- and from JSON format. <em>Note:</em> This can be omitted but then no serialization functions will be available in the library.</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md17"></a>
 Different versions of iconv on OSX</h2>
 <p >Unfortunately there are two different (and incompatible) versions of <code>libiconv</code> readily available for OSX. One library that uses the prefix "`iconv_*`" and the other "`libiconv_*`" on its exported functions. Compiling <code>libhpdftbl</code> requires the first of these which is the prevalent version and the default on both OSX and Linux.</p>
 <p >This is almost exclusively an issue for those that actively develop on OSX and may have over time installed multiple versions of libraries and as such are aware of these challenges.</p>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 OSX native libiconv</h2>
 <p >After installing <code>xcode</code> command line tools on OSXit is safe to assume that a library called <code>/usr/lib/iconv.dylib</code> is available.</p>
 <p >However, if one tries to list this library in <code>/usr/lib</code> there will not be a <code>libiconv.dylib</code>. Still, if the code is linked with <code>-liconv</code> it will work as expected. How come? <br  />
@@ -126,10 +127,10 @@ OSX native libiconv</h2>
 <div class="fragment"><div class="line">/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/lib/libiconv.tbd</div>
 </div><!-- fragment --><p >and the corresponding include header is located at</p>
 <div class="fragment"><div class="line">/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/iconv.h</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md22"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md20"></a>
 OSX GNU port of libiconv</h2>
 <p >If you have happened to install <code>libiconv</code> via the MacPorts you are out of luck and need to change. MacPorts uses the GNU version which uses the prefix "`libiconv_*`" for its exported function and is not compatible since the table library assumes the naming convention of the standard OSX version (after v11)</p>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 Troubleshooting OSX &lt;tt&gt;libiconv&lt;/tt&gt;</h2>
 <p >If the build complains about <code>libiconv</code> the following steps could be take to try to track down the problem:</p>
 <ol type="1">
@@ -150,7 +151,7 @@ Building the library from source</h1>
 <li>Using a build environment to rebuild the library (i.e. building from the supplied tar-ball)</li>
 <li>Rebuilding from a cloned repo and rebuild the build environment from scratch. As a principle no generated files are stored in the repo.</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Rebuilding using av existing build environment</h2>
 <p >Rebuilding the library using a pre-configured build environment requires <code>gcc</code> ( or <code>clang</code>) and <code>make</code> together with the standard C/C++ libraries to build the library.</p>
 <p >The library source with suitable build-environment is distributed as a tar-ball</p>
@@ -170,7 +171,7 @@ Rebuilding using av existing build environment</h2>
 <div class="line">$ ./configure --prefix=/usr &amp;&amp; make</div>
 <div class="line">... (output from the configuration and build omitted) ...</div>
 </div><!-- fragment --><p >Please refer to <code>configure -h</code> for other possible configurations. As a shortcut two utility scripts are included that give some extra <code>CFLAGS</code> flags to either compile the library for production use <code>./scripts/stdbld.sh</code> or for debugging <code>./scripts/dbgbld.sh</code> (See <a class="el" href="md_Building.html#lib-debug">Some notes on Debugging</a>)</p>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 Rebuilding from a cloned repo</h2>
 <dl class="section note"><dt>Note</dt><dd>This is for experienced developers!</dd></dl>
 <p>The repo does not include any of the generated files as the tar-ball does. This means that the following build tools needs to be installed in order to fully rebuild from a cloned repo.</p>
@@ -206,7 +207,7 @@ Rebuilding from a cloned repo</h2>
 </div><!-- fragment --><p >To install the library use</p>
 <div class="fragment"><div class="line">$&gt; make install</div>
 </div><!-- fragment --><p >This will install headers and library under "`/usr/local`" (unless the prefix was changed when running the <code>configure</code>)</p>
-<h1><a class="anchor" id="autotoc_md27"></a>
+<h1><a class="anchor" id="autotoc_md24"></a>
 Miscellaneous</h1>
 <h2><a class="anchor" id="lib-debug"></a>
 Some notes on Compiling for debugging</h2>
@@ -218,18 +219,18 @@ Some notes on Compiling for debugging</h2>
 <div class="fragment"><div class="line">$&gt; libtool --mode=execute gdb &lt;example program&gt;</div>
 </div><!-- fragment --><p >This will run the <code>gdb</code> debugger from command line. For debugging from within a IDE (like Netbeans, Clion, etc.) use the static library method.</p>
 <p >As a convenience a script is provided to handle the debug build configuration <code><a class="el" href="dbgbld_8sh.html" title="Setup a build environment for debugging.">scripts/dbgbld.sh</a></code></p>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Some notes on updating the documentation</h2>
 <p >By design the documentation is not updated by the default make target in order minimize the build time during development. To rebuild the <em>html</em> documentation build the target</p>
 <div class="fragment"><div class="line">$&gt; make html</div>
 </div><!-- fragment --><p >and to rebuild the <em>PDF</em> version build (assuming you have LaTeX installed)</p>
 <div class="fragment"><div class="line">$&gt; make pdf</div>
 </div><!-- fragment --><p >The resulting documentations are stored under <code>docs/out/html</code> and <code>docs/out/latex/refman.pdf</code></p>
-<dl class="section warning"><dt>Warning</dt><dd>There is a shell script <code><a class="el" href="docupload_8sh_8in.html" title="Upload the generated documentation to the github pages doc site for the author.">scripts/docupload.sh.in</a></code> that the author (i.e. me!) uses to upload the HTML and PDF documentation to the GitHub pages of the author. For obvious reason this script will not work for anyone else since it requires write access to the doc repo (through an SSL certificate).</dd></dl>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<dl class="section warning"><dt>Warning</dt><dd>There is a shell script <code>scripts/docupload.sh.in</code> that the author (i.e. me!) uses to upload the HTML and PDF documentation to the GitHub pages of the author. For obvious reason this script will not work for anyone else since it requires write access to the doc repo (through an SSL certificate).</dd></dl>
+<h2><a class="anchor" id="autotoc_md26"></a>
 Some notes on Windows build</h2>
 <p >The source files are suitable augmented to also compile on MS Windows with selective defines. However, this is on a best effort basis since I have no longer access to a Windows system to verify the workings.</p>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Some notes on using C or C++ to build</h2>
 <p >The source files are also suitable augmented to compile on both a C and a C++ compiler. However, the default build environment is set up for a pure C library build. To add a configuration switch for this would be the sensible way to handle this. This is not done and again, is left as an exercise for the reader. </p>
 </div></div><!-- contents -->
@@ -238,7 +239,7 @@ Some notes on using C or C++ to build</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 15 2022 21:42:02 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 23:54:13 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

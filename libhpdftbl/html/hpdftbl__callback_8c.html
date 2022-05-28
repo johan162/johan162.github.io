@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.3.0</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0-beta</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('hpdftbl__callback_8c.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
-<p>Routines for callback function for flexible table drawing with HPDF library.  
+<p>Routines for plain and dynamic callback function.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -124,30 +124,39 @@ Functions</h2></td></tr>
 <tr class="memitem:af883dd1ae69782730244efe6a76a88c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#af883dd1ae69782730244efe6a76a88c2">hpdftbl_set_label_cb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, <a class="el" href="hpdftbl_8h.html#a0817d30c0f6977210bc2453a888d8986">hpdftbl_content_callback_t</a> cb)</td></tr>
 <tr class="memdesc:af883dd1ae69782730244efe6a76a88c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set table label callback.  <a href="hpdftbl__callback_8c.html#af883dd1ae69782730244efe6a76a88c2">More...</a><br /></td></tr>
 <tr class="separator:af883dd1ae69782730244efe6a76a88c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a655e4f2b0d6937f6e9d9d832b5cf6872"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#a655e4f2b0d6937f6e9d9d832b5cf6872">hpdftbl_set_post_cb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, <a class="el" href="hpdftbl_8h.html#a205ce6b4703f0a270834fd575e0414e1">hpdftbl_callback_t</a> cb)</td></tr>
+<tr class="memdesc:a655e4f2b0d6937f6e9d9d832b5cf6872"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set table post processing callback.  <a href="hpdftbl__callback_8c.html#a655e4f2b0d6937f6e9d9d832b5cf6872">More...</a><br /></td></tr>
+<tr class="separator:a655e4f2b0d6937f6e9d9d832b5cf6872"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae46a8eb1b5db85c5b03991efa249f649"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#ae46a8eb1b5db85c5b03991efa249f649">hpdftbl_set_canvas_cb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, <a class="el" href="hpdftbl_8h.html#a712124f09767b6dca8f28443b77c441a">hpdftbl_canvas_callback_t</a> cb)</td></tr>
 <tr class="memdesc:ae46a8eb1b5db85c5b03991efa249f649"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set cell canvas callback.  <a href="hpdftbl__callback_8c.html#ae46a8eb1b5db85c5b03991efa249f649">More...</a><br /></td></tr>
 <tr class="separator:ae46a8eb1b5db85c5b03991efa249f649"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59efa0f17f0df19ff21120aaf652068e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#a59efa0f17f0df19ff21120aaf652068e">hpdftbl_set_content_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, char *cb_name)</td></tr>
-<tr class="memdesc:a59efa0f17f0df19ff21120aaf652068e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback content function.  <a href="hpdftbl__callback_8c.html#a59efa0f17f0df19ff21120aaf652068e">More...</a><br /></td></tr>
-<tr class="separator:a59efa0f17f0df19ff21120aaf652068e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf14da59eb816b849c6edb076feb8a22"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#acf14da59eb816b849c6edb076feb8a22">hpdftbl_set_label_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, char *cb_name)</td></tr>
-<tr class="memdesc:acf14da59eb816b849c6edb076feb8a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback for table label function.  <a href="hpdftbl__callback_8c.html#acf14da59eb816b849c6edb076feb8a22">More...</a><br /></td></tr>
-<tr class="separator:acf14da59eb816b849c6edb076feb8a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01637ccd70e7deeb339a752bfc5ded45"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#a01637ccd70e7deeb339a752bfc5ded45">hpdftbl_set_cell_label_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, size_t r, size_t c, char *cb_name)</td></tr>
-<tr class="memdesc:a01637ccd70e7deeb339a752bfc5ded45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback for cell label function.  <a href="hpdftbl__callback_8c.html#a01637ccd70e7deeb339a752bfc5ded45">More...</a><br /></td></tr>
-<tr class="separator:a01637ccd70e7deeb339a752bfc5ded45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbd4867dda289f8cc5b2778e2992f5b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#afbd4867dda289f8cc5b2778e2992f5b7">hpdftbl_set_content_style_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, char *cb_name)</td></tr>
-<tr class="memdesc:afbd4867dda289f8cc5b2778e2992f5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback for table style function.  <a href="hpdftbl__callback_8c.html#afbd4867dda289f8cc5b2778e2992f5b7">More...</a><br /></td></tr>
-<tr class="separator:afbd4867dda289f8cc5b2778e2992f5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac151b83d68c070674b895abcfe0649a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#ac151b83d68c070674b895abcfe0649a2">hpdftbl_set_cell_content_style_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, size_t r, size_t c, char *cb_name)</td></tr>
-<tr class="memdesc:ac151b83d68c070674b895abcfe0649a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback for cell style function.  <a href="hpdftbl__callback_8c.html#ac151b83d68c070674b895abcfe0649a2">More...</a><br /></td></tr>
-<tr class="separator:ac151b83d68c070674b895abcfe0649a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9697fdffe071c368b1b914bf6dfbab1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#ad9697fdffe071c368b1b914bf6dfbab1">hpdftbl_set_cell_content_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, size_t r, size_t c, char *cb_name)</td></tr>
-<tr class="memdesc:ad9697fdffe071c368b1b914bf6dfbab1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback cell content function.  <a href="hpdftbl__callback_8c.html#ad9697fdffe071c368b1b914bf6dfbab1">More...</a><br /></td></tr>
-<tr class="separator:ad9697fdffe071c368b1b914bf6dfbab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a2cb2746eb7588d09b773cfb2fb729d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#a3a2cb2746eb7588d09b773cfb2fb729d">hpdftbl_set_cell_canvas_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, size_t r, size_t c, char *cb_name)</td></tr>
-<tr class="memdesc:a3a2cb2746eb7588d09b773cfb2fb729d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback cell canvas function.  <a href="hpdftbl__callback_8c.html#a3a2cb2746eb7588d09b773cfb2fb729d">More...</a><br /></td></tr>
-<tr class="separator:a3a2cb2746eb7588d09b773cfb2fb729d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dc626a68b0093da475c5bb4ad944523"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#a3dc626a68b0093da475c5bb4ad944523">hpdftbl_set_content_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, const char *cb_name)</td></tr>
+<tr class="memdesc:a3dc626a68b0093da475c5bb4ad944523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback content function.  <a href="hpdftbl__callback_8c.html#a3dc626a68b0093da475c5bb4ad944523">More...</a><br /></td></tr>
+<tr class="separator:a3dc626a68b0093da475c5bb4ad944523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ac987753b5b1aafca1ef1d646beacf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#a12ac987753b5b1aafca1ef1d646beacf">hpdftbl_set_canvas_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, const char *cb_name)</td></tr>
+<tr class="memdesc:a12ac987753b5b1aafca1ef1d646beacf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback content function.  <a href="hpdftbl__callback_8c.html#a12ac987753b5b1aafca1ef1d646beacf">More...</a><br /></td></tr>
+<tr class="separator:a12ac987753b5b1aafca1ef1d646beacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a1b62789c8dc8dc5720f5b7352d0757"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#a5a1b62789c8dc8dc5720f5b7352d0757">hpdftbl_set_label_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, const char *cb_name)</td></tr>
+<tr class="memdesc:a5a1b62789c8dc8dc5720f5b7352d0757"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback for table label function.  <a href="hpdftbl__callback_8c.html#a5a1b62789c8dc8dc5720f5b7352d0757">More...</a><br /></td></tr>
+<tr class="separator:a5a1b62789c8dc8dc5720f5b7352d0757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9713ac8130e6d6adf29f22bc76e24050"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#a9713ac8130e6d6adf29f22bc76e24050">hpdftbl_set_cell_label_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, size_t r, size_t c, const char *cb_name)</td></tr>
+<tr class="memdesc:a9713ac8130e6d6adf29f22bc76e24050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback for cell label function.  <a href="hpdftbl__callback_8c.html#a9713ac8130e6d6adf29f22bc76e24050">More...</a><br /></td></tr>
+<tr class="separator:a9713ac8130e6d6adf29f22bc76e24050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07342e77c1ba6c3f231f68cb11a9c3dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#a07342e77c1ba6c3f231f68cb11a9c3dd">hpdftbl_set_content_style_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, const char *cb_name)</td></tr>
+<tr class="memdesc:a07342e77c1ba6c3f231f68cb11a9c3dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback for table style function.  <a href="hpdftbl__callback_8c.html#a07342e77c1ba6c3f231f68cb11a9c3dd">More...</a><br /></td></tr>
+<tr class="separator:a07342e77c1ba6c3f231f68cb11a9c3dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab74f6a2e4f50cd518b7843ac2cc8d130"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#ab74f6a2e4f50cd518b7843ac2cc8d130">hpdftbl_set_cell_content_style_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, size_t r, size_t c, const char *cb_name)</td></tr>
+<tr class="memdesc:ab74f6a2e4f50cd518b7843ac2cc8d130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback for cell style function.  <a href="hpdftbl__callback_8c.html#ab74f6a2e4f50cd518b7843ac2cc8d130">More...</a><br /></td></tr>
+<tr class="separator:ab74f6a2e4f50cd518b7843ac2cc8d130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9daa7ef07ddc67d3483942c3e26bc18e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#a9daa7ef07ddc67d3483942c3e26bc18e">hpdftbl_set_cell_content_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, size_t r, size_t c, const char *cb_name)</td></tr>
+<tr class="memdesc:a9daa7ef07ddc67d3483942c3e26bc18e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback cell content function.  <a href="hpdftbl__callback_8c.html#a9daa7ef07ddc67d3483942c3e26bc18e">More...</a><br /></td></tr>
+<tr class="separator:a9daa7ef07ddc67d3483942c3e26bc18e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c27a4eddb7ac82211e6911dfa7b10ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#a8c27a4eddb7ac82211e6911dfa7b10ab">hpdftbl_set_cell_canvas_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, size_t r, size_t c, const char *cb_name)</td></tr>
+<tr class="memdesc:a8c27a4eddb7ac82211e6911dfa7b10ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify dynamic (late) loading callback cell canvas function.  <a href="hpdftbl__callback_8c.html#a8c27a4eddb7ac82211e6911dfa7b10ab">More...</a><br /></td></tr>
+<tr class="separator:a8c27a4eddb7ac82211e6911dfa7b10ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae7bac3fc20060be369d804c3dafb158"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#aae7bac3fc20060be369d804c3dafb158">hpdftbl_set_post_dyncb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, const char *cb_name)</td></tr>
+<tr class="memdesc:aae7bac3fc20060be369d804c3dafb158"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set table post processing callback.  <a href="hpdftbl__callback_8c.html#aae7bac3fc20060be369d804c3dafb158">More...</a><br /></td></tr>
+<tr class="separator:aae7bac3fc20060be369d804c3dafb158"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52f9197df715189854f0fb5561e54ad0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html#a52f9197df715189854f0fb5561e54ad0">hpdftbl_set_cell_content_style_cb</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, size_t r, size_t c, <a class="el" href="hpdftbl_8h.html#a3d711e82876140fbd564b76c08753343">hpdftbl_content_style_callback_t</a> cb)</td></tr>
 <tr class="memdesc:a52f9197df715189854f0fb5561e54ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set cell specific callback to specify cell content style.  <a href="hpdftbl__callback_8c.html#a52f9197df715189854f0fb5561e54ad0">More...</a><br /></td></tr>
 <tr class="separator:a52f9197df715189854f0fb5561e54ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,7 +165,8 @@ Functions</h2></td></tr>
 <tr class="separator:a3bb3e58ecf4bc3bda2da271d50b291fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Routines for callback function for flexible table drawing with HPDF library. </p>
+<div class="textblock"><p >Routines for plain and dynamic callback function. </p>
+<p >All functions ending with <code>_cb</code> are used to specify standard callback functions which stores a function pointer bounded at compile time. All functions ending i <code>_dyncb</code> are used to set dynamic callback functions which are bound at run time. The function name are stored as string and resolved at runtime.</p>
 <dl class="section author"><dt>Author</dt><dd>Johan Persson (<a href="#" onclick="location.href='mai'+'lto:'+'joh'+'an'+'162'+'@g'+'mai'+'l.'+'com'; return false;">johan<span class="obfuscator">.nosp@m.</span>162@<span class="obfuscator">.nosp@m.</span>gmail<span class="obfuscator">.nosp@m.</span>.com</a>)</dd></dl>
 <p>Copyright (C) 2022 Johan Persson</p>
 <dl class="section see"><dt>See also</dt><dd>LICENSE </dd></dl>
@@ -197,6 +207,47 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>-1 on failure, 0 otherwise</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl__callback_8c.html#ae9ec685b53d042bb0036debe66b4a40b" title="Set cell canvas callback.">hpdftbl_set_cell_canvas_cb()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a12ac987753b5b1aafca1ef1d646beacf" name="a12ac987753b5b1aafca1ef1d646beacf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12ac987753b5b1aafca1ef1d646beacf">&#9670;&nbsp;</a></span>hpdftbl_set_canvas_dyncb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_set_canvas_dyncb </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>cb_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Specify dynamic (late) loading callback content function. </p>
+<p >The dynamic loading of callback function is a runtime binding of the named function as a callback. The library uses the dlsym() loading of external symbols. For the external symbol to be found it can not be defined as a <code>static</code> symbol.</p>
+<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8h.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Table handle </td></tr>
+    <tr><td class="paramname">cb_name</td><td>Name of the function to be used as canvas callback. This function must follow the signature of a callback function as specified in hpdftbl_canvas_callback_t. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 on failure, 0 on success</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl__callback_8c.html#ae46a8eb1b5db85c5b03991efa249f649" title="Set cell canvas callback.">hpdftbl_set_canvas_cb()</a>, <a class="el" href="hpdftbl_8h.html#a712124f09767b6dca8f28443b77c441a" title="Type specification for the table canvas callback.">hpdftbl_canvas_callback_t</a> </dd></dl>
 
 </div>
 </div>
@@ -257,8 +308,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3a2cb2746eb7588d09b773cfb2fb729d" name="a3a2cb2746eb7588d09b773cfb2fb729d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a2cb2746eb7588d09b773cfb2fb729d">&#9670;&nbsp;</a></span>hpdftbl_set_cell_canvas_dyncb()</h2>
+<a id="a8c27a4eddb7ac82211e6911dfa7b10ab" name="a8c27a4eddb7ac82211e6911dfa7b10ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c27a4eddb7ac82211e6911dfa7b10ab">&#9670;&nbsp;</a></span>hpdftbl_set_cell_canvas_dyncb()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -284,7 +335,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>cb_name</em>&#160;</td>
         </tr>
         <tr>
@@ -296,7 +347,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specify dynamic (late) loading callback cell canvas function. </p>
-<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8c.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
+<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8h.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
@@ -366,8 +417,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad9697fdffe071c368b1b914bf6dfbab1" name="ad9697fdffe071c368b1b914bf6dfbab1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9697fdffe071c368b1b914bf6dfbab1">&#9670;&nbsp;</a></span>hpdftbl_set_cell_content_dyncb()</h2>
+<a id="a9daa7ef07ddc67d3483942c3e26bc18e" name="a9daa7ef07ddc67d3483942c3e26bc18e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9daa7ef07ddc67d3483942c3e26bc18e">&#9670;&nbsp;</a></span>hpdftbl_set_cell_content_dyncb()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -393,7 +444,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>cb_name</em>&#160;</td>
         </tr>
         <tr>
@@ -406,7 +457,7 @@ Functions</h2></td></tr>
 
 <p>Specify dynamic (late) loading callback cell content function. </p>
 <p >The dynamic loading of callback function is a runtime binding of the named function as a callback. The library uses the dlsym() loading of external symbols. For the external symbol to be found it can not be defined as a <code>static</code> symbol.</p>
-<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8c.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
+<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8h.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
@@ -476,8 +527,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac151b83d68c070674b895abcfe0649a2" name="ac151b83d68c070674b895abcfe0649a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac151b83d68c070674b895abcfe0649a2">&#9670;&nbsp;</a></span>hpdftbl_set_cell_content_style_dyncb()</h2>
+<a id="ab74f6a2e4f50cd518b7843ac2cc8d130" name="ab74f6a2e4f50cd518b7843ac2cc8d130"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab74f6a2e4f50cd518b7843ac2cc8d130">&#9670;&nbsp;</a></span>hpdftbl_set_cell_content_style_dyncb()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -503,7 +554,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>cb_name</em>&#160;</td>
         </tr>
         <tr>
@@ -516,7 +567,7 @@ Functions</h2></td></tr>
 
 <p>Specify dynamic (late) loading callback for cell style function. </p>
 <p >The dynamic loading of callback function is a runtime binding of the named function as a callback. The library uses the dlsym() loading of external symbols. For the external symbol to be found it can not be defined as a <code>static</code> symbol. The callback function must have the signature defined by hpdftbl_content_style_callback_t</p>
-<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8c.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
+<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8h.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
@@ -586,8 +637,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a01637ccd70e7deeb339a752bfc5ded45" name="a01637ccd70e7deeb339a752bfc5ded45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01637ccd70e7deeb339a752bfc5ded45">&#9670;&nbsp;</a></span>hpdftbl_set_cell_label_dyncb()</h2>
+<a id="a9713ac8130e6d6adf29f22bc76e24050" name="a9713ac8130e6d6adf29f22bc76e24050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9713ac8130e6d6adf29f22bc76e24050">&#9670;&nbsp;</a></span>hpdftbl_set_cell_label_dyncb()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -613,7 +664,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>cb_name</em>&#160;</td>
         </tr>
         <tr>
@@ -626,7 +677,7 @@ Functions</h2></td></tr>
 
 <p>Specify dynamic (late) loading callback for cell label function. </p>
 <p >The dynamic loading of callback function is a runtime binding of the named function as a callback. The library uses the dlsym() loading of external symbols. For the external symbol to be found it can not be defined as a <code>static</code> symbol. The callback function must have the signature defined by hpdftbl_content_callback_t</p>
-<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8c.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
+<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8h.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
@@ -682,8 +733,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a59efa0f17f0df19ff21120aaf652068e" name="a59efa0f17f0df19ff21120aaf652068e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59efa0f17f0df19ff21120aaf652068e">&#9670;&nbsp;</a></span>hpdftbl_set_content_dyncb()</h2>
+<a id="a3dc626a68b0093da475c5bb4ad944523" name="a3dc626a68b0093da475c5bb4ad944523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dc626a68b0093da475c5bb4ad944523">&#9670;&nbsp;</a></span>hpdftbl_set_content_dyncb()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -697,7 +748,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>cb_name</em>&#160;</td>
         </tr>
         <tr>
@@ -710,7 +761,7 @@ Functions</h2></td></tr>
 
 <p>Specify dynamic (late) loading callback content function. </p>
 <p >The dynamic loading of callback function is a runtime binding of the named function as a callback. The library uses the dlsym() loading of external symbols. For the external symbol to be found it can not be defined as a <code>static</code> symbol.</p>
-<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8c.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
+<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8h.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
@@ -764,8 +815,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afbd4867dda289f8cc5b2778e2992f5b7" name="afbd4867dda289f8cc5b2778e2992f5b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbd4867dda289f8cc5b2778e2992f5b7">&#9670;&nbsp;</a></span>hpdftbl_set_content_style_dyncb()</h2>
+<a id="a07342e77c1ba6c3f231f68cb11a9c3dd" name="a07342e77c1ba6c3f231f68cb11a9c3dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07342e77c1ba6c3f231f68cb11a9c3dd">&#9670;&nbsp;</a></span>hpdftbl_set_content_style_dyncb()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -779,7 +830,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>cb_name</em>&#160;</td>
         </tr>
         <tr>
@@ -792,7 +843,7 @@ Functions</h2></td></tr>
 
 <p>Specify dynamic (late) loading callback for table style function. </p>
 <p >The dynamic loading of callback function is a runtime binding of the named function as a callback. The library uses the dlsym() loading of external symbols. For the external symbol to be found it can not be defined as a <code>static</code> symbol. The callback function must have the signature defined by hpdftbl_content_style_callback_t</p>
-<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8c.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
+<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8h.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
@@ -876,8 +927,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="acf14da59eb816b849c6edb076feb8a22" name="acf14da59eb816b849c6edb076feb8a22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf14da59eb816b849c6edb076feb8a22">&#9670;&nbsp;</a></span>hpdftbl_set_label_dyncb()</h2>
+<a id="a5a1b62789c8dc8dc5720f5b7352d0757" name="a5a1b62789c8dc8dc5720f5b7352d0757"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a1b62789c8dc8dc5720f5b7352d0757">&#9670;&nbsp;</a></span>hpdftbl_set_label_dyncb()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -891,7 +942,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>cb_name</em>&#160;</td>
         </tr>
         <tr>
@@ -904,7 +955,7 @@ Functions</h2></td></tr>
 
 <p>Specify dynamic (late) loading callback for table label function. </p>
 <p >The dynamic loading of callback function is a runtime binding of the named function as a callback. The library uses the dlsym() loading of external symbols. For the external symbol to be found it can not be defined as a <code>static</code> symbol. symbols. The callback function must have the signature defined by hpdftbl_content_callback_t</p>
-<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8c.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
+<p >In case of error the <code>extrainfo</code> extra information is set to the name of the callback which failed to be resolved at run time. This can be retrieved in an error handler by using the <a class="el" href="hpdftbl_8h.html#a2408470d53154367525ea890ac0f0fc3" title="Get the filename and line number where the last error occurred.">hpdftbl_get_last_err_file()</a> to read it back.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Table handle </td></tr>
@@ -917,13 +968,93 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a655e4f2b0d6937f6e9d9d832b5cf6872" name="a655e4f2b0d6937f6e9d9d832b5cf6872"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a655e4f2b0d6937f6e9d9d832b5cf6872">&#9670;&nbsp;</a></span>hpdftbl_set_post_cb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_set_post_cb </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a205ce6b4703f0a270834fd575e0414e1">hpdftbl_callback_t</a>&#160;</td>
+          <td class="paramname"><em>cb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set table post processing callback. </p>
+<p >This is an optional post processing callback for anything in general to do after the table has been constructed. The callback happens after the table has been fully constructed and just before it is stroked.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Table handle </td></tr>
+    <tr><td class="paramname">cb</td><td>Callback function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 on failure, 0 otherwise </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8h.html#a205ce6b4703f0a270834fd575e0414e1" title="Callback type for optional post processing when constructing table from a data array.">hpdftbl_callback_t</a> </dd></dl>
+
+</div>
+</div>
+<a id="aae7bac3fc20060be369d804c3dafb158" name="aae7bac3fc20060be369d804c3dafb158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae7bac3fc20060be369d804c3dafb158">&#9670;&nbsp;</a></span>hpdftbl_set_post_dyncb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_set_post_dyncb </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>cb_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set table post processing callback. </p>
+<p >This is an optional post processing callback for anything in general to do after the table has been constructed. The callback only gets the table as its first and only argument. The callback happens after the table has been fully constructed and just before it is stroked.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Table handle </td></tr>
+    <tr><td class="paramname">cb_name</td><td>Callback function name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 on failure, 0 otherwise </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8h.html#a205ce6b4703f0a270834fd575e0414e1" title="Callback type for optional post processing when constructing table from a data array.">hpdftbl_callback_t</a>, <a class="el" href="hpdftbl__callback_8c.html#a655e4f2b0d6937f6e9d9d832b5cf6872" title="Set table post processing callback.">hpdftbl_set_post_cb()</a> </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="hpdftbl__callback_8c.html">hpdftbl_callback.c</a></li>
-    <li class="footer">Generated on Sun May 15 2022 21:42:01 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 23:54:13 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

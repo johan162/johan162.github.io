@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.3.0</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0-beta</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -100,7 +100,10 @@ Files</h2></td></tr>
 <tr class="memdesc:hpdftbl_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header file for libhpdftbl. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__callback_8c.html">hpdftbl_callback.c</a></td></tr>
-<tr class="memdesc:hpdftbl__callback_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routines for callback function for flexible table drawing with HPDF library. <br /></td></tr>
+<tr class="memdesc:hpdftbl__callback_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routines for plain and dynamic callback function. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__dump_8c.html">hpdftbl_dump.c</a></td></tr>
+<tr class="memdesc:hpdftbl__dump_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions for json serializing of table data structure. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html">hpdftbl_errstr.c</a></td></tr>
 <tr class="memdesc:hpdftbl__errstr_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility module to translate HPDF error codes to human readable strings. <br /></td></tr>
@@ -108,11 +111,20 @@ Files</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__grid_8c.html">hpdftbl_grid.c</a></td></tr>
 <tr class="memdesc:hpdftbl__grid_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a grid on a document for positioning. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__load_8c.html">hpdftbl_load.c</a></td></tr>
+<tr class="memdesc:hpdftbl__load_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions for load (internalizing) serialized data structure. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__theme_8c.html">hpdftbl_theme.c</a></td></tr>
 <tr class="memdesc:hpdftbl__theme_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions for theme handling. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__widget_8c.html">hpdftbl_widget.c</a></td></tr>
 <tr class="memdesc:hpdftbl__widget_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Support for drawing widgets. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="read__file_8c.html">read_file.c</a></td></tr>
+<tr class="memdesc:read__file_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for reading a file into a memory buffer. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xstr_8c.html">xstr.c</a></td></tr>
+<tr class="memdesc:xstr_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Safe version of strncat() and strncpy() taken from the BSD stdlib. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -121,7 +133,7 @@ Files</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>
-    <li class="footer">Generated on Sun May 15 2022 21:42:02 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 23:54:13 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

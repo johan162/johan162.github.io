@@ -8,5 +8,6 @@ var searchData=
   ['use_5flabelgrid_5',['use_labelgrid',['../structhpdftbl__spec.html#a34c84bffcee1f8d45930eca45fa3853b',1,'hpdftbl_spec']]],
   ['use_5flabels_6',['use_labels',['../structhpdftbl__spec.html#aa56fbcd88a785084dbfb191404213598',1,'hpdftbl_spec::use_labels()'],['../structhpdftbl__theme.html#aa56fbcd88a785084dbfb191404213598',1,'hpdftbl_theme::use_labels()']]],
   ['use_5fzebra_7',['use_zebra',['../structhpdftbl.html#a3973273e2460749a382abb60a09c8a28',1,'hpdftbl::use_zebra()'],['../structhpdftbl__theme.html#a3973273e2460749a382abb60a09c8a28',1,'hpdftbl_theme::use_zebra()']]],
-  ['using_20callbacks_8',['Using callbacks',['../sec_callbacks.html',1,'']]]
+  ['using_20callbacks_8',['Using callbacks',['../sec_callbacks.html',1,'']]],
+  ['using_20themes_9',['Using themes',['../sec_themes.html',1,'']]]
 ];

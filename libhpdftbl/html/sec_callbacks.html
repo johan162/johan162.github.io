@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.3.0</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0-beta</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('sec_callbacks.html',''); initResizable
 <div class="contents">
 <div class="textblock"><p ><a class="anchor" id="md_ContentLabelCallbacks"></a> In the "[Getting started](GettingStarted.md)" chapter we discussed the preferred way to specify data and labels in table using data arrays. This is a very good way to populate a table in the cases the data is fairly static.</p>
 <p >For data that is more dynamic and determined at runtime it is of course possible to construct the data array but the table library have one better way to do this and that is to set up label and content callbacks.</p>
-<h1><a class="anchor" id="autotoc_md21"></a>
+<h1><a class="anchor" id="autotoc_md32"></a>
 Introducing content callback functions</h1>
 <p ><b>Content callbacks</b> are functions that are called by the library for each cell and returns a string which is used as the data to be displayed. The signature for a cell content callback is defined by the type <code>hpdftbl_content_callback_t</code> which is a pointer to a function defined as:</p>
 <div class="fragment"><div class="line"><span class="keyword">typedef</span> </div>
@@ -98,8 +98,8 @@ Introducing content callback functions</h1>
 </div><!-- fragment --><p> This signature is also used for label callbacks. For style setting callback the signature is instead defined as</p>
 <div class="fragment"><div class="line"><span class="keyword">typedef</span> </div>
 <div class="line">_Bool (*<a class="code hl_typedef" href="hpdftbl_8h.html#a3d711e82876140fbd564b76c08753343">hpdftbl_content_style_callback_t</a>)(<span class="keywordtype">void</span> *, size_t, size_t, <span class="keywordtype">char</span> *content, <a class="code hl_struct" href="structtext__style.html">hpdf_text_style_t</a> *);</div>
-<div class="ttc" id="ahpdftbl_8h_html_a3d711e82876140fbd564b76c08753343"><div class="ttname"><a href="hpdftbl_8h.html#a3d711e82876140fbd564b76c08753343">hpdftbl_content_style_callback_t</a></div><div class="ttdeci">_Bool(* hpdftbl_content_style_callback_t)(void *, size_t, size_t, char *content, hpdf_text_style_t *)</div><div class="ttdoc">Type specification for the content style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:320</div></div>
-<div class="ttc" id="astructtext__style_html"><div class="ttname"><a href="structtext__style.html">text_style</a></div><div class="ttdoc">Specification of a text style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:281</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_a3d711e82876140fbd564b76c08753343"><div class="ttname"><a href="hpdftbl_8h.html#a3d711e82876140fbd564b76c08753343">hpdftbl_content_style_callback_t</a></div><div class="ttdeci">_Bool(* hpdftbl_content_style_callback_t)(void *, size_t, size_t, char *content, hpdf_text_style_t *)</div><div class="ttdoc">Type specification for the content style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:353</div></div>
+<div class="ttc" id="astructtext__style_html"><div class="ttname"><a href="structtext__style.html">text_style</a></div><div class="ttdoc">Specification of a text style.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:303</div></div>
 </div><!-- fragment --><p >To understand this lets start defining a callback function to specify content (or a label) that follows this signature.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">char</span> *</div>
 <div class="line">my_cell_cb(<span class="keywordtype">void</span> *tag, <span class="keywordtype">size_t</span> row, <span class="keywordtype">size_t</span> col) { ... }</div>
@@ -137,7 +137,7 @@ canvas that is the cell area arguments to the callback is different as it <br  /
  includes the bounding-box for th cell area. We will not further discuss this.   </td></tr>
 </table>
 <dl class="section note"><dt>Note</dt><dd><b>Returned content string</b>. The string pointer returned from a callback is never stored in the table. only printed. It is therefore perfectly possible to have a static allocated buffer in the callback function that is used to construct the content and returned from the callback.</dd></dl>
-<h1><a class="anchor" id="autotoc_md31"></a>
+<h1><a class="anchor" id="autotoc_md38"></a>
 A content callback example</h1>
 <p >Let's now construct a simple example where the content and the labels are specified with callbacks.</p>
 <p >We will create callbacks that will add a date string to the top left cell and just som dummy content in the rest of the cells. We could do this in two ways.</p>
@@ -164,7 +164,7 @@ A content callback example</h1>
 <div class="line">        ctime_r(&amp;t, buf);</div>
 <div class="line">        <span class="keywordflow">return</span> buf;</div>
 <div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="ttc" id="aunit__test_8inc_8h_html_a78c47025bf33d069feea090f6290dd1e"><div class="ttname"><a href="unit__test_8inc_8h.html#a78c47025bf33d069feea090f6290dd1e">run_as_unit_test</a></div><div class="ttdeci">_Bool run_as_unit_test</div><div class="ttdoc">For the case when we use this example as a unit/integration test we do not want data such as dates,...</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:32</div></div>
+<div class="ttc" id="aunit__test_8inc_8h_html_a78c47025bf33d069feea090f6290dd1e"><div class="ttname"><a href="unit__test_8inc_8h.html#a78c47025bf33d069feea090f6290dd1e">run_as_unit_test</a></div><div class="ttdeci">_Bool run_as_unit_test</div><div class="ttdoc">For the case when we use this example as a unit/integration test we do not want data such as dates,...</div><div class="ttdef"><b>Definition:</b> unit_test.inc.h:35</div></div>
 <div class="line">        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Wed May 4 19:01:01 2022&quot;</span>;</div>
 <div class="line">    }</div>
 <div class="line">}</div>
@@ -209,22 +209,22 @@ A content callback example</h1>
 <div class="line">    <span class="comment">// Stroke the table to the page</span></div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
 <div class="line">}</div>
-<div class="ttc" id="ahpdftbl_8c_html_a4a339735a5dae90e6349fddf6c14d152"><div class="ttname"><a href="hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152">hpdftbl_use_labelgrid</a></div><div class="ttdeci">int hpdftbl_use_labelgrid(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Shorter vertical line to mark labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:847</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_a5f4278417bc42a09aabfca973dbd31ba"><div class="ttname"><a href="hpdftbl_8c.html#a5f4278417bc42a09aabfca973dbd31ba">hpdftbl_use_labels</a></div><div class="ttdeci">int hpdftbl_use_labels(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Enable/Disable the use of cell labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:826</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_aad0f4078a299fcaebde02f16905fe51f"><div class="ttname"><a href="hpdftbl_8c.html#aad0f4078a299fcaebde02f16905fe51f">hpdftbl_create_title</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create_title(size_t rows, size_t cols, char *title)</div><div class="ttdoc">Create a new table with title top row.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:497</div></div>
-<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1726</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a4a339735a5dae90e6349fddf6c14d152"><div class="ttname"><a href="hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152">hpdftbl_use_labelgrid</a></div><div class="ttdeci">int hpdftbl_use_labelgrid(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Shorter vertical line to mark labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:681</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a5f4278417bc42a09aabfca973dbd31ba"><div class="ttname"><a href="hpdftbl_8c.html#a5f4278417bc42a09aabfca973dbd31ba">hpdftbl_use_labels</a></div><div class="ttdeci">int hpdftbl_use_labels(hpdftbl_t t, _Bool use)</div><div class="ttdoc">Enable/Disable the use of cell labels.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:660</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_aad0f4078a299fcaebde02f16905fe51f"><div class="ttname"><a href="hpdftbl_8c.html#aad0f4078a299fcaebde02f16905fe51f">hpdftbl_create_title</a></div><div class="ttdeci">hpdftbl_t hpdftbl_create_title(size_t rows, size_t cols, char *title)</div><div class="ttdoc">Create a new table with title top row.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:320</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_ae07ffb136a6e6fd7311afc0acf7cf763"><div class="ttname"><a href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a></div><div class="ttdeci">int hpdftbl_stroke(HPDF_Doc pdf, const HPDF_Page page, hpdftbl_t t, const HPDF_REAL xpos, const HPDF_REAL ypos, const HPDF_REAL width, HPDF_REAL height)</div><div class="ttdoc">Stroke the table.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:1676</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_aa8cecfc5c5c054d2875c03e77b7be15d"><div class="ttname"><a href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a></div><div class="ttdeci">#define TRUE</div><div class="ttdoc">Boolean truth value.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:47</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_aae07e6f243360d9c80c18396ed9837f2"><div class="ttname"><a href="hpdftbl_8h.html#aae07e6f243360d9c80c18396ed9837f2">hpdftbl_set_cell_content_cb</a></div><div class="ttdeci">int hpdftbl_set_cell_content_cb(hpdftbl_t t, size_t r, size_t c, hpdftbl_content_callback_t cb)</div><div class="ttdoc">Set cell content callback.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:99</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdoc">Standard A4 paper height in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:176</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:234</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_af883dd1ae69782730244efe6a76a88c2"><div class="ttname"><a href="hpdftbl_8h.html#af883dd1ae69782730244efe6a76a88c2">hpdftbl_set_label_cb</a></div><div class="ttdeci">int hpdftbl_set_label_cb(hpdftbl_t t, hpdftbl_content_callback_t cb)</div><div class="ttdoc">Set table label callback.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:204</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_affd0f2a21048bc048b4bc5a85e227a33"><div class="ttname"><a href="hpdftbl_8h.html#affd0f2a21048bc048b4bc5a85e227a33">hpdftbl_set_content_cb</a></div><div class="ttdeci">int hpdftbl_set_content_cb(hpdftbl_t t, hpdftbl_content_callback_t cb)</div><div class="ttdoc">Set table content callback.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:78</div></div>
-<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:413</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_aae07e6f243360d9c80c18396ed9837f2"><div class="ttname"><a href="hpdftbl_8h.html#aae07e6f243360d9c80c18396ed9837f2">hpdftbl_set_cell_content_cb</a></div><div class="ttdeci">int hpdftbl_set_cell_content_cb(hpdftbl_t t, size_t r, size_t c, hpdftbl_content_callback_t cb)</div><div class="ttdoc">Set cell content callback.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:105</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ac8ef7b15650c2dc4e44a4c2b75359dc2"><div class="ttname"><a href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a></div><div class="ttdeci">#define A4PAGE_HEIGHT_CM</div><div class="ttdoc">Standard A4 paper height in cm.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:198</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ad1b5b1c37e8832f507e65c595a7a2d00"><div class="ttname"><a href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a></div><div class="ttdeci">#define hpdftbl_cm2dpi(c)</div><div class="ttdoc">Convert cm to dots using the default resolution (72 DPI)</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:256</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_af883dd1ae69782730244efe6a76a88c2"><div class="ttname"><a href="hpdftbl_8h.html#af883dd1ae69782730244efe6a76a88c2">hpdftbl_set_label_cb</a></div><div class="ttdeci">int hpdftbl_set_label_cb(hpdftbl_t t, hpdftbl_content_callback_t cb)</div><div class="ttdoc">Set table label callback.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:210</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_affd0f2a21048bc048b4bc5a85e227a33"><div class="ttname"><a href="hpdftbl_8h.html#affd0f2a21048bc048b4bc5a85e227a33">hpdftbl_set_content_cb</a></div><div class="ttdeci">int hpdftbl_set_content_cb(hpdftbl_t t, hpdftbl_content_callback_t cb)</div><div class="ttdoc">Set table content callback.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:84</div></div>
+<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:470</div></div>
 </div><!-- fragment --><p> Running this example gives the result shown in <b>Figure 7.</b> below, the full source code can be found in <a class="el" href="tut_ex06_8c-example.html">tut_ex06.c</a></p>
 <p ><img src="tut_ex06.png" alt="" class="inline" title="tut_ex06.c"/>    <br  />
 </p>
 <p ><em><b>Figure 7:</b></em> <em>Using callbacks to populate the table and labels.</em></p>
-<h1><a class="anchor" id="autotoc_md33"></a>
+<h1><a class="anchor" id="autotoc_md39"></a>
 Dynamic (late binding) callbacks</h1>
 <dl class="section warning"><dt>Warning</dt><dd>This is an advanced concept and while simple in theory it does have some hidden "gotchas".</dd></dl>
 <p>All callback functions discussed above must exist att compile time so that the address of the functions can be determined by the compiler. As we will discuss later it is possible to define a table as a data structure to avoid having to write several lines of code in defining a table.</p>
@@ -238,20 +238,20 @@ Dynamic (late binding) callbacks</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#a751e4f7120ba3254074cf33463cd7450" title="Set the handle for scope of dynamic function search.">hpdftbl_set_dlhandle()</a>   </td><td class="markdownTableBodyNone">Option to set dynamic lib handle    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#a06746a109dc0c20a910e3f157909a48a" title="Specify dynamic (late) loading callback content function.">hpdftbl_set_content_dyncb()</a>   </td><td class="markdownTableBodyNone">Table content late binding    </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#ae6e4bfc5f76812623fe3d1cfe8b43395" title="Specify dynamic (late) loading callback content function.">hpdftbl_set_content_dyncb()</a>   </td><td class="markdownTableBodyNone">Table content late binding    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#ac85708a1286b5c4f2b7a74d829be2335" title="Specify dynamic (late) loading callback for table label function.">hpdftbl_set_label_dyncb()</a>   </td><td class="markdownTableBodyNone">Table label late binding    </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#ae64b46d9ef271732d23063f19e6da003" title="Specify dynamic (late) loading callback for table label function.">hpdftbl_set_label_dyncb()</a>   </td><td class="markdownTableBodyNone">Table label late binding    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#ab5a7b79afc6b2ec7106cfce3ce434939" title="Specify dynamic (late) loading callback for cell label function.">hpdftbl_set_cell_label_dyncb()</a>   </td><td class="markdownTableBodyNone">Table cell label latex binding    </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#a7d90a6cca7a1f268be49098ba40e2ad0" title="Specify dynamic (late) loading callback for cell label function.">hpdftbl_set_cell_label_dyncb()</a>   </td><td class="markdownTableBodyNone">Table cell label latex binding    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#a375ca6f25c6a04c27073000769c67b79" title="Specify dynamic (late) loading callback for table style function.">hpdftbl_set_content_style_dyncb()</a>   </td><td class="markdownTableBodyNone">Table style late binding    </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#a8b47422f9df60c4f6eb5cf6a16d61756" title="Specify dynamic (late) loading callback for table style function.">hpdftbl_set_content_style_dyncb()</a>   </td><td class="markdownTableBodyNone">Table style late binding    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#a1b0908c52d1f634ba85aa2c845386a4b" title="Specify dynamic (late) loading callback for cell style function.">hpdftbl_set_cell_content_style_dyncb()</a>   </td><td class="markdownTableBodyNone">Table cell content late binding    </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#af4863d4de5517905cd1924db35d4e9a2" title="Specify dynamic (late) loading callback for cell style function.">hpdftbl_set_cell_content_style_dyncb()</a>   </td><td class="markdownTableBodyNone">Table cell content late binding    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#a669ab153dc947436f3facbcd657a5437" title="Specify dynamic (late) loading callback cell canvas function.">hpdftbl_set_cell_canvas_dyncb()</a>   </td><td class="markdownTableBodyNone">Cell canvas callback   </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#a84227ee19d04fa651f61300fcc360ed4" title="Specify dynamic (late) loading callback cell canvas function.">hpdftbl_set_cell_canvas_dyncb()</a>   </td><td class="markdownTableBodyNone">Cell canvas callback   </td></tr>
 </table>
 <p >They are identical to hhe already described "ordinary" setting callback functions with the difference these functions take a string as argument rather than a function pointer.</p>
-<h2><a class="anchor" id="autotoc_md35"></a>
+<h2><a class="anchor" id="autotoc_md41"></a>
 Using late binding</h2>
 <p >Using late binding is very similar to what we did in the previous examples, We start by defining the callback functions we need</p>
 <p ></p>
@@ -286,12 +286,12 @@ Using late binding</h2>
 <div class="line">}</div>
 </div><!-- fragment --><p >It is however one crucial detail that cannot be overlooked. <b>None of the callbacks functions can be static!</b> If they are static they won't be found</p>
 <p >Then it is really simple. We create the table with the function that should now be familiar and then add the callbacks with the names of the callback functions as so</p>
-<div class="fragment"><div class="line">    <a class="code hl_function" href="hpdftbl_8h.html#a06746a109dc0c20a910e3f157909a48a">hpdftbl_set_content_dyncb</a>(tbl, <span class="stringliteral">&quot;cb_content&quot;</span>);</div>
-<div class="line">    <a class="code hl_function" href="hpdftbl_8h.html#ac85708a1286b5c4f2b7a74d829be2335">hpdftbl_set_label_dyncb</a>(tbl, <span class="stringliteral">&quot;cb_labels&quot;</span>);</div>
-<div class="line">    <a class="code hl_function" href="hpdftbl_8h.html#ae116f48b9b3a6568c8b9323e763263d1">hpdftbl_set_cell_content_dyncb</a>(tbl, 0, 0, <span class="stringliteral">&quot;cb_date&quot;</span>);</div>
-<div class="ttc" id="ahpdftbl_8h_html_a06746a109dc0c20a910e3f157909a48a"><div class="ttname"><a href="hpdftbl_8h.html#a06746a109dc0c20a910e3f157909a48a">hpdftbl_set_content_dyncb</a></div><div class="ttdeci">int hpdftbl_set_content_dyncb(hpdftbl_t, char *)</div><div class="ttdoc">Specify dynamic (late) loading callback content function.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:257</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ac85708a1286b5c4f2b7a74d829be2335"><div class="ttname"><a href="hpdftbl_8h.html#ac85708a1286b5c4f2b7a74d829be2335">hpdftbl_set_label_dyncb</a></div><div class="ttdeci">int hpdftbl_set_label_dyncb(hpdftbl_t, char *)</div><div class="ttdoc">Specify dynamic (late) loading callback for table label function.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:289</div></div>
-<div class="ttc" id="ahpdftbl_8h_html_ae116f48b9b3a6568c8b9323e763263d1"><div class="ttname"><a href="hpdftbl_8h.html#ae116f48b9b3a6568c8b9323e763263d1">hpdftbl_set_cell_content_dyncb</a></div><div class="ttdeci">int hpdftbl_set_cell_content_dyncb(hpdftbl_t, size_t, size_t, char *)</div><div class="ttdoc">Specify dynamic (late) loading callback cell content function.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:424</div></div>
+<div class="fragment"><div class="line">    <a class="code hl_function" href="hpdftbl_8h.html#ae6e4bfc5f76812623fe3d1cfe8b43395">hpdftbl_set_content_dyncb</a>(tbl, <span class="stringliteral">&quot;cb_content&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8h.html#ae64b46d9ef271732d23063f19e6da003">hpdftbl_set_label_dyncb</a>(tbl, <span class="stringliteral">&quot;cb_labels&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8h.html#af89970cb863c640bc1d16951b8a4b7c8">hpdftbl_set_cell_content_dyncb</a>(tbl, 0, 0, <span class="stringliteral">&quot;cb_date&quot;</span>);</div>
+<div class="ttc" id="ahpdftbl_8h_html_ae64b46d9ef271732d23063f19e6da003"><div class="ttname"><a href="hpdftbl_8h.html#ae64b46d9ef271732d23063f19e6da003">hpdftbl_set_label_dyncb</a></div><div class="ttdeci">int hpdftbl_set_label_dyncb(hpdftbl_t, const char *)</div><div class="ttdoc">Specify dynamic (late) loading callback for table label function.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:349</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_ae6e4bfc5f76812623fe3d1cfe8b43395"><div class="ttname"><a href="hpdftbl_8h.html#ae6e4bfc5f76812623fe3d1cfe8b43395">hpdftbl_set_content_dyncb</a></div><div class="ttdeci">int hpdftbl_set_content_dyncb(hpdftbl_t, const char *)</div><div class="ttdoc">Specify dynamic (late) loading callback content function.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:283</div></div>
+<div class="ttc" id="ahpdftbl_8h_html_af89970cb863c640bc1d16951b8a4b7c8"><div class="ttname"><a href="hpdftbl_8h.html#af89970cb863c640bc1d16951b8a4b7c8">hpdftbl_set_cell_content_dyncb</a></div><div class="ttdeci">int hpdftbl_set_cell_content_dyncb(hpdftbl_t, size_t, size_t, const char *)</div><div class="ttdoc">Specify dynamic (late) loading callback cell content function.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:490</div></div>
 </div><!-- fragment --><p> In this way it is possible to specify the entire table structure as a text structure that could be stored in a database or as a text file with just the name of the callback functions. However, care must be taken that they are named exactly as they are specified.</p>
 <p >The complete table function is shown below and the full example be found in <a class="el" href="tut_ex30_8c-example.html">tut_ex30.c</a></p>
 <p ></p>
@@ -305,9 +305,9 @@ Using late binding</h2>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a5f4278417bc42a09aabfca973dbd31ba">hpdftbl_use_labels</a>(tbl, <a class="code hl_define" href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#a4a339735a5dae90e6349fddf6c14d152">hpdftbl_use_labelgrid</a>(tbl, <a class="code hl_define" href="hpdftbl_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_function" href="hpdftbl_8h.html#a06746a109dc0c20a910e3f157909a48a">hpdftbl_set_content_dyncb</a>(tbl, <span class="stringliteral">&quot;cb_content&quot;</span>);</div>
-<div class="line">    <a class="code hl_function" href="hpdftbl_8h.html#ac85708a1286b5c4f2b7a74d829be2335">hpdftbl_set_label_dyncb</a>(tbl, <span class="stringliteral">&quot;cb_labels&quot;</span>);</div>
-<div class="line">    <a class="code hl_function" href="hpdftbl_8h.html#ae116f48b9b3a6568c8b9323e763263d1">hpdftbl_set_cell_content_dyncb</a>(tbl, 0, 0, <span class="stringliteral">&quot;cb_date&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8h.html#ae6e4bfc5f76812623fe3d1cfe8b43395">hpdftbl_set_content_dyncb</a>(tbl, <span class="stringliteral">&quot;cb_content&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8h.html#ae64b46d9ef271732d23063f19e6da003">hpdftbl_set_label_dyncb</a>(tbl, <span class="stringliteral">&quot;cb_labels&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="hpdftbl_8h.html#af89970cb863c640bc1d16951b8a4b7c8">hpdftbl_set_cell_content_dyncb</a>(tbl, 0, 0, <span class="stringliteral">&quot;cb_date&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">    HPDF_REAL xpos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(1);</div>
 <div class="line">    HPDF_REAL ypos = <a class="code hl_define" href="hpdftbl_8h.html#ad1b5b1c37e8832f507e65c595a7a2d00">hpdftbl_cm2dpi</a>(<a class="code hl_define" href="hpdftbl_8h.html#ac8ef7b15650c2dc4e44a4c2b75359dc2">A4PAGE_HEIGHT_CM</a> - 1);</div>
@@ -323,7 +323,7 @@ Using late binding</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 15 2022 21:42:02 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 23:54:13 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

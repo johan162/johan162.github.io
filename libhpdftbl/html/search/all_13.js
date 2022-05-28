@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['version_0',['VERSION',['../docupload_8sh_8in.html#a8a74c0bbc8b54710a0bc940972d6b40c',1,'docupload.sh.in']]]
+  ['widgets_0',['Widgets',['../md_UsingWidgets.html',1,'']]],
+  ['width_1',['width',['../structgrid__style.html#a4f29c3b2841b17180ba269809503cc9a',1,'grid_style::width()'],['../structhpdftbl__cell.html#a4f29c3b2841b17180ba269809503cc9a',1,'hpdftbl_cell::width()'],['../structhpdftbl.html#a4f29c3b2841b17180ba269809503cc9a',1,'hpdftbl::width()'],['../structhpdftbl__spec.html#a4f29c3b2841b17180ba269809503cc9a',1,'hpdftbl_spec::width()']]]
 ];

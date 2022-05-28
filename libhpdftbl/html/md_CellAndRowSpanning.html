@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.3.0</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0-beta</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -89,15 +89,15 @@ $(document).ready(function(){initNavTree('md_CellAndRowSpanning.html',''); initR
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p >The table can be modified both by adjusting the width of columns and how many rows and columns a cell is spanning.</p>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md29"></a>
 Cell and row spanning</h1>
 <p >A common way to modify a table is to have a cell spanning either multiple columns, multiple rows or both. This is done using the function</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
 <div class="line"><a class="code hl_function" href="hpdftbl_8c.html#a734be6eefc1e6f486f0ee1b6fc273a23">hpdftbl_set_cellspan</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl, </div>
 <div class="line">                     <span class="keywordtype">size_t</span> r, <span class="keywordtype">size_t</span> c, </div>
 <div class="line">                     <span class="keywordtype">size_t</span> rowspan, <span class="keywordtype">size_t</span> colspan)</div>
-<div class="ttc" id="ahpdftbl_8c_html_a734be6eefc1e6f486f0ee1b6fc273a23"><div class="ttname"><a href="hpdftbl_8c.html#a734be6eefc1e6f486f0ee1b6fc273a23">hpdftbl_set_cellspan</a></div><div class="ttdeci">int hpdftbl_set_cellspan(hpdftbl_t t, size_t r, size_t c, size_t rowspan, size_t colspan)</div><div class="ttdoc">Set cell spanning.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:980</div></div>
-<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:413</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_a734be6eefc1e6f486f0ee1b6fc273a23"><div class="ttname"><a href="hpdftbl_8c.html#a734be6eefc1e6f486f0ee1b6fc273a23">hpdftbl_set_cellspan</a></div><div class="ttdeci">int hpdftbl_set_cellspan(hpdftbl_t t, size_t r, size_t c, size_t rowspan, size_t colspan)</div><div class="ttdoc">Set cell spanning.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:833</div></div>
+<div class="ttc" id="astructhpdftbl_html"><div class="ttname"><a href="structhpdftbl.html">hpdftbl</a></div><div class="ttdoc">Core table handle.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:470</div></div>
 </div><!-- fragment --><p >The specified <code>(r,c)</code> is the row and column of the upper left cell in merged cell that spans <code>rowspan</code> rows and <code>colspans</code> columns. This is also the row and column coordinates used to accessing the combined cell.</p>
 <p >To illustrate this we will create a table with seven rows and five columns. We will merge three cells using cell-spanning as follows:</p>
 <div class="fragment"><div class="line"><a class="code hl_function" href="hpdftbl_8c.html#a734be6eefc1e6f486f0ee1b6fc273a23">hpdftbl_set_cellspan</a>(tbl, 0, 0, 1, 3);</div>
@@ -106,14 +106,14 @@ Cell and row spanning</h1>
 </div><!-- fragment --><p> For the data we will use the same setup as in <a class="el" href="tut_ex06_8c-example.html">tut_ex06.c</a> This will then give the result shown in <b>Figure 8.</b></p>
 <p ><img src="tut_ex07.png" alt="" class="inline" title="tut_ex07.png"/>    <br  />
  <em><b>Figure 8:</b></em> *Having cells spanning multiple rows and columns. <a class="el" href="tut_ex07_8c-example.html">tut_ex07.c</a>*</p>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md30"></a>
 Adjusting column width</h1>
 <p >By default, or column widths are divided equally regardless of the content. The width can be adjusted by explicitly set the relative width of a column as a percentage of the total table width. This is done with the function</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
 <div class="line"><a class="code hl_function" href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl, </div>
 <div class="line">                             <span class="keyword">const</span> <span class="keywordtype">size_t</span> c, </div>
 <div class="line">                             <span class="keyword">const</span> <span class="keywordtype">float</span> w);</div>
-<div class="ttc" id="ahpdftbl_8c_html_abd26b96fb00eb1a30862ee67f9328cc3"><div class="ttname"><a href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a></div><div class="ttdeci">int hpdftbl_set_colwidth_percent(hpdftbl_t t, size_t c, float w)</div><div class="ttdoc">Set column width as percentage of overall table width.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:595</div></div>
+<div class="ttc" id="ahpdftbl_8c_html_abd26b96fb00eb1a30862ee67f9328cc3"><div class="ttname"><a href="hpdftbl_8c.html#abd26b96fb00eb1a30862ee67f9328cc3">hpdftbl_set_colwidth_percent</a></div><div class="ttdeci">int hpdftbl_set_colwidth_percent(hpdftbl_t t, size_t c, float w)</div><div class="ttdoc">Set column width as percentage of overall table width.</div><div class="ttdef"><b>Definition:</b> hpdftbl.c:429</div></div>
 </div><!-- fragment --><p >The width is set as a percentage of the total width and is specified as a floating point value in the range [0.0, 100.0]. An example of this is shown in <b>Figure 9.</b> below. An arbitrary number of columns can be given a width. For best result leave at least one column undefined and whatever remains of the table width will be assigned to that column. There is an error to try to specify a total column width &gt; 100%.</p>
 <p ><img src="tut_ex08.png" alt="" class="inline" title="tut_ex08.png"/>    <br  />
  <em><b>Figure 9:</b></em> *Adjusting width of first columns. <a class="el" href="tut_ex08_8c-example.html">tut_ex08.c</a> * </p>
@@ -123,7 +123,7 @@ Adjusting column width</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 15 2022 21:42:02 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 23:54:13 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

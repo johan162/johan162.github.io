@@ -10,5 +10,6 @@ var docupload_8sh_8in =
     [ "PACKAGE_NAME", "docupload_8sh_8in.html#adb45c9337b46a809b21458c666361a98", null ],
     [ "PDFFILE_COPY", "docupload_8sh_8in.html#a854905fc7990b39597efe34470a06e56", null ],
     [ "PDFNAME", "docupload_8sh_8in.html#afea29a796eb859fc0fb3b73657eff8c4", null ],
+    [ "quiet_flag", "docupload_8sh_8in.html#a6b7bacd2c64bc9bc0067de27bbd373c3", null ],
     [ "VERSION", "docupload_8sh_8in.html#a8a74c0bbc8b54710a0bc940972d6b40c", null ]
 ];

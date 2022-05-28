@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['background_0',['background',['../structtext__style.html#ad4dedddd2d1175580db9daacb3b04c35',1,'text_style']]],
-  ['bottom_5fvmargin_5ffactor_1',['bottom_vmargin_factor',['../structhpdftbl.html#a58cfb4a00048cb2667f0f74fdd93bd24',1,'hpdftbl::bottom_vmargin_factor()'],['../structhpdftbl__theme.html#a58cfb4a00048cb2667f0f74fdd93bd24',1,'hpdftbl_theme::bottom_vmargin_factor()']]]
+  ['_5fhpdftbl_5fjmp_5fenv_0',['_hpdftbl_jmp_env',['../unit__test_8inc_8h.html#a48638d348834225345357d42910f5992',1,'unit_test.inc.h']]]
 ];

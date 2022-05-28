@@ -11,5 +11,6 @@ var hpdftbl__theme_8c =
     [ "HPDFTBL_DEFAULT_ZEBRA_COLOR2", "hpdftbl__theme_8c.html#a01306836e31521435a798853ebbcaaba", null ],
     [ "hpdftbl_apply_theme", "hpdftbl__theme_8c.html#aa69c87be9c690ac9f3dc8a9ecf748f36", null ],
     [ "hpdftbl_destroy_theme", "hpdftbl__theme_8c.html#a734ca37ac3b1106b98f645a0c859812c", null ],
-    [ "hpdftbl_get_default_theme", "hpdftbl__theme_8c.html#a2089087e554335e1b3f5f5940613b9aa", null ]
+    [ "hpdftbl_get_default_theme", "hpdftbl__theme_8c.html#a2089087e554335e1b3f5f5940613b9aa", null ],
+    [ "hpdftbl_get_theme", "hpdftbl__theme_8c.html#a79a72f3529f81c14dfbb03f89e3f23f9", null ]
 ];

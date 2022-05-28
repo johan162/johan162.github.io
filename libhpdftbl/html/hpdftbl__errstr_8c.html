@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.3.0</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0-beta</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -87,14 +87,18 @@ $(document).ready(function(){initNavTree('hpdftbl__errstr_8c.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">hpdftbl_errstr.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Utility module to translate HPDF error codes to human readable strings.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;hpdf.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;hpdf.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="hpdftbl_8h_source.html">hpdftbl.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
@@ -102,15 +106,234 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An entry in the error string table.  <a href="structhpdftbl__errcode__entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a60d04c865fd58d86758894edca38bf30"><td class="memItemLeft" align="right" valign="top"><a id="a60d04c865fd58d86758894edca38bf30" name="a60d04c865fd58d86758894edca38bf30"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ERR_UNKNOWN</b>&#160;&#160;&#160;11</td></tr>
+<tr class="memdesc:a60d04c865fd58d86758894edca38bf30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error code for unknown error. <br /></td></tr>
+<tr class="separator:a60d04c865fd58d86758894edca38bf30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a268dd1301690ac517421c7c90b4794a0"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html#a268dd1301690ac517421c7c90b4794a0">hpdftbl_hpdf_get_errstr</a> (const HPDF_STATUS err_code)</td></tr>
 <tr class="memdesc:a268dd1301690ac517421c7c90b4794a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to return a human readable error string for an error code from Core HPDF library.  <a href="hpdftbl__errstr_8c.html#a268dd1301690ac517421c7c90b4794a0">More...</a><br /></td></tr>
 <tr class="separator:a268dd1301690ac517421c7c90b4794a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd0ca8ffa21fef59ce1d253dab6ca160"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160">hpdftbl_get_errstr</a> (int err)</td></tr>
+<tr class="memdesc:acd0ca8ffa21fef59ce1d253dab6ca160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate a table error code to a human readable string.  <a href="hpdftbl__errstr_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160">More...</a><br /></td></tr>
+<tr class="separator:acd0ca8ffa21fef59ce1d253dab6ca160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ff1cca64859bc1acea1c323c5972f3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html#a2ff1cca64859bc1acea1c323c5972f3d">hpdftbl_default_table_error_handler</a> (<a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a> t, int r, int c, int err)</td></tr>
+<tr class="memdesc:a2ff1cca64859bc1acea1c323c5972f3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A basic default table error handler.  <a href="hpdftbl__errstr_8c.html#a2ff1cca64859bc1acea1c323c5972f3d">More...</a><br /></td></tr>
+<tr class="separator:a2ff1cca64859bc1acea1c323c5972f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ff78fe6264c00147dd5f074629230d1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html#a6ff78fe6264c00147dd5f074629230d1">hpdftbl_get_last_errcode</a> (const char **errstr, int *row, int *col)</td></tr>
+<tr class="memdesc:a6ff78fe6264c00147dd5f074629230d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return last error code.  <a href="hpdftbl__errstr_8c.html#a6ff78fe6264c00147dd5f074629230d1">More...</a><br /></td></tr>
+<tr class="separator:a6ff78fe6264c00147dd5f074629230d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2408470d53154367525ea890ac0f0fc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html#a2408470d53154367525ea890ac0f0fc3">hpdftbl_get_last_err_file</a> (int *lineno, char **file, char **extrainfo)</td></tr>
+<tr class="memdesc:a2408470d53154367525ea890ac0f0fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the filename and line number where the last error occurred.  <a href="hpdftbl__errstr_8c.html#a2408470d53154367525ea890ac0f0fc3">More...</a><br /></td></tr>
+<tr class="separator:a2408470d53154367525ea890ac0f0fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adab6f6dae9a3d74906eba7e4e92c0ea4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hpdftbl_8h.html#a21dab8b38ee079b1927e54c888e3a384">hpdftbl_error_handler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html#adab6f6dae9a3d74906eba7e4e92c0ea4">hpdftbl_set_errhandler</a> (<a class="el" href="hpdftbl_8h.html#a21dab8b38ee079b1927e54c888e3a384">hpdftbl_error_handler_t</a> err_handler)</td></tr>
+<tr class="memdesc:adab6f6dae9a3d74906eba7e4e92c0ea4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify errhandler for the table routines.  <a href="hpdftbl__errstr_8c.html#adab6f6dae9a3d74906eba7e4e92c0ea4">More...</a><br /></td></tr>
+<tr class="separator:adab6f6dae9a3d74906eba7e4e92c0ea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad7a32f59d71cbf5d7b3e8fdcdb28a8e5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html#ad7a32f59d71cbf5d7b3e8fdcdb28a8e5">hpdftbl_err_code</a> = 0</td></tr>
+<tr class="memdesc:ad7a32f59d71cbf5d7b3e8fdcdb28a8e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the last generated error code.  <a href="hpdftbl__errstr_8c.html#ad7a32f59d71cbf5d7b3e8fdcdb28a8e5">More...</a><br /></td></tr>
+<tr class="separator:ad7a32f59d71cbf5d7b3e8fdcdb28a8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4559cd6b4decb6af4748235a32a93665"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html#a4559cd6b4decb6af4748235a32a93665">hpdftbl_err_row</a> = -1</td></tr>
+<tr class="memdesc:a4559cd6b4decb6af4748235a32a93665"><td class="mdescLeft">&#160;</td><td class="mdescRight">The row where the last error was generated. <br  />
+  <a href="hpdftbl__errstr_8c.html#a4559cd6b4decb6af4748235a32a93665">More...</a><br /></td></tr>
+<tr class="separator:a4559cd6b4decb6af4748235a32a93665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac41cf094a7c1865199e929e43c592e8c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html#ac41cf094a7c1865199e929e43c592e8c">hpdftbl_err_col</a> = -1</td></tr>
+<tr class="memdesc:ac41cf094a7c1865199e929e43c592e8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The column where the last error was generated. <br  />
+  <a href="hpdftbl__errstr_8c.html#ac41cf094a7c1865199e929e43c592e8c">More...</a><br /></td></tr>
+<tr class="separator:ac41cf094a7c1865199e929e43c592e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc4a82844e8d6d167ca19a1b42eedacb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html#adc4a82844e8d6d167ca19a1b42eedacb">hpdftbl_err_lineno</a> = 0</td></tr>
+<tr class="memdesc:adc4a82844e8d6d167ca19a1b42eedacb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hold the line number of the last error occurred.  <a href="hpdftbl__errstr_8c.html#adc4a82844e8d6d167ca19a1b42eedacb">More...</a><br /></td></tr>
+<tr class="separator:adc4a82844e8d6d167ca19a1b42eedacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c766db265096ca4e1cbb3b2fec2e72"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html#a68c766db265096ca4e1cbb3b2fec2e72">hpdftbl_err_file</a> = NULL</td></tr>
+<tr class="memdesc:a68c766db265096ca4e1cbb3b2fec2e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hold the file name where the last error occurred.  <a href="hpdftbl__errstr_8c.html#a68c766db265096ca4e1cbb3b2fec2e72">More...</a><br /></td></tr>
+<tr class="separator:a68c766db265096ca4e1cbb3b2fec2e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac63917a119eb65010feb79d42a58dd2e"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hpdftbl__errstr_8c.html#ac63917a119eb65010feb79d42a58dd2e">hpdftbl_err_extrainfo</a> [1024] = {0}</td></tr>
+<tr class="memdesc:ac63917a119eb65010feb79d42a58dd2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extra info that may be specified at the point of error.  <a href="hpdftbl__errstr_8c.html#ac63917a119eb65010feb79d42a58dd2e">More...</a><br /></td></tr>
+<tr class="separator:ac63917a119eb65010feb79d42a58dd2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Utility module to translate HPDF error codes to human readable strings. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a2ff1cca64859bc1acea1c323c5972f3d" name="a2ff1cca64859bc1acea1c323c5972f3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff1cca64859bc1acea1c323c5972f3d">&#9670;&nbsp;</a></span>hpdftbl_default_table_error_handler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hpdftbl_default_table_error_handler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a30b452049c11a82d0f0404985769862e">hpdftbl_t</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>err</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A basic default table error handler. </p>
+<p >This error handler is used as a callback that outputs the error to stderr in human readable format and quits the process.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Table where the error happened (can be NULL) </td></tr>
+    <tr><td class="paramname">r</td><td>Cell row </td></tr>
+    <tr><td class="paramname">c</td><td>Cell column </td></tr>
+    <tr><td class="paramname">err</td><td>The error code </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl__errstr_8c.html#adab6f6dae9a3d74906eba7e4e92c0ea4" title="Specify errhandler for the table routines.">hpdftbl_set_errhandler()</a> </dd></dl>
+
+</div>
+</div>
+<a id="acd0ca8ffa21fef59ce1d253dab6ca160" name="acd0ca8ffa21fef59ce1d253dab6ca160"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd0ca8ffa21fef59ce1d253dab6ca160">&#9670;&nbsp;</a></span>hpdftbl_get_errstr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * hpdftbl_get_errstr </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>err</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Translate a table error code to a human readable string. </p>
+<p >The function returns a pointer to a static string that cannot be modified. It will translate both internal table error messages as well as generic HPDF library error codes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">err</td><td>The error code to be translated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Static pointer to string for valid error code, NULL otherwise</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl__errstr_8c.html#a268dd1301690ac517421c7c90b4794a0" title="Function to return a human readable error string for an error code from Core HPDF library.">hpdftbl_hpdf_get_errstr()</a> </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="hpdftbl_8h.html#a2ff1cca64859bc1acea1c323c5972f3d">hpdftbl_default_table_error_handler()</a>, and <a class="el" href="hpdftbl_8h.html#a6ff78fe6264c00147dd5f074629230d1">hpdftbl_get_last_errcode()</a>.</p>
+
+</div>
+</div>
+<a id="a2408470d53154367525ea890ac0f0fc3" name="a2408470d53154367525ea890ac0f0fc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2408470d53154367525ea890ac0f0fc3">&#9670;&nbsp;</a></span>hpdftbl_get_last_err_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hpdftbl_get_last_err_file </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>lineno</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>extrainfo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the filename and line number where the last error occurred. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lineno</td><td>Set to the line number where the error occurred </td></tr>
+    <tr><td class="paramname">file</td><td>Set to the file where the error occurred </td></tr>
+    <tr><td class="paramname">extrainfo</td><td>Extra info string that may be set at the point of error </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6ff78fe6264c00147dd5f074629230d1" name="a6ff78fe6264c00147dd5f074629230d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ff78fe6264c00147dd5f074629230d1">&#9670;&nbsp;</a></span>hpdftbl_get_last_errcode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_get_last_errcode </td>
+          <td>(</td>
+          <td class="paramtype">const char **&#160;</td>
+          <td class="paramname"><em>errstr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return last error code. </p>
+<p >Return last error code. if errstr is not NULL a human readable string describing the error will be copied to the string. The error code will be reset after call.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">errstr</td><td>A string buffer where the error string is written to </td></tr>
+    <tr><td class="paramname">row</td><td>The row where the error was found </td></tr>
+    <tr><td class="paramname">col</td><td>The col where the error was found </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The last error code </dd></dl>
+
+</div>
+</div>
 <a id="a268dd1301690ac517421c7c90b4794a0" name="a268dd1301690ac517421c7c90b4794a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a268dd1301690ac517421c7c90b4794a0">&#9670;&nbsp;</a></span>hpdftbl_hpdf_get_errstr()</h2>
 
@@ -136,7 +359,149 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to an error string, NULL if the error code is invalid</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160" title="Translate a table error code to a human readable string.">hpdftbl_get_errstr()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl__errstr_8c.html#acd0ca8ffa21fef59ce1d253dab6ca160" title="Translate a table error code to a human readable string.">hpdftbl_get_errstr()</a> </dd></dl>
+
+</div>
+</div>
+<a id="adab6f6dae9a3d74906eba7e4e92c0ea4" name="adab6f6dae9a3d74906eba7e4e92c0ea4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab6f6dae9a3d74906eba7e4e92c0ea4">&#9670;&nbsp;</a></span>hpdftbl_set_errhandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="hpdftbl_8h.html#a21dab8b38ee079b1927e54c888e3a384">hpdftbl_error_handler_t</a> hpdftbl_set_errhandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="hpdftbl_8h.html#a21dab8b38ee079b1927e54c888e3a384">hpdftbl_error_handler_t</a>&#160;</td>
+          <td class="paramname"><em>err_handler</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Specify errhandler for the table routines. </p>
+<p >Note: The library provides a basic default error handler that can be used,</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">err_handler</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The old error handler or NULL if non exists </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="hpdftbl__errstr_8c.html#a2ff1cca64859bc1acea1c323c5972f3d" title="A basic default table error handler.">hpdftbl_default_table_error_handler()</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ad7a32f59d71cbf5d7b3e8fdcdb28a8e5" name="ad7a32f59d71cbf5d7b3e8fdcdb28a8e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a32f59d71cbf5d7b3e8fdcdb28a8e5">&#9670;&nbsp;</a></span>hpdftbl_err_code</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_err_code = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stores the last generated error code. </p>
+<p >Internal variable to record last error </p>
+
+<p class="reference">Referenced by <a class="el" href="hpdftbl_8h.html#acd0ca8ffa21fef59ce1d253dab6ca160">hpdftbl_get_errstr()</a>, and <a class="el" href="hpdftbl_8h.html#a6ff78fe6264c00147dd5f074629230d1">hpdftbl_get_last_errcode()</a>.</p>
+
+</div>
+</div>
+<a id="ac41cf094a7c1865199e929e43c592e8c" name="ac41cf094a7c1865199e929e43c592e8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac41cf094a7c1865199e929e43c592e8c">&#9670;&nbsp;</a></span>hpdftbl_err_col</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_err_col = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The column where the last error was generated. <br  />
+ </p>
+<p >Internal variable to record last error </p>
+
+</div>
+</div>
+<a id="ac63917a119eb65010feb79d42a58dd2e" name="ac63917a119eb65010feb79d42a58dd2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac63917a119eb65010feb79d42a58dd2e">&#9670;&nbsp;</a></span>hpdftbl_err_extrainfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char hpdftbl_err_extrainfo[1024] = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extra info that may be specified at the point of error. </p>
+<p >Internal variable to record last error </p>
+
+<p class="reference">Referenced by <a class="el" href="hpdftbl_8h.html#a2408470d53154367525ea890ac0f0fc3">hpdftbl_get_last_err_file()</a>.</p>
+
+</div>
+</div>
+<a id="a68c766db265096ca4e1cbb3b2fec2e72" name="a68c766db265096ca4e1cbb3b2fec2e72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68c766db265096ca4e1cbb3b2fec2e72">&#9670;&nbsp;</a></span>hpdftbl_err_file</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* hpdftbl_err_file = NULL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hold the file name where the last error occurred. </p>
+<p >Internal variable to record last error </p>
+
+<p class="reference">Referenced by <a class="el" href="hpdftbl_8h.html#a2408470d53154367525ea890ac0f0fc3">hpdftbl_get_last_err_file()</a>.</p>
+
+</div>
+</div>
+<a id="adc4a82844e8d6d167ca19a1b42eedacb" name="adc4a82844e8d6d167ca19a1b42eedacb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc4a82844e8d6d167ca19a1b42eedacb">&#9670;&nbsp;</a></span>hpdftbl_err_lineno</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_err_lineno = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hold the line number of the last error occurred. </p>
+<p >Internal variable to record last error </p>
+
+<p class="reference">Referenced by <a class="el" href="hpdftbl_8h.html#a2408470d53154367525ea890ac0f0fc3">hpdftbl_get_last_err_file()</a>.</p>
+
+</div>
+</div>
+<a id="a4559cd6b4decb6af4748235a32a93665" name="a4559cd6b4decb6af4748235a32a93665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4559cd6b4decb6af4748235a32a93665">&#9670;&nbsp;</a></span>hpdftbl_err_row</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hpdftbl_err_row = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The row where the last error was generated. <br  />
+ </p>
+<p >Internal variable to record last error </p>
 
 </div>
 </div>
@@ -146,7 +511,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="hpdftbl__errstr_8c.html">hpdftbl_errstr.c</a></li>
-    <li class="footer">Generated on Sun May 15 2022 21:42:01 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 23:54:13 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

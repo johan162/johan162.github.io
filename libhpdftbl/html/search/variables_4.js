@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['font_0',['font',['../structtext__style.html#a2ccdf0b1af9425d3da05630f4ad83e55',1,'text_style']]],
-  ['fsize_1',['fsize',['../structtext__style.html#a619758665ef84d588ff83b68aedca64b',1,'text_style']]]
+  ['dash_5fptn_0',['dash_ptn',['../structline__dash__style.html#a5e0de5d468ec91e16a823efbd46f32d0',1,'line_dash_style']]],
+  ['delta_5fx_1',['delta_x',['../structhpdftbl__cell.html#a22b383eb4a0e2aa333e6579aeb3b2461',1,'hpdftbl_cell']]],
+  ['delta_5fy_2',['delta_y',['../structhpdftbl__cell.html#a400b603bfa38f2d8794d6c7fb6e94fd2',1,'hpdftbl_cell']]]
 ];
