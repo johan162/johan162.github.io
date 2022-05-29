@@ -137,7 +137,7 @@ canvas that is the cell area arguments to the callback is different as it <br  /
  includes the bounding-box for th cell area. We will not further discuss this.   </td></tr>
 </table>
 <dl class="section note"><dt>Note</dt><dd><b>Returned content string</b>. The string pointer returned from a callback is never stored in the table. only printed. It is therefore perfectly possible to have a static allocated buffer in the callback function that is used to construct the content and returned from the callback.</dd></dl>
-<h1><a class="anchor" id="autotoc_md38"></a>
+<h1><a class="anchor" id="autotoc_md37"></a>
 A content callback example</h1>
 <p >Let's now construct a simple example where the content and the labels are specified with callbacks.</p>
 <p >We will create callbacks that will add a date string to the top left cell and just som dummy content in the rest of the cells. We could do this in two ways.</p>
@@ -224,7 +224,7 @@ A content callback example</h1>
 <p ><img src="tut_ex06.png" alt="" class="inline" title="tut_ex06.c"/>    <br  />
 </p>
 <p ><em><b>Figure 7:</b></em> <em>Using callbacks to populate the table and labels.</em></p>
-<h1><a class="anchor" id="autotoc_md39"></a>
+<h1><a class="anchor" id="autotoc_md38"></a>
 Dynamic (late binding) callbacks</h1>
 <dl class="section warning"><dt>Warning</dt><dd>This is an advanced concept and while simple in theory it does have some hidden "gotchas".</dd></dl>
 <p>All callback functions discussed above must exist att compile time so that the address of the functions can be determined by the compiler. As we will discuss later it is possible to define a table as a data structure to avoid having to write several lines of code in defining a table.</p>
@@ -251,7 +251,7 @@ Dynamic (late binding) callbacks</h1>
 <td class="markdownTableBodyNone"><a class="el" href="hpdftbl_8h.html#a84227ee19d04fa651f61300fcc360ed4" title="Specify dynamic (late) loading callback cell canvas function.">hpdftbl_set_cell_canvas_dyncb()</a>   </td><td class="markdownTableBodyNone">Cell canvas callback   </td></tr>
 </table>
 <p >They are identical to hhe already described "ordinary" setting callback functions with the difference these functions take a string as argument rather than a function pointer.</p>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md39"></a>
 Using late binding</h2>
 <p >Using late binding is very similar to what we did in the previous examples, We start by defining the callback functions we need</p>
 <p ></p>
@@ -323,7 +323,7 @@ Using late binding</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat May 28 2022 23:54:13 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun May 29 2022 08:16:58 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>
