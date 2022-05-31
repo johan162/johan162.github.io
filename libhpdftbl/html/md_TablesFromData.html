@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0-beta</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('md_TablesFromData.html',''); initResiz
 <div class="textblock"><p >So far we have constructed the layout of table by issuing API calls per table to set up, for example, the column widths and what cells should merge with what other cells and so on. Previously we saw that data to be put in the table could be specified by either directly issuing API calls per cell, using a 2D array that we populate with data and then finally use callbacks to generate the data in the cells.</p>
 <p >The final and most powerful way of constructing a table is to define the table structure as data. This <em>structural data</em> together with a style theme can completely define a table.</p>
 <p >This will allow the dynamic construction of tables with only one API call instead of the multiple call required to construct a table the usual way. It can initially seem more complex but for advanced table this is indeed a much simpler and easy to maintain. In fact, this will allow a table to be (almost, we'll get back to the limitations) defined entirely in a database and makes it possible to adjust tha table as the data changes without ever updating the code (or recompile).</p>
-<h1><a class="anchor" id="autotoc_md55"></a>
+<h1><a class="anchor" id="autotoc_md65"></a>
 Defining a table in data</h1>
 <p >There are two data structure that are used when defining a table. First there is a data structure for the overall table specifics and then in that structure a structure to specify the layout of each cell. In addition, a theme needs to be defined (see section <a class="el" href="sec_themes.html">Themes</a>). It is possible to omit the theme by specifying <code>NULL</code> in which case the default theme will be used.</p>
 <p >To stroke a table from data the following API call is used</p>
@@ -162,7 +162,7 @@ Defining a table in data</h1>
 <div class="ttc" id="astructhpdftbl__cell__spec_html_acf60de4c64d60c1b9449c056bc6bfcf7"><div class="ttname"><a href="structhpdftbl__cell__spec.html#acf60de4c64d60c1b9449c056bc6bfcf7">hpdftbl_cell_spec::label</a></div><div class="ttdeci">char * label</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:579</div></div>
 <div class="ttc" id="astructhpdftbl__cell__spec_html_ae74f1d9590853b94da0728301f50f837"><div class="ttname"><a href="structhpdftbl__cell__spec.html#ae74f1d9590853b94da0728301f50f837">hpdftbl_cell_spec::colspan</a></div><div class="ttdeci">unsigned colspan</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:577</div></div>
 <div class="ttc" id="astructhpdftbl__cell__spec_html_afa7f611082a18bdef83176786d1e5114"><div class="ttname"><a href="structhpdftbl__cell__spec.html#afa7f611082a18bdef83176786d1e5114">hpdftbl_cell_spec::label_cb</a></div><div class="ttdeci">hpdftbl_content_callback_t label_cb</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:583</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md58"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md68"></a>
 A first example of defining table as data</h1>
 <p >To understand how this is done lets start to define a basic 3x3 table with header row (so 4x3 in total) as data. First we create an instance of the table data</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structhpdftbl__spec.html">hpdftbl_spec_t</a> tbl_spec = {</div>
@@ -203,7 +203,7 @@ A first example of defining table as data</h1>
 </div><!-- fragment --><p >The result is as expected and shown in <b>Figure 13</b> but with much less code!</p>
 <p ><img src="tut_ex13_1.png" alt="" class="inline" title="tut_ex13_1"/>    <br  />
  <em><b>Figure 13:</b></em> *Defining a table with a data structure <a class="el" href="tut_ex13_1_8c-example.html">tut_ex13_1.c</a>*</p>
-<h1><a class="anchor" id="autotoc_md62"></a>
+<h1><a class="anchor" id="autotoc_md69"></a>
 A second example of defining a table as data</h1>
 <p >In the previous example we kept it simple didn't specify any format or content fór a table cell. Let us therefore create a slightly more complex example where we create a form which easily could be used to display data records from a DB.</p>
 <p >The nice thing about separating layout and table structure from the data population in the callbacks is that this can almost be seen as a poor man's model-view-controller where the table structure is completely separate from the data (and how it is created).</p>
@@ -321,7 +321,7 @@ A second example of defining a table as data</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 29 2022 08:16:58 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue May 31 2022 08:31:59 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

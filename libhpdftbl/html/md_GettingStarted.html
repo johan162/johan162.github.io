@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0-beta</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('md_GettingStarted.html',''); initResiz
 <div class="contents">
 <div class="textblock"><p >In this section we will introduce the basic usage of the <code>hpdftbl</code> library. We will start simple and work us all the way to complex tables and explain what is happening as we go along.</p>
 <p >We will not assume any knowledge of the table library, but <b>we will assume that you are familiar with the plain Haru PDF library</b>.</p>
-<h1><a class="anchor" id="autotoc_md24"></a>
+<h1><a class="anchor" id="autotoc_md22"></a>
 Creating an infrastructure for the examples</h1>
 <p >Before we start creating a table we need to set up a plain PDF page with the core HPDF library. The HPDF library has excellent documentation on how to do this, and we will use the same basic setup for all our examples. We will create a document in A4 size that have one page that will be written to a file whose name is taken from the program arguments. For this we use a few utility functions and our <code>main()</code> will always have the following structure:</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
@@ -135,7 +135,7 @@ Creating an infrastructure for the examples</h1>
 <dl class="section note"><dt>Note</dt><dd>In order to make the examples robust and compatible with both Windows and Linux/OSX systems some conditional compilation instructions are also used, but we will not display them while discussing the basic usage to keep the focus on what matters.</dd></dl>
 <p>The full source for all example are available in the <code>examples/</code> directory as well as in the Examples section of this manual.</p>
 <p >&#160;</p>
-<h1><a class="anchor" id="autotoc_md26"></a>
+<h1><a class="anchor" id="autotoc_md24"></a>
 Your first table</h1>
 <p ><a class="el" href="tut_ex01_8c-example.html">tut_ex01.c</a></p>
 <p >The first example shows the absolute most basic usage. We create a 2x2 table in steps as follows. We will follow the framework oulined above. Our first example is tut_ex01.c</p>
@@ -227,7 +227,7 @@ Your first table</h1>
 <p ><img src="tut_ex01grid.png" alt="" class="inline" title="Figure 2 - tut_ex01grid.png"/>    <br  />
  <em><b>Figure 2:</b></em> <em>Your first table in the page coordinate system showing the upper left part of the paper.</em></p>
 <p >Since this is an A4 page it will have a height of roughly 841 points or 29.7cm. In our setup it is possible to generate thegrid by setting the third argument to <a class="el" href="unit__test_8inc_8h.html#af5962cfe76bc5cd6e1e6448bb2245951" title="Create a new PDF document with one page in A4 format.">setup_hpdf()</a> to <code>TRUE</code>. This can be done by updating the <a class="el" href="unit__test_8inc_8h.html#aff4ec7c85c8078f491e81904b8181679" title="Macro to create a main() function to call the table creation function for each example....">TUTEX_MAIN()</a> macro</p>
-<h1><a class="anchor" id="autotoc_md27"></a>
+<h1><a class="anchor" id="autotoc_md26"></a>
 Your second table - disconnecting program structure from data</h1>
 <p >One drawback of the program in the first example above is that if we want to have a different table size we need to actually change the code since we need one function call to store the data to be displayed in each cell. Wouldn't it be better if we could just supply an array with the data we want to display?</p>
 <p >The function to do just that is</p>
@@ -262,7 +262,7 @@ Your second table - disconnecting program structure from data</h1>
 <p >In the above (small) example it might not have been a big safe but if you have a table with 20x10 rows * cols then you will soon appreciate this way of specifying data.</p>
 <p >There is even one more way of specifying data that in some situations are more efficient and allows a clear division between the table structure and look&amp;feel and its data. This more efficient way is achieved by using cell callbacks either directly in individual cells or in one go by specifying the entire table as a data structure by using the <code><a class="el" href="hpdftbl_8c.html#ae606b38b3769692e75eba490964216c9" title="Construct the table from a array specification.">hpdftbl_stroke_from_data()</a></code> function. This will be described later when we discuss how to use callback functions.</p>
 <p >But now it is time to explain the <code>NULL</code> value in the first example when we specified the content with the <code><a class="el" href="hpdftbl_8c.html#af54f8e11561f4ffeb639a270ae9fe6f9" title="Set content for specific cell.">hpdftbl_set_cell()</a></code> function.</p>
-<h1><a class="anchor" id="autotoc_md28"></a>
+<h1><a class="anchor" id="autotoc_md27"></a>
 Adding a header row</h1>
 <p >While it is possible (as discussed in section <a class="el" href="ch_styleandfontsetting.html">Style and font setting</a> and <a class="el" href="ch_styleandfontsetting.html#sec_specifyingfontsandcolors">Fonts and Colors</a> ) to manually adjust the font, size, style, background etc. on each cell individually there is a convenient shortcut to create a basic table with a header using the <code><a class="el" href="hpdftbl_8c.html#af0b3ef1634a1dd01dec3e052d7cdf3c5" title="Enable/disable the interpretation of the top row as a header row.">hpdftbl_use_header()</a></code> function. By modifying the code above and add this line we get the following code and resulting table</p>
  <div class="fragment"><div class="line">create_table_ex02_1(HPDF_Doc pdf_doc, HPDF_Page pdf_page) {</div>
@@ -290,7 +290,7 @@ Adding a header row</h1>
 </div><!-- fragment --><p >The resulting table can be seen in <b>Figure 4</b>. We also modified the dummy data to have the work "Header" text for <code>row==0</code> in the first row (for details see <a class="el" href="tut_ex02_1_8c-example.html">tut_ex02_1.c</a> )</p>
 <p ><img src="tut_ex02_1.png" alt="" class="inline" title="Figure 4 - tut_ex02_1.png"/>    <br  />
  <em><b>Figure 4:</b></em> <em>Adding automatic header formatted row (<a class="el" href="tut_ex02_1_8c-example.html">tut_ex02_1.c</a>)</em></p>
-<h1><a class="anchor" id="autotoc_md29"></a>
+<h1><a class="anchor" id="autotoc_md28"></a>
 Using labels in the table cells</h1>
 <p >A variant of a table is to present data with a short label describing what kind of data is displayed. This is often used when a table is used to present a data form. An example of this is shown in <b>Figure 4.</b> below.</p>
 <p ><img src="tut_ex03.png" alt="" class="inline" title="Figure 4 - tut_ex03.png"/>    <br  />
@@ -362,7 +362,7 @@ Using labels in the table cells</h1>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
 <div class="line">}</div>
 </div><!-- fragment --><p> <a class="el" href="tut_ex04_8c-example.html">tut_ex04.c</a></p>
-<h1><a class="anchor" id="autotoc_md30"></a>
+<h1><a class="anchor" id="autotoc_md29"></a>
 Adding a table title</h1>
 <p >We have one last part of the table we haven't yet used and that is the table title. In the previous examples we created a table using <code><a class="el" href="hpdftbl_8c.html#ab14d35a34e1bf7633e7edcc92a273754" title="Create a new table with no title.">hpdftbl_create()</a></code> but there is also <code><a class="el" href="hpdftbl_8c.html#aad0f4078a299fcaebde02f16905fe51f" title="Create a new table with title top row.">hpdftbl_create_title()</a></code>. A title can also be added to an existing table (or perhaps updated) using <code><a class="el" href="hpdftbl_8c.html#acda02a218a3499273febac76d8889dfb" title="Set table title.">hpdftbl_set_title()</a></code></p>
 <p >To create a table with a title</p>
@@ -397,7 +397,7 @@ Adding a table title</h1>
 <div class="line">    <span class="comment">// Stroke the table to the page</span></div>
 <div class="line">    <a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md31"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md30"></a>
 Adjusting fonts and colors</h1>
 <p >The one thing we have skipped over so far and just used the defaults is the look &amp; feel of the table as far as colors and fonts go. It is possible to adjust these setting at several levels of granularity. It is possible to:</p>
 <ol type="1">
@@ -414,7 +414,7 @@ Adjusting fonts and colors</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 29 2022 08:16:58 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue May 31 2022 08:31:58 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

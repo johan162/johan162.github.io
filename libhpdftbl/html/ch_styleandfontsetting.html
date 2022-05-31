@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0-beta</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -175,7 +175,7 @@ Adjusting fonts and colors</h1>
 </div><!-- fragment --><p >which will allow the easier specification of color such as</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#define HPDF_COLOR_ORANGE              HPDF_RGB_CONVERT(0xF5, 0xD0, 0x98);</span></div>
 <div class="line"><span class="preprocessor">#define HPDF_COLOR_ALMOST_BLACK        HPDF_RGB_CONVERT(0x14, 0x14, 0x14);</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md41"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md64"></a>
 Using style callbacks</h1>
 <p >In much the same way as callbacks can be used for specifying content and labels so can a callback be used to specify the style of a cell or the entire table.</p>
 <p >A style callback has the following signature</p>
@@ -218,7 +218,7 @@ Using style callbacks</h1>
 <div class="ttc" id="ahpdftbl_8h_html_a3bb3e58ecf4bc3bda2da271d50b291fe"><div class="ttname"><a href="hpdftbl_8h.html#a3bb3e58ecf4bc3bda2da271d50b291fe">hpdftbl_set_content_style_cb</a></div><div class="ttdeci">int hpdftbl_set_content_style_cb(hpdftbl_t t, hpdftbl_content_style_callback_t cb)</div><div class="ttdoc">Set callback to specify cell content style.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:599</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a52f9197df715189854f0fb5561e54ad0"><div class="ttname"><a href="hpdftbl_8h.html#a52f9197df715189854f0fb5561e54ad0">hpdftbl_set_cell_content_style_cb</a></div><div class="ttdeci">int hpdftbl_set_cell_content_style_cb(hpdftbl_t t, size_t r, size_t c, hpdftbl_content_style_callback_t cb)</div><div class="ttdoc">Set cell specific callback to specify cell content style.</div><div class="ttdef"><b>Definition:</b> hpdftbl_callback.c:573</div></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Due to som technicalities <b>the style callbacks are called twice</b> per cell. The first call is necessary to set up the background canvas and at that stage the content is not necessarily known since it could be later specified with a content callback. The first time the callback is made the <code>content</code> parameter is always guaranteed to be <code>NULL</code></dd></dl>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<h2><a class="anchor" id="autotoc_md67"></a>
 Style callback example</h2>
 <p >An example of a callback function to set a background color for a header row/column for a table could for example be done as follows</p>
 <div class="fragment"><div class="line">_Bool</div>
@@ -409,7 +409,7 @@ Adjusting grid line styles</h1>
 <img src="tut_ex20.png" alt=""/>
 </div>
 <p ></p>
-<h1><a class="anchor" id="autotoc_md43"></a>
+<h1><a class="anchor" id="autotoc_md70"></a>
 Adding zebra lines in a table</h1>
 <p >A common way to make it easier to read a table is to make every other row a different color. This is sometimes known as zebra lines (or rows). This can be easily accomplished in the library by using the functions</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
@@ -488,7 +488,7 @@ Adding zebra lines in a table</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 29 2022 08:16:58 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue May 31 2022 08:31:59 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

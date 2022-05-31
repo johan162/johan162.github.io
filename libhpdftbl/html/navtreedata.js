@@ -26,46 +26,46 @@ var NAVTREE =
 [
   [ "libhpdftbl", "index.html", [
     [ "Overview", "index.html", [
-      [ "What is this?", "index.html#autotoc_md1", null ],
-      [ "Features", "index.html#autotoc_md2", null ],
-      [ "Some Examples", "index.html#autotoc_md3", [
-        [ "Example 1 - Plain table with header", "index.html#autotoc_md4", null ],
-        [ "Example 2 - Table with cell labels", "index.html#autotoc_md5", null ],
-        [ "Example 2 - Plain table with row/column spanning and table title", "index.html#autotoc_md6", null ],
-        [ "Example 3 - Table with labels and cell widgets", "index.html#autotoc_md7", null ]
+      [ "What is this?", "index.html#autotoc_md2", null ],
+      [ "Features", "index.html#autotoc_md3", null ],
+      [ "Some Examples", "index.html#autotoc_md4", [
+        [ "Example 1 - Plain table with header", "index.html#autotoc_md5", null ],
+        [ "Example 2 - Table with cell labels", "index.html#autotoc_md6", null ],
+        [ "Example 2 - Plain table with row/column spanning and table title", "index.html#autotoc_md7", null ],
+        [ "Example 3 - Table with labels and cell widgets", "index.html#autotoc_md9", null ]
       ] ]
     ] ],
     [ "Building the library", "md_Building.html", [
-      [ "The short version; TL; DR", "md_Building.html#autotoc_md13", null ],
+      [ "The short version; TL; DR", "md_Building.html#autotoc_md10", null ],
       [ "Pre-requisites", "md_Building.html#pre-req", [
-        [ "Different versions of iconv on OSX", "md_Building.html#autotoc_md14", null ],
-        [ "OSX native libiconv", "md_Building.html#autotoc_md15", null ],
-        [ "OSX GNU port of libiconv", "md_Building.html#autotoc_md16", null ],
-        [ "Troubleshooting OSX <tt>libiconv</tt>", "md_Building.html#autotoc_md17", null ]
+        [ "Different versions of iconv on OSX", "md_Building.html#autotoc_md11", null ],
+        [ "OSX native libiconv", "md_Building.html#autotoc_md12", null ],
+        [ "OSX GNU port of libiconv", "md_Building.html#autotoc_md13", null ],
+        [ "Troubleshooting OSX <tt>libiconv</tt>", "md_Building.html#autotoc_md14", null ]
       ] ],
       [ "Building the library from source", "md_Building.html#building-from-source", [
-        [ "Rebuilding using av existing build environment", "md_Building.html#autotoc_md18", null ],
-        [ "Rebuilding from a cloned repo", "md_Building.html#autotoc_md19", null ]
+        [ "Rebuilding using av existing build environment", "md_Building.html#autotoc_md15", null ],
+        [ "Rebuilding from a cloned repo", "md_Building.html#autotoc_md16", null ]
       ] ],
-      [ "Miscellaneous", "md_Building.html#autotoc_md20", [
+      [ "Miscellaneous", "md_Building.html#autotoc_md17", [
         [ "Some notes on Compiling for debugging", "md_Building.html#lib-debug", null ],
-        [ "Some notes on updating the documentation", "md_Building.html#autotoc_md21", null ],
-        [ "Some notes on Windows build", "md_Building.html#autotoc_md22", null ],
-        [ "Some notes on using C or C++ to build", "md_Building.html#autotoc_md23", null ]
+        [ "Some notes on updating the documentation", "md_Building.html#autotoc_md19", null ],
+        [ "Some notes on Windows build", "md_Building.html#autotoc_md20", null ],
+        [ "Some notes on using C or C++ to build", "md_Building.html#autotoc_md21", null ]
       ] ]
     ] ],
     [ "Getting started", "md_GettingStarted.html", [
-      [ "Creating an infrastructure for the examples", "md_GettingStarted.html#autotoc_md24", null ],
-      [ "Your first table", "md_GettingStarted.html#autotoc_md26", null ],
-      [ "Your second table - disconnecting program structure from data", "md_GettingStarted.html#autotoc_md27", null ],
-      [ "Adding a header row", "md_GettingStarted.html#autotoc_md28", null ],
-      [ "Using labels in the table cells", "md_GettingStarted.html#autotoc_md29", null ],
-      [ "Adding a table title", "md_GettingStarted.html#autotoc_md30", null ],
-      [ "Adjusting fonts and colors", "md_GettingStarted.html#autotoc_md31", null ]
+      [ "Creating an infrastructure for the examples", "md_GettingStarted.html#autotoc_md22", null ],
+      [ "Your first table", "md_GettingStarted.html#autotoc_md24", null ],
+      [ "Your second table - disconnecting program structure from data", "md_GettingStarted.html#autotoc_md26", null ],
+      [ "Adding a header row", "md_GettingStarted.html#autotoc_md27", null ],
+      [ "Using labels in the table cells", "md_GettingStarted.html#autotoc_md28", null ],
+      [ "Adding a table title", "md_GettingStarted.html#autotoc_md29", null ],
+      [ "Adjusting fonts and colors", "md_GettingStarted.html#autotoc_md30", null ]
     ] ],
     [ "Cell and row spanning", "md_CellAndRowSpanning.html", [
-      [ "Cell and row spanning", "md_CellAndRowSpanning.html#autotoc_md11", null ],
-      [ "Adjusting column width", "md_CellAndRowSpanning.html#autotoc_md12", null ]
+      [ "Cell and row spanning", "md_CellAndRowSpanning.html#autotoc_md23", null ],
+      [ "Adjusting column width", "md_CellAndRowSpanning.html#autotoc_md25", null ]
     ] ],
     [ "Using callbacks", "sec_callbacks.html", [
       [ "Introducing content callback functions", "sec_callbacks.html#autotoc_md32", null ],
@@ -82,45 +82,45 @@ var NAVTREE =
     ] ],
     [ "Font and style setting", "ch_styleandfontsetting.html", [
       [ "Adjusting fonts and colors", "ch_styleandfontsetting.html#sec_specifyingfontsandcolors", null ],
-      [ "Using style callbacks", "ch_styleandfontsetting.html#autotoc_md41", [
-        [ "Style callback example", "ch_styleandfontsetting.html#autotoc_md42", null ]
+      [ "Using style callbacks", "ch_styleandfontsetting.html#autotoc_md64", [
+        [ "Style callback example", "ch_styleandfontsetting.html#autotoc_md67", null ]
       ] ],
       [ "Adjusting grid line styles", "ch_styleandfontsetting.html#sec_borderstyles", null ],
-      [ "Adding zebra lines in a table", "ch_styleandfontsetting.html#autotoc_md43", null ]
+      [ "Adding zebra lines in a table", "ch_styleandfontsetting.html#autotoc_md70", null ]
     ] ],
     [ "Using themes", "sec_themes.html", [
-      [ "Example of serializing theme and table", "sec_themes.html#autotoc_md40", null ]
+      [ "Example of serializing theme and table", "sec_themes.html#autotoc_md42", null ]
     ] ],
     [ "Tables layout from data", "md_TablesFromData.html", [
-      [ "Defining a table in data", "md_TablesFromData.html#autotoc_md55", null ],
-      [ "A first example of defining table as data", "md_TablesFromData.html#autotoc_md58", null ],
-      [ "A second example of defining a table as data", "md_TablesFromData.html#autotoc_md62", null ]
+      [ "Defining a table in data", "md_TablesFromData.html#autotoc_md65", null ],
+      [ "A first example of defining table as data", "md_TablesFromData.html#autotoc_md68", null ],
+      [ "A second example of defining a table as data", "md_TablesFromData.html#autotoc_md69", null ]
     ] ],
     [ "Widgets", "md_UsingWidgets.html", [
-      [ "Overview", "md_UsingWidgets.html#autotoc_md56", [
-        [ "1. Segmented horizontal bar example", "md_UsingWidgets.html#autotoc_md57", null ],
-        [ "2. Horizontal bar example", "md_UsingWidgets.html#autotoc_md59", null ],
-        [ "3. Signal strength meter example", "md_UsingWidgets.html#autotoc_md60", null ],
-        [ "4. Radio sliding button example", "md_UsingWidgets.html#autotoc_md61", null ],
-        [ "5. Boxed letters example", "md_UsingWidgets.html#autotoc_md63", null ]
+      [ "Overview", "md_UsingWidgets.html#autotoc_md44", [
+        [ "1. Segmented horizontal bar example", "md_UsingWidgets.html#autotoc_md45", null ],
+        [ "2. Horizontal bar example", "md_UsingWidgets.html#autotoc_md46", null ],
+        [ "3. Signal strength meter example", "md_UsingWidgets.html#autotoc_md47", null ],
+        [ "4. Radio sliding button example", "md_UsingWidgets.html#autotoc_md48", null ],
+        [ "5. Boxed letters example", "md_UsingWidgets.html#autotoc_md49", null ]
       ] ],
-      [ "Widget functions", "md_UsingWidgets.html#autotoc_md64", [
-        [ "Segmented horizontal bar defining function", "md_UsingWidgets.html#autotoc_md65", null ],
-        [ "Horizontal bar defining function", "md_UsingWidgets.html#autotoc_md66", null ],
-        [ "Signal strength defining function", "md_UsingWidgets.html#autotoc_md67", null ],
-        [ "Radio sliding button defining function", "md_UsingWidgets.html#autotoc_md68", null ],
-        [ "Boxed letters defining function", "md_UsingWidgets.html#autotoc_md69", null ]
+      [ "Widget functions", "md_UsingWidgets.html#autotoc_md50", [
+        [ "Segmented horizontal bar defining function", "md_UsingWidgets.html#autotoc_md52", null ],
+        [ "Horizontal bar defining function", "md_UsingWidgets.html#autotoc_md53", null ],
+        [ "Signal strength defining function", "md_UsingWidgets.html#autotoc_md55", null ],
+        [ "Radio sliding button defining function", "md_UsingWidgets.html#autotoc_md57", null ],
+        [ "Boxed letters defining function", "md_UsingWidgets.html#autotoc_md58", null ]
       ] ],
-      [ "Usage", "md_UsingWidgets.html#autotoc_md70", null ]
+      [ "Usage", "md_UsingWidgets.html#autotoc_md59", null ]
     ] ],
     [ "Serializing table data structures", "md_Serializing.html", [
-      [ "Serializing a table to file", "md_Serializing.html#autotoc_md47", null ],
-      [ "Serializing a table to a string buffer", "md_Serializing.html#autotoc_md48", null ],
-      [ "Reading back a serialized table", "md_Serializing.html#autotoc_md49", null ],
-      [ "Serializing a theme to a file", "md_Serializing.html#autotoc_md50", null ],
-      [ "Serializing a theme to a string buffer", "md_Serializing.html#autotoc_md51", null ],
-      [ "Reading back a serialized theme", "md_Serializing.html#autotoc_md52", null ],
-      [ "Example of reading back serialized theme and table", "md_Serializing.html#autotoc_md53", null ]
+      [ "Serializing a table to file", "md_Serializing.html#autotoc_md51", null ],
+      [ "Serializing a table to a string buffer", "md_Serializing.html#autotoc_md54", null ],
+      [ "Reading back a serialized table", "md_Serializing.html#autotoc_md56", null ],
+      [ "Serializing a theme to a file", "md_Serializing.html#autotoc_md60", null ],
+      [ "Serializing a theme to a string buffer", "md_Serializing.html#autotoc_md61", null ],
+      [ "Reading back a serialized theme", "md_Serializing.html#autotoc_md62", null ],
+      [ "Example of reading back serialized theme and table", "md_Serializing.html#autotoc_md63", null ]
     ] ],
     [ "API Overview", "md_APIOverview.html", [
       [ "Table creation related functions", "md_APIOverview.html#autotoc_md71", null ],

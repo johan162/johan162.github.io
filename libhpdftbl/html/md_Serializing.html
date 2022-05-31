@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0-beta</span>
+   <div id="projectname">libhpdftbl<span id="projectnumber">&#160;1.4.0</span>
    </div>
    <div id="projectbrief">Table construction library for Haru PDF library</div>
   </td>
@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('md_Serializing.html',''); initResizabl
 <p >When the table is de-serialized back into a table using the function <a class="el" href="hpdftbl_8h.html#a38f0d4f834ff880e46a0b4d42af854dc" title="Import a table structure from a serialized table on file.">hpdftbl_load()</a> the functions must be available in some linked images to be resolved.</p>
 <p >Please note that the table needs to be stroked (via for example <a class="el" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763" title="Stroke the table.">hpdftbl_stroke()</a>) before it can be serialized since a number of calculations of internal positions are not calculated until one of the stroke functions are called.</p>
 <dl class="section note"><dt>Note</dt><dd>Some discussion can be held whether Yaml or Json should be used as serializing format. The reason for choosing Json was primary based on a) easier to manually manipulate a file where invisible spaces doesn't have grammatical meaning. b) existence of efficient libraries</dd></dl>
-<h1><a class="anchor" id="autotoc_md47"></a>
+<h1><a class="anchor" id="autotoc_md51"></a>
 Serializing a table to file</h1>
 <p >After the table have been stroked it can be saved to a file as the following snippet shows.</p>
 <div class="fragment"><div class="line"><a class="code hl_function" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763">hpdftbl_stroke</a>(pdf_doc, pdf_page, tbl, xpos, ypos, width, height);</div>
@@ -103,7 +103,7 @@ Serializing a table to file</h1>
 </div><!-- fragment --><p >The snippet above will write a JSON representation of the table to the file <code>table_serialized.json</code>. The full path is given and it is an error if some intermediate directory does not exist.</p>
 <p >An example of a json file can be found here: <a href="tut_ex40_8json-example.html">tut_ex40.json</a> <br  />
 </p>
-<h1><a class="anchor" id="autotoc_md48"></a>
+<h1><a class="anchor" id="autotoc_md54"></a>
 Serializing a table to a string buffer</h1>
 <p >This is done with the <a class="el" href="hpdftbl_8h.html#accf9924a01142a9c36af0f32a205a6ad" title="Serialize a table structure to a string buffer.">hpdftbl_dumps()</a> function as the following example shows.</p>
 <div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">size_t</span> buffsize=100*1024;</div>
@@ -113,7 +113,7 @@ Serializing a table to a string buffer</h1>
 <div class="line">fprintf(stdout,<span class="stringliteral">&quot;%s\n&quot;</span>,sbuff);</div>
 <div class="line">free(sbuff);</div>
 <div class="ttc" id="ahpdftbl_8h_html_accf9924a01142a9c36af0f32a205a6ad"><div class="ttname"><a href="hpdftbl_8h.html#accf9924a01142a9c36af0f32a205a6ad">hpdftbl_dumps</a></div><div class="ttdeci">int hpdftbl_dumps(hpdftbl_t tbl, char *buff, size_t buffsize)</div><div class="ttdoc">Serialize a table structure to a string buffer.</div><div class="ttdef"><b>Definition:</b> hpdftbl_dump.c:218</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md49"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md56"></a>
 Reading back a serialized table</h1>
 <p >The following snippet shows how the previously serialzed table can be read back and stroked to a PDF file</p>
 <div class="fragment"><div class="line"><span class="keywordflow">if</span>( 0 == <a class="code hl_function" href="hpdftbl_8h.html#a38f0d4f834ff880e46a0b4d42af854dc">hpdftbl_load</a>(&amp;tbl, <span class="stringliteral">&quot;table_serialized.json&quot;</span>)  ) {</div>
@@ -123,7 +123,7 @@ Reading back a serialized table</h1>
 <div class="ttc" id="ahpdftbl_8h_html_a38f0d4f834ff880e46a0b4d42af854dc"><div class="ttname"><a href="hpdftbl_8h.html#a38f0d4f834ff880e46a0b4d42af854dc">hpdftbl_load</a></div><div class="ttdeci">int hpdftbl_load(hpdftbl_t tbl, char *filename)</div><div class="ttdoc">Import a table structure from a serialized table on file.</div><div class="ttdef"><b>Definition:</b> hpdftbl_load.c:330</div></div>
 </div><!-- fragment --><p> It can be noted that we use the alternative stroke function <a class="el" href="hpdftbl_8c.html#a9adfb73b5bf0d60c683cc04da1c40c70" title="Stroke the table using the already specified size and position within the table.">hpdftbl_stroke_pos()</a> which is used to stroke a table when the position is set within the table itself and don't need to be specified as arguments to the stroke functio as is necessary with <a class="el" href="hpdftbl_8c.html#ae07ffb136a6e6fd7311afc0acf7cf763" title="Stroke the table.">hpdftbl_stroke()</a>.</p>
 <dl class="section note"><dt>Note</dt><dd>An error check should always be performed when reading back a table since it is possible that the data have been corrupted.</dd></dl>
-<h1><a class="anchor" id="autotoc_md50"></a>
+<h1><a class="anchor" id="autotoc_md60"></a>
 Serializing a theme to a file</h1>
 <p >A theme can be serialized with the help of <a class="el" href="hpdftbl_8h.html#a1ab6b96f3b440ed439135f3715dce2a5" title="Serialize the specified theme structure to a named file.">hpdftbl_theme_dump()</a> as the following example that serializes the default theme</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structhpdftbl__theme.html">hpdftbl_theme_t</a> *theme = <a class="code hl_function" href="hpdftbl_8h.html#a2089087e554335e1b3f5f5940613b9aa">hpdftbl_get_default_theme</a>();</div>
@@ -131,7 +131,7 @@ Serializing a theme to a file</h1>
 <div class="ttc" id="ahpdftbl_8h_html_a1ab6b96f3b440ed439135f3715dce2a5"><div class="ttname"><a href="hpdftbl_8h.html#a1ab6b96f3b440ed439135f3715dce2a5">hpdftbl_theme_dump</a></div><div class="ttdeci">int hpdftbl_theme_dump(hpdftbl_theme_t *theme, char *filename)</div><div class="ttdoc">Serialize the specified theme structure to a named file.</div><div class="ttdef"><b>Definition:</b> hpdftbl_dump.c:108</div></div>
 <div class="ttc" id="ahpdftbl_8h_html_a2089087e554335e1b3f5f5940613b9aa"><div class="ttname"><a href="hpdftbl_8h.html#a2089087e554335e1b3f5f5940613b9aa">hpdftbl_get_default_theme</a></div><div class="ttdeci">hpdftbl_theme_t * hpdftbl_get_default_theme(void)</div><div class="ttdoc">Return the default theme.</div><div class="ttdef"><b>Definition:</b> hpdftbl_theme.c:259</div></div>
 <div class="ttc" id="astructhpdftbl__theme_html"><div class="ttname"><a href="structhpdftbl__theme.html">hpdftbl_theme</a></div><div class="ttdoc">Define a set of styles into a table theme.</div><div class="ttdef"><b>Definition:</b> hpdftbl.h:635</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md51"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md61"></a>
 Serializing a theme to a string buffer</h1>
 <p >This is done with the <a class="el" href="hpdftbl_8h.html#abdf4b69579ce4c5b33a88b287f3c7e6b" title="Serialize theme structure to a string buffer.">hpdftbl_theme_dumps()</a> function as the following example shows</p>
 <div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">size_t</span> buffsize=2*1024;</div>
@@ -142,10 +142,10 @@ Serializing a theme to a string buffer</h1>
 <div class="line">fprintf(stdout,<span class="stringliteral">&quot;%s\n&quot;</span>,sbuff);</div>
 <div class="line">free(sbuff);</div>
 <div class="ttc" id="ahpdftbl_8h_html_abdf4b69579ce4c5b33a88b287f3c7e6b"><div class="ttname"><a href="hpdftbl_8h.html#abdf4b69579ce4c5b33a88b287f3c7e6b">hpdftbl_theme_dumps</a></div><div class="ttdeci">int hpdftbl_theme_dumps(hpdftbl_theme_t *theme, char *buff, size_t buffsize)</div><div class="ttdoc">Serialize theme structure to a string buffer.</div><div class="ttdef"><b>Definition:</b> hpdftbl_dump.c:135</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md52"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md62"></a>
 Reading back a serialized theme</h1>
 <p >A theme can be read back with the <a class="el" href="hpdftbl_8h.html#ae863a0b0888380c6ce6047f6810b641d" title="Read a theme from a previous serialized theme from a named file.">hpdftbl_theme_load()</a> and <a class="el" href="hpdftbl_8h.html#ab25c12d9b78abd1a07969c792c0bcce4" title="Load theme from a serialized string. This is the invert function of hpdftbl_theme_dumps().">hpdftbl_theme_loads()</a> functions.</p>
-<h1><a class="anchor" id="autotoc_md53"></a>
+<h1><a class="anchor" id="autotoc_md63"></a>
 Example of reading back serialized theme and table</h1>
 <p >The following shows an example of creating a table with a theme where both theme and table are read back from previous serialized representation.</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structhpdftbl.html">hpdftbl_t</a> tbl = calloc(1, <span class="keyword">sizeof</span> (<span class="keyword">struct</span> <a class="code hl_struct" href="structhpdftbl.html">hpdftbl</a>));</div>
@@ -173,7 +173,7 @@ Example of reading back serialized theme and table</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 29 2022 08:16:58 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue May 31 2022 08:31:59 for libhpdftbl by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>
