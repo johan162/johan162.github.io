@@ -156,6 +156,7 @@ This default theme file installed (as of this writing) contains these six themes
 5. "softdark"
 6. "blackwhite"
 7. "redblack"
+8. "bbking"
 
 Themes no 2-4 are taken directly from the [Windows **LTSpice** theme manager](https://github.com/sakabug/LTspice-themes/blob/main/LTspice-themes.txt). The theme "softdark" is an additional dfferent theme I personally like to use. The last theme "blackwhite" is especially suitable when printing a circuit diagram.
 
@@ -185,11 +186,12 @@ Usage:
 %themeltspice.sh [-f <FILE>] [-d] [-l] [-h] [-p] [-q] [-v] [-x <THEME>] [-y] [<THEME>]
 -d          : Dump current plist to default or named theme file as specified theme
 -f <FILE>   : Use the specified file as theme file
--h          : Print help and exit
+-h          : Show help and exit
 -l [<NAME>] : List themes in default or named theme file or íf <NAME> is specified check if <NAME> theme exists
 -p          : List content in LTSpice plist file
--q          : quiet_flag no status output
--v          : verbose_flag status output
+-q          : Quiet, no status output
+-V          : Verbose status output
+-v          : Show version and exit
 -x <NAME>   : Delete theme NAME from themes file
 -y          : Force 'yes' answer to any interactive questions (e.g. deleting theme)
 ```
@@ -273,6 +275,7 @@ Listing themes in '/Users/<USER>/.ltspice_themes/themes.txt''
  5. softdark
  6. blackwhite
  7. redblack
+ 8. bbking
 $> _
 ```
 
@@ -506,3 +509,7 @@ For the above reason it is not possible to copy themes directly between the Wind
 ## 7. Theme: "redblack"
 
 ![redblack theme](screenshots/redblack.png)
+
+## 8. Theme: "bbking"
+
+![redblack theme](screenshots/bbking.png)
