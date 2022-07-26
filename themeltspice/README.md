@@ -1,47 +1,50 @@
-# README 'themeltspice.sh'
-> **WHAT IS THIS?** ```'themeltspice.sh'``` is a color theme manager for the **OSX** version of [LTSpice electric circuit simulator](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html) which is a version of the classical SPICE (*Simulation Program with Integrated Circuit Emphasis*) simulator.  
+# README 'themeltspice.zsh'
+> **WHAT IS THIS?** ```'themeltspice.zsh'``` is a color theme manager for the **OSX** version of [LTSpice electric circuit simulator](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html) which is a version of the classical SPICE (*Simulation Program with Integrated Circuit Emphasis*) simulator.  
 [LTSpice](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html) was written by **Mike Engelhardt** (now at [www.MarcusAureliusSoftware.com](www.MarcusAureliusSoftware.com)) and is made freely available by [Analog Devices](https://www.analog.com). This simulator is one of the fastest and numerically most robust circuit simulator currently available - and it is free!
 
 &nbsp;
 
 # Quickstart &lt;TL;DR>
 
-The absolute easiest installation is to use the Homebrew package manager for OSX. 
+The absolute easiest installation is to use the [Homebrew package manager](https://brew.sh/) for OSX. 
 
 ```
 $> brew tap johan162/themeltspice
 $> brew install themeltspice
 ```
 
-This will install `themeltspice.sh` in `/usr/local/bin`, and give you automatic updates
-in the future via Homebrew update function. 
+This will install `themeltspice.zsh` in `/usr/local/bin`, and give you automatic updates
+in the future via Homebrew update/upgrade function. 
 
-Alternativly you can manually just copy `themeltspice.sh` to a directory of your choice.
+Alternativly you can manually copy `themeltspice.zsh` to a directory of your choice.
 
 
 ## Usage
 
 1. To list available themes run:  
-```$ themeltspice.sh -l```  
+```$ themeltspice.zsh -l```  
 
-2. To use a new theme with **LTSpice**, say '```darcula```', run:  
-```$ themeltspice.sh darcula```
+2. To use a new theme with **LTSpice**, say '```dracula```', run:  
+```$ themeltspice.zsh dracula```
 
 When you now run **LTSpice** you will see that the color palette has changed. You can see [examples of all available themes](#theme-reference-screenshots) as well. 
 
 That is all there is to it for the most basic use case. Read on if you want to know more!
 
+&nbsp;
 
 # Content
 
 - [Introduction](#introduction)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Usage](#usage) 
+- [Upgrading](#upgrading) 
 - [How the script works](#how-the-script-works)
 - [Theme file format](#theme-file-format)
 - [Theme reference screenshots](#theme-reference-screenshots)
 
 <div class="page"/>
+&nbsp;
 
 # Introduction
 |[back to content table](#content)|
@@ -100,13 +103,15 @@ Couldn't it be written in [select favourite language] (e.g. Python). Of course i
 Using a self-contained shell script is an easy way to avoid the potential *"module/version-hell"* of Python. Instead we claim it is perfectly possible to write readable, medium-complex programs using bash. It is of course not without its limitation since bash code can be almost unreadable when one uses all of the features available that are not commonly well known. If you stick to some good design principles (and modularization) it is perfectly readable and maintainable. Just like any language!
 If you envision a program with more than around ~1000 lines of manually written code  then bash might not be your first choice. Especially not for the very old version of bash that default ships with **OSX** (v3.2.57). A lot has happened since that version was release well over a decade ago.
 
-So why not write it as a ```zsh``` script? It would be perfectly fine to convert the few bash:ism used to ```zsh``` (since ```zsh``` even has a "bash" compatibilty mode) and it might very well be a good idea to pursuite.
+>So why not write it as a `zsh` script? Mainly because the author (me) has been
+writing `bash` scripts for a **very** long time and did not right now have the time to learn the (new) ways of `zsh` to do things. Unfortunately the current script does not run directly under `zsh` so it would require some (minor) porting work.
 
 **Related work**
 
 The inspiration for this work comes from the [Windows **LTSpice** theme manager](https://github.com/sakabug/LTspice-themes/blob/main/LTspice-themes.txt). While this implementation is widely different in both function, form and implementation the drive to write this came out of friendly *"jealousy"* that the windows world had this but not the **OSX** world. That state of affairs cannot stand and has now been corrected!
 
 <div class="page"/>
+&nbsp;
 
 # Installation
 
@@ -118,22 +123,18 @@ The absolute easiest installation is to use the Homebrew package manager for OSX
 
 ```
 $> brew tap johan162/themeltspice
-...
 $> brew install themeltspice
-...
-$> _
 ```
 
-This will install `themeltspice.sh` in `/usr/local/bin` which you can verify as so:
+This will install `themeltspice.zsh` in `/usr/local/bin` which you can verify as so:
 
 ```
-$> which themeltspice.sh
-/usr/local/bin/themeltspice.sh
-$> _
+$> which themeltspice.zsh
+/usr/local/bin/themeltspice.zsh
 ```
 
-> **Tip:** Use `alias` to get a shorter command, for exmple adding   
-  `$> alias ltt="/usr/local/bin/themeltspice.sh"`  
+> **Tip:** Use `alias` to get a shorter command, for example adding   
+  `$> alias ltt="/usr/local/bin/themeltspice.zsh"`  
 to your `.zshenv` will let you use `ltt` as the command name. 
 
 
@@ -141,7 +142,7 @@ to your `.zshenv` will let you use `ltt` as the command name.
 
 There is no installation program for this since it is only one executable script file and you are free to place that file anywhere at your conveniance. 
 
-To use the script either copy the script (```themeltspice.sh```) to some standard location for scripts as per your ```PATH``` variable or create a new directory and copy the file there and run it from this directory.
+To use the script either copy the script (```themeltspice.zsh```) to some standard location for scripts as per your ```PATH``` variable or create a new directory and copy the file there and run it from this directory.
 
 The script uses the default location of "```~/.ltspice_themes```" to store the theme file as well as a backup file of **LTSpice** original plst file when you first run the theme script. If the directory does not exist it will be created the first time you run the script. If no theme file exist a default theme file with six themes will be automatcally installed.
 
@@ -157,6 +158,7 @@ This default theme file installed (as of this writing) contains these six themes
 6. "blackwhite"
 7. "redblack"
 8. "bbking"
+9. "blackred"
 
 Themes no 2-4 are taken directly from the [Windows **LTSpice** theme manager](https://github.com/sakabug/LTspice-themes/blob/main/LTspice-themes.txt). The theme "softdark" is an additional dfferent theme I personally like to use. The last theme "blackwhite" is especially suitable when printing a circuit diagram.
 
@@ -164,7 +166,7 @@ Later on if you find themes you like somewhere else just open the theme file and
 
 You can easily check if the new theme have been added correctly by listing the theme with the command:
 
-    $> themeltspice.sh -l
+    $> themeltspice.zsh -l
 
 
 <div class="page"/>
@@ -175,6 +177,7 @@ You can easily check if the new theme have been added correctly by listing the t
 *(However, it is not terrible hard to manually fix those few differences and then copy a theme definition as hinted in the section "[Theme file format](#theme-file-format)")*
 
 <div class="page"/>
+&nbsp;
 
 # Usage
 
@@ -183,7 +186,7 @@ You can easily check if the new theme have been added correctly by listing the t
 ```
 Set or create a named color theme for LTSpice
 Usage:
-%themeltspice.sh [-f <FILE>] [-d] [-l] [-h] [-p] [-q] [-v] [-x <THEME>] [-y] [<THEME>]
+%themeltspice.zsh [-f <FILE>] [-d] [-l] [-h] [-p] [-q] [-v] [-x <THEME>] [-y] [<THEME>]
 -d          : Dump current plist to default or named theme file as specified theme
 -f <FILE>   : Use the specified file as theme file
 -h          : Show help and exit
@@ -212,7 +215,7 @@ In addition to these major use cases there are some supporting function that are
 > **Note:** A copy fo the original **LTSpice** property list (plist) configuration file is also stored in the theme directory with the extension "```*.ORIGINAL```". In case the configuration file gest corrupt you can always restore a this as clean backup. The backup file is created the first time you run the script or if it is ever deleted.
 
 
-> **Tip:** If you ever mess up the themes file and want to restore it to the default then the easiest way is to just delete the '```/User/<USER>/.ltspice_themes/themes.ltt```' file. The next time you run '```themeltspice.sh```' it will be restored.
+> **Tip:** If you ever mess up the themes file and want to restore it to the default then the easiest way is to just delete the '```/User/<USER>/.ltspice_themes/themes.ltt```' file. The next time you run '```themeltspice.zsh```' it will be restored.
 
 <div class="page"/>
 
@@ -221,7 +224,7 @@ In addition to these major use cases there are some supporting function that are
 If we assume you have installed the script somewhere in your path (see [Installation](#installation) section above) you can now set the '```softdark```' theme as so:
 
 ```
-$> themeltspice.sh softdark
+$> themeltspice.zsh softdark
 Successfully updated new theme to 'softdark'
 $> _
 ``` 
@@ -229,7 +232,7 @@ $> _
 This will update the current **LTSpice** configuration file with this color schema. If you now start **LTSpice** you will see the effect of this theme switch. To restore back to the default schema just do:
 
 ```
-$> themeltspice.sh default
+$> themeltspice.zsh default
 Successfully updated new theme to 'default'
 $> _
 ``` 
@@ -247,26 +250,33 @@ and there is nothing more to it. The settings are done in an atomic way so a cha
 By first creating a color schema in **LTSpice** it can then be saved as a new theme. So if you want to store your current settings as the new theme, say, "```mytheme```" you use the "```-d```" (=dump) option as such
 
 ```
-$> themeltspice.sh -d mytheme
+$> themeltspice.zsh -d mytheme
 Dumping current color setup from 'com.analog.LTspice.App.plist' to '/Users/<USER>/.ltspice_themes/themes.txt' as theme 'mytheme'
 $> _
 ```
 
 This will store the new theme at the end of the existing theme file. If a theme with this name already exsts an error message will be printed informing about this.
 
+
 <div class="page"/>
+&nbsp;
+
+> **WARNING:** If you update the script (see [Upgrading](#upgrading)) local changes will be overwritten. However, a backup file will be created which will allow you to manually merge any local changes into the newly created theme file.
+
+&nbsp;
 
 > **WARNING:** You might have to quit and start **LTSpice** twice to force the update of the plist file from the plist cache before running the dump command.  
 You might want to check that changes have been made by printing out the property list using the command:  
-```$ themeltspice.sh -p```" (See [Printing all settings](#printing-all-settings-stored-in-the-config-file))
+```$ themeltspice.zsh -p```" (See [Printing all settings](#printing-all-settings-stored-in-the-config-file))
 
+&nbsp;
 
 ## Listing all themes available
 
 To see a list of all themes defined use the "```-l```" option as so:
 
 ```
-$> themeltspice.sh -l 
+$> themeltspice.zsh -l 
 Listing themes in '/Users/<USER>/.ltspice_themes/themes.txt''
  1. default
  2. sakabug
@@ -276,7 +286,7 @@ Listing themes in '/Users/<USER>/.ltspice_themes/themes.txt''
  6. blackwhite
  7. redblack
  8. bbking
-$> _
+ 9. blackred
 ```
 
 ### Checking if a named theme exists
@@ -284,17 +294,15 @@ $> _
 Use the '```-l```' option with a theme name
 
 ```
-$> themeltspice.sh -l mytheme
+$> themeltspice.zsh -l mytheme
 *** ERROR *** Theme 'mytheme' DOESN'T exists in '/Users/<USER>/.ltspice_themes/themes.ltt'
-$> _
 ```
 
 or
 
 ```
-$> themeltspice.sh -l default
+$> themeltspice.zsh -l default
 Theme 'default' exists in '/Users/<USER>/.ltspice_themes/themes.ltt'
-$> _
 ```
 
 <div class="page"/>
@@ -304,7 +312,7 @@ $> _
 To see the complete configuration file (and not only the color settings) use the "```-p```" (=print) that will dump **LTSpice** full property list file to stdout as in:
 
 ```
-$> themeltspice.sh -p
+$> themeltspice.zsh -p
 '/Users/<USER>/Library/Preferences/com.analog.LTspice.App.plist' content:{
   "AllowShortedCompPins" => 0
   "AutoDotRawDeletion" => 1
@@ -323,20 +331,18 @@ $> _
 To delete a theme use the '```-x```' option. For example, to delete the theme '```softdark```' do the following:
 
 ```
-$> themeltspice.sh -x softdark
+$> themeltspice.zsh -x softdark
 Are you sure you wish to delete theme 'softdark' in '/Users/ljp/.ltspice_themes/themes.ltt'?
 1) Yes
 2) No
 #? 1
 Theme 'softdark' have been deleted from '/Users/<USER>/.ltspice_themes/themes.ltt'
-$> _
 ```
 As a safety precaution the deletion of a theme have to be confirmed by an interactive question. To avoid this question and delete directly (perhaps in a script) add the '```-y```' option as so:
 
 ```
-$> themeltspice.sh -xy softdark
+$> themeltspice.zsh -xy softdark
 Theme 'softdark' have been deleted from '/Users/<USER>/.ltspice_themes/themes.ltt'
-$> _
 ```
 
 A one-level backup file is always created with the name '```themes.ltt.BAK```' in the themes directory.
@@ -346,6 +352,23 @@ By combining the '```-x```' option with '```-v```' option (verbose) the script w
 > **Note:** if you want to update (write over) an existing theme you must first delete it. This is done on purpose to avoid unintentional data loss.
 
 <div class="page"/>
+
+&nbsp;
+
+
+# Upgrading
+
+|[back to content table](#content)|
+
+If the script is updated either by manually by downloading a new version or via `brew upgrade` the script will also update the theme file. If there is a difference then the existing theme file will be backed up to `themes.ltt.original`. 
+
+Unfortunately there is no easy (and robust) way to merge potential local additions/deletions to the theme file with an updated distributed theme file in the new version. Thisa would require a 3-way merge and it would add a lot of complexity. Very few would need that so the 80/20 rule apply.
+
+If there are local modification they will have to be manually re-applied in the new theme file. An alternative is to send new themes as a suggestion to be included in the official distribution.
+
+
+<div class="page"/>
+
 
 # How the script works
 
@@ -439,7 +462,7 @@ NetlistEditorColor4)
 <div class="page"/>
 
 ## BNF Grammar
-The BNF grammar for the theme file is extremely simple and is shown in Figure 2. below
+The BNF grammar for the theme file is simple and is shown in Figure 2. below
 
 ```
 themes        ::= theme | theme <EMPTY_LINE> themes
@@ -460,15 +483,15 @@ digits        ::= "0" | "1" | ...
 Unfortunately there are a couple differences between the Window and **OSX** version of **LTSpice**. 
 These changes also impact the theme files in the following three ways:
 
-1. **OSX** uses the name "```GridColor```" while the windows version simply call it "```Grid```".  
+1. **OSX** uses the name "```GridColor```" while the windows version call it "```Grid```".  
 
-2. **OSX** uses the name "```InActiveAxisColor```" while the windows version simply call it "```InActiveAxis```".   
+2. **OSX** uses the name "```InActiveAxisColor```" while the windows version  call it "```InActiveAxis```".   
 
 3. The window version have one additional schematic color setting which is the *"Graphic Annotation"* color which does not exist in the **OSX** version. This means that the window version have schematic colors 0-13 and the **OSX** version 0-12. In practice this means that the color "```SchematicColor13```" (which is the graphic annotation color) doesn't exist in the **OSX** version.  
 
 For the above reason it is not possible to copy themes directly between the Window and **OSX** version of **LTSpice** without manual conversion adressing the issues above. 
 
-
+&nbsp;
 
 <div class="page"/>
 
@@ -482,7 +505,7 @@ For the above reason it is not possible to copy themes directly between the Wind
 
 <div class="page"/>
 
-## 2. Theme: "darcula"
+## 2. Theme: "dracula"
 
 ![darcult theme](screenshots/darcula.png)
 
@@ -513,3 +536,7 @@ For the above reason it is not possible to copy themes directly between the Wind
 ## 8. Theme: "bbking"
 
 ![redblack theme](screenshots/bbking.png)
+
+## 8. Theme: "blackred"
+
+![blackred theme](screenshots/blackred.png)
