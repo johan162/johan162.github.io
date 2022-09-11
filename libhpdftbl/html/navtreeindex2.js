@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structgrid__style.html#a5f7a740ab73b38b629246b6795cbcaa2":[12,0,0,0],
 "structgrid__style.html#a8f662b36a70c50842a0b6540e303b755":[12,0,0,1],
 "structhpdftbl.html":[12,0,1],
 "structhpdftbl.html#a1616dad6234ffd70bda326f90c45a645":[12,0,1,3],
@@ -112,7 +113,7 @@ var NAVTREEINDEX2 =
 "structhpdftbl__theme.html#ae7569676d667102beb475b50588d6409":[12,0,6,3],
 "structline__dash__style.html":[12,0,7],
 "structline__dash__style.html#a140d449f4eaaa9afc56f07abb4922597":[12,0,7,1],
-"structline__dash__style.html#a5e0de5d468ec91e16a823efbd46f32d0":[12,0,7,0],
+"structline__dash__style.html#a3b9f1ae88e1ad378fba6f32e13862bee":[12,0,7,0],
 "structtext__style.html":[12,0,8],
 "structtext__style.html#a2ccdf0b1af9425d3da05630f4ad83e55":[12,0,8,2],
 "structtext__style.html#a5f7a740ab73b38b629246b6795cbcaa2":[12,0,8,1],
