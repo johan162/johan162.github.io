@@ -7,9 +7,6 @@ var searchData=
   ['machine_5fconfig_5fs_4',['MACHINE_CONFIG_S',['../mpn_8sh.html#a9bb97e4aaf5398f9fb9d36e787e756dc',1,'mpn.sh']]],
   ['machine_5fconfig_5fx_5',['MACHINE_CONFIG_X',['../mpn_8sh.html#aa40a0c713d87fe19146d9e8d9a3f37a6',1,'mpn.sh']]],
   ['memory_6',['memory',['../mkmpnode_8sh.html#a3042666156a7ab9918533f031e41df01',1,'mkmpnode.sh']]],
-  ['mkmpnode_2esh_7',['mkmpnode.sh',['../mkmpnode_8sh.html',1,'']]],
-  ['mkmpnode_5fscript_8',['MKMPNODE_SCRIPT',['../mpn_8sh.html#a3fe0867073582a608b038c55463ee51a',1,'mpn.sh']]],
-  ['mountdev_9',['mountDev',['../mkmpnode_8sh.html#af6b67e8b75df849b8ca41636e49032e3',1,'mkmpnode.sh']]],
-  ['mpinstall_2esh_10',['mpinstall.sh',['../mpinstall_8sh.html',1,'']]],
-  ['mpn_2esh_11',['mpn.sh',['../mpn_8sh.html',1,'']]]
+  ['mkmpnode_5fscript_7',['MKMPNODE_SCRIPT',['../mpn_8sh.html#a3fe0867073582a608b038c55463ee51a',1,'mpn.sh']]],
+  ['mountdev_8',['mountDev',['../mkmpnode_8sh.html#af6b67e8b75df849b8ca41636e49032e3',1,'mkmpnode.sh']]]
 ];

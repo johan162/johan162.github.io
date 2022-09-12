@@ -98,48 +98,83 @@ $(document).ready(function(){initNavTree('mkmpnode_8sh.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 
-<p>mkmpnode - Setup a multipass node with options  
+<p>mkmpnode - Create multipass nodes with a specified (or default) cloud-init file  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a7f0f5ba28422fb35f74f770a98449081"><td class="memItemLeft" align="right" valign="top"><a id="a7f0f5ba28422fb35f74f770a98449081" name="a7f0f5ba28422fb35f74f770a98449081"></a>
 String&#160;</td><td class="memItemRight" valign="bottom"><b>ubuntuVer</b> = jammy</td></tr>
+<tr class="memdesc:a7f0f5ba28422fb35f74f770a98449081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Which base image to use. Can be overridden by ned user. <br /></td></tr>
 <tr class="separator:a7f0f5ba28422fb35f74f770a98449081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac72c672187176a6a0d7ade3dc9e30a27"><td class="memItemLeft" align="right" valign="top"><a id="ac72c672187176a6a0d7ade3dc9e30a27" name="ac72c672187176a6a0d7ade3dc9e30a27"></a>
 String&#160;</td><td class="memItemRight" valign="bottom"><b>nodeName</b> =</td></tr>
+<tr class="memdesc:ac72c672187176a6a0d7ade3dc9e30a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node name. Specified by user. <br /></td></tr>
 <tr class="separator:ac72c672187176a6a0d7ade3dc9e30a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3042666156a7ab9918533f031e41df01"><td class="memItemLeft" align="right" valign="top"><a id="a3042666156a7ab9918533f031e41df01" name="a3042666156a7ab9918533f031e41df01"></a>
 String&#160;</td><td class="memItemRight" valign="bottom"><b>memory</b> = &quot;500M&quot;</td></tr>
+<tr class="memdesc:a3042666156a7ab9918533f031e41df01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node memory size. <br /></td></tr>
 <tr class="separator:a3042666156a7ab9918533f031e41df01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f707db5f5ff3e736bb6f2b8d353cf94"><td class="memItemLeft" align="right" valign="top"><a id="a4f707db5f5ff3e736bb6f2b8d353cf94" name="a4f707db5f5ff3e736bb6f2b8d353cf94"></a>
 String&#160;</td><td class="memItemRight" valign="bottom"><b>disk</b> = &quot;5G&quot;</td></tr>
+<tr class="memdesc:a4f707db5f5ff3e736bb6f2b8d353cf94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node disk size. <br /></td></tr>
 <tr class="separator:a4f707db5f5ff3e736bb6f2b8d353cf94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a227fca2b8a9c18922cb3b9727b21e99b"><td class="memItemLeft" align="right" valign="top"><a id="a227fca2b8a9c18922cb3b9727b21e99b" name="a227fca2b8a9c18922cb3b9727b21e99b"></a>
 Integer&#160;</td><td class="memItemRight" valign="bottom"><b>cpus</b> = 2</td></tr>
+<tr class="memdesc:a227fca2b8a9c18922cb3b9727b21e99b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of virtual CPUs available for node. <br /></td></tr>
 <tr class="separator:a227fca2b8a9c18922cb3b9727b21e99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6b67e8b75df849b8ca41636e49032e3"><td class="memItemLeft" align="right" valign="top"><a id="af6b67e8b75df849b8ca41636e49032e3" name="af6b67e8b75df849b8ca41636e49032e3"></a>
 String&#160;</td><td class="memItemRight" valign="bottom"><b>mountDev</b> = 0</td></tr>
+<tr class="memdesc:af6b67e8b75df849b8ca41636e49032e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if we should mount <code>~/Devel</code> in the users home directory in the node. <br /></td></tr>
 <tr class="separator:af6b67e8b75df849b8ca41636e49032e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf4b29814b3a3c962bed7d0ac4c140a5"><td class="memItemLeft" align="right" valign="top"><a id="acf4b29814b3a3c962bed7d0ac4c140a5" name="acf4b29814b3a3c962bed7d0ac4c140a5"></a>
 String&#160;</td><td class="memItemRight" valign="bottom"><b>vlist</b> = (&quot;bionic&quot; &quot;focal&quot; &quot;impish&quot; &quot;jammy&quot; &quot;docker&quot;)</td></tr>
+<tr class="memdesc:acf4b29814b3a3c962bed7d0ac4c140a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valid options for ubuntuVer. <br /></td></tr>
 <tr class="separator:acf4b29814b3a3c962bed7d0ac4c140a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8646e061e3d31c3ea606f61bfc1a25df"><td class="memItemLeft" align="right" valign="top"><a id="a8646e061e3d31c3ea606f61bfc1a25df" name="a8646e061e3d31c3ea606f61bfc1a25df"></a>
 Integer&#160;</td><td class="memItemRight" valign="bottom"><b>noexecute</b> = 0</td></tr>
+<tr class="memdesc:a8646e061e3d31c3ea606f61bfc1a25df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag for doing a dryrun. <br /></td></tr>
 <tr class="separator:a8646e061e3d31c3ea606f61bfc1a25df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1000537a9e95fb191d588ccced6124c"><td class="memItemLeft" align="right" valign="top"><a id="ab1000537a9e95fb191d588ccced6124c" name="ab1000537a9e95fb191d588ccced6124c"></a>
 String&#160;</td><td class="memItemRight" valign="bottom"><b>cloudInit</b> = &quot;&quot;</td></tr>
+<tr class="memdesc:ab1000537a9e95fb191d588ccced6124c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Which cloud-init file to use. <br /></td></tr>
 <tr class="separator:ab1000537a9e95fb191d588ccced6124c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee82794cd75ad7b8274c6a971cead713"><td class="memItemLeft" align="right" valign="top"><a id="aee82794cd75ad7b8274c6a971cead713" name="aee82794cd75ad7b8274c6a971cead713"></a>
 String&#160;</td><td class="memItemRight" valign="bottom"><b>defaultCloudInit</b> = &quot;minidev-config.yaml&quot;</td></tr>
+<tr class="memdesc:aee82794cd75ad7b8274c6a971cead713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default cloud-init file if none specified by user. <br /></td></tr>
 <tr class="separator:aee82794cd75ad7b8274c6a971cead713"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b7bacd2c64bc9bc0067de27bbd373c3"><td class="memItemLeft" align="right" valign="top"><a id="a6b7bacd2c64bc9bc0067de27bbd373c3" name="a6b7bacd2c64bc9bc0067de27bbd373c3"></a>
 Integer&#160;</td><td class="memItemRight" valign="bottom"><b>quiet_flag</b> = 0</td></tr>
+<tr class="memdesc:a6b7bacd2c64bc9bc0067de27bbd373c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppress output. <br /></td></tr>
 <tr class="separator:a6b7bacd2c64bc9bc0067de27bbd373c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa205de9e31b747019cd70d74236a772"><td class="memItemLeft" align="right" valign="top"><a id="afa205de9e31b747019cd70d74236a772" name="afa205de9e31b747019cd70d74236a772"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>red</b> = &quot;\033[31m&quot;</td></tr>
+<tr class="memdesc:afa205de9e31b747019cd70d74236a772"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminal color for error messages. <br /></td></tr>
+<tr class="separator:afa205de9e31b747019cd70d74236a772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e8a164be0267185e1856e0149cbb7c2"><td class="memItemLeft" align="right" valign="top"><a id="a7e8a164be0267185e1856e0149cbb7c2" name="a7e8a164be0267185e1856e0149cbb7c2"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>default</b> = &quot;\033[39m&quot;</td></tr>
+<tr class="memdesc:a7e8a164be0267185e1856e0149cbb7c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restore default terminal color. <br /></td></tr>
+<tr class="separator:a7e8a164be0267185e1856e0149cbb7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >mkmpnode - Setup a multipass node with options </p>
-<dl class="section author"><dt>Author</dt><dd>Johan Persson <a href="#" onclick="location.href='mai'+'lto:'+'joh'+'an'+'162'+'@g'+'mai'+'l.'+'com'; return false;">johan<span class="obfuscator">.nosp@m.</span>162@<span class="obfuscator">.nosp@m.</span>gmail<span class="obfuscator">.nosp@m.</span>.com</a> </dd></dl>
+<div class="textblock"><p >mkmpnode - Create multipass nodes with a specified (or default) cloud-init file </p>
+<div class="fragment"><div class="line">NAME</div>
+<div class="line">  mkmpnode</div>
+<div class="line">USAGE</div>
+<div class="line">  mkmpnode [-r RELEASE] [-c FILE] [-d SIZE] [-p CPUS] [-m SIZE] [-q] [-v] [-h] NODE_NAME</div>
+<div class="line">SYNOPSIS</div>
+<div class="line">     -r RELEASE: Valid ubuntu release [bionic focal impish jammy docker] ($ubuntuVer)</div>
+<div class="line">     -c FILE   : Cloud config file (${<a class="code hl_variable" href="mkmpnode_8sh.html#aee82794cd75ad7b8274c6a971cead713">defaultCloudInit</a>})</div>
+<div class="line">     -m SIZE   : Memory size, defaults (500MB)</div>
+<div class="line">     -d SIZE   : Disk size, defaults (5GB)</div>
+<div class="line">     -p NUM    : Number of CPUs (2)</div>
+<div class="line">     -M        : Mount ${HOME}/Devel inside node</div>
+<div class="line">     -n        : No execution. Only display actions.</div>
+<div class="line">     -q        : Quiet  (no output to stdout)</div>
+<div class="line">     -v        : Print version and exit</div>
+<div class="line">     -h        : Print help and exit</div>
+<div class="ttc" id="amkmpnode_8sh_html_aee82794cd75ad7b8274c6a971cead713"><div class="ttname"><a href="mkmpnode_8sh.html#aee82794cd75ad7b8274c6a971cead713">defaultCloudInit</a></div><div class="ttdeci">String defaultCloudInit</div><div class="ttdoc">Default cloud-init file if none specified by user.</div><div class="ttdef"><b>Definition:</b> mkmpnode.sh:57</div></div>
+</div><!-- fragment --> <dl class="section author"><dt>Author</dt><dd>Johan Persson <a href="#" onclick="location.href='mai'+'lto:'+'joh'+'an'+'162'+'@g'+'mai'+'l.'+'com'; return false;">johan<span class="obfuscator">.nosp@m.</span>162@<span class="obfuscator">.nosp@m.</span>gmail<span class="obfuscator">.nosp@m.</span>.com</a> </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>MIT License. See LICENSE file. </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
@@ -147,7 +182,7 @@ Integer&#160;</td><td class="memItemRight" valign="bottom"><b>quiet_flag</b> = 0
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="mkmpnode_8sh.html">mkmpnode.sh</a></li>
-    <li class="footer">Generated on Mon Sep 12 2022 21:40:46 for mptools by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Mon Sep 12 2022 22:22:51 for mptools by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
