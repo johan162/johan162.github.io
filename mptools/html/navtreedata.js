@@ -26,7 +26,7 @@ var NAVTREE =
 [
   [ "mptools", "index.html", [
     [ "Introduction", "md_01_intro.html", null ],
-    [ "Installing the package", "md_02_installing.html", [
+    [ "Installing mptools", "md_02_installing.html", [
       [ "Changing install location", "md_02_installing.html#autotoc_md2", null ]
     ] ],
     [ "Installing multipass", "md_03_installmultipass.html", null ],
