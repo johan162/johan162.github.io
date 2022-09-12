@@ -23,7 +23,7 @@ A set of tools to help create `multipass` virtual nodes.
 See: [mptools](https://github.com/johan162/mptools)
 
 1. [HTML](mptools/html/index.html)
-2. [PDF](mptools/mptools_manual_v2.0.1.pdf)
+2. [PDF](mptools/mptools_manual.pdf)
 
 
 
