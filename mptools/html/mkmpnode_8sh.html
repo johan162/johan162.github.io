@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">mptools<span id="projectnumber">&#160;2.0.2</span>
+   <div id="projectname">mptools<span id="projectnumber">&#160;2.0.3</span>
    </div>
    <div id="projectbrief">Utility to create multipass virtual nodes</div>
   </td>
@@ -127,10 +127,10 @@ Integer&#160;</td><td class="memItemRight" valign="bottom"><b>cpus</b> = 2</td><
 String&#160;</td><td class="memItemRight" valign="bottom"><b>mountDev</b> = 0</td></tr>
 <tr class="memdesc:af6b67e8b75df849b8ca41636e49032e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if we should mount <code>~/Devel</code> in the users home directory in the node. <br /></td></tr>
 <tr class="separator:af6b67e8b75df849b8ca41636e49032e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf4b29814b3a3c962bed7d0ac4c140a5"><td class="memItemLeft" align="right" valign="top"><a id="acf4b29814b3a3c962bed7d0ac4c140a5" name="acf4b29814b3a3c962bed7d0ac4c140a5"></a>
-String&#160;</td><td class="memItemRight" valign="bottom"><b>vlist</b> = (&quot;bionic&quot; &quot;focal&quot; &quot;impish&quot; &quot;jammy&quot; &quot;docker&quot;)</td></tr>
-<tr class="memdesc:acf4b29814b3a3c962bed7d0ac4c140a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valid options for ubuntuVer. <br /></td></tr>
-<tr class="separator:acf4b29814b3a3c962bed7d0ac4c140a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e859f2efb074df1817eebf50cb24c38"><td class="memItemLeft" align="right" valign="top"><a id="a3e859f2efb074df1817eebf50cb24c38" name="a3e859f2efb074df1817eebf50cb24c38"></a>
+ReadOnly String&#160;</td><td class="memItemRight" valign="bottom"><b>vlist</b> = (&quot;bionic&quot; &quot;focal&quot; &quot;impish&quot; &quot;jammy&quot; &quot;docker&quot;)</td></tr>
+<tr class="memdesc:a3e859f2efb074df1817eebf50cb24c38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valid options for ubuntuVer. <br /></td></tr>
+<tr class="separator:a3e859f2efb074df1817eebf50cb24c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8646e061e3d31c3ea606f61bfc1a25df"><td class="memItemLeft" align="right" valign="top"><a id="a8646e061e3d31c3ea606f61bfc1a25df" name="a8646e061e3d31c3ea606f61bfc1a25df"></a>
 Integer&#160;</td><td class="memItemRight" valign="bottom"><b>noexecute</b> = 0</td></tr>
 <tr class="memdesc:a8646e061e3d31c3ea606f61bfc1a25df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag for doing a dryrun. <br /></td></tr>
@@ -155,6 +155,22 @@ String&#160;</td><td class="memItemRight" valign="bottom"><b>red</b> = &quot;\03
 String&#160;</td><td class="memItemRight" valign="bottom"><b>default</b> = &quot;\033[39m&quot;</td></tr>
 <tr class="memdesc:a7e8a164be0267185e1856e0149cbb7c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restore default terminal color. <br /></td></tr>
 <tr class="separator:a7e8a164be0267185e1856e0149cbb7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29767ae0f13fb43ba5ecedd9b82bca37"><td class="memItemLeft" align="right" valign="top"><a id="a29767ae0f13fb43ba5ecedd9b82bca37" name="a29767ae0f13fb43ba5ecedd9b82bca37"></a>
+ReadOnly String&#160;</td><td class="memItemRight" valign="bottom"><b>INSTALL_PREFIX</b> = &quot;/usr/local&quot;</td></tr>
+<tr class="memdesc:a29767ae0f13fb43ba5ecedd9b82bca37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default installation path. <br /></td></tr>
+<tr class="separator:a29767ae0f13fb43ba5ecedd9b82bca37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa090967b855b6b4333d3ecc0455abd31"><td class="memItemLeft" align="right" valign="top"><a id="aa090967b855b6b4333d3ecc0455abd31" name="aa090967b855b6b4333d3ecc0455abd31"></a>
+ReadOnly String&#160;</td><td class="memItemRight" valign="bottom"><b>INSTALL_BIN_DIR</b> = &quot;${INSTALL_PREFIX}/bin&quot;</td></tr>
+<tr class="memdesc:aa090967b855b6b4333d3ecc0455abd31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default installation path for executables. <br /></td></tr>
+<tr class="separator:aa090967b855b6b4333d3ecc0455abd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fe0867073582a608b038c55463ee51a"><td class="memItemLeft" align="right" valign="top"><a id="a3fe0867073582a608b038c55463ee51a" name="a3fe0867073582a608b038c55463ee51a"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>MKMPNODE_SCRIPT</b> = &quot;./mkmpnode.sh&quot;</td></tr>
+<tr class="memdesc:a3fe0867073582a608b038c55463ee51a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the <code>mkmpnode</code> script we call. <br /></td></tr>
+<tr class="separator:a3fe0867073582a608b038c55463ee51a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dfab06f096bc2f21817c02d11e563a3"><td class="memItemLeft" align="right" valign="top"><a id="a4dfab06f096bc2f21817c02d11e563a3" name="a4dfab06f096bc2f21817c02d11e563a3"></a>
+ReadOnly String&#160;</td><td class="memItemRight" valign="bottom"><b>SCRIPT_DIR</b> = $(cd -- &quot;$(dirname -- &quot;${BASH_SOURCE[0]}&quot;)&quot; &amp;&gt;/dev/null &amp;&amp; pwd)</td></tr>
+<tr class="memdesc:a4dfab06f096bc2f21817c02d11e563a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This will hold the name of the directory from where this script is executed. <br /></td></tr>
+<tr class="separator:a4dfab06f096bc2f21817c02d11e563a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >mkmpnode - Create multipass nodes with a specified (or default) cloud-init file </p>
@@ -182,7 +198,7 @@ String&#160;</td><td class="memItemRight" valign="bottom"><b>default</b> = &quot
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="mkmpnode_8sh.html">mkmpnode.sh</a></li>
-    <li class="footer">Generated on Mon Sep 12 2022 22:22:51 for mptools by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Thu Sep 15 2022 00:50:22 for mptools by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
