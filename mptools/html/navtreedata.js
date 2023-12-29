@@ -25,44 +25,45 @@
 var NAVTREE =
 [
   [ "mptools", "index.html", [
-    [ "Introduction", "md_01_intro.html", null ],
-    [ "Installing mptools", "md_02_installing.html", [
-      [ "Changing install location", "md_02_installing.html#autotoc_md2", null ]
+    [ "Introduction", "md_01-intro.html", null ],
+    [ "Installing mptools", "md_02-installing.html", [
+      [ "Changing install location", "md_02-installing.html#autotoc_md2", null ]
     ] ],
-    [ "Installing multipass", "md_03_installmultipass.html", null ],
-    [ "Quickstart", "md_04_quickstart.html", [
-      [ "Examples", "md_04_quickstart.html#autotoc_md5", [
-        [ "Creating nodes using naming convention", "md_04_quickstart.html#autotoc_md6", null ],
-        [ "Creating nodes using the full configuration", "md_04_quickstart.html#autotoc_md7", null ]
+    [ "Quickstart", "md_04-quickstart.html", [
+      [ "Accessing the node", "md_04-quickstart.html#autotoc_md4", null ],
+      [ "Examples", "md_04-quickstart.html#autotoc_md5", [
+        [ "Creating nodes using naming convention", "md_04-quickstart.html#autotoc_md6", null ],
+        [ "Creating nodes using the full configuration", "md_04-quickstart.html#autotoc_md7", null ]
       ] ]
     ] ],
-    [ "Creating generic nodes", "md_05_genericnodes.html", [
-      [ "Cloud init files", "md_05_genericnodes.html#autotoc_md9", null ],
-      [ "Manually trigger creation of cloud-init files", "md_05_genericnodes.html#autotoc_md10", null ],
-      [ "Resolving location of cloud-init files", "md_05_genericnodes.html#autotoc_md11", null ],
-      [ "Examples of creating custom nodes", "md_05_genericnodes.html#autotoc_md12", [
-        [ "Setting up a Postgresql DB-server", "md_05_genericnodes.html#autotoc_md13", null ]
+    [ "Creating generic nodes", "md_05-genericnodes.html", [
+      [ "Cloud init files", "md_05-genericnodes.html#autotoc_md10", null ],
+      [ "Manually trigger creation of cloud-init files", "md_05-genericnodes.html#autotoc_md16", null ],
+      [ "Resolving location of cloud-init files", "md_05-genericnodes.html#autotoc_md18", null ],
+      [ "Examples of creating custom nodes", "md_05-genericnodes.html#autotoc_md19", [
+        [ "Setting up a Postgresql DB-server", "md_05-genericnodes.html#autotoc_md20", null ],
+        [ "Setting up a Jenkins server", "md_05-genericnodes.html#autotoc_md21", null ]
       ] ]
     ] ],
-    [ "Creating nodes using naming conventions", "md_06_usingnamingconvention.html", [
-      [ "Node naming convention", "md_06_usingnamingconvention.html#autotoc_md15", [
-        [ "MAJOR_RELEASE", "md_06_usingnamingconvention.html#autotoc_md16", null ],
-        [ "CONFIG", "md_06_usingnamingconvention.html#autotoc_md17", null ],
-        [ "SIZE", "md_06_usingnamingconvention.html#autotoc_md18", null ],
-        [ "NODE_NUMBER", "md_06_usingnamingconvention.html#autotoc_md19", null ]
+    [ "Creating nodes using naming conventions", "md_06-usingnamingconvention.html", [
+      [ "Node naming convention", "md_06-usingnamingconvention.html#autotoc_md11", [
+        [ "MAJOR_RELEASE", "md_06-usingnamingconvention.html#autotoc_md12", null ],
+        [ "CONFIG", "md_06-usingnamingconvention.html#autotoc_md13", null ],
+        [ "SIZE", "md_06-usingnamingconvention.html#autotoc_md14", null ],
+        [ "NODE_NUMBER", "md_06-usingnamingconvention.html#autotoc_md15", null ]
       ] ],
-      [ "Node name examples", "md_06_usingnamingconvention.html#autotoc_md20", null ]
+      [ "Node name examples", "md_06-usingnamingconvention.html#autotoc_md17", null ]
     ] ],
-    [ "Creating nodes using make", "md_07_usingmake.html", [
-      [ "Examples of using the Makefile directly", "md_07_usingmake.html#autotoc_md22", null ],
-      [ "Makefile targets", "md_07_usingmake.html#autotoc_md23", null ]
+    [ "Creating nodes using make", "md_07-usingmake.html", [
+      [ "Examples of using the Makefile directly", "md_07-usingmake.html#autotoc_md23", null ],
+      [ "Makefile targets", "md_07-usingmake.html#autotoc_md24", null ]
     ] ],
     [ "Aliases", "aliases.html", null ],
-    [ "Tips and Tricks", "md_09_tipstricks.html", null ],
-    [ "ToDo", "md_10_todo.html", [
-      [ "Planned", "md_10_todo.html#autotoc_md26", null ],
-      [ "Completed", "md_10_todo.html#autotoc_md27", null ],
-      [ "Will not do", "md_10_todo.html#autotoc_md28", null ]
+    [ "Tips and Tricks", "md_09-tipstricks.html", null ],
+    [ "ToDo", "md_10-todo.html", [
+      [ "Planned", "md_10-todo.html#autotoc_md27", null ],
+      [ "Completed", "md_10-todo.html#autotoc_md28", null ],
+      [ "Will not do", "md_10-todo.html#autotoc_md29", null ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],

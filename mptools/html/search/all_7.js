@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['red_0',['red',['../mpn_8sh.html#afa205de9e31b747019cd70d74236a772',1,'red():&#160;mpn.sh'],['../mkmpnode_8sh.html#afa205de9e31b747019cd70d74236a772',1,'red():&#160;mkmpnode.sh']]]
+  ['jenkins_20server_0',['Setting up a Jenkins server',['../md_05-genericnodes.html#autotoc_md21',1,'']]]
 ];

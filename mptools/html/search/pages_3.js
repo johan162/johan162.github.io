@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quickstart_0',['Quickstart',['../md_04_quickstart.html',1,'']]]
+  ['installing_20mptools_0',['Installing mptools',['../md_02-installing.html',1,'']]],
+  ['introduction_1',['Introduction',['../md_01-intro.html',1,'']]]
 ];

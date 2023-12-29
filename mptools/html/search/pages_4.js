@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tips_20and_20tricks_0',['Tips and Tricks',['../md_09_tipstricks.html',1,'']]],
-  ['todo_1',['ToDo',['../md_10_todo.html',1,'']]]
+  ['make_0',['Creating nodes using make',['../md_07-usingmake.html',1,'']]],
+  ['mptools_1',['Installing mptools',['../md_02-installing.html',1,'']]]
 ];
