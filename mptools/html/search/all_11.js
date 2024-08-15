@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['ubuntuver_0',['ubuntuVer',['../mkmpnode_8sh.html#a7f0f5ba28422fb35f74f770a98449081',1,'mkmpnode.sh']]],
-  ['up_20a_20jenkins_20server_1',['Setting up a Jenkins server',['../md_05-genericnodes.html#autotoc_md21',1,'']]],
-  ['up_20a_20postgresql_20db_20server_2',['Setting up a Postgresql DB-server',['../md_05-genericnodes.html#autotoc_md20',1,'']]],
-  ['using_20make_3',['Creating nodes using make',['../md_07-usingmake.html',1,'']]],
-  ['using_20naming_20convention_4',['Creating nodes using naming convention',['../md_04-quickstart.html#autotoc_md6',1,'']]],
-  ['using_20naming_20conventions_5',['Creating nodes using naming conventions',['../md_06-usingnamingconvention.html',1,'']]],
-  ['using_20the_20full_20configuration_6',['Creating nodes using the full configuration',['../md_04-quickstart.html#autotoc_md7',1,'']]],
-  ['using_20the_20makefile_20directly_7',['Examples of using the Makefile directly',['../md_07-usingmake.html#autotoc_md23',1,'']]]
+  ['targets_0',['Makefile targets',['../md_07-usingmake.html#autotoc_md25',1,'']]],
+  ['the_20full_20configuration_1',['Creating nodes using the full configuration',['../md_04-quickstart.html#autotoc_md7',1,'']]],
+  ['the_20makefile_20directly_2',['Examples of using the Makefile directly',['../md_07-usingmake.html#autotoc_md24',1,'']]],
+  ['the_20node_3',['Accessing the node',['../md_04-quickstart.html#autotoc_md4',1,'']]],
+  ['tips_20and_20tricks_4',['Tips and Tricks',['../md_09-tipstricks.html',1,'']]],
+  ['todo_5',['ToDo',['../md_10-todo.html',1,'']]],
+  ['tricks_6',['Tips and Tricks',['../md_09-tipstricks.html',1,'']]],
+  ['trigger_20creation_20of_20cloud_20init_20files_7',['Manually trigger creation of cloud-init files',['../md_05-genericnodes.html#autotoc_md11',1,'']]]
 ];

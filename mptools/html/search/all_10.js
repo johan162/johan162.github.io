@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['targets_0',['Makefile targets',['../md_07-usingmake.html#autotoc_md24',1,'']]],
-  ['the_20full_20configuration_1',['Creating nodes using the full configuration',['../md_04-quickstart.html#autotoc_md7',1,'']]],
-  ['the_20makefile_20directly_2',['Examples of using the Makefile directly',['../md_07-usingmake.html#autotoc_md23',1,'']]],
-  ['the_20node_3',['Accessing the node',['../md_04-quickstart.html#autotoc_md4',1,'']]],
-  ['tips_20and_20tricks_4',['Tips and Tricks',['../md_09-tipstricks.html',1,'']]],
-  ['todo_5',['ToDo',['../md_10-todo.html',1,'']]],
-  ['tricks_6',['Tips and Tricks',['../md_09-tipstricks.html',1,'']]],
-  ['trigger_20creation_20of_20cloud_20init_20files_7',['Manually trigger creation of cloud-init files',['../md_05-genericnodes.html#autotoc_md16',1,'']]]
+  ['script_5fdir_0',['SCRIPT_DIR',['../mpn_8sh.html#aee2d9bed9becfd3543e1df8e9957306d',1,'SCRIPT_DIR:&#160;mpn.sh'],['../mkmpnode_8sh.html#a4dfab06f096bc2f21817c02d11e563a3',1,'SCRIPT_DIR:&#160;mkmpnode.sh']]],
+  ['server_1',['server',['../md_05-genericnodes.html#autotoc_md15',1,'Setting up a Jenkins server'],['../md_05-genericnodes.html#autotoc_md14',1,'Setting up a Postgresql DB-server']]],
+  ['setting_20up_20a_20jenkins_20server_2',['Setting up a Jenkins server',['../md_05-genericnodes.html#autotoc_md15',1,'']]],
+  ['setting_20up_20a_20postgresql_20db_20server_3',['Setting up a Postgresql DB-server',['../md_05-genericnodes.html#autotoc_md14',1,'']]],
+  ['size_4',['SIZE',['../md_06-usingnamingconvention.html#autotoc_md20',1,'']]]
 ];

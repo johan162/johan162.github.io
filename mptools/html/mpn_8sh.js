@@ -1,12 +1,13 @@
 var mpn_8sh =
 [
+    [ "bridged", "mpn_8sh.html#a393a4d5729a29a96a9da1110b5e85d09", null ],
     [ "CLOUD_CONFIG_B", "mpn_8sh.html#a5e1c1e26f92116a0350708b485689e5d", null ],
     [ "CLOUD_CONFIG_F", "mpn_8sh.html#ad7e1c36dcdb8d92c260ffda317d4567d", null ],
     [ "CLOUD_CONFIG_M", "mpn_8sh.html#a9ff1fafb9c64dfc9ec4bba9c0220a648", null ],
     [ "default", "mpn_8sh.html#a7e8a164be0267185e1856e0149cbb7c2", null ],
-    [ "IMAGE_UB18", "mpn_8sh.html#a00a5a6db5339fd8fa9bd31a341b4e8a0", null ],
     [ "IMAGE_UB20", "mpn_8sh.html#aa4610f0df1b9ecd5c189e30dcdd823f6", null ],
     [ "IMAGE_UB22", "mpn_8sh.html#a0c80afae7674a080f41c5cd817be1421", null ],
+    [ "IMAGE_UB24", "mpn_8sh.html#ab100be4457f3a3010484b4e3e9cd2ed9", null ],
     [ "INSTALL_BIN_DIR", "mpn_8sh.html#ad91a9b6438f42d36528eae0fd55c0b08", null ],
     [ "INSTALL_PREFIX", "mpn_8sh.html#a8785f0addba0db0cf97e61dea9590b3c", null ],
     [ "INSTALL_USERCLOUDINIT_DIR", "mpn_8sh.html#a0e6f312d24d693704f14c016a1c0c86d", null ],
@@ -16,6 +17,7 @@ var mpn_8sh =
     [ "MACHINE_CONFIG_M", "mpn_8sh.html#a2f1aaf3b98f56581a89a5acd8375b4f7", null ],
     [ "MACHINE_CONFIG_S", "mpn_8sh.html#ab51b8316609d4d2ca0230f68dac6bdf8", null ],
     [ "MACHINE_CONFIG_X", "mpn_8sh.html#ae4940962787f543fa2388494abfaad1d", null ],
+    [ "MACHINE_CONFIG_Z", "mpn_8sh.html#aed4b1ab0d521e04d5eae57c91d17ba84", null ],
     [ "MKMPNODE_SCRIPT", "mpn_8sh.html#a3fe0867073582a608b038c55463ee51a", null ],
     [ "nodecachefile", "mpn_8sh.html#a50a897526dd8bcb7ef3390b7617cce63", null ],
     [ "nodeList", "mpn_8sh.html#ac8c4a263735b4f756837b21a66f5c2bb", null ],

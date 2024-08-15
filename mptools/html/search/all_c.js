@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['planned_0',['Planned',['../md_10-todo.html#autotoc_md27',1,'']]],
-  ['postgresql_20db_20server_1',['Setting up a Postgresql DB-server',['../md_05-genericnodes.html#autotoc_md20',1,'']]]
+  ['of_20cloud_20init_20files_0',['of cloud init files',['../md_05-genericnodes.html#autotoc_md11',1,'Manually trigger creation of cloud-init files'],['../md_05-genericnodes.html#autotoc_md12',1,'Resolving location of cloud-init files']]],
+  ['of_20creating_20custom_20nodes_1',['Examples of creating custom nodes',['../md_05-genericnodes.html#autotoc_md13',1,'']]],
+  ['of_20using_20the_20makefile_20directly_2',['Examples of using the Makefile directly',['../md_07-usingmake.html#autotoc_md24',1,'']]]
 ];

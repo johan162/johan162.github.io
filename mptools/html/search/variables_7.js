@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['script_5fdir_0',['SCRIPT_DIR',['../mpn_8sh.html#aee2d9bed9becfd3543e1df8e9957306d',1,'SCRIPT_DIR:&#160;mpn.sh'],['../mkmpnode_8sh.html#a4dfab06f096bc2f21817c02d11e563a3',1,'SCRIPT_DIR:&#160;mkmpnode.sh']]]
+  ['red_0',['red',['../mpn_8sh.html#afa205de9e31b747019cd70d74236a772',1,'red:&#160;mpn.sh'],['../mkmpnode_8sh.html#afa205de9e31b747019cd70d74236a772',1,'red:&#160;mkmpnode.sh']]]
 ];

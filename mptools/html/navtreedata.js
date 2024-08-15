@@ -37,33 +37,34 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Creating generic nodes", "md_05-genericnodes.html", [
+      [ "Bridged network", "md_05-genericnodes.html#autotoc_md9", null ],
       [ "Cloud init files", "md_05-genericnodes.html#autotoc_md10", null ],
-      [ "Manually trigger creation of cloud-init files", "md_05-genericnodes.html#autotoc_md16", null ],
-      [ "Resolving location of cloud-init files", "md_05-genericnodes.html#autotoc_md18", null ],
-      [ "Examples of creating custom nodes", "md_05-genericnodes.html#autotoc_md19", [
-        [ "Setting up a Postgresql DB-server", "md_05-genericnodes.html#autotoc_md20", null ],
-        [ "Setting up a Jenkins server", "md_05-genericnodes.html#autotoc_md21", null ]
+      [ "Manually trigger creation of cloud-init files", "md_05-genericnodes.html#autotoc_md11", null ],
+      [ "Resolving location of cloud-init files", "md_05-genericnodes.html#autotoc_md12", null ],
+      [ "Examples of creating custom nodes", "md_05-genericnodes.html#autotoc_md13", [
+        [ "Setting up a Postgresql DB-server", "md_05-genericnodes.html#autotoc_md14", null ],
+        [ "Setting up a Jenkins server", "md_05-genericnodes.html#autotoc_md15", null ]
       ] ]
     ] ],
     [ "Creating nodes using naming conventions", "md_06-usingnamingconvention.html", [
-      [ "Node naming convention", "md_06-usingnamingconvention.html#autotoc_md11", [
-        [ "MAJOR_RELEASE", "md_06-usingnamingconvention.html#autotoc_md12", null ],
-        [ "CONFIG", "md_06-usingnamingconvention.html#autotoc_md13", null ],
-        [ "SIZE", "md_06-usingnamingconvention.html#autotoc_md14", null ],
-        [ "NODE_NUMBER", "md_06-usingnamingconvention.html#autotoc_md15", null ]
+      [ "Node naming convention", "md_06-usingnamingconvention.html#autotoc_md17", [
+        [ "MAJOR_RELEASE", "md_06-usingnamingconvention.html#autotoc_md18", null ],
+        [ "CONFIG", "md_06-usingnamingconvention.html#autotoc_md19", null ],
+        [ "SIZE", "md_06-usingnamingconvention.html#autotoc_md20", null ],
+        [ "NODE_NUMBER", "md_06-usingnamingconvention.html#autotoc_md21", null ]
       ] ],
-      [ "Node name examples", "md_06-usingnamingconvention.html#autotoc_md17", null ]
+      [ "Node name examples", "md_06-usingnamingconvention.html#autotoc_md22", null ]
     ] ],
     [ "Creating nodes using make", "md_07-usingmake.html", [
-      [ "Examples of using the Makefile directly", "md_07-usingmake.html#autotoc_md23", null ],
-      [ "Makefile targets", "md_07-usingmake.html#autotoc_md24", null ]
+      [ "Examples of using the Makefile directly", "md_07-usingmake.html#autotoc_md24", null ],
+      [ "Makefile targets", "md_07-usingmake.html#autotoc_md25", null ]
     ] ],
     [ "Aliases", "aliases.html", null ],
     [ "Tips and Tricks", "md_09-tipstricks.html", null ],
     [ "ToDo", "md_10-todo.html", [
-      [ "Planned", "md_10-todo.html#autotoc_md27", null ],
-      [ "Completed", "md_10-todo.html#autotoc_md28", null ],
-      [ "Will not do", "md_10-todo.html#autotoc_md29", null ]
+      [ "Planned", "md_10-todo.html#autotoc_md28", null ],
+      [ "Completed", "md_10-todo.html#autotoc_md29", null ],
+      [ "Will not do", "md_10-todo.html#autotoc_md30", null ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],

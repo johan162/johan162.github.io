@@ -1,5 +1,6 @@
 var mkmpnode_8sh =
 [
+    [ "bridged", "mkmpnode_8sh.html#a393a4d5729a29a96a9da1110b5e85d09", null ],
     [ "cloudInit", "mkmpnode_8sh.html#ab1000537a9e95fb191d588ccced6124c", null ],
     [ "cpus", "mkmpnode_8sh.html#a227fca2b8a9c18922cb3b9727b21e99b", null ],
     [ "default", "mkmpnode_8sh.html#a7e8a164be0267185e1856e0149cbb7c2", null ],

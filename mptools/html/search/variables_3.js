@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['machine_5fconfig_5fe_0',['MACHINE_CONFIG_E',['../mpn_8sh.html#a44ef6a2b5d8ccf71ae87c2b3b0ee0436',1,'mpn.sh']]],
-  ['machine_5fconfig_5fh_1',['MACHINE_CONFIG_H',['../mpn_8sh.html#a74d3f4b91cada91d137a1105fb598d34',1,'mpn.sh']]],
-  ['machine_5fconfig_5fl_2',['MACHINE_CONFIG_L',['../mpn_8sh.html#a8bd88b6ad96d4665b03fa6f4b693a6b5',1,'mpn.sh']]],
-  ['machine_5fconfig_5fm_3',['MACHINE_CONFIG_M',['../mpn_8sh.html#a2f1aaf3b98f56581a89a5acd8375b4f7',1,'mpn.sh']]],
-  ['machine_5fconfig_5fs_4',['MACHINE_CONFIG_S',['../mpn_8sh.html#ab51b8316609d4d2ca0230f68dac6bdf8',1,'mpn.sh']]],
-  ['machine_5fconfig_5fx_5',['MACHINE_CONFIG_X',['../mpn_8sh.html#ae4940962787f543fa2388494abfaad1d',1,'mpn.sh']]],
-  ['memory_6',['memory',['../mkmpnode_8sh.html#a3042666156a7ab9918533f031e41df01',1,'mkmpnode.sh']]],
-  ['mkmpnode_5fscript_7',['MKMPNODE_SCRIPT',['../mpn_8sh.html#a3fe0867073582a608b038c55463ee51a',1,'MKMPNODE_SCRIPT:&#160;mpn.sh'],['../mkmpnode_8sh.html#a3fe0867073582a608b038c55463ee51a',1,'MKMPNODE_SCRIPT:&#160;mkmpnode.sh']]],
-  ['mountdev_8',['mountDev',['../mkmpnode_8sh.html#af6b67e8b75df849b8ca41636e49032e3',1,'mkmpnode.sh']]]
+  ['image_5fub20_0',['IMAGE_UB20',['../mpn_8sh.html#aa4610f0df1b9ecd5c189e30dcdd823f6',1,'mpn.sh']]],
+  ['image_5fub22_1',['IMAGE_UB22',['../mpn_8sh.html#a0c80afae7674a080f41c5cd817be1421',1,'mpn.sh']]],
+  ['image_5fub24_2',['IMAGE_UB24',['../mpn_8sh.html#ab100be4457f3a3010484b4e3e9cd2ed9',1,'mpn.sh']]],
+  ['install_5fbin_5fdir_3',['INSTALL_BIN_DIR',['../mpn_8sh.html#ad91a9b6438f42d36528eae0fd55c0b08',1,'INSTALL_BIN_DIR:&#160;mpn.sh'],['../mkmpnode_8sh.html#aa090967b855b6b4333d3ecc0455abd31',1,'INSTALL_BIN_DIR:&#160;mkmpnode.sh']]],
+  ['install_5fprefix_4',['INSTALL_PREFIX',['../mpn_8sh.html#a8785f0addba0db0cf97e61dea9590b3c',1,'INSTALL_PREFIX:&#160;mpn.sh'],['../mkmpnode_8sh.html#a29767ae0f13fb43ba5ecedd9b82bca37',1,'INSTALL_PREFIX:&#160;mkmpnode.sh']]],
+  ['install_5fusercloudinit_5fdir_5',['INSTALL_USERCLOUDINIT_DIR',['../mpn_8sh.html#a0e6f312d24d693704f14c016a1c0c86d',1,'mpn.sh']]]
 ];
