@@ -1,12 +1,17 @@
 # exchange-intro
 
 An introduction to how exchanges work for people with no financial background.
-Choose the format that suits you best. If you have accesst´to an ebook reader we
-recomment the **EPUB** rendering as that gives you freedom to choose font size and
+Choose the format that suits you best. If you have access to an ebook reader we
+recommend the **EPUB** format as that gives you freedom to choose font size and
 background color.
 
-The latest version is a pre-release of the second edition that is awaiting editor
-review so expect errors, typos, or other problem. 
+The latest version is a pre-release of the second edition that I yet have to proof read
+so expect errors, typos, or some butchered sentences.
+
+> NOTE: The chapter covering implieds (synthetic orders), was completely rewritten.
+> This is on the best of days complicated enough that I simply cannot have avoided making
+> numerical mistakes, or switched orders around. 
+> So, please read that chapter with critical eyes!
 
 ## EPUB rendering
 
