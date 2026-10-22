@@ -34,7 +34,7 @@ recomment the **EPUB** rendering as that gives you freedom to choose font size a
 background color.
 
 The latest version is a pre-release of the second edition that is awaiting editor
-revview so expect errors, typos, or other problem. 
+review so expect errors, typos, or other problem. 
 
 ### EPUB rendering
 
@@ -54,6 +54,6 @@ A4 (light background) is the best format if you intend to print the book on a re
 office printer.
 
 1. [PDF A4 Light background](exchange_intro/exchange_intro_a4-1.10.1.pdf)
-2. [PDF A4 Light background](exchange_intro/exchange_intro_a4-1.10.1.pdf)
+2. [PDF A4 Dark background](exchange_intro/exchange_intro_dark_a4-1.10.1.pdf)
 
 
