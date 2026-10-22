@@ -36,6 +36,8 @@ background color.
 The latest version is a pre-release of the second edition that is awaiting editor
 review so expect errors, typos, or other problem. 
 
+[Available versions](exchange_intro/index.md)
+
 ### EPUB rendering
 
 1. [EPUB](exchange_intro/exchange_intro-1.10.1.epub)
