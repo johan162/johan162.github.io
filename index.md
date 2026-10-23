@@ -77,7 +77,7 @@ MCProjSim runs thousands of Monte Carlo simulations on your project plan and tur
 1. [API Guide B5 Light](mcprojsim/mcprojsim_api_ref-a4-0.15.2.pdf)
 2. [API Guide B5 Dark](mcprojsim/mcprojsim_api_ref-dark-a4-0.15.2.pdf)
 
-## gridcover
+## 📚 gridcover
 
 A physically highly accurate robotic lawn mower simulator. It is written in Rust and
 allows simulation of 100x100m with 1cm resolution to be done &lt; 3min on a standard 
