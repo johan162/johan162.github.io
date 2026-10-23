@@ -86,7 +86,7 @@ algorithm.
 
 <img src="gridcover/coverage.png" alt="isolated" width="250"/>
 
-## PDF Rendering
+### PDF Rendering
 
 1. [README](gridcover/README.pdf)
 2. [Quick Start Guide](gridcover/user-guide.pdf)
