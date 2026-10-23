@@ -1,6 +1,6 @@
 # Documented projects
 
-## libhpdftbl
+## 📚 libhpdftbl
 
 Table creation library for Haru PDF.   
 See: [libhpdftbl](https://github.com/johan162/hpdf_table)
@@ -9,7 +9,7 @@ See: [libhpdftbl](https://github.com/johan162/hpdf_table)
 2. [PDF](libhpdftbl/lihpdftbl_manual_v1.0.0-beta.pdf)
 
 
-## themeltspice
+## 📚 themeltspice
 
 A theme creator for LTSpice SPICE simulation program.   
 See: [themeltspice](https://github.com/johan162/themeltspice)
@@ -17,7 +17,7 @@ See: [themeltspice](https://github.com/johan162/themeltspice)
 1. [HTML](themeltspice/README.md)
 2. [PDF](themeltspice/README.pdf)
 
-## mptools
+## 📚 mptools
 
 A set of tools to help create `multipass` virtual nodes.
 See: [mptools](https://github.com/johan162/mptools)
@@ -25,14 +25,14 @@ See: [mptools](https://github.com/johan162/mptools)
 1. [HTML](mptools/html/index.html)
 2. [PDF](mptools/mptools_manual.pdf)
 
-## bayescalc2
+## 📚 bayescalc2
 
 A powerful baysian network claculator with interactive REPL loop
 
 See: [BayesCalc2](https://johan162.github.io/bayescalc2/)
 
 
-## oneselect
+## 📚 oneselect
 
 OneSelect uses a probabilistic model based on the Bradley-Terry model (a specific form of the Thurstone-Mosteller model) combined with Bayesian inference to estimate the relative value or complexity of features.
 
@@ -47,7 +47,7 @@ then gives a view of the valuable features to implment.
 
 See: [OneSelect](https://johan162.github.io/oneselect/)
 
-## mcprojsim
+## 📚 mcprojsim
 
 **Stop guessing deadlines. Start simulating them.**
 
@@ -93,7 +93,7 @@ algorithm.
 
 
 
-## exchange-intro
+## 📚 exchange-intro
 
 An introduction to how exchanges work for people with no financial background.
 Choose the format that suits you best. If you have accesst´to an ebook reader we
