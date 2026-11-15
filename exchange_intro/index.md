@@ -13,10 +13,10 @@ so expect errors, typos, or some butchered sentences. One major improvements in 
 is that I have redrawn the majority of the Mermaid figures as proper vector graphics
 illustrations which now looks much better and fits the pages. 
 
-A number of illustrations was added to the chapters on implied (synthetic) orders and to 
-the best of my knowledge this way of illustrating the concept is novel and have not 
-been seen before. A number of exercises for calculation of implied orders 
-(with detailed answers) was also added to both implied chapters. 
+A number of illustrations was added to the chapters on implied (synthetic) orders. 
+To the best of my knowledge this way of illustrating the combinatorical explosion 
+and shortest-path calculation is novel. A number of exercises for calculation of 
+implied orders (with detailed answers) was also added to both implied chapters. 
 
 ## Download
 
