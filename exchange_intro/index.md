@@ -1,7 +1,7 @@
 # exchange-intro
 
 An introduction to how exchanges work for people with no financial background.
-Choose the format that suits you best. If you have access to an ebook reader we
+Choose the format that suits you best. If you have access to an ebook reader I
 recommend the **EPUB** format as that gives you freedom to choose font size and
 background color.
 
