@@ -20,10 +20,10 @@ been seen before. A number of exercises for calculation of implied orders
 
 ## Download
 
-[[EPUB]](exchange_intro/exchange_intro-1.12.0.epub) [[PDF B5 Light]](./exchange_intro_b5-1.12.0.pdf) [[PDF A4 Light]](./exchange_intro_a4-1.12.0.pdf) [[PDF B5 Dark]](./exchange_intro_dark_b5-1.12.0.pdf) [[PDF A4 Dark]](./exchange_intro_dark_a4-1.12.0.pdf)
+[[EPUB]](./exchange_intro/exchange_intro-1.12.0.epub) [[PDF B5 Light]](./exchange_intro_b5-1.12.0.pdf) [[PDF A4 Light]](./exchange_intro_a4-1.12.0.pdf) [[PDF B5 Dark]](./exchange_intro_dark_b5-1.12.0.pdf) [[PDF A4 Dark]](./exchange_intro_dark_a4-1.12.0.pdf)
 
 
-## A4 PDF in parts
+## PDF A4 in parts
 
 If you intend to print the book on a regular office printer and want sizeable 
 chunks that are a better fit to staple then printing each of the four
@@ -32,8 +32,9 @@ parts of the book individually is the way to go.
 [[Part I]](./parts/exchange-intro-part-I-1.12.0.pdf) [[Part II]](./parts/exchange-intro-part-II-1.12.0.pdf) [[Part III]](./parts/exchange-intro-part-III-1.12.0.pdf) [[Part IV]](./parts/exchange-intro-part-IV-1.12.0.pdf)
 
 
-# Errata
+## No Errata
 
-There is currently no Errata. However, as with any book of size it is impossible
-not to have errors. If you find errors or even minor typos please let me know by 
+There is currently no *Errata*. However, as with any book of size it is impossible
+not to have errors. If you find errors (especially in any calculations) 
+or even minor typos please let me know by 
 sending a mail to me, <johan162@gmail.com>. Much appreciated!
