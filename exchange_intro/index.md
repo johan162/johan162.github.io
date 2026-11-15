@@ -20,6 +20,8 @@ been seen before. A number of exercises for calculation of implied orders
 
 ## Download
 
+Version: 1.12.0 (2ed Pre-release)
+
 [[EPUB]](./exchange_intro/exchange_intro-1.12.0.epub) [[PDF B5 Light]](./exchange_intro_b5-1.12.0.pdf) [[PDF A4 Light]](./exchange_intro_a4-1.12.0.pdf) [[PDF B5 Dark]](./exchange_intro_dark_b5-1.12.0.pdf) [[PDF A4 Dark]](./exchange_intro_dark_a4-1.12.0.pdf)
 
 
