@@ -13,7 +13,7 @@ so expect errors, typos, or some butchered sentences.
 
 Choose your format to download:
 
-[[EPUB]](exchange_intro/exchange_intro-1.12.0.epub)[[PDF B5 Light]](./exchange_intro_b5-1.12.0.pdf)[[PDF A4 Light]](./exchange_intro_a4-1.12.0.pdf)[[PDF B5 Dark]](./exchange_intro_dark_b5-1.12.0.pdf)[[PDF A4 Dark]](./exchange_intro_dark_a4-1.12.0.pdf)
+[[EPUB]](exchange_intro/exchange_intro-1.12.0.epub) [[PDF B5 Light]](./exchange_intro_b5-1.12.0.pdf) [[PDF A4 Light]](./exchange_intro_a4-1.12.0.pdf) [[PDF B5 Dark]](./exchange_intro_dark_b5-1.12.0.pdf) [[PDF A4 Dark]](./exchange_intro_dark_a4-1.12.0.pdf)
 
 
 ## A4 PDF in parts
@@ -22,10 +22,7 @@ If you intend to print the book on a regular office printer and want sizeable
 chunks that are a better fit to staple then printing each of the four
 parts of the book individually is the way to go.
 
-1. [PDF A4 Part I](./parts/exchange-intro-part-I-1.12.0.pdf)
-2. [PDF A4 Part II](./parts/exchange-intro-part-II-1.12.0.pdf)
-3. [PDF A4 Part III](./parts/exchange-intro-part-III-1.12.0.pdf)
-4. [PDF A4 Part IV](./parts/exchange-intro-part-IV-1.12.0.pdf)
+[Part I](./parts/exchange-intro-part-I-1.12.0.pdf) [Part II](./parts/exchange-intro-part-II-1.12.0.pdf) [Part III](./parts/exchange-intro-part-III-1.12.0.pdf) [Part IV](./parts/exchange-intro-part-IV-1.12.0.pdf)
 
 
 # Errata
