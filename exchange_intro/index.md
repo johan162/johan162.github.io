@@ -22,7 +22,7 @@ If you intend to print the book on a regular office printer and want sizeable
 chunks that are a better fit to staple then printing each of the four
 parts of the book individually is the way to go.
 
-[Part I](./parts/exchange-intro-part-I-1.12.0.pdf) [Part II](./parts/exchange-intro-part-II-1.12.0.pdf) [Part III](./parts/exchange-intro-part-III-1.12.0.pdf) [Part IV](./parts/exchange-intro-part-IV-1.12.0.pdf)
+[[Part I]](./parts/exchange-intro-part-I-1.12.0.pdf) [[Part II]](./parts/exchange-intro-part-II-1.12.0.pdf) [[Part III]](./parts/exchange-intro-part-III-1.12.0.pdf) [[Part IV]](./parts/exchange-intro-part-IV-1.12.0.pdf)
 
 
 # Errata
