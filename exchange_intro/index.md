@@ -5,33 +5,16 @@ Choose the format that suits you best. If you have access to an ebook reader we
 recommend the **EPUB** format as that gives you freedom to choose font size and
 background color.
 
+The **B5 format** is a standard large book format (but smaller than A4) 
+and therefore gives a better view on tablet (which in general is smaller than A4)
+
 The latest version is a pre-release of the second edition that I yet have to proof read
 so expect errors, typos, or some butchered sentences.
 
-> NOTE: The chapter covering implieds (synthetic orders), was completely rewritten.
-> This is on the best of days complicated enough that I simply cannot have avoided making
-> numerical mistakes, or switched orders around. 
-> So, please read that chapter with critical eyes!
+Choose your format to download:
 
-## EPUB rendering
+[[EPUB]](exchange_intro/exchange_intro-1.12.0.epub)[[PDF B5 Light]](./exchange_intro_b5-1.12.0.pdf)[[PDF A4 Light]](./exchange_intro_a4-1.12.0.pdf)[[PDF B5 Dark]](./exchange_intro_dark_b5-1.12.0.pdf)[[PDF A4 Dark]](./exchange_intro_dark_a4-1.12.0.pdf)
 
-1. [EPUB](exchange_intro/exchange_intro-1.10.1.epub)
-
-## B5 PDF Rendering
-
-B5 is a common book format. It is better suitable if you intend reading the PDF on a 
-tablet since a A4 PDF format will be more heavier scaled on a smaller tablet. On an electronic
-reading device many people find the PDF with dark background more pleasent to the eyes.
-
-1. [PDF B5 Light background](./exchange_intro_b5-1.10.1.pdf)
-2. [PDF B5 Dark background](./exchange_intro_dark_b5-1.10.1.pdf)
-
-## A4 PDF Rendering
-
-Classical A4 rendering in both light and dark theme
-
-1. [PDF A4 Light background](./exchange_intro_a4-1.10.1.pdf)
-2. [PDF A4 Dark background](./exchange_intro_dark_a4-1.10.1.pdf)
 
 ## A4 PDF in parts
 
@@ -39,10 +22,10 @@ If you intend to print the book on a regular office printer and want sizeable
 chunks that are a better fit to staple then printing each of the four
 parts of the book individually is the way to go.
 
-1. [PDF A4 Part I](./parts/exchange-intro-part-I-1.10.1.pdf)
-2. [PDF A4 Part II](./parts/exchange-intro-part-II-1.10.1.pdf)
-3. [PDF A4 Part III](./parts/exchange-intro-part-III-1.10.1.pdf)
-4. [PDF A4 Part IV](./parts/exchange-intro-part-IV-1.10.1.pdf)
+1. [PDF A4 Part I](./parts/exchange-intro-part-I-1.12.0.pdf)
+2. [PDF A4 Part II](./parts/exchange-intro-part-II-1.12.0.pdf)
+3. [PDF A4 Part III](./parts/exchange-intro-part-III-1.12.0.pdf)
+4. [PDF A4 Part IV](./parts/exchange-intro-part-IV-1.12.0.pdf)
 
 
 # Errata
