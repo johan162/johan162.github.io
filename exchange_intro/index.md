@@ -9,9 +9,16 @@ The **B5 format** is a standard large book format (but smaller than A4)
 and therefore gives a better view on tablet (which in general is smaller than A4)
 
 The latest version is a pre-release of the second edition that I yet have to proof read
-so expect errors, typos, or some butchered sentences.
+so expect errors, typos, or some butchered sentences. One major improvements in the 2ed
+is that I have redrawn the majority of the Mermaid figures as proper vector graphics
+illustrations which now looks much better and fits the pages. 
 
-Choose your format to download:
+A number of illustrations was added to the chapters on implied (synthetic) orders and to 
+the best of my knowledge this way of illustrating the concept is novel and have not 
+been seen before. A number of exercises for calculation of implied orders 
+(with detailed answers) was also added to both implied chapters. 
+
+## Download
 
 [[EPUB]](exchange_intro/exchange_intro-1.12.0.epub) [[PDF B5 Light]](./exchange_intro_b5-1.12.0.pdf) [[PDF A4 Light]](./exchange_intro_a4-1.12.0.pdf) [[PDF B5 Dark]](./exchange_intro_dark_b5-1.12.0.pdf) [[PDF A4 Dark]](./exchange_intro_dark_a4-1.12.0.pdf)
 
