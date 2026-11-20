@@ -12,7 +12,7 @@ and therefore gives a better view on tablet (which in general is smaller than A4
 
 ## Download
 
-Version: 2.0.0 (2ed Pre-release)
+Version: 2.0.0 (2ed)
 
 [[EPUB]](./exchange_intro-2.0.0.epub) [[PDF B5 Light]](./exchange_intro_b5-2.0.0.pdf) [[PDF A4 Light]](./exchange_intro_a4-2.0.0.pdf) [[PDF B5 Dark]](./exchange_intro_dark_b5-2.0.0.pdf) [[PDF A4 Dark]](./exchange_intro_dark_a4-2.0.0.pdf)
 
