@@ -1,0 +1,394 @@
+#!/usr/bin/env python3
+"""Full working RALF subscriber example.
+
+Goes beyond a single trivial subscription: subscribes to every channel a
+role is actually entitled to (see the §7 entitlement matrix in the
+protocol reference), then puts the received `EXEC`/`EOD` data to use --
+a running per-symbol executed-volume tally that correctly de-duplicates
+`EXEC` lines by `EXEC_ID` (an `AUDIT` client subscribed to more than one
+channel receives the *same* trade once per channel, by design, see §6)
+and a per-channel sequence-gap check (on `--symbols '*'` only: SEQ counts
+every symbol of a channel).
+
+See docs/books/protocols-and-clients/part-2-specifications/040-ralf.md for
+the normative wire contract this client follows. The session rules it relies
+on are the same in all three line gateways (pm-ralf-gwy, pm-md-gwy,
+pm-dc-gwy): send HELLO straight after connecting (the gateway closes a
+connection without one after 5 s, with EXIT|REASON=auth_timeout); an ERR
+in reply to HELLO ends the session; a gateway-initiated close is announced
+with a final ERR or EXIT|REASON=...; a client that keeps reading needs no
+PING to stay connected, because the heartbeats count as traffic; and a
+client may end its own session with a bare EXIT.
+
+Uses ralf_parser.py to parse and build RALF lines.
+"""
+
+from __future__ import annotations
+
+import argparse
+import socket
+import sys
+from collections.abc import Iterable
+from dataclasses import dataclass, field
+
+from ralf_parser import RalfMessage, build_ralf_line, parse_ralf_line
+
+# Which channels each role may subscribe to (protocol reference §7). AUDIT
+# is the only role entitled to more than its own name.
+_ROLE_CHANNELS: dict[str, tuple[str, ...]] = {
+    "CLEARING": ("CLEARING",),
+    "DROP_COPY": ("DROP_COPY",),
+    "AUDIT": ("CLEARING", "DROP_COPY", "AUDIT"),
+}
+
+
+class LineReader:
+    """Buffers raw socket bytes and yields one decoded line at a time.
+
+    TCP is a byte stream, not a message queue: one recv() call may return
+    half a line, a whole line, or several lines concatenated together, so
+    a real client must buffer and split on '\\n' itself rather than assume
+    each recv() lines up with one RALF message.
+    """
+
+    def __init__(self, sock: socket.socket) -> None:
+        self.sock = sock
+        self.buf = bytearray()
+
+    def recv_line(self) -> str:
+        while True:
+            nl = self.buf.find(b"\n")
+            if nl >= 0:
+                line = bytes(self.buf[:nl])
+                del self.buf[: nl + 1]
+                return line.decode("utf-8", errors="replace")
+
+            chunk = self.sock.recv(4096)
+            if not chunk:
+                raise RuntimeError("gateway closed connection")
+            self.buf.extend(chunk)
+
+
+def send_line(sock: socket.socket, msg_type: str, fields: dict[str, str]) -> None:
+    sock.sendall(build_ralf_line(msg_type, fields).encode("utf-8"))
+
+
+def hello_fields(client: str, role: str, lastseq: str, epoch: str) -> dict[str, str]:
+    """The HELLO fields; a resume names the gateway run it continues.
+
+    Sequences begin again at 1 when pm-ralf-gwy restarts, so a non-zero
+    `LASTSEQ` must travel with the `EPOCH` from the `WELCOME` of the run it
+    came from (protocol reference §8). A checkpoint should store both.
+    """
+    fields = {"CLIENT": client, "PROTO": "RALF1", "ROLE": role, "LASTSEQ": lastseq}
+    if lastseq not in ("", "0"):
+        fields["EPOCH"] = epoch
+    return fields
+
+
+def subscribe(sock: socket.socket, channels: Iterable[str], symbols: str) -> None:
+    """One SUB covering every channel in *channels*, all scoped to *symbols*.
+
+    `CH` accepts a comma-separated list (protocol reference §6, `SUB`), so
+    an AUDIT client subscribing to all three channels is one round trip
+    and one `SNAP`, not three.
+    """
+    send_line(sock, "SUB", {"CH": ",".join(channels), "SYM": symbols})
+
+
+class ChannelSequenceTracker:
+    """Detects gaps in the per-channel SEQ counters RALF streams use.
+
+    Unlike CALF, RALF sequences are per-*channel*, not per-(channel,
+    symbol) -- see §8 of the protocol reference: "SEQ is maintained per
+    channel ... across different channels, SEQ values are independent."
+    So a jump is a gap only on a subscription to every symbol (`SYM=*`):
+    with a symbol filter, every other symbol's trade also moves the
+    channel's SEQ, and the check is switched off.
+    """
+
+    def __init__(self, symbols: str = "*") -> None:
+        self._check_gaps = symbols.strip() == "*"
+        self._last_seq: dict[str, int] = {}
+
+    def rebaseline(self, channels: str, seq_field: str | None) -> None:
+        """A SNAP re-anchors its channel(s); it is never a gap.
+
+        A gateway answers REPLAY_MISS -- LASTSEQ outside the journal, or
+        ahead of it after a gateway restart -- with a SNAP whose SEQ can be
+        *lower* than anything seen before, so checking it like an event
+        would report a gap that is really a reset. A single-channel SNAP
+        sets that channel's baseline. A combined one (CH=A,B,C) carries one
+        aggregate SEQ that is no channel's own baseline, so it only clears
+        them and lets each channel's next event set its own.
+        """
+        names = [c for c in channels.split(",") if c]
+        if len(names) == 1 and seq_field and seq_field.lstrip("-").isdigit():
+            self._last_seq[names[0]] = int(seq_field)
+            return
+        for name in names:
+            self._last_seq.pop(name, None)
+
+    def observe(self, channel: str, seq_field: str | None) -> None:
+        if not channel or not seq_field:
+            return
+        try:
+            seq = int(seq_field)
+        except ValueError:
+            return
+        previous = self._last_seq.get(channel)
+        if self._check_gaps and previous is not None and seq != previous + 1:
+            print(
+                f"!! sequence gap on channel {channel}: "
+                f"expected {previous + 1}, got {seq}",
+                file=sys.stderr,
+            )
+        self._last_seq[channel] = seq
+
+
+@dataclass
+class SymbolTally:
+    unique_trades: int = 0
+    total_qty: int = 0
+
+
+@dataclass
+class ExecTracker:
+    """Tallies executed volume per symbol from `EXEC` lines.
+
+    A single executed trade is delivered once *per subscribed channel*
+    (protocol reference §6, `EXEC`): a role subscribed to more than one
+    channel -- only `AUDIT` can be -- sees the same `EXEC_ID` repeated,
+    once per channel. Counting raw lines would overstate volume by up to
+    3x for an AUDIT client subscribed to everything, so this tracker
+    de-duplicates by `EXEC_ID` before tallying and separately reports the
+    raw (as-delivered) line count so the distinction is visible rather
+    than silently hidden. Per-channel interval counts are retained
+    separately so each `EOD` can be checked against its channel's
+    `TRADE_COUNT`.
+    """
+
+    _seen_exec_ids: set[str] = field(default_factory=set)
+    _by_symbol: dict[str, SymbolTally] = field(default_factory=dict)
+    _raw_lines_by_channel: dict[str, int] = field(default_factory=dict)
+    _seen_exec_ids_by_channel: dict[str, set[str]] = field(default_factory=dict)
+    _since_eod_by_channel_symbol: dict[tuple[str, str], SymbolTally] = field(
+        default_factory=dict
+    )
+
+    def observe(self, channel: str, fields: dict[str, str]) -> tuple[bool, SymbolTally]:
+        """Record one EXEC line; return (is_new_unique_trade, its symbol's tally)."""
+        self._raw_lines_by_channel[channel] = (
+            self._raw_lines_by_channel.get(channel, 0) + 1
+        )
+        exec_id = fields.get("EXEC_ID", "")
+        symbol = fields.get("SYM", "")
+        tally = self._by_symbol.setdefault(symbol, SymbolTally())
+        is_new = bool(exec_id) and exec_id not in self._seen_exec_ids
+        if is_new:
+            self._seen_exec_ids.add(exec_id)
+            tally.unique_trades += 1
+            try:
+                tally.total_qty += int(fields.get("QTY", "0"))
+            except ValueError:
+                pass
+        channel_exec_ids = self._seen_exec_ids_by_channel.setdefault(channel, set())
+        if exec_id and exec_id not in channel_exec_ids:
+            channel_exec_ids.add(exec_id)
+            interval_tally = self._since_eod_by_channel_symbol.setdefault(
+                (channel, symbol), SymbolTally()
+            )
+            interval_tally.unique_trades += 1
+            try:
+                interval_tally.total_qty += int(fields.get("QTY", "0"))
+            except ValueError:
+                pass
+        return is_new, tally
+
+    def tally_for(self, symbol: str) -> SymbolTally:
+        return self._by_symbol.get(symbol, SymbolTally())
+
+    def take_eod_tally(self, channel: str, symbol: str) -> SymbolTally:
+        """Return and reset the channel's per-symbol tally for this EOD period."""
+        return self._since_eod_by_channel_symbol.pop((channel, symbol), SymbolTally())
+
+    def summary(self) -> str:
+        raw_total = sum(self._raw_lines_by_channel.values())
+        unique_total = len(self._seen_exec_ids)
+        by_channel = ", ".join(
+            f"{ch}={n}" for ch, n in sorted(self._raw_lines_by_channel.items())
+        )
+        lines = [
+            f"Execution summary: {unique_total} unique trade(s) "
+            f"({raw_total} raw EXEC line(s): {by_channel or 'none'})"
+        ]
+        for symbol, tally in sorted(self._by_symbol.items()):
+            lines.append(
+                f"  {symbol:<8} {tally.unique_trades} unique trade(s), "
+                f"{tally.total_qty} total qty"
+            )
+        return "\n".join(lines)
+
+
+def _handle_message(
+    msg: RalfMessage, seq_tracker: ChannelSequenceTracker, exec_tracker: ExecTracker
+) -> None:
+    channel = msg.fields.get("CH", "")
+    symbol = msg.fields.get("SYM", "")
+    if msg.msg_type == "SNAP":
+        seq_tracker.rebaseline(channel, msg.fields.get("SEQ"))
+    else:
+        seq_tracker.observe(channel, msg.fields.get("SEQ"))
+
+    if msg.msg_type == "SNAP":
+        print(f"SNAP  CH={channel} SYM={symbol} SEQ={msg.fields.get('SEQ', '?')}")
+    elif msg.msg_type == "EXEC":
+        is_new, _tally = exec_tracker.observe(channel, msg.fields)
+        dup_note = "" if is_new else "  (duplicate copy of an already-counted trade)"
+        print(
+            f"EXEC  {symbol:<8} {msg.fields.get('QTY', '?'):>6} @ "
+            f"{msg.fields.get('PX', '?'):>10} {msg.fields.get('SIDE', '?'):<4} "
+            f"ch={channel}{dup_note}"
+        )
+    elif msg.msg_type == "EOD":
+        tally = exec_tracker.take_eod_tally(channel, symbol)
+        trade_count = msg.fields.get("TRADE_COUNT", "?")
+        print(
+            f"EOD   {symbol:<8} gateway TRADE_COUNT="
+            f"{trade_count} "
+            f"(client tallied {tally.unique_trades} unique trade(s), "
+            f"{tally.total_qty} total qty)"
+        )
+        try:
+            gateway_count = int(trade_count)
+        except ValueError:
+            print(
+                f"!! invalid EOD TRADE_COUNT on channel {channel}: {trade_count!r}",
+                file=sys.stderr,
+            )
+        else:
+            if gateway_count != tally.unique_trades:
+                print(
+                    f"!! EOD trade-count mismatch on channel {channel} for "
+                    f"{symbol}: gateway={gateway_count}, client={tally.unique_trades}",
+                    file=sys.stderr,
+                )
+    elif msg.msg_type == "HB":
+        print("HB    (gateway heartbeat)")
+    elif msg.msg_type == "PONG":
+        print("PONG  (liveness reply)")
+    elif msg.msg_type == "EXIT":
+        print(
+            f"EXIT  gateway is closing the session "
+            f"(reason={msg.fields.get('REASON', '?')})",
+            file=sys.stderr,
+        )
+    elif msg.msg_type == "ERR":
+        # ERR|CODE=..|DETAIL=.. -- the same shape in every line gateway.
+        # Non-terminal codes (ENTITLEMENT_DENIED on SUB, INVALID_CHANNEL, ...)
+        # leave the session open; a terminal one (SLOW_CLIENT, an oversized
+        # line) is followed by the gateway closing the connection, which the
+        # read loop reports. REPLAY_MISS is followed by a SNAP baseline.
+        code = msg.fields.get("CODE", "?")
+        detail = msg.fields.get("DETAIL", "")
+        print(f"ERR   {code}: {detail}", file=sys.stderr)
+    else:
+        print(f"{msg.msg_type} {msg.fields}")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description=(
+            "RALF subscriber example: role-entitled channel subscription "
+            "plus a de-duplicated per-symbol executed-volume tally."
+        )
+    )
+    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--port", type=int, default=5580)
+    parser.add_argument("--client", default="ext-client-01")
+    parser.add_argument(
+        "--role",
+        default="CLEARING",
+        choices=["CLEARING", "DROP_COPY", "AUDIT"],
+    )
+    parser.add_argument(
+        "--channels",
+        default=None,
+        help="Comma-separated channels to subscribe; defaults to every "
+        "channel --role is entitled to (CLEARING->CLEARING, "
+        "DROP_COPY->DROP_COPY, AUDIT->all three). Requesting a channel "
+        "outside the role's entitlement will get ERR|CODE=ENTITLEMENT_DENIED.",
+    )
+    parser.add_argument("--symbols", default="*", help="Symbol scope for SUB")
+    parser.add_argument("--lastseq", default="0")
+    parser.add_argument(
+        "--epoch",
+        default="",
+        help="WELCOME|EPOCH of the gateway run --lastseq came from "
+        "(required with a non-zero --lastseq)",
+    )
+    args = parser.parse_args()
+
+    channels = (
+        [c.strip().upper() for c in args.channels.split(",") if c.strip()]
+        if args.channels
+        else list(_ROLE_CHANNELS[args.role])
+    )
+
+    seq_tracker = ChannelSequenceTracker(args.symbols)
+    exec_tracker = ExecTracker()
+
+    with socket.create_connection((args.host, args.port), timeout=5) as sock:
+        reader = LineReader(sock)
+        send_line(
+            sock,
+            "HELLO",
+            hello_fields(args.client, args.role, args.lastseq, args.epoch),
+        )
+
+        welcome = parse_ralf_line(reader.recv_line())
+        if welcome.msg_type != "WELCOME":
+            # AUTH_REQUIRED (bad CLIENT/PROTO/ROLE), ENTITLEMENT_DENIED (role
+            # not allowed) or BAD_MESSAGE (non-integer LASTSEQ): the gateway
+            # closes the session, so there is nothing to subscribe on.
+            print(
+                f"handshake refused: {welcome.msg_type} "
+                f"{welcome.fields.get('CODE', '')}: {welcome.fields.get('DETAIL', '')}",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+        print(f"WELCOME: type={welcome.msg_type} fields={welcome.fields}")
+
+        subscribe(sock, channels, args.symbols)
+        print(f"Subscribed CH={channels} SYM={args.symbols} as role={args.role}")
+
+        connection_error: Exception | None = None
+        try:
+            while True:
+                msg = parse_ralf_line(reader.recv_line())
+                _handle_message(msg, seq_tracker, exec_tracker)
+                if msg.msg_type == "EXIT":
+                    # The gateway ended the session and closes the socket next.
+                    connection_error = RuntimeError(
+                        f"gateway ended the session ({msg.fields.get('REASON', '?')})"
+                    )
+                    break
+        except KeyboardInterrupt:
+            print("\ninterrupted, closing connection", file=sys.stderr)
+            # EXIT works in both directions: the gateway flushes, then closes.
+            try:
+                send_line(sock, "EXIT", {})
+            except OSError:
+                pass
+        except (RuntimeError, OSError) as exc:
+            connection_error = exc
+            print(f"connection lost: {exc}", file=sys.stderr)
+
+    print()
+    print(exec_tracker.summary())
+    if connection_error is not None:
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

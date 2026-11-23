@@ -1,0 +1,342 @@
+# Makefile for building EduMatcher Documentation (user-guides,training-guide,chapters,site) and related artifacts.
+# For mermaid rendering we use a mermaid Node filter, installed once in a
+# shared top-level tools directory used by all doc builds.
+# npm install --prefix ../build-tools --save-dev mermaid-filter @mermaid-js/mermaid-cli
+
+# ============================================================================================
+# Tool and platform detection
+# ============================================================================================
+POETRY := $(shell command -v poetry 2>/dev/null)
+ifeq ($(POETRY),)
+$(error poetry not found. Install with: pip install poetry)
+endif
+
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+    PUPPETEER_EXECUTABLE_PATH ?= /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+	SED_INPLACE := -i ''
+else
+    PUPPETEER_EXECUTABLE_PATH ?= /usr/bin/google-chrome
+	SED_INPLACE := -i
+endif
+
+# ============================================================================================
+# Directories, paths and version
+# ============================================================================================
+DOCS_DIR := .
+BOOKS_DIR := $(DOCS_DIR)/books
+BUILD_ASSETS := $(DOCS_DIR)/build
+FILTER_DIR := $(BUILD_ASSETS)/filters
+ASSETS_DIR := $(DOCS_DIR)/assets
+DIST_DIR := $(DOCS_DIR)/dist
+DOWNLOADS_DIR := $(DOCS_DIR)/downloads
+EXAMPLES_DIR := $(DOCS_DIR)/examples
+# Example sets the books link to; ref_data and generated are not linked.
+EXAMPLE_DOWNLOAD_SETS := alf calf ralf dc balf REST
+BUILD_DIR := $(DOCS_DIR)/.build
+STAMP_DIR := $(DOCS_DIR)/.makefile-stamps
+SCRIPTS_DIR := ../scripts
+MERMAID_FILTER := ../scripts/mermaid-filter-cached.js
+PROJECT := edumatcher
+VERSION := $(shell grep '^version' ../pyproject.toml | head -1 | cut -d'"' -f2)
+PY := poetry run python
+LATEX_ENGINE ?= xelatex
+TEXBIN_FALLBACK := /Library/TeX/texbin
+MERMAID_FILTER_FORMAT ?= pdf
+MERMAID_FILTER_WIDTH ?= 600
+EPUB_FIGURE_MAX_WIDTH ?= 85%
+PUPPETEER_EXECUTABLE_PATH ?= /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+NODE_MODULES_PATH := ../build-tools/node_modules
+AWK_JOIN := awk 'FNR==1 && NR!=1{print ""; print ""}1'
+LUA_DEPS := $(wildcard $(FILTER_DIR)/*.lua)
+
+# ============================================================================================
+# Terminal colours
+# ============================================================================================
+BRIGHTCYAN := \033[1;36m
+BLUE := \033[0;34m
+DARKYELLOW := \033[0;33m
+GREEN := \033[0;32m
+RED := \033[0;31m
+NC := \033[0m
+
+# ============================================================================================
+# Make behaviour
+# ============================================================================================
+SHELL := $(shell which bash)
+.SHELLFLAGS := -euo pipefail -c
+.ONESHELL:
+.DELETE_ON_ERROR:
+.DEFAULT_GOAL := help
+
+# ============================================================================================
+# Book list and cover titles
+# ============================================================================================
+BOOKS := quick-start participant-guide operator-guide reference-manual \
+		 protocols-and-clients architecture-and-development training-guide ai-traders
+
+COVER_TITLE_quick-start := QUICK<br><span class="accent">START</span><br>GUIDE
+COVER_TITLE_participant-guide := PARTICIPANT<br><span class="accent">GUIDE</span>
+COVER_TITLE_operator-guide := OPERATOR'S<br><span class="accent">GUIDE</span>
+COVER_TITLE_reference-manual := REFERENCE<br><span class="accent">MANUAL</span>
+COVER_TITLE_protocols-and-clients := PROTOCOLS<br><span class="accent">AND CLIENTS</span>
+COVER_TITLE_architecture-and-development := ARCHITECTURE<br><span class="accent">AND DEVELOPER</span><br>GUIDE
+COVER_TITLE_training-guide := TRAINING<br><span class="accent">GUIDE</span>
+COVER_TITLE_ai-traders := AI TRADERS<br><span class="accent">AND MARKET</span><br>SIMULATION
+
+# ============================================================================================
+# Per-book rules (book.mk) and phony targets
+# ============================================================================================
+ifneq ($(filter-out help,$(MAKECMDGOALS)),)
+include $(BUILD_ASSETS)/book.mk
+endif
+
+.PHONY: pdf-docs epub-docs chapters-pdf book-bundles covers book-all docs-all omnibus docs serve docs-check nav \
+  pdf-training-guide epub-training-guide chapters-training-guide exchange-intro \
+  pdf-exchange-intro epub-exchange-intro epub-downloads example-downloads mp-bump clean really-clean help check-latex-engine
+
+# ============================================================================================
+# Book formats: PDF, EPUB, chapters, all-format bundles, covers
+# ============================================================================================
+pdf-docs: $(addprefix pdf-,$(BOOKS))
+epub-docs: $(addprefix epub-,$(BOOKS))
+chapters-pdf: $(addprefix chapters-,$(BOOKS))
+BOOK_BUNDLE_TARGETS := $(foreach book,$(BOOKS),$($(book)_ALL))
+book-bundles: $(BOOK_BUNDLE_TARGETS)
+
+define BOOK_BUNDLE_RULE
+$$($(1)_ALL): $$($(1)_PDFS) $$($(1)_EPUB) $$($(1)_CH_ZIP) $$($(1)_COVER_PNG)
+	@printf '%b\n' "$(DARKYELLOW)- Building $(BRIGHTCYAN)\"$(PROJECT)_$(subst -,_,$(1))_all-$(VERSION).zip\"$(DARKYELLOW) ...$(NC)"
+	@zip -9 -j -q $$@ $$^
+	@printf '%b\n' "$(GREEN)OK all-format bundle: $(BRIGHTCYAN)\"$(PROJECT)_$(subst -,_,$(1))_all-$(VERSION).zip\"$(GREEN)$(NC)"
+endef
+
+ifneq ($(filter-out help,$(MAKECMDGOALS)),)
+$(foreach book,$(BOOKS),$(eval $(call BOOK_BUNDLE_RULE,$(book))))
+endif
+covers: $(addprefix cover-,$(BOOKS))
+book-all: pdf-docs epub-docs
+
+# ============================================================================================
+# Site downloads: EPUBs and example sources
+# ============================================================================================
+EPUB_DOWNLOAD_TARGETS := $(foreach book,$(BOOKS),$($(book)_EPUB_DL))
+epub-downloads: $(EPUB_DOWNLOAD_TARGETS)
+
+# MkDocs excludes examples/** from the site, so the example sources the books
+# link to are copied under downloads/examples/, next to the EPUBs. Only source
+# files are copied: build outputs and bytecode stay behind. Each README.md goes
+# out as README.txt, since MkDocs would otherwise render it as a page whose
+# relative links are written for its original location.
+example-downloads:
+	@printf '%b\n' "$(DARKYELLOW)- Copying examples to $(DOWNLOADS_DIR)/examples...$(NC)"
+	mkdir -p $(DOWNLOADS_DIR)/examples
+	for set in $(EXAMPLE_DOWNLOAD_SETS); do
+	  rsync -a --delete --delete-excluded --prune-empty-dirs \
+	    --exclude='README.md' \
+	    --include='*/' --include='*.py' --include='*.c' --include='*.h' \
+	    --include='Makefile' --exclude='*' \
+	    $(EXAMPLES_DIR)/$$set/ $(DOWNLOADS_DIR)/examples/$$set/
+	  if [ -f $(EXAMPLES_DIR)/$$set/README.md ]; then
+	    cp $(EXAMPLES_DIR)/$$set/README.md $(DOWNLOADS_DIR)/examples/$$set/README.txt
+	  fi
+	done
+	@printf '%b\n' "$(GREEN)OK example downloads$(NC)"
+
+# ============================================================================================
+# MkDocs site
+# ============================================================================================
+docs: nav epub-downloads example-downloads web-exchange-intro
+	@printf '%b\n' "$(DARKYELLOW)- Building MkDocs site...$(NC)"
+	@cd .. && $(POETRY) run mkdocs build
+	@printf '%b\n' "$(GREEN)OK MkDocs site built$(NC)"
+serve: nav epub-downloads example-downloads web-exchange-intro
+	@cd .. && $(POETRY) run mkdocs serve
+
+# ============================================================================================
+# Exchange intro (delegated to docs-exchange-intro)
+# ============================================================================================
+pdf-exchange-intro:
+	@printf '%b\n' "$(DARKYELLOW)- Building Exchange Intro PDFs...$(NC)"
+	@$(MAKE) -C ../docs-exchange-intro pdf-docs
+	@printf '%b\n' "$(GREEN)OK Exchange Intro PDFs built$(NC)"
+
+epub-exchange-intro: pdf-exchange-intro
+	@printf '%b\n' "$(DARKYELLOW)- Building Exchange Intro EPUB...$(NC)"
+	@$(MAKE) -C ../docs-exchange-intro epub-docs
+	@printf '%b\n' "$(GREEN)OK Exchange Intro EPUB built$(NC)"
+
+exchange-intro:
+	@$(MAKE) -C ../docs-exchange-intro -j 16 all
+
+
+# ============================================================================================
+# Main build targets
+# ============================================================================================
+docs-all: book-all pdf-exchange-intro epub-exchange-intro 
+omnibus: docs-all chapters-pdf book-bundles web-exchange-intro
+
+# ============================================================================================
+# Documentation checks and navigation
+# ============================================================================================
+docs-check: nav
+	@(cd .. && $(PY) scripts/checkdocs.py)
+
+nav:
+	@$(PY) $(BUILD_ASSETS)/gen_nav.py --mkdocs ../mkdocs.yml --docs $(DOCS_DIR) --books $(BOOKS)
+
+# ============================================================================================
+# Build prerequisites and output directories
+# ============================================================================================
+check-latex-engine:
+	@if ! PATH="$(PATH):$(TEXBIN_FALLBACK)" command -v "$(LATEX_ENGINE)" >/dev/null 2>&1; then echo "LaTeX engine '$(LATEX_ENGINE)' not found" >&2; exit 1; fi
+
+$(DIST_DIR):
+	@mkdir -p $@
+
+$(DOWNLOADS_DIR):
+	@mkdir -p $@
+
+$(STAMP_DIR)/version-$(VERSION):
+	@mkdir -p $(STAMP_DIR)
+	@rm -f $(STAMP_DIR)/version-*
+	@touch $@
+
+# ============================================================================================
+# Cleaning
+# ============================================================================================
+clean:
+	@rm -rf $(BUILD_DIR) $(DIST_DIR)/chapters-a4
+really-clean: clean
+	@rm -rf $(DIST_DIR) $(DOWNLOADS_DIR) $(STAMP_DIR)
+
+# ============================================================================================
+# Help
+# ============================================================================================
+help:
+	@printf '\n$(DARKYELLOW)EduMatcher documentation targets$(NC)\n'
+	@printf '\n$(BRIGHTCYAN)Documentation$(NC)\n'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'docs' 'Build the MkDocs site'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'serve' 'Serve the MkDocs site locally'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'epub-downloads' 'Refresh the EPUB download copies the site links to'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'example-downloads' 'Copy the linked example sources to downloads/examples'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'docs-check' 'Run documentation checks (links, CLI flags, config, help anchors)'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'nav' 'Regenerate MkDocs navigation'
+
+	@printf '\n$(BRIGHTCYAN)Book formats$(NC)\n'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'pdf-docs' 'Build all books as four PDF variants'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'epub-docs' 'Build all books as EPUB3'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'chapters-pdf' 'Build per-chapter PDFs for all books'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'book-bundles' 'Create one compressed all-formats bundle per book'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'covers' 'Build all book cover images'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'book-all' 'Build every book as PDF and EPUB'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'omnibus' 'Build the complete documentation library and all book bundles'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'pdf-<book> epub-<book>' 'Build one book in a selected format'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'chapters-<book>' 'Build one book chapter by chapter'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'book-<book>' 'Build one book in all formats'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'cover-<book>' 'Build one book cover image'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'epub-verify-<book>' 'Validate one EPUB with epubcheck'
+
+	@printf '\n$(BRIGHTCYAN)Exchange intro$(NC)\n'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'web-exchange-intro' 'Regenerate docs/how-exchange-works.md from docs-exchange-intro/src sources'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'exchange-intro' 'Build the delegated exchange introduction'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'pdf-exchange-intro' 'Build the exchange introduction PDFs'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'epub-exchange-intro' 'Build the exchange introduction EPUB'
+
+	@printf '\n$(BRIGHTCYAN)Maintenance$(NC)\n'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'clean' 'Remove intermediate build output'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'really-clean' 'Remove all generated documentation output'
+	@printf '  $(BLUE)%-30s$(NC) %s\n' 'check-latex-engine' 'Check that the LaTeX engine is available'
+	@printf '\n'
+
+# ============================================================================================
+# Version bumping
+# ============================================================================================
+mp-bump: ## Bump the version for the documented multipass bootstrap sctip to the current project version
+	@echo -e "$(DARKYELLOW)- Bumping multipass bootstrap script version to $(BRIGHTCYAN)$(VERSION)$(DARKYELLOW)...$(NC)"
+	@{ grep -rlE --include='*.md' -e '--version[[:space:]]+[0-9]+\.[0-9]+\.[0-9]+' $(BOOKS_DIR) ../README.md || true; } | xargs -r perl -pi -e 's/(--version\s+)\d+\.\d+\.\d+/$${1}$(VERSION)/g'
+	@echo -e "$(GREEN)✓ All multipass bootstrap scripts version updated to $(BRIGHTCYAN)$(VERSION)$(GREEN)$(NC)"
+
+
+# ============================================================================================
+# Exchange Introduction Web target
+# Responsible for creating single HTML page `docs/how-exchange-works.md`
+# Assembles docs/how-exchange-works.md from the canonical source files in
+# docs-exchange-intro/src (Parts I–IV plus the References backmatter).
+#
+# Rules:
+#   - 00-frontmatter/ is excluded (version header, title page, preface).
+#   - 90-backmatter/20-glossary.md is excluded.
+#   - 90-backmatter/21-references.md is included.
+#   - Heading levels are shifted one step deeper throughout:
+#       #   → ##    (part / chapter titles)
+#       ##  → ###   (section headings)
+#       ### → ####  (sub-sections)
+#   - A blank line is inserted between concatenated files so pandoc/MkDocs
+#     does not merge the last line of one file with the first of the next.
+#   - Assets from ../docs-exchange-intro/assets are copied to the output directory and paths 
+#     are updated accordingly.
+#
+# ============================================================================================
+
+# Source directories (in document order)
+EXCHANGE_INTRO_SRC := ../docs-exchange-intro/src
+EXCHANGE_INTRO_ASSETS := ../docs-exchange-intro/assets
+
+# All Part I–IV source files in sorted order, excluding 00-frontmatter entirely
+EXCHANGE_INTRO_PART_FILES := \
+	$(sort $(wildcard $(EXCHANGE_INTRO_SRC)/01-foundation/[0-9][0-9]-*.md)) \
+	$(sort $(wildcard $(EXCHANGE_INTRO_SRC)/02-orders-and-matching/[0-9][0-9]-*.md)) \
+	$(sort $(wildcard $(EXCHANGE_INTRO_SRC)/03-risk-and-compliance/[0-9][0-9]-*.md)) \
+	$(sort $(wildcard $(EXCHANGE_INTRO_SRC)/04-technology-and-infrastructure/[0-9][0-9]-*.md))
+
+# References backmatter only (glossary intentionally excluded)
+EXCHANGE_INTRO_BACKMATTER := $(EXCHANGE_INTRO_SRC)/90-backmatter/21-references.md
+
+# All inputs that should trigger a rebuild of the output file
+EXCHANGE_INTRO_SOURCES := $(EXCHANGE_INTRO_PART_FILES) $(EXCHANGE_INTRO_BACKMATTER)
+
+# The generated output file
+HOW_EXCHANGE_WORKS := $(DOCS_DIR)/how-exchange-works.md
+HOW_EXCHANGE_WORKS_ASSETS := $(DOCS_DIR)/assets/how-exchange-works
+
+$(HOW_EXCHANGE_WORKS): $(EXCHANGE_INTRO_SOURCES)
+	@echo -e "$(DARKYELLOW)- Assembling $(BRIGHTCYAN)how-exchange-works.md$(DARKYELLOW) from exchange-intro sources...$(NC)"
+	@# Write the fixed page header (kept outside the source files so it is never generated)
+	@printf '%s\n' \
+		'## How a Financial Exchange Works' \
+		'' \
+		'**A Conceptual Introductions**' \
+		'' \
+		'> *No code. No fear. Just the concepts you need to understand a financial exchange.*' \
+		'' \
+		'---' \
+		'' > $@
+	@# Concatenate every source file, separated by a blank line, and shift heading levels:
+	@#   #   →  ##    (part and chapter titles)
+	@#   ##  →  ###   (sections)
+	@#   ### →  ####  (sub-sections)
+	@# awk adds the blank separator between files; sed does the heading shift.
+	@awk 'FNR==1 && NR!=1 { print "" }; { print }' \
+		$(EXCHANGE_INTRO_SOURCES) \
+		| sed -E \
+			-e 's/^#### /##### /g' \
+			-e 's/^### /#### /g' \
+			-e 's/^## /### /g' \
+			-e 's/^# /## /g' \
+		>> $@
+	@# Check that the concatenated file exists and is not empty and print error if it doesn't
+	@echo -e "$(DARKYELLOW)- Checking that $(BRIGHTCYAN)$@$(DARKYELLOW) exists and is not empty...$(NC)"
+	@test -s $@ || { echo -e "$(RED)Error: $(BRIGHTCYAN)$@$(RED) is missing or empty$(NC)"; exit 1; }
+	@echo -e "$(DARKYELLOW)- Preparing assets for $(BRIGHTCYAN)$@$(DARKYELLOW)...$(NC)"
+	@rm -rf $(HOW_EXCHANGE_WORKS_ASSETS)
+	@mkdir -p $(HOW_EXCHANGE_WORKS_ASSETS)
+	@cp -r $(EXCHANGE_INTRO_ASSETS)/*.png $(HOW_EXCHANGE_WORKS_ASSETS) 2>/dev/null || true
+	@# Convert all "/assets/" paths in the markdown to point to the correct location
+	@echo -e "$(DARKYELLOW)- Updating asset paths in $(BRIGHTCYAN)$@$(DARKYELLOW) to $(BRIGHTCYAN)$(HOW_EXCHANGE_WORKS_ASSETS)/ $(DARKYELLOW)...$(NC)"
+	@sed $(SED_INPLACE) -E 's#\(assets/#\($(HOW_EXCHANGE_WORKS_ASSETS)/#g' $@
+	@echo -e "$(GREEN)✓ $(BRIGHTCYAN)how-exchange-works.md$(GREEN) assembled ($(words $(EXCHANGE_INTRO_SOURCES)) source files)$(NC)"
+
+web-exchange-intro: $(HOW_EXCHANGE_WORKS) ## Regenerate docs/how-exchange-works.md from docs-exchange-intro/src sources
+
+.PHONY: web-exchange-intro

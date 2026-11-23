@@ -26,6 +26,10 @@ parts of the book individually is the way to go.
 [[Part I]](./parts/exchange-intro-part-I-2.0.2.pdf) [[Part II]](./parts/exchange-intro-part-II-2.0.2.pdf) [[Part III]](./parts/exchange-intro-part-III-2.0.2.pdf) [[Part IV]](./parts/exchange-intro-part-IV-2.0.2.pdf)
 
 
+## Market simulator
+
+As a companion to the book there is a microstructure market simulator that  yo can read more about on its dedicated site: [Market-Simulator](../market-sim/index.html)
+
 ## No Errata
 
 There is currently no *Errata*. However, as with any book of size it is impossible
