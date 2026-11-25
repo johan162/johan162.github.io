@@ -26,7 +26,7 @@ parts of the book individually is the way to go.
 [[Part I]](./parts-a4-pdf/exchange-intro-part-I-2.0.4.pdf) [[Part II]](./parts-a4-pdf/exchange-intro-part-II-2.0.4.pdf) [[Part III]](./parts-a4-pdf/exchange-intro-part-III-2.0.4.pdf) [[Part IV]](./parts-a4-pdf/exchange-intro-part-IV-2.0.4.pdf)
 
 
-## Market simulator
+## Market simulator 
 
 As a companion to the book there is a microstructure market simulator that  yo can read more about on its dedicated site: [Market-Simulator](../market-sim/index.html)
 
